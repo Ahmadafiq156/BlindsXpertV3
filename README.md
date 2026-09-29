@@ -14,4 +14,4 @@ The form validates required fields and opens a prefilled email draft to `sales.b
 
 ## Images and social links
 
-Image paths currently point to BlindsXpert's official website because no downloaded image folder was present and this environment could not fetch image files into local assets. The official Facebook page was verified. Instagram and TikTok links were not available in the project or verified source.
+Website photography reuses the 86 existing image assets in `img/`, grouped into storefront, installed blinds, product catalogue, fabric, project, factory, sample and gallery collections. Product and fabric images are matched to their visible content; project and lifestyle photography is used for the hero, company, service and portfolio sections. Image URLs are relative to the project root and work with GitHub Pages. The official Facebook page was verified. Instagram and TikTok links were not available in the project or verified source.
