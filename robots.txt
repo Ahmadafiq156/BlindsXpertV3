@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://ahmadafiq156.github.io/mockup1/blindsxpert_website/sitemap.xml
+Sitemap: https://ahmadafiq156.github.io/mockup1/sitemap.xml
