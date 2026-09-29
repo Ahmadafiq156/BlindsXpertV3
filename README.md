@@ -1,33 +1,17 @@
-# BlindsXpert Website Prototype
+# BlindsXpert multi-page website
 
-Responsive static website prototype for BlindsXpert.
+Static website files for the approved BlindsXpert visual direction, updated to a restrained red and white theme.
 
-## Run
-Open `index.html` in a browser, or use VS Code Live Server.
+## Pages
 
-## Included
-- Responsive homepage
-- Sticky navigation + mobile menu
-- Hero section
-- Indoor / Outdoor / Motorized / Fabrics & Materials categories
-- Product catalogue with filters for application and material
-- Product detail modal
-- About section
-- Projects
-- Services
-- Gallery
-- Testimonials
-- Free quotation form demo
-- Contact/footer
+Home, About Us, Products, Projects, Services, Gallery, Contact, Get a Free Quote, and 404.
 
-## Product information architecture
-Products -> Indoor / Outdoor / Motorized -> Blind Type -> Material.
-Materials such as Fabric, PVC, Bamboo, Aluminium and Meranti are filters/specifications rather than main navigation categories.
+Open `index.html` directly or serve this folder with a static web server. Shared layout styles and interactions are in `style.css` and `script.js`.
 
-## Before production
-- Replace demo images with BlindsXpert's own product/project photographs.
-- Replace the placeholder WhatsApp number with the official number.
-- Verify company statistics and all contact details.
-- Connect the quotation form to email, WhatsApp, CRM or backend.
-- Add individual product detail pages as the catalogue grows.
-- Add real privacy/terms pages.
+## Quote form
+
+The form validates required fields and opens a prefilled email draft to `sales.blindsXpert@gmail.com`. It does not submit to a website backend.
+
+## Images and social links
+
+Image paths currently point to BlindsXpert's official website because no downloaded image folder was present and this environment could not fetch image files into local assets. The official Facebook page was verified. Instagram and TikTok links were not available in the project or verified source.
