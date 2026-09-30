@@ -19,22 +19,22 @@ toggle?.addEventListener('click',()=>{
  if(open)closeProductsMenu();
 });
 productsToggle?.addEventListener('click',()=>{
- const desktop=window.matchMedia('(min-width: 901px)').matches;
+ const desktop=window.matchMedia('(min-width: 961px)').matches;
  const open=desktop||productsToggle.getAttribute('aria-expanded')!=='true';
  productsToggle.setAttribute('aria-expanded',String(open));
  productsMenu?.classList.toggle('dropdown-open',open);
 });
 productsMenu?.addEventListener('pointerenter',()=>{
- if(window.matchMedia('(min-width: 901px)').matches){productsMenu.classList.add('dropdown-open');productsToggle?.setAttribute('aria-expanded','true')}
+ if(window.matchMedia('(min-width: 961px)').matches){productsMenu.classList.add('dropdown-open');productsToggle?.setAttribute('aria-expanded','true')}
 });
 productsMenu?.addEventListener('focusin',()=>{
- if(window.matchMedia('(min-width: 901px)').matches){productsMenu.classList.add('dropdown-open');productsToggle?.setAttribute('aria-expanded','true')}
+ if(window.matchMedia('(min-width: 961px)').matches){productsMenu.classList.add('dropdown-open');productsToggle?.setAttribute('aria-expanded','true')}
 });
 productsMenu?.addEventListener('mouseleave',()=>{
- if(window.matchMedia('(min-width: 901px)').matches)closeProductsMenu();
+ if(window.matchMedia('(min-width: 961px)').matches)closeProductsMenu();
 });
 productsMenu?.addEventListener('focusout',event=>{
- if(!productsMenu.contains(event.relatedTarget)&&window.matchMedia('(min-width: 901px)').matches&&!productsMenu.matches(':hover'))closeProductsMenu();
+ if(!productsMenu.contains(event.relatedTarget)&&window.matchMedia('(min-width: 961px)').matches&&!productsMenu.matches(':hover'))closeProductsMenu();
 });
 nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
  nav.classList.remove('open');
