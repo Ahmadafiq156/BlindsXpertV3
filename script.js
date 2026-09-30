@@ -19,22 +19,22 @@ toggle?.addEventListener('click',()=>{
  if(open)closeProductsMenu();
 });
 productsToggle?.addEventListener('click',()=>{
- const desktop=window.matchMedia('(min-width: 761px)').matches;
+ const desktop=window.matchMedia('(min-width: 821px)').matches;
  const open=desktop||productsToggle.getAttribute('aria-expanded')!=='true';
  productsToggle.setAttribute('aria-expanded',String(open));
  productsMenu?.classList.toggle('dropdown-open',open);
 });
 productsMenu?.addEventListener('pointerenter',()=>{
- if(window.matchMedia('(min-width: 761px)').matches){productsMenu.classList.add('dropdown-open');productsToggle?.setAttribute('aria-expanded','true')}
+ if(window.matchMedia('(min-width: 821px)').matches){productsMenu.classList.add('dropdown-open');productsToggle?.setAttribute('aria-expanded','true')}
 });
 productsMenu?.addEventListener('focusin',()=>{
- if(window.matchMedia('(min-width: 761px)').matches){productsMenu.classList.add('dropdown-open');productsToggle?.setAttribute('aria-expanded','true')}
+ if(window.matchMedia('(min-width: 821px)').matches){productsMenu.classList.add('dropdown-open');productsToggle?.setAttribute('aria-expanded','true')}
 });
 productsMenu?.addEventListener('mouseleave',()=>{
- if(window.matchMedia('(min-width: 761px)').matches)closeProductsMenu();
+ if(window.matchMedia('(min-width: 821px)').matches)closeProductsMenu();
 });
 productsMenu?.addEventListener('focusout',event=>{
- if(!productsMenu.contains(event.relatedTarget)&&window.matchMedia('(min-width: 761px)').matches&&!productsMenu.matches(':hover'))closeProductsMenu();
+ if(!productsMenu.contains(event.relatedTarget)&&window.matchMedia('(min-width: 821px)').matches&&!productsMenu.matches(':hover'))closeProductsMenu();
 });
 nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
  nav.classList.remove('open');
@@ -146,4 +146,48 @@ if(testimonialCarousel){
  dots.forEach((dot,index)=>dot.addEventListener('click',()=>{active=index;renderTestimonials()}));
  window.addEventListener('resize',renderTestimonials,{passive:true});
  renderTestimonials();
+}
+
+
+// Accessible full-image viewer shared by the testimony and gallery pages.
+const imageLightbox=document.querySelector('[data-image-lightbox]');
+if(imageLightbox){
+ const lightboxImage=imageLightbox.querySelector('.image-lightbox-image');
+ const lightboxStatus=imageLightbox.querySelector('.image-lightbox-status');
+ const previousImage=imageLightbox.querySelector('[data-lightbox-previous]');
+ const nextImage=imageLightbox.querySelector('[data-lightbox-next]');
+ let activeImages=[];let activeImageIndex=0;let lightboxReturnFocus=null;
+ function renderLightboxImage(){
+  const trigger=activeImages[activeImageIndex];const image=trigger?.querySelector('img');if(!image)return;
+  lightboxImage.src=image.currentSrc||image.src;lightboxImage.alt=image.alt;
+  lightboxStatus.textContent=`Image ${activeImageIndex+1} of ${activeImages.length}`;
+  previousImage.disabled=activeImages.length<2;nextImage.disabled=activeImages.length<2;
+ }
+ document.querySelectorAll('[data-lightbox-gallery]').forEach(gallery=>{
+  const triggers=[...gallery.querySelectorAll('.lightbox-trigger')];
+  triggers.forEach((trigger,index)=>trigger.addEventListener('click',()=>{
+   activeImages=triggers;activeImageIndex=index;lightboxReturnFocus=trigger;renderLightboxImage();
+   if(!imageLightbox.open)imageLightbox.showModal();
+  }));
+ });
+ previousImage.addEventListener('click',()=>{activeImageIndex=(activeImageIndex-1+activeImages.length)%activeImages.length;renderLightboxImage()});
+ nextImage.addEventListener('click',()=>{activeImageIndex=(activeImageIndex+1)%activeImages.length;renderLightboxImage()});
+ imageLightbox.querySelector('[data-lightbox-close]').addEventListener('click',()=>imageLightbox.close());
+ imageLightbox.addEventListener('click',event=>{if(event.target===imageLightbox)imageLightbox.close()});
+ imageLightbox.addEventListener('keydown',event=>{
+  if(!imageLightbox.open||activeImages.length<2)return;
+  if(event.key==='ArrowLeft'){event.preventDefault();previousImage.click()}
+  if(event.key==='ArrowRight'){event.preventDefault();nextImage.click()}
+ });
+ imageLightbox.addEventListener('close',()=>lightboxReturnFocus?.focus());
+}
+
+// Subtle scroll reveals are progressive enhancement and never cover click targets.
+const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+if('IntersectionObserver' in window&&!reduceMotion.matches){
+ const revealTargets=document.querySelectorAll('main > section:not(.page-hero), .about-grid, .benefit-grid > div, .contact-grid > div');
+ const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+  if(entry.isIntersecting){entry.target.classList.add('is-revealed');revealObserver.unobserve(entry.target)}
+ }),{threshold:0.12,rootMargin:'0px 0px -32px 0px'});
+ revealTargets.forEach(target=>{target.classList.add('scroll-reveal');revealObserver.observe(target)});
 }
