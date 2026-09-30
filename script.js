@@ -19,22 +19,22 @@ toggle?.addEventListener('click',()=>{
  if(open)closeProductsMenu();
 });
 productsToggle?.addEventListener('click',()=>{
- const desktop=window.matchMedia('(min-width: 821px)').matches;
+ const desktop=window.matchMedia('(min-width: 901px)').matches;
  const open=desktop||productsToggle.getAttribute('aria-expanded')!=='true';
  productsToggle.setAttribute('aria-expanded',String(open));
  productsMenu?.classList.toggle('dropdown-open',open);
 });
 productsMenu?.addEventListener('pointerenter',()=>{
- if(window.matchMedia('(min-width: 821px)').matches){productsMenu.classList.add('dropdown-open');productsToggle?.setAttribute('aria-expanded','true')}
+ if(window.matchMedia('(min-width: 901px)').matches){productsMenu.classList.add('dropdown-open');productsToggle?.setAttribute('aria-expanded','true')}
 });
 productsMenu?.addEventListener('focusin',()=>{
- if(window.matchMedia('(min-width: 821px)').matches){productsMenu.classList.add('dropdown-open');productsToggle?.setAttribute('aria-expanded','true')}
+ if(window.matchMedia('(min-width: 901px)').matches){productsMenu.classList.add('dropdown-open');productsToggle?.setAttribute('aria-expanded','true')}
 });
 productsMenu?.addEventListener('mouseleave',()=>{
- if(window.matchMedia('(min-width: 821px)').matches)closeProductsMenu();
+ if(window.matchMedia('(min-width: 901px)').matches)closeProductsMenu();
 });
 productsMenu?.addEventListener('focusout',event=>{
- if(!productsMenu.contains(event.relatedTarget)&&window.matchMedia('(min-width: 821px)').matches&&!productsMenu.matches(':hover'))closeProductsMenu();
+ if(!productsMenu.contains(event.relatedTarget)&&window.matchMedia('(min-width: 901px)').matches&&!productsMenu.matches(':hover'))closeProductsMenu();
 });
 nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
  nav.classList.remove('open');
@@ -157,6 +157,12 @@ if(imageLightbox){
  const previousImage=imageLightbox.querySelector('[data-lightbox-previous]');
  const nextImage=imageLightbox.querySelector('[data-lightbox-next]');
  let activeImages=[];let activeImageIndex=0;let lightboxReturnFocus=null;
+ function closeImageLightbox(){
+  if(!imageLightbox.open||imageLightbox.classList.contains('is-closing'))return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){imageLightbox.close();return}
+  imageLightbox.classList.add('is-closing');
+  window.setTimeout(()=>{imageLightbox.close();imageLightbox.classList.remove('is-closing')},140);
+ }
  function renderLightboxImage(){
   const trigger=activeImages[activeImageIndex];const image=trigger?.querySelector('img');if(!image)return;
   lightboxImage.src=image.currentSrc||image.src;lightboxImage.alt=image.alt;
@@ -167,19 +173,21 @@ if(imageLightbox){
   const triggers=[...gallery.querySelectorAll('.lightbox-trigger')];
   triggers.forEach((trigger,index)=>trigger.addEventListener('click',()=>{
    activeImages=triggers;activeImageIndex=index;lightboxReturnFocus=trigger;renderLightboxImage();
+   imageLightbox.classList.remove('is-closing');document.body.classList.add('lightbox-open');
    if(!imageLightbox.open)imageLightbox.showModal();
   }));
  });
  previousImage.addEventListener('click',()=>{activeImageIndex=(activeImageIndex-1+activeImages.length)%activeImages.length;renderLightboxImage()});
  nextImage.addEventListener('click',()=>{activeImageIndex=(activeImageIndex+1)%activeImages.length;renderLightboxImage()});
- imageLightbox.querySelector('[data-lightbox-close]').addEventListener('click',()=>imageLightbox.close());
- imageLightbox.addEventListener('click',event=>{if(event.target===imageLightbox)imageLightbox.close()});
+ imageLightbox.querySelector('[data-lightbox-close]').addEventListener('click',closeImageLightbox);
+ imageLightbox.addEventListener('click',event=>{if(event.target===imageLightbox)closeImageLightbox()});
+ imageLightbox.addEventListener('cancel',event=>{event.preventDefault();closeImageLightbox()});
  imageLightbox.addEventListener('keydown',event=>{
   if(!imageLightbox.open||activeImages.length<2)return;
   if(event.key==='ArrowLeft'){event.preventDefault();previousImage.click()}
   if(event.key==='ArrowRight'){event.preventDefault();nextImage.click()}
  });
- imageLightbox.addEventListener('close',()=>lightboxReturnFocus?.focus());
+ imageLightbox.addEventListener('close',()=>{document.body.classList.remove('lightbox-open');lightboxReturnFocus?.focus()});
 }
 
 // Subtle scroll reveals are progressive enhancement and never cover click targets.
