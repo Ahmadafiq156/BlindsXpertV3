@@ -389,6 +389,48 @@
                 </div>
             </section>
 
+            <section class="section product-brand-showcase" aria-labelledby="productBrandTitle">
+                <div class="container">
+                    <div class="section-heading">
+                        <div>
+                            <p class="eyebrow">PRODUCT &amp; MOTORIZATION BRANDS</p>
+                            <h2 id="productBrandTitle">Window covering and motorization brands</h2>
+                        </div>
+                    </div>
+                    <div class="product-brand-grid" data-lightbox-gallery="product-brands">
+                        <figure class="product-brand-card">
+                            <button class="lightbox-trigger product-brand-trigger" type="button" aria-label="Open full-size Somfy motor and remote image">
+                                <img src="img/motorized%20brand%20(1).jpg" alt="Somfy-branded motor and handheld remote shown with window blinds" loading="lazy">
+                            </button>
+                            <figcaption>Motor and remote product image</figcaption>
+                        </figure>
+                        <figure class="product-brand-card">
+                            <button class="lightbox-trigger product-brand-trigger" type="button" aria-label="Open full-size window covering brand logos image">
+                                <img src="img/motorized%20brand%20(1).png" alt="Window covering and motorization brand logos in the supplied product image" loading="lazy">
+                            </button>
+                            <figcaption>Window covering and motorization brand logos</figcaption>
+                        </figure>
+                        <figure class="product-brand-card">
+                            <button class="lightbox-trigger product-brand-trigger" type="button" aria-label="Open full-size Somfy motorization products image">
+                                <img src="img/motorized%20brand%20(2).png" alt="Somfy-branded motorization devices shown in the supplied product image" loading="lazy">
+                            </button>
+                            <figcaption>Somfy motorization product image</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <dialog class="image-lightbox" data-image-lightbox aria-labelledby="imageLightboxTitle">
+                <div class="image-lightbox-shell">
+                    <div class="image-lightbox-toolbar">
+                        <h2 class="visually-hidden" id="imageLightboxTitle">Image viewer</h2>
+                        <p class="image-lightbox-status" aria-live="polite"></p>
+                        <button class="lightbox-close" type="button" data-lightbox-close aria-label="Close image viewer">×</button>
+                    </div>
+                    <div class="image-lightbox-stage"><button class="lightbox-nav lightbox-previous" type="button" data-lightbox-previous aria-label="Previous image">‹</button><img class="image-lightbox-image" alt=""><button class="lightbox-nav lightbox-next" type="button" data-lightbox-next aria-label="Next image">›</button></div>
+                </div>
+            </dialog>
+
             <section class="section motorized-media" aria-labelledby="motorizedMediaTitle">
                 <div class="container">
                     <div class="section-heading">
@@ -561,6 +603,7 @@
                 <div>
                     <a class="logo footer-logo" href="index.html"><img class="brand-mark" src="img/logo%20no%20background.png" alt=""><span>Blinds</span><b>Xpert</b><small>Your Window, Our Expertise</small></a>
                     <p>Window blinds and shading solutions for homes, offices and commercial spaces.</p>
+                    <img class="footer-bank-logo" src="img/maybank-footer.png" alt="Maybank" loading="lazy">
                 </div>
                 <div>
                     <h2>Explore</h2>
@@ -602,12 +645,11 @@
             <div class="container footer-bottom">
                 <span>© 2026 BlindsXpert Malaysia</span>
                 <div class="footer-extras">
-                    <p class="visitor-counter" aria-label="BlindsXpert visitor counter">
-                        <span class="visitor-counter-label">Visitor count</span>
-                        <span class="visitor-counter-value" aria-hidden="true">—</span>
+                    <p class="visitor-counter">
+                        <span class="visitor-counter-label"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M3 20c.4-3.6 2.5-5.5 6-5.5s5.6 1.9 6 5.5M16 5.2a3.5 3.5 0 0 1 0 6.7M17 15c2.4.6 3.7 2.2 4 5"></path></svg>Visitors</span>
+                        <span class="visitor-counter-value">—</span>
                         <span class="visitor-counter-note">Configure the shared counter endpoint to display live visits.</span>
                     </p>
-                    <img class="footer-maybank" src="img/maybank.png" alt="" loading="lazy">
                 </div>
             </div>
         </footer>
