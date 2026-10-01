@@ -3,9 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <meta name="description" content="Request a BlindsXpert quotation by preparing an email enquiry.">
-        <link rel="canonical" href="https://ahmadafiq156.github.io/mockup1/quote.html">
-        <title>Get a Free Quote | BlindsXpert Malaysia</title>
+        <meta
+            name="description"
+            content="Browse indoor, outdoor, motorized blinds and other window covering products from BlindsXpert."
+        >
+        <link rel="canonical" href="https://ahmadafiq156.github.io/mockup1/product-details.html">
+        <title>Product Details | BlindsXpert Malaysia</title>
         <link rel="icon" type="image/png" href="img/logo%20no%20background.png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +35,7 @@
                     <a href="about.html">About Us</a>
                     <div class="nav-products">
                         <div class="nav-products-top">
-                            <a href="products.html">Products</a>
+                            <a href="products.html" >Products</a>
                             <button
                                 class="products-toggle"
                                 type="button"
@@ -89,46 +92,63 @@
         </header>
 
         <main id="main">
-            <section class="page-hero quote-hero">
-                <img
-                    src="img/02%20Additional%20information%20%26%20element/5.png"
-                    alt="Installer measuring a window for fitted blinds"
-                    fetchpriority="high"
-                >
-                <div class="page-hero-shade"></div>
+            <section class="page-hero product-detail-hero">
                 <div class="container page-hero-copy">
-                    <p class="eyebrow">GET A FREE QUOTE</p>
-                    <h1>Tell us about your project</h1>
-                    <p>Share a few details and your email app will open with a message addressed to BlindsXpert. This form prepares an email draft; it does not send to a website backend.</p>
+                    <p class="eyebrow">PRODUCT DETAILS</p>
+                    <h1>Explore a BlindsXpert product</h1>
+                    <p>Review the available product information, then prepare an enquiry for WhatsApp.</p>
                 </div>
             </section>
-
-            <section class="section">
-                <div class="container form-wrap">
-                    <form class="quote-form" id="quoteForm">
-                        <h2>Request a quotation</h2>
-                        <label>Your name<input name="name" autocomplete="name" required></label>
-                        <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
-                        <label>Email<input name="email" type="email" autocomplete="email"></label>
-                        <label>Interested in<select name="interest"><option>Indoor blinds</option><option>Outdoor blinds</option><option>Motorized blinds</option><option>Curtain rail or rod</option><option>Other / not sure</option></select></label>
-                        <label>Project details<textarea name="message" rows="5" placeholder="Tell us about your space"></textarea></label>
-                        <button class="btn btn-red full" type="submit">Prepare email enquiry →</button>
-                        <p class="form-note" id="formNote" aria-live="polite">Your email application will open with a draft addressed to sales.blindsXpert@gmail.com.</p>
-                    </form>
+            <section class="section product-detail-section">
+                <div class="container">
+                    <div class="product-detail-layout">
+                        <div class="product-detail-visual" data-product-visual hidden>
+                            <img data-product-image alt="" loading="lazy">
+                        </div>
+                        <div class="product-detail-copy" data-product-summary aria-live="polite">
+                            <p class="eyebrow">BLINDSXPERT CATALOGUE</p>
+                            <h2 data-product-name>Select a product</h2>
+                            <p data-product-description></p>
+                            <p class="product-detail-source">Product details are taken from the existing BlindsXpert catalogue.</p>
+                        </div>
+                    </div>
+                    <div class="product-enquiry-wrap">
+                        <div class="section-heading">
+                            <div>
+                                <p class="eyebrow">PREPARE YOUR ENQUIRY</p>
+                                <h2>Enquire via WhatsApp</h2>
+                                <p>Review your details, then review the prepared message in WhatsApp before sending.</p>
+                            </div>
+                        </div>
+                        <form class="quote-form product-enquiry-form" id="productEnquiryForm" novalidate>
+                            <label for="enquiryProduct">Product</label>
+                            <select id="enquiryProduct" name="product" required>
+                                <option value="">Loading products…</option>
+                            </select>
+                            <label for="enquiryName">Name</label>
+                            <input id="enquiryName" name="name" type="text" autocomplete="name" required>
+                            <label for="enquiryAddress">Address</label>
+                            <textarea id="enquiryAddress" name="address" rows="3" autocomplete="street-address" required></textarea>
+                            <label for="enquiryPhone">Phone Number</label>
+                            <input id="enquiryPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="phoneHint">
+                            <small id="phoneHint">Enter 7 to 16 digits. Spaces, +, hyphens and brackets are accepted.</small>
+                            <label for="enquiryEmail">Email</label>
+                            <input id="enquiryEmail" name="email" type="email" autocomplete="email" required>
+                            <label for="siteVisit">Site Visit</label>
+                            <select id="siteVisit" name="siteVisit" required>
+                                <option value="">Please select</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                            <label for="enquiryMessage">Message</label>
+                            <textarea id="enquiryMessage" name="message" rows="5" required></textarea>
+                            <button class="btn btn-red" type="submit">Enquire via WhatsApp <span aria-hidden="true">↗</span></button>
+                            <p class="form-note" id="productFormNote" role="status">WhatsApp will open with your enquiry for you to review and send.</p>
+                        </form>
+                    </div>
                 </div>
             </section>
-
-            <section class="contact-band">
-                <div class="container contact-strip">
-                    <p><b>BlindsXpert (003234398-U)</b><br>23, Jalan Dagang SB 4/1, Taman Sungai Besi Indah,<br>43300 Seri Kembangan, Selangor</p>
-                    <p><b>Call or WhatsApp</b><br><a href="tel:+60176356542">017-635 6542</a><br><a href="tel:+601139964863">011-399 64863</a></p>
-                    <p><b>Email</b><br><a href="mailto:sales.blindsXpert@gmail.com">sales.blindsXpert@gmail.com</a></p>
-                </div>
-            </section>
-
-        </main>
-
-        <footer class="footer">
+        </main><footer class="footer">
             <div class="container footer-grid">
                 <div>
                     <a class="logo footer-logo" href="index.html"><img class="brand-mark" src="img/logo%20no%20background.png" alt=""><span>Blinds</span><b>Xpert</b><small>Your Window, Our Expertise</small></a>
@@ -186,6 +206,7 @@
 
         <script src="visitor-counter-config.js" defer></script>
         <script src="visitor-counter.js" defer></script>
+        <script src="product-details.js" defer></script>
         <script src="script.js" defer></script>
     </body>
 </html>

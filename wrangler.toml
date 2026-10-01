@@ -1,0 +1,11 @@
+name = "blindsxpert-visitor-counter"
+main = "visitor-counter-worker.js"
+compatibility_date = "2026-10-01"
+
+[[durable_objects.bindings]]
+name = "COUNTERS"
+class_name = "VisitorCounter"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["VisitorCounter"]

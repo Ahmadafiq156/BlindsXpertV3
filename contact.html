@@ -30,7 +30,6 @@
                 <nav class="nav" id="mainNav" aria-label="Main navigation">
                     <a href="index.html">Home</a>
                     <a href="about.html">About Us</a>
-                    <a href="about.html#careers">Careers</a>
                     <div class="nav-products">
                         <div class="nav-products-top">
                             <a href="products.html">Products</a>
@@ -79,9 +78,10 @@
                             </div>
                         </div>
                     </div>
-                    <a href="projects.html">Projects</a>
                     <a href="services.html">Services</a>
+                    <a href="projects.html">Projects</a>
                     <a href="gallery.html">Gallery</a>
+                    <a href="about.html#careers">Careers</a>
                     <a href="contact.html" aria-current="page">Contact</a>
                     <a class="nav-cta" href="quote.html">Get a Free Quote <span aria-hidden="true">→</span></a>
                 </nav>
@@ -112,15 +112,18 @@
                         <p><a href="tel:+60176356542">017-635 6542</a><br><a href="tel:+601139964863">011-399 64863</a><br><a href="mailto:sales.blindsXpert@gmail.com">sales.blindsXpert@gmail.com</a><br><small>The official site lists its hotline as available 24 hours.</small></p>
                     </div>
                     <div class="contact-actions">
-                        <p class="eyebrow">CHOOSE HOW TO CONTACT US</p>
-                        <a class="btn btn-red" href="tel:+60176356542">Call 017-635 6542</a>
-                        <a class="btn btn-outline-dark" href="https://wa.me/60176356542" target="_blank" rel="noopener noreferrer">WhatsApp BlindsXpert</a>
-                        <a class="btn btn-outline-dark" href="mailto:sales.blindsXpert@gmail.com">Email BlindsXpert</a>
-                        <a class="btn btn-red" href="quote.html">Request a Quote →</a>
-                        <div class="contact-social">
-                            <p class="eyebrow">FOLLOW BLINDSXPERT</p>
-                            <div><a href="https://www.tiktok.com/@blindsxpert_tiktok" target="_blank" rel="noopener noreferrer">TikTok</a><a href="https://www.instagram.com/blindsxpert/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.facebook.com/blindsxpertmy" target="_blank" rel="noopener noreferrer">Facebook</a></div>
+                        <div class="contact-options">
+                            <p class="eyebrow">CHOOSE HOW TO CONTACT US</p>
+                            <a class="btn btn-red" href="tel:+60176356542">Call 017-635 6542</a>
+                            <a class="btn btn-outline-dark" href="https://wa.me/60176356542" target="_blank" rel="noopener noreferrer">WhatsApp BlindsXpert</a>
+                            <a class="btn btn-outline-dark" href="mailto:sales.blindsXpert@gmail.com">Email BlindsXpert</a>
+                            <a class="btn btn-red" href="quote.html">Request a Quote →</a>
+                            <div class="contact-social">
+                                <p class="eyebrow">FOLLOW BLINDSXPERT</p>
+                                <div><a href="https://www.tiktok.com/@blindsxpert_tiktok" target="_blank" rel="noopener noreferrer">TikTok</a><a href="https://www.instagram.com/blindsxpert/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.facebook.com/blindsxpertmy" target="_blank" rel="noopener noreferrer">Facebook</a></div>
+                            </div>
                         </div>
+                        <img class="contact-qr" src="img/qr.jpeg" alt="Scan QR code" loading="lazy">
                     </div>
                     <div class="location-panel">
                         <p class="eyebrow">OUR LOCATION</p>
@@ -189,16 +192,18 @@
             <div class="container footer-bottom">
                 <span>© 2026 BlindsXpert Malaysia</span>
                 <div class="footer-extras">
-                    <p class="visitor-counter" aria-label="Visitor counter awaiting a verified data source">
+                    <p class="visitor-counter" aria-label="BlindsXpert visitor counter">
                         <span class="visitor-counter-label">Visitor count</span>
                         <span class="visitor-counter-value" aria-hidden="true">—</span>
-                        <span class="visitor-counter-note">Connect a verified counter service to display totals.</span>
+                        <span class="visitor-counter-note">Configure the shared counter endpoint to display live visits.</span>
                     </p>
                     <img class="footer-maybank" src="img/maybank.png" alt="" loading="lazy">
                 </div>
             </div>
         </footer>
 
+        <script src="visitor-counter-config.js" defer></script>
+        <script src="visitor-counter.js" defer></script>
         <script src="script.js" defer></script>
     </body>
 </html>
