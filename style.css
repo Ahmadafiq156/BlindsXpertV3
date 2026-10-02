@@ -3125,22 +3125,75 @@ body.lightbox-open {
 }
 
 /* Homepage product descriptions and direct product-detail links. */
+.home-product-catalogue .product-card {
+    position: relative;
+}
+
 .home-product-image-link {
     position: relative;
     display: block;
     overflow: hidden;
+    isolation: isolate;
     color: inherit;
+}
+
+.home-product-catalogue .home-product-image-link::after {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    background: linear-gradient(180deg, rgb(24 21 21 / 12%), rgb(105 20 27 / 82%));
+    content: "";
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 340ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .home-product-image-link img {
     display: block;
     width: 100%;
-    transition: transform 0.3s ease;
+    transition: transform 340ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-.home-product-image-link:hover img,
-.home-product-image-link:focus-visible img {
-    transform: scale(1.025);
+.home-product-catalogue .product-detail {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    right: 20px;
+    left: 20px;
+    margin: 0;
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.55;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(calc(-50% + 10px));
+    transition:
+        opacity 300ms ease,
+        transform 340ms cubic-bezier(0.2, 0.7, 0.2, 1),
+        visibility 0s linear 340ms;
+    visibility: hidden;
+}
+
+.home-product-catalogue .product-card:hover .home-product-image-link::after,
+.home-product-catalogue .product-card:focus-within .home-product-image-link::after,
+.home-product-catalogue .product-card.is-active .home-product-image-link::after {
+    opacity: 1;
+}
+
+.home-product-catalogue .product-card:hover .home-product-image-link img,
+.home-product-catalogue .product-card:focus-within .home-product-image-link img,
+.home-product-catalogue .product-card.is-active .home-product-image-link img {
+    transform: scale(1.035);
+}
+
+.home-product-catalogue .product-card:hover .product-detail,
+.home-product-catalogue .product-card:focus-within .product-detail,
+.home-product-catalogue .product-card.is-active .product-detail {
+    opacity: 1;
+    transform: translateY(-50%);
+    transition-delay: 0s;
+    visibility: visible;
 }
 
 .home-product-action {
@@ -3344,7 +3397,8 @@ body.lightbox-open {
 
 @media (prefers-reduced-motion: reduce) {
     .home-product-image-link img,
-    .home-product-overlay,
+    .home-product-catalogue .home-product-image-link::after,
+    .home-product-catalogue .product-detail,
     .service-icon {
         transition: none;
     }

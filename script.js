@@ -85,6 +85,33 @@ function syncProductFilterToHash() {
 }
 syncProductFilterToHash();
 window.addEventListener('hashchange', syncProductFilterToHash);
+
+const homeProductCatalogue = document.querySelector('.home-product-catalogue');
+const homeProductCards = [...(homeProductCatalogue?.querySelectorAll('.product-card') ?? [])];
+const touchProductInput = window.matchMedia('(hover: none), (pointer: coarse)');
+
+if (homeProductCatalogue && touchProductInput.matches) {
+    homeProductCatalogue.addEventListener('click', (event) => {
+        const imageLink = event.target.closest('.home-product-image-link');
+
+        if (!imageLink) return;
+
+        const card = imageLink.closest('.product-card');
+
+        if (!card || card.classList.contains('is-active')) return;
+
+        event.preventDefault();
+        homeProductCards.forEach((productCard) => productCard.classList.remove('is-active'));
+        card.classList.add('is-active');
+    });
+
+    document.addEventListener('click', (event) => {
+        if (homeProductCatalogue.contains(event.target)) return;
+
+        homeProductCards.forEach((card) => card.classList.remove('is-active'));
+    });
+}
+
 const projectFilterButtons = [...document.querySelectorAll('[data-project-filter]')];
 const projectGrid = document.querySelector('#projectGrid');
 projectFilterButtons.forEach(button => button.addEventListener('click', () => {
