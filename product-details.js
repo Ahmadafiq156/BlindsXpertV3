@@ -69,6 +69,31 @@ if (productDetailsPage) {
             };
         });
 
+        const legacyProducts = [...catalogue.querySelector('template[data-legacy-product-cards]')?.content.querySelectorAll('article[id]') || []]
+            .map((card) => {
+                const informationTemplate = informationTemplates.get(card.id);
+                const image = card.querySelector('img.catalogue-image');
+
+                return {
+                    id: card.id,
+                    name: card.querySelector('h2, h3')?.textContent.trim() || card.id,
+                    category: card.querySelector('.eyebrow')?.textContent.trim() || '',
+                    description: informationTemplate?.content.querySelector('[data-product-description]')?.textContent.trim()
+                        || card.querySelector('.product-detail')?.textContent.trim()
+                        || '',
+                    image: image?.getAttribute('src') || '',
+                    imageAlt: image?.alt || '',
+                    informationTemplate
+                };
+            });
+        const allProducts = [...products, ...legacyProducts];
+        const productAliases = {
+            'sunscreen-roller': 'roller',
+            'venetian-aluminium': 'venetian',
+            'venetian-timber': 'venetian',
+            'lantex-venetian': 'venetian'
+        };
+
         productSelect.replaceChildren(new Option('Please select a product', ''));
 
         products.forEach((product) => {
@@ -76,7 +101,13 @@ if (productDetailsPage) {
         });
 
         const requestedProduct = new URLSearchParams(window.location.search).get('product');
-        const initialProduct = products.find((product) => product.id === requestedProduct);
+        const canonicalProductId = productAliases[requestedProduct] || requestedProduct;
+        const initialProduct = allProducts.find((product) => product.id === requestedProduct)
+            || products.find((product) => product.id === canonicalProductId);
+
+        if (initialProduct && !products.some((product) => product.id === initialProduct.id)) {
+            productSelect.add(new Option(initialProduct.name, initialProduct.id));
+        }
 
         if (initialProduct) {
             productSelect.value = initialProduct.id;
@@ -88,7 +119,7 @@ if (productDetailsPage) {
         }
 
         productSelect.addEventListener('change', () => {
-            const selectedProduct = products.find((product) => product.id === productSelect.value);
+            const selectedProduct = allProducts.find((product) => product.id === productSelect.value);
             if (!selectedProduct) return;
 
             showProduct(selectedProduct);

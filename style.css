@@ -855,27 +855,30 @@ a {
 
 .home-hero .hero-arrow {
     top: 50%;
+    width: 46px;
+    height: 46px;
     transform: translateY(-50%);
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-    color: #111;
+    border: 1px solid rgb(255 255 255 / 48%);
+    border-radius: 50%;
+    background: rgb(18 18 18 / 24%);
+    color: #fff;
+    box-shadow: 0 3px 12px rgb(0 0 0 / 12%);
 }
 
 .home-hero .hero-arrow:hover,
 .home-hero .hero-arrow:focus-visible {
-    border: 0;
-    background: transparent;
-    color: #111;
+    border-color: rgb(255 255 255 / 78%);
+    background: rgb(18 18 18 / 42%);
+    color: #fff;
 }
 
 .home-hero .hero-arrow svg {
-    filter: drop-shadow(0 1px 2px rgb(255 255 255 / 92%));
+    filter: drop-shadow(0 1px 2px rgb(0 0 0 / 35%));
 }
 
 .home-hero .hero-arrow:focus-visible {
-    outline: 2px solid #111;
-    outline-offset: 2px;
+    outline: 2px solid #fff;
+    outline-offset: 3px;
 }
 
 @media (max-width: 760px) {
@@ -1785,25 +1788,57 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 32px;
-    padding: 30px 36px;
-    background: var(--light-bg);
+    gap: 34px;
+    padding: 32px 38px;
     border: 1px solid var(--border-light);
-    border-left: 4px solid var(--primary-red)
+    border-left: 4px solid var(--primary-red);
+    background: linear-gradient(115deg, #fbfaf9, #f3f1ef);
+    box-shadow: 0 12px 30px rgb(36 36 36 / 5%);
+}
+
+.catalogue-panel-copy {
+    max-width: 650px;
 }
 
 .catalogue-panel h2 {
-    margin: 0 0 7px;
-    font: 700 clamp(25px,3vw,34px)/1.2 "Playfair Display",Georgia,serif
+    margin: 0 0 8px;
+    font: 700 clamp(25px, 3vw, 34px)/1.2 "Playfair Display", Georgia, serif;
 }
 
 .catalogue-panel p:not(.eyebrow) {
     margin: 0;
-    color: var(--text-muted)
+    color: var(--text-muted);
+}
+
+.catalogue-panel-action {
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: 18px;
+}
+
+.catalogue-mark {
+    display: grid;
+    width: 66px;
+    height: 66px;
+    place-items: center;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--primary-red);
+    box-shadow: 0 5px 18px rgb(36 36 36 / 8%);
+}
+
+.catalogue-mark svg {
+    width: 40px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
 }
 
 .catalogue-panel .btn {
-    flex: none
+    flex: none;
 }
 
 @media (max-width: 600px) {
@@ -1815,12 +1850,19 @@ a {
         font-size: 12px
     }
     .catalogue-panel {
-        align-items: flex-start;
+        align-items: stretch;
         flex-direction: column;
-        padding: 24px 20px
+        gap: 20px;
+        padding: 24px 20px;
+    }
+    .catalogue-panel-action {
+        width: 100%;
+    }
+    .catalogue-mark {
+        display: none;
     }
     .catalogue-panel .btn {
-        width: 100%
+        width: 100%;
     }
 }
 
@@ -3506,4 +3548,79 @@ body.lightbox-open {
         padding-top: 30px;
         border-top: 1px solid var(--border-light);
     }
+}
+
+
+@media (max-width: 600px) {
+    .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .filters .filter {
+        min-height: 42px;
+        padding: 9px 13px;
+    }
+
+    #catalogue,
+    #catalogue .product-card,
+    #catalogue .card-copy {
+        min-width: 0;
+    }
+
+    #catalogue .product-card img.catalogue-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 360px) {
+    .home-hero .page-hero-copy {
+        padding-right: 34px;
+        padding-left: 34px;
+    }
+
+    .home-hero .hero-actions .btn {
+        padding-right: 11px;
+        padding-left: 11px;
+        font-size: 12px;
+    }
+}
+
+
+.product-option-descriptions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 24px;
+    margin: 18px 0 24px;
+}
+
+.product-option-descriptions h3 {
+    margin: 0 0 5px;
+    color: var(--text-dark);
+    font-size: 15px;
+}
+
+.product-option-descriptions p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    .product-option-descriptions {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
+
+#catalogue .card-copy > a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    padding: 8px 0;
 }
