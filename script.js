@@ -70,6 +70,13 @@ function setProductFilter(value) {
     document.querySelectorAll('#catalogue [data-category]').forEach(card => {
         card.classList.toggle('hidden', value !== 'all' && card.dataset.category !== value);
     });
+    document.querySelectorAll('#catalogue [data-category-heading]').forEach((heading) => {
+        const category = heading.dataset.categoryHeading;
+        const hasVisibleProducts = [...document.querySelectorAll(`#catalogue > article[data-category="${category}"]`)]
+            .some(card => !card.classList.contains('hidden'));
+
+        heading.hidden = !hasVisibleProducts;
+    });
 }
 filterButtons.forEach(button => button.addEventListener('click', () => setProductFilter(button.dataset.filter)));
 function syncProductFilterToHash() {
@@ -123,32 +130,87 @@ if (hero) {
             timer = null
         }
     }
-    function startSlideshow() {
+    function startSlideshow(allowFocusedControls = false, allowHoveredHero = false) {
         stopSlideshow();
-        if (slides.length < 2 || reducedMotion.matches || document.hidden || heroSection?.matches(':hover') || heroSection?.contains(document.activeElement)) return;
+        const focused = heroSection?.contains(document.activeElement) && !allowFocusedControls;
+        const hovered = heroSection?.matches(':hover') && !allowHoveredHero;
+
+        if (slides.length < 2 || reducedMotion.matches || document.hidden || hovered || focused) return;
         timer = window.setInterval(() => showSlide(activeIndex + 1), 2800);
     }
     const heroSection = hero.closest('.home-hero');
     dots.forEach((dot, index) => dot.addEventListener('click', () => {
         showSlide(index);
-        startSlideshow()
+        startSlideshow(true)
     }));
     heroSection?.querySelector('.hero-arrow-prev')?.addEventListener('click', () => {
         showSlide(activeIndex - 1);
-        startSlideshow()
+        startSlideshow(true)
     });
     heroSection?.querySelector('.hero-arrow-next')?.addEventListener('click', () => {
         showSlide(activeIndex + 1);
-        startSlideshow()
+        startSlideshow(true)
+    });
+    heroSection?.addEventListener('keydown', (event) => {
+        if (!heroSection.contains(document.activeElement)) return;
+
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+            event.preventDefault();
+            showSlide(activeIndex + (event.key === 'ArrowRight' ? 1 : -1));
+            startSlideshow(true);
+        }
     });
     heroSection?.addEventListener('mouseenter', stopSlideshow);
-    heroSection?.addEventListener('mouseleave', startSlideshow);
+    heroSection?.addEventListener('mouseleave', () => startSlideshow(true));
     heroSection?.addEventListener('focusin', stopSlideshow);
     heroSection?.addEventListener('focusout', event => {
         if (!heroSection.contains(event.relatedTarget)) startSlideshow()
     });
     document.addEventListener('visibilitychange', startSlideshow);
     reducedMotion.addEventListener?.('change', startSlideshow);
+
+    let touchStartX = null;
+    let touchStartY = 0;
+    let swipeIntent = false;
+
+    heroSection?.addEventListener('touchstart', (event) => {
+        if (event.touches.length !== 1 || event.target.closest('a, button')) return;
+
+        touchStartX = event.touches[0].clientX;
+        touchStartY = event.touches[0].clientY;
+        swipeIntent = false;
+    }, { passive: true });
+
+    heroSection?.addEventListener('touchmove', (event) => {
+        if (touchStartX === null || event.touches.length !== 1) return;
+
+        const deltaX = event.touches[0].clientX - touchStartX;
+        const deltaY = event.touches[0].clientY - touchStartY;
+        swipeIntent = Math.abs(deltaX) > 12 && Math.abs(deltaX) > Math.abs(deltaY) * 1.25;
+
+        if (swipeIntent) event.preventDefault();
+    }, { passive: false });
+
+    heroSection?.addEventListener('touchend', (event) => {
+        if (touchStartX === null) return;
+
+        const deltaX = event.changedTouches[0].clientX - touchStartX;
+        if (swipeIntent && Math.abs(deltaX) >= 48) {
+            showSlide(activeIndex + (deltaX < 0 ? 1 : -1));
+            startSlideshow(true, true);
+        }
+
+        touchStartX = null;
+        touchStartY = 0;
+        swipeIntent = false;
+    }, { passive: true });
+
+    heroSection?.addEventListener('touchcancel', () => {
+        touchStartX = null;
+        touchStartY = 0;
+        swipeIntent = false;
+    }, { passive: true });
+
     startSlideshow();
 }
 const testimonialCarousel = document.querySelector('[data-testimonial-carousel]');

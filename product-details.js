@@ -6,6 +6,7 @@ if (productDetailsPage) {
     const productDescription = document.querySelector('[data-product-description]');
     const productImage = document.querySelector('[data-product-image]');
     const productVisual = document.querySelector('[data-product-visual]');
+    const productInformation = document.querySelector('[data-product-information]');
     const form = document.querySelector('#productEnquiryForm');
     const formNote = document.querySelector('#productFormNote');
 
@@ -13,6 +14,18 @@ if (productDetailsPage) {
         productName.textContent = product.name;
         productDescription.textContent = product.description;
         productDescription.hidden = !product.description;
+        productInformation.replaceChildren();
+        productInformation.hidden = true;
+
+        if (product.informationTemplate) {
+            const information = product.informationTemplate.content.cloneNode(true);
+            information.querySelector('[data-product-description]')?.remove();
+
+            if (information.childElementCount > 0) {
+                productInformation.replaceChildren(information);
+                productInformation.hidden = false;
+            }
+        }
         document.title = `${product.name} | BlindsXpert Malaysia`;
         productVisual.hidden = !product.image;
 
@@ -31,16 +44,28 @@ if (productDetailsPage) {
 
         const pageText = await response.text();
         const catalogue = new DOMParser().parseFromString(pageText, 'text/html');
+        const informationTemplates = new Map();
+
+        catalogue.querySelectorAll('template[data-product-information-for]').forEach((template) => {
+            template.dataset.productInformationFor.split(/\s+/).forEach((productId) => {
+                informationTemplates.set(productId, template);
+            });
+        });
+
         const products = [...catalogue.querySelectorAll('#catalogue > article[id]')].map((card) => {
             const image = card.querySelector('img.catalogue-image');
+            const informationTemplate = informationTemplates.get(card.id);
 
             return {
                 id: card.id,
-                name: card.querySelector('h2')?.textContent.trim() || card.id,
+                name: card.querySelector('h2, h3')?.textContent.trim() || card.id,
                 category: card.querySelector('.eyebrow')?.textContent.trim() || '',
-                description: card.querySelector('.product-detail')?.textContent.trim() || '',
+                description: informationTemplate?.content.querySelector('[data-product-description]')?.textContent.trim()
+                    || card.querySelector('.product-detail')?.textContent.trim()
+                    || '',
                 image: image?.getAttribute('src') || '',
-                imageAlt: image?.alt || ''
+                imageAlt: image?.alt || '',
+                informationTemplate
             };
         });
 
