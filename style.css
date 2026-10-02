@@ -1780,89 +1780,41 @@ a {
     outline-offset: 2px
 }
 
+.product-listing-section {
+    padding-bottom: 0;
+}
+
 .catalogue-section {
-    padding-top: 0
+    padding: 18px 0 48px;
 }
 
-.catalogue-panel {
-    display: flex;
+.catalogue-section .section-heading {
     align-items: center;
-    justify-content: space-between;
-    gap: 34px;
-    padding: 32px 38px;
-    border: 1px solid var(--border-light);
-    border-left: 4px solid var(--primary-red);
-    background: linear-gradient(115deg, #fbfaf9, #f3f1ef);
-    box-shadow: 0 12px 30px rgb(36 36 36 / 5%);
+    margin-bottom: 0;
 }
 
-.catalogue-panel-copy {
-    max-width: 650px;
+.catalogue-section .section-heading > div {
+    max-width: 720px;
 }
 
-.catalogue-panel h2 {
-    margin: 0 0 8px;
-    font: 700 clamp(25px, 3vw, 34px)/1.2 "Playfair Display", Georgia, serif;
-}
-
-.catalogue-panel p:not(.eyebrow) {
+.catalogue-section .section-heading p:not(.eyebrow) {
     margin: 0;
     color: var(--text-muted);
 }
 
-.catalogue-panel-action {
-    display: flex;
-    flex: none;
-    align-items: center;
-    gap: 18px;
-}
-
-.catalogue-mark {
-    display: grid;
-    width: 66px;
-    height: 66px;
-    place-items: center;
-    border-radius: 50%;
-    background: #fff;
-    color: var(--primary-red);
-    box-shadow: 0 5px 18px rgb(36 36 36 / 8%);
-}
-
-.catalogue-mark svg {
-    width: 40px;
-    fill: none;
-    stroke: currentColor;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-width: 1.8;
-}
-
-.catalogue-panel .btn {
+.catalogue-section .btn {
     flex: none;
 }
 
 @media (max-width: 600px) {
-    .project-filters {
-        gap: 8px
+    .catalogue-section {
+        padding-top: 14px;
+        padding-bottom: 40px;
     }
-    .project-filter {
-        padding: 9px 13px;
-        font-size: 12px
-    }
-    .catalogue-panel {
-        align-items: stretch;
-        flex-direction: column;
-        gap: 20px;
-        padding: 24px 20px;
-    }
-    .catalogue-panel-action {
+
+    .catalogue-section .section-heading .btn {
         width: 100%;
-    }
-    .catalogue-mark {
-        display: none;
-    }
-    .catalogue-panel .btn {
-        width: 100%;
+        margin-top: 16px;
     }
 }
 

@@ -384,7 +384,7 @@ if (statsSection && statCounters.length) {
 // Subtle scroll reveals are progressive enhancement and never cover click targets.
 
 if ('IntersectionObserver' in window && !reduceMotion.matches) {
-    const revealTargets = document.querySelectorAll('main > section:not(.page-hero), .about-grid, .benefit-grid > div, .contact-grid > div');
+    const revealTargets = document.querySelectorAll('main > section:not(.page-hero):not(.product-listing-section), .about-grid, .benefit-grid > div, .contact-grid > div');
     const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('is-revealed');
