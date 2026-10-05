@@ -411,14 +411,16 @@ if (statsSection && statCounters.length) {
 // Subtle scroll reveals are progressive enhancement and never cover click targets.
 
 if ('IntersectionObserver' in window && !reduceMotion.matches) {
-    const revealTargets = document.querySelectorAll('main > section:not(.page-hero):not(.product-listing-section), .about-grid, .benefit-grid > div, .contact-grid > div');
+    // Long galleries must stay visible even when only a small part fits on screen.
+    const revealTargets = [...document.querySelectorAll('main > section:not(.page-hero):not(.product-listing-section), .about-grid, .benefit-grid > div, .contact-grid > div')]
+        .filter(target => !target.querySelector('.gallery-grid'));
     const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('is-revealed');
             revealObserver.unobserve(entry.target)
         }
     }), {
-        threshold: 0.12, rootMargin: '0px 0px -32px 0px'
+        threshold: 0, rootMargin: '0px 0px -32px 0px'
     });
     revealTargets.forEach(target => {
         target.classList.add('scroll-reveal');

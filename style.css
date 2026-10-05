@@ -1631,7 +1631,7 @@ a {
     border: 0;
     border-radius: 3px;
     background: #f3f2f0;
-    cursor: zoom-in
+    cursor: pointer
 }
 
 .testimonial-image-trigger:focus-visible,.gallery-image-trigger:focus-visible {
@@ -2051,7 +2051,7 @@ a {
     padding: 0;
     border: 0;
     background: transparent;
-    cursor: zoom-in;
+    cursor: pointer;
     text-align: inherit
 }
 
@@ -2585,7 +2585,7 @@ body.lightbox-open {
     padding: 8px;
     overflow: hidden;
     background: #f0eeeb;
-    cursor: zoom-in
+    cursor: pointer
 }
 
 .gallery-image-trigger img {
@@ -3598,7 +3598,7 @@ body.lightbox-open {
     padding: 0;
     border: 0;
     background: transparent;
-    cursor: zoom-in;
+    cursor: pointer;
 }
 
 .motorized-brand-feature .motorized-brand-trigger {
