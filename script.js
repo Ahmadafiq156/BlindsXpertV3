@@ -81,7 +81,24 @@ function setProductFilter(value) {
 filterButtons.forEach(button => button.addEventListener('click', () => setProductFilter(button.dataset.filter)));
 function syncProductFilterToHash() {
     const match = window.location.hash.match(/^#category-(indoor|outdoor|motorized|other)$/);
-    if (match) setProductFilter(match[1]);
+    if (match) {
+        setProductFilter(match[1]);
+    } else {
+        // Keep saved catalogue links working after grouping product variants.
+        const aliases = {
+            'uv-printing-wooden-outdoor': 'wooden-outdoor',
+            'ziptrak-pvc-outdoor': 'ziptrak-outdoor',
+            'ziptrack-motorized-outdoor': 'ziptrak-outdoor',
+            'curtain-rail': 'curtain-hardware',
+            'curtain-rod': 'curtain-hardware'
+        };
+        const id = aliases[window.location.hash.slice(1)] || window.location.hash.slice(1);
+        const target = document.getElementById(id);
+        if (target?.matches('#catalogue > article')) {
+            setProductFilter('all');
+            requestAnimationFrame(() => target.scrollIntoView({block:'start'}));
+        }
+    }
 }
 syncProductFilterToHash();
 window.addEventListener('hashchange', syncProductFilterToHash);
@@ -413,7 +430,7 @@ if (statsSection && statCounters.length) {
 if ('IntersectionObserver' in window && !reduceMotion.matches) {
     // Long galleries must stay visible even when only a small part fits on screen.
     const revealTargets = [...document.querySelectorAll('main > section:not(.page-hero):not(.product-listing-section), .about-grid, .benefit-grid > div, .contact-grid > div')]
-        .filter(target => !target.querySelector('.gallery-grid'));
+        .filter(target => !target.querySelector('.gallery-grid') && !target.closest('.pd-main'));
     const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('is-revealed');
@@ -427,3 +444,4 @@ if ('IntersectionObserver' in window && !reduceMotion.matches) {
         revealObserver.observe(target)
     });
 }
+
