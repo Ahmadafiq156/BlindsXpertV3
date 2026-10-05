@@ -1,4 +1,3 @@
-// Product families and source-backed details. Specifications apply only to their named series.
 window.BLINDSXPERT_PRODUCTS = {
   "products": [
     {
@@ -7,6 +6,24 @@ window.BLINDSXPERT_PRODUCTS = {
       "category": "indoor",
       "description": "Alternating sheer and opaque fabric bands let you adjust daylight and privacy.",
       "gallery": [
+        {
+          "src": "img/products/generated/web/zebra-main.webp",
+          "thumbnail": "img/products/generated/web/zebra-main-thumb.webp",
+          "alt": "Illustrative generated scene of beige Zebra blinds in a bright interior",
+          "caption": "Illustrative scene · Zebra blinds",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        },
+        {
+          "src": "img/products/generated/web/zebra-detail.webp",
+          "thumbnail": "img/products/generated/web/zebra-detail-thumb.webp",
+          "alt": "Illustrative generated close-up of woven Zebra blind bands",
+          "caption": "Illustrative detail · Zebra blind bands",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        },
         {
           "src": "img/products/catalogue/02%20Zebra%20Blinds-20261001T083216Z-1-001/02%20Zebra%20Blinds/01%20Complete%20Project/A1.png",
           "alt": "Zebra blinds installed over a window",
@@ -161,6 +178,33 @@ window.BLINDSXPERT_PRODUCTS = {
       "description": "A simple roll-up design for controlling light. Explore blackout, sunscreen and translucent fabric options.",
       "gallery": [
         {
+          "src": "img/products/generated/web/roller-main.webp",
+          "thumbnail": "img/products/generated/web/roller-main-thumb.webp",
+          "alt": "Illustrative generated scene of a beige Roller blind in a bright interior",
+          "caption": "Illustrative scene · Roller blind",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        },
+        {
+          "src": "img/products/generated/web/roller-detail.webp",
+          "thumbnail": "img/products/generated/web/roller-detail-thumb.webp",
+          "alt": "Illustrative generated close-up of a Roller blind hem",
+          "caption": "Illustrative detail · Roller blind hem",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        },
+        {
+          "src": "img/products/generated/web/roller-sunscreen-variant.webp",
+          "thumbnail": "img/products/generated/web/roller-sunscreen-variant-thumb.webp",
+          "alt": "Illustrative generated sunscreen Roller blind scene",
+          "caption": "Illustrative variant · Sunscreen Roller",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        },
+        {
           "src": "img/products/catalogue/01%20Roller%20Blinds-20261001T083215Z-1-001/01%20Roller%20Blinds/01%20Complete%20Project/A1.png",
           "alt": "Roller blinds installed across a large window",
           "caption": "Roller Blinds"
@@ -194,11 +238,6 @@ window.BLINDSXPERT_PRODUCTS = {
           "src": "img/products/catalogue/01%20Roller%20Blinds-20261001T083215Z-1-001/01%20Roller%20Blinds/01%20Complete%20Project/A7.png",
           "alt": "Roller blind project image 7",
           "caption": "Project image 7"
-        },
-        {
-          "src": "img/products/catalogue/SunscreenRollerBlinds.jpeg",
-          "alt": "Sunscreen roller blind filtering daylight in a BlindsXpert catalogue image",
-          "caption": "Sunscreen Roller image"
         }
       ],
       "documents": [
@@ -353,6 +392,24 @@ window.BLINDSXPERT_PRODUCTS = {
       "description": "Sliding panels for large windows, with blackout, sunscreen and translucent options.",
       "gallery": [
         {
+          "src": "img/products/generated/web/panel-main.webp",
+          "thumbnail": "img/products/generated/web/panel-main-thumb.webp",
+          "alt": "Illustrative generated scene of beige Panel blinds across a sliding door",
+          "caption": "Illustrative scene · Panel blinds",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        },
+        {
+          "src": "img/products/generated/web/panel-detail.webp",
+          "thumbnail": "img/products/generated/web/panel-detail-thumb.webp",
+          "alt": "Illustrative generated close-up of overlapping Panel blind fabric",
+          "caption": "Illustrative detail · Panel blind fabric",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        },
+        {
           "src": "img/products/catalogue/07%20Panel%20Blinds-20261001T083229Z-1-001/07%20Panel%20Blinds/01%20Complete%20Project/Blackout.jpg",
           "alt": "Panel blinds covering a wide bedroom window",
           "caption": "Panel Blinds"
@@ -394,6 +451,42 @@ window.BLINDSXPERT_PRODUCTS = {
       "category": "indoor",
       "description": "Horizontal slats that tilt to adjust light and privacy. Explore aluminium, timber, PVC and Lantex options.",
       "gallery": [
+        {
+          "src": "img/products/generated/web/venetian-timber-main.webp",
+          "thumbnail": "img/products/generated/web/venetian-timber-main-thumb.webp",
+          "alt": "Illustrative generated scene of warm timber Venetian blinds",
+          "caption": "Illustrative scene · Timber Venetian",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        },
+        {
+          "src": "img/products/generated/web/venetian-aluminium-variant.webp",
+          "thumbnail": "img/products/generated/web/venetian-aluminium-variant-thumb.webp",
+          "alt": "Illustrative generated scene of silver aluminium Venetian blinds",
+          "caption": "Illustrative variant · Aluminium Venetian",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        },
+        {
+          "src": "img/products/generated/web/venetian-pvc-variant.webp",
+          "thumbnail": "img/products/generated/web/venetian-pvc-variant-thumb.webp",
+          "alt": "Illustrative generated scene of warm-white PVC Venetian blinds",
+          "caption": "Illustrative variant · PVC Venetian",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        },
+        {
+          "src": "img/products/generated/web/venetian-timber-detail.webp",
+          "thumbnail": "img/products/generated/web/venetian-timber-detail-thumb.webp",
+          "alt": "Illustrative generated close-up of timber Venetian slats",
+          "caption": "Illustrative detail · Timber Venetian slats",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        },
         {
           "src": "img/products/catalogue/03%20Venetian%20Blinds-20261001T083218Z-1-001/03%20Venetian%20Blinds/01%20Complete%20Project/Aluminium%201.png",
           "alt": "Aluminium Venetian blinds fitted to a bedroom window",
@@ -478,6 +571,33 @@ window.BLINDSXPERT_PRODUCTS = {
       "description": "Vertical fabric vanes for adjusting light and privacy. Choose a coordinated colour or a mix-and-match arrangement.",
       "gallery": [
         {
+          "src": "img/products/generated/web/vertical-main.webp",
+          "thumbnail": "img/products/generated/web/vertical-main-thumb.webp",
+          "alt": "Illustrative generated scene of warm beige Vertical blinds",
+          "caption": "Illustrative scene · Vertical blinds",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        },
+        {
+          "src": "img/products/generated/web/vertical-detail.webp",
+          "thumbnail": "img/products/generated/web/vertical-detail-thumb.webp",
+          "alt": "Illustrative generated close-up of beige Vertical blind vanes",
+          "caption": "Illustrative detail · Vertical blind vanes",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        },
+        {
+          "src": "img/products/generated/web/vertical-fabric-detail.webp",
+          "thumbnail": "img/products/generated/web/vertical-fabric-detail-thumb.webp",
+          "alt": "Illustrative generated close-up of Vertical blind fabric folds",
+          "caption": "Illustrative detail · Vertical blind fabric",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        },
+        {
           "src": "img/products/catalogue/06%20Vertical%20Blinds-20261001T083225Z-1-001/06%20Vertical%20Blinds/01%20Complete%20Project/Colour%20Mix%201.jpg",
           "alt": "Vertical blinds with mixed-colour fabric panels",
           "caption": "Vertical Blinds"
@@ -528,6 +648,33 @@ window.BLINDSXPERT_PRODUCTS = {
       "category": "indoor",
       "description": "Fabric blinds that gather into soft horizontal folds. Explore edge styles and fabric series for your windows.",
       "gallery": [
+        {
+          "src": "img/products/generated/web/roman-straight-main.webp",
+          "thumbnail": "img/products/generated/web/roman-straight-main-thumb.webp",
+          "alt": "Illustrative generated scene of a straight-edge beige Roman blind",
+          "caption": "Illustrative scene · Straight-edge Roman",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        },
+        {
+          "src": "img/products/generated/web/roman-scalloped-variant.webp",
+          "thumbnail": "img/products/generated/web/roman-scalloped-variant-thumb.webp",
+          "alt": "Illustrative generated scene of a scalloped-edge Roman blind",
+          "caption": "Illustrative variant · Scalloped Roman",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        },
+        {
+          "src": "img/products/generated/web/roman-detail.webp",
+          "thumbnail": "img/products/generated/web/roman-detail-thumb.webp",
+          "alt": "Illustrative generated close-up of Roman blind folds",
+          "caption": "Illustrative detail · Roman blind folds",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        },
         {
           "src": "img/products/catalogue/04%20Roman%20Blinds-20261001T083221Z-1-001/04%20Roman%20Blinds/01%20Complete%20Project/Roman%20Scallop%20Edge%201.png",
           "alt": "Roman blind with a scalloped edge",
@@ -636,6 +783,15 @@ window.BLINDSXPERT_PRODUCTS = {
       "description": "Explore the custom-colour Dream Blinds option and the examples below. Ask our team about fabrics and finishes for your space.",
       "gallery": [
         {
+          "src": "img/products/generated/web/dream-main.webp",
+          "thumbnail": "img/products/generated/web/dream-main-thumb.webp",
+          "alt": "Illustrative generated scene of Dream blinds over a tropical sliding door",
+          "caption": "Illustrative scene · Dream blinds",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        },
+        {
           "src": "img/products/catalogue/05%20Dream%20Blinds-20261001T083223Z-1-001/05%20Dream%20Blinds/01%20Complete%20Project/Custom%20dream%20blinds%201.png",
           "alt": "Dream blinds in a custom colour",
           "caption": "Dream Blinds"
@@ -676,9 +832,13 @@ window.BLINDSXPERT_PRODUCTS = {
       "description": "Wooden blinds for outdoor spaces, with UV / logo printing available as a customisation option.",
       "gallery": [
         {
-          "src": "img/products/catalogue/WoodenBlindsOutdoor.jpeg",
-          "alt": "Outdoor wooden blinds shown in a BlindsXpert product image",
-          "caption": "Wooden Outdoor"
+          "src": "img/products/generated/web/wooden-outdoor-main.webp",
+          "thumbnail": "img/products/generated/web/wooden-outdoor-main-thumb.webp",
+          "alt": "Illustrative generated scene of a roll-up wooden outdoor blind",
+          "caption": "Illustrative scene · Wooden outdoor blind",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
         },
         {
           "src": "img/projects/completed/Saujana%20Impian.png",
@@ -706,9 +866,13 @@ window.BLINDSXPERT_PRODUCTS = {
       "description": "Outdoor bamboo blinds with a natural, traditional appearance.",
       "gallery": [
         {
-          "src": "img/products/catalogue/BambooBlindsOutdoor.jpeg",
-          "alt": "Outdoor bamboo blinds shown in a BlindsXpert product image",
-          "caption": "Bamboo Outdoor"
+          "src": "img/products/generated/web/bamboo-outdoor-main.webp",
+          "thumbnail": "img/products/generated/web/bamboo-outdoor-main-thumb.webp",
+          "alt": "Illustrative generated scene of a bamboo outdoor blind",
+          "caption": "Illustrative scene · Bamboo outdoor blind",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
         },
         {
           "src": "img/projects/completed/Lestari%20Perdana.png",
@@ -727,9 +891,13 @@ window.BLINDSXPERT_PRODUCTS = {
       "description": "A track-guided outdoor blind system. Explore the PVC and motorized options listed in our catalogue with our team.",
       "gallery": [
         {
-          "src": "img/products/catalogue/ZipTrakPVCOutdoorBlinds.jpeg",
-          "alt": "ZipTrak PVC outdoor blinds shown in a BlindsXpert product image",
-          "caption": "ZipTrak PVC Outdoor"
+          "src": "img/products/generated/web/ziptrak-outdoor-illustrative.webp",
+          "thumbnail": "img/products/generated/web/ziptrak-outdoor-illustrative-thumb.webp",
+          "alt": "Illustrative generated outdoor solar screen scene; the mechanism and brand may differ",
+          "caption": "Illustrative outdoor screen scene · mechanism and brand may differ",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
         }
       ],
       "documents": [],
@@ -747,6 +915,15 @@ window.BLINDSXPERT_PRODUCTS = {
       "description": "Explore PVC outdoor blinds for your space. Ask our team to confirm the available system, finish and installation requirements.",
       "gallery": [
         {
+          "src": "img/products/generated/web/pvc-outdoor-main.webp",
+          "thumbnail": "img/products/generated/web/pvc-outdoor-main-thumb.webp",
+          "alt": "Illustrative generated scene of a transparent PVC outdoor roller blind",
+          "caption": "Illustrative scene · PVC outdoor blind",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        },
+        {
           "src": "img/projects/completed/Sunway%20Eastwood.png",
           "alt": "Sunway Eastwood · PVC outdoor blinds",
           "caption": "Sunway Eastwood · PVC outdoor blinds"
@@ -761,7 +938,17 @@ window.BLINDSXPERT_PRODUCTS = {
       "name": "Awnings & Canopies",
       "category": "outdoor",
       "description": "Explore awnings and canopies for a sheltered outdoor space. Ask our team about the available designs.",
-      "gallery": [],
+      "gallery": [
+        {
+          "src": "img/products/generated/web/awning-canopy-main.webp",
+          "thumbnail": "img/products/generated/web/awning-canopy-main-thumb.webp",
+          "alt": "Illustrative generated scene of a retractable beige patio awning",
+          "caption": "Illustrative scene · Awning",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        }
+      ],
       "documents": [],
       "options": [],
       "series": []
@@ -783,9 +970,13 @@ window.BLINDSXPERT_PRODUCTS = {
       "description": "Explore motorized blind solutions, product demonstrations and the Somfy and Dooya ranges listed in our catalogue.",
       "gallery": [
         {
-          "src": "img/products/catalogue/MotorizedOutdoor.jpeg",
-          "alt": "Motorized outdoor blinds with a handheld remote in a BlindsXpert product image",
-          "caption": "Motorized"
+          "src": "img/products/generated/web/motorized-main.webp",
+          "thumbnail": "img/products/generated/web/motorized-main-thumb.webp",
+          "alt": "Illustrative generated scene of two motorized beige Roller blinds",
+          "caption": "Illustrative scene · Motorized blinds",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
         },
         {
           "src": "img/projects/completed/Seri%20Kembangan.png",
@@ -806,7 +997,17 @@ window.BLINDSXPERT_PRODUCTS = {
       "name": "Skylight Blinds",
       "category": "other",
       "description": "Shading solutions for glass roofs and inclined windows. Ask our team about a system for your opening.",
-      "gallery": [],
+      "gallery": [
+        {
+          "src": "img/products/generated/web/skylight-main.webp",
+          "thumbnail": "img/products/generated/web/skylight-main-thumb.webp",
+          "alt": "Illustrative generated scene of pleated blinds fitted to sloped skylights",
+          "caption": "Illustrative scene · Skylight blinds",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        }
+      ],
       "documents": [],
       "options": [],
       "series": []
@@ -816,7 +1017,17 @@ window.BLINDSXPERT_PRODUCTS = {
       "name": "Curtain Hardware",
       "category": "other",
       "description": "Explore curtain rails and curtain rods. Our team can help you choose the hardware for your curtain and opening.",
-      "gallery": [],
+      "gallery": [
+        {
+          "src": "img/products/generated/web/curtain-hardware-main.webp",
+          "thumbnail": "img/products/generated/web/curtain-hardware-main-thumb.webp",
+          "alt": "Illustrative generated display of curtain tracks, rails and rods",
+          "caption": "Illustrative scene · Curtain hardware",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        }
+      ],
       "documents": [],
       "options": [
         "Curtain rail",
@@ -831,6 +1042,24 @@ window.BLINDSXPERT_PRODUCTS = {
       "category": "indoor",
       "description": "Its hexagonal hollow layers store air. The official site describes heat insulation, noise reduction and temperature stability.",
       "gallery": [
+        {
+          "src": "img/products/generated/web/honeycomb-main.webp",
+          "thumbnail": "img/products/generated/web/honeycomb-main-thumb.webp",
+          "alt": "Illustrative generated scene of a beige Honeycomb blind",
+          "caption": "Illustrative scene · Honeycomb blind",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        },
+        {
+          "src": "img/products/generated/web/honeycomb-detail.webp",
+          "thumbnail": "img/products/generated/web/honeycomb-detail-thumb.webp",
+          "alt": "Illustrative generated close-up of Honeycomb blind cells",
+          "caption": "Illustrative detail · Honeycomb cells",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        },
         {
           "src": "img/gallery/samples/11.png",
           "alt": "Cellular honeycomb blinds beside a window with a close-up of pleated cells",

@@ -7,7 +7,7 @@
     const form = $('#productEnquiryForm');
     const note = $('#productFormNote');
     const dialog = $('[data-product-lightbox]');
-    let activeProduct, activeOption = '', activeSeries = null, returnFocus;
+    let activeProduct, activeOption = '', activeSeries = null, returnFocus, viewerPhotos = [], viewerIndex = 0;
     const names = {indoor:'Indoor blinds', outdoor:'Outdoor blinds', motorized:'Motorized solutions', other:'Other products'};
     const node = (tag, className, content) => {
         const el = document.createElement(tag);
@@ -15,21 +15,53 @@
         if (content !== undefined) el.textContent = content;
         return el;
     };
-    function openImage(photo, trigger) {
-        returnFocus = trigger;
-        $('[data-pd-lightbox-image]').src = photo.src;
-        $('[data-pd-lightbox-image]').alt = photo.alt;
+    function renderViewerImage() {
+        const photo = viewerPhotos[viewerIndex];
+        if (!photo) return;
+        const image = $('[data-pd-lightbox-image]');
+        image.src = photo.src; image.alt = photo.alt;
+        if (photo.width) image.width = photo.width;
+        if (photo.height) image.height = photo.height;
         $('[data-pd-lightbox-caption]').textContent = photo.caption;
+        $('[data-pd-previous]').hidden = viewerPhotos.length < 2;
+        $('[data-pd-next]').hidden = viewerPhotos.length < 2;
+    }
+    function openImage(photo, trigger, collection = [photo]) {
+        returnFocus = trigger;
+        viewerPhotos = collection;
+        viewerIndex = Math.max(0, viewerPhotos.findIndex(image => image.src === photo.src));
+        renderViewerImage();
         dialog.showModal();
     }
+    function moveViewer(direction) {
+        if (viewerPhotos.length < 2) return;
+        viewerIndex = (viewerIndex + direction + viewerPhotos.length) % viewerPhotos.length;
+        renderViewerImage();
+    }
     $('[data-pd-close]').addEventListener('click', () => dialog.close());
+    $('[data-pd-previous]').addEventListener('click', () => moveViewer(-1));
+    $('[data-pd-next]').addEventListener('click', () => moveViewer(1));
+    dialog.addEventListener('keydown', event => {
+        if (event.key === 'ArrowLeft') { event.preventDefault(); moveViewer(-1); }
+        if (event.key === 'ArrowRight') { event.preventDefault(); moveViewer(1); }
+    });
+    let touchStartX = null;
+    dialog.addEventListener('touchstart', event => { touchStartX = event.changedTouches[0]?.clientX ?? null; }, {passive:true});
+    dialog.addEventListener('touchend', event => {
+        if (touchStartX === null) return;
+        const distance = event.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(distance) > 48) moveViewer(distance > 0 ? -1 : 1);
+        touchStartX = null;
+    }, {passive:true});
     dialog.addEventListener('click', e => { if (e.target === dialog) { const r = dialog.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) dialog.close(); } });
     dialog.addEventListener('close', () => { $('[data-pd-lightbox-image]').removeAttribute('src'); returnFocus?.focus(); });
-    function imageFigure(photo, reference = false) {
+    function imageFigure(photo, reference = false, collection = [photo]) {
         const figure = node('figure', reference ? 'pd-reference' : 'pd-photo');
         const button = node('button'); button.type = 'button'; button.setAttribute('aria-label', `View full image: ${photo.caption}`);
-        const img = node('img'); img.src = photo.src; img.alt = photo.alt; img.loading = 'lazy';
-        button.append(img); button.addEventListener('click', () => openImage(photo, button));
+        const img = node('img'); img.src = photo.thumbnail || photo.src; img.alt = photo.alt; img.loading = 'lazy'; img.decoding = 'async';
+        if (photo.width) img.width = photo.width;
+        if (photo.height) img.height = photo.height;
+        button.append(img); button.addEventListener('click', () => openImage(photo, button, collection));
         figure.append(button, node('figcaption', '', photo.caption));
         return figure;
     }
@@ -50,7 +82,7 @@
         const docs = activeProduct.documents;
         const selected = activeSeries?.document;
         const ordered = selected ? [selected, ...docs.filter(d => d.src !== selected.src)] : docs;
-        for (const photo of ordered) refs.append(imageFigure(photo, true));
+        for (const photo of ordered) refs.append(imageFigure(photo, true, ordered));
         $('[data-series-title]').textContent = activeSeries ? `${activeSeries.name} Series` : 'Specifications & fabric references';
         $('[data-series-description]').textContent = activeSeries ? 'Browse the original catalogue sheet below. Specifications apply to this series only; ask our team to confirm colours and option combinations.' : 'View the original sample images and catalogue sheets. Open a reference to read it at full size.';
         const area = $('[data-spec-table]'); area.replaceChildren();
@@ -66,7 +98,9 @@
     }
     function showMainImage(photo) {
         const image = $('[data-product-image]'); image.src = photo.src; image.alt = photo.alt;
-        $('[data-main-image-button]').onclick = () => openImage(photo, $('[data-main-image-button]'));
+        if (photo.width) image.width = photo.width;
+        if (photo.height) image.height = photo.height;
+        $('[data-main-image-button]').onclick = () => openImage(photo, $('[data-main-image-button]'), activeProduct.gallery);
         $('[data-thumbnails]').querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.src === photo.src)));
     }
     function chooseOption(option) {
@@ -110,9 +144,11 @@
         select.value = product.id;
         const thumbs = $('[data-thumbnails]'); thumbs.replaceChildren();
         $('[data-product-visual]').hidden = !product.gallery.length; $('#overview').classList.toggle('pd-no-image',!product.gallery.length);
-        for (const photo of product.gallery.slice(0,7)) {
+        const featuredPhotos = product.gallery.filter(photo => photo.featuredThumbnail);
+        const otherPhotos = product.gallery.filter(photo => !photo.featuredThumbnail);
+        for (const photo of [...featuredPhotos, ...otherPhotos].slice(0,7)) {
             const button = node('button'); button.type = 'button'; button.dataset.src = photo.src; button.setAttribute('aria-label', `Show ${photo.caption}`);
-            const img = node('img'); img.src = photo.src; img.alt = ''; img.loading='lazy'; button.append(img); button.onclick=()=>showMainImage(photo); thumbs.append(button);
+            const img = node('img'); img.src = photo.thumbnail || photo.src; img.alt = ''; img.width = 320; img.height = 320; img.loading='lazy'; img.decoding='async'; button.append(img); button.onclick=()=>showMainImage(photo); thumbs.append(button);
         }
         if(product.gallery.length) showMainImage(product.gallery[0]); else $('[data-product-image]').removeAttribute('src');
         const options = $('[data-options]'); options.replaceChildren();
@@ -124,7 +160,7 @@
         for(const series of product.series) {const button=node('button','pd-series-button');button.type='button';button.dataset.series=series.name;button.setAttribute('aria-pressed',String(series===activeSeries));button.append(node('strong','',series.name),node('span','',series.specs['Light transmission'] || 'View catalogue details'));button.onclick=()=>chooseSeries(series);seriesGrid.append(button);}
         $('[data-series-section]').hidden=!product.series.length;$('[data-nav-series]').hidden=!product.series.length;
         renderReferences();
-        const gallery=$('[data-gallery]');gallery.replaceChildren();for(const photo of product.gallery) gallery.append(imageFigure(photo));
+        const gallery=$('[data-gallery]');gallery.replaceChildren();for(const photo of product.gallery) gallery.append(imageFigure(photo, false, product.gallery));
         $('[data-gallery-section]').hidden=!product.gallery.length;$('[data-nav-gallery]').hidden=!product.gallery.length;
         $('[data-motorized-section]').hidden=product.id!=='motorized';
         const related=$('[data-motorized-links]');related.replaceChildren();
