@@ -898,6 +898,15 @@ window.BLINDSXPERT_PRODUCTS = {
           "width": 1254,
           "height": 1254,
           "featuredThumbnail": true
+        },
+        {
+          "src": "img/products/generated/web/outdoor-screen-example.webp",
+          "thumbnail": "img/products/generated/web/outdoor-screen-example-thumb.webp",
+          "alt": "Generic track-guided outdoor screen in an illustrative Malaysian home setting",
+          "caption": "Illustrative example · Generic track-guided outdoor screen",
+          "width": 1254,
+          "height": 1254,
+          "exampleOnly": true
         }
       ],
       "documents": [],
@@ -947,6 +956,15 @@ window.BLINDSXPERT_PRODUCTS = {
           "width": 1254,
           "height": 1254,
           "featuredThumbnail": true
+        },
+        {
+          "src": "img/products/generated/web/awning-example.webp",
+          "thumbnail": "img/products/generated/web/awning-example-thumb.webp",
+          "alt": "Patio awning in an illustrative Malaysian home setting",
+          "caption": "Illustrative example · Patio awning",
+          "width": 1254,
+          "height": 1254,
+          "exampleOnly": true
         }
       ],
       "documents": [],
@@ -1006,6 +1024,15 @@ window.BLINDSXPERT_PRODUCTS = {
           "width": 1254,
           "height": 1254,
           "featuredThumbnail": true
+        },
+        {
+          "src": "img/products/generated/web/skylight-example.webp",
+          "thumbnail": "img/products/generated/web/skylight-example-thumb.webp",
+          "alt": "Skylight shades in an illustrative Malaysian home setting",
+          "caption": "Illustrative example · Skylight shades",
+          "width": 1254,
+          "height": 1254,
+          "exampleOnly": true
         }
       ],
       "documents": [],
@@ -1019,13 +1046,29 @@ window.BLINDSXPERT_PRODUCTS = {
       "description": "Explore curtain rails and curtain rods. Our team can help you choose the hardware for your curtain and opening.",
       "gallery": [
         {
-          "src": "img/products/generated/web/curtain-hardware-main.webp",
-          "thumbnail": "img/products/generated/web/curtain-hardware-main-thumb.webp",
-          "alt": "Illustrative generated display of curtain tracks, rails and rods",
-          "caption": "Illustrative scene · Curtain hardware",
+          "src": "img/products/generated/web/curtain-rod-full-length.webp",
+          "thumbnail": "img/products/generated/web/curtain-rod-full-length-thumb.webp",
+          "alt": "Illustrative full-length curtain rod installed across a Malaysian home window",
+          "caption": "Illustrative scene · full-length curtain rod",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "src": "img/products/generated/web/curtain-rail-full-length.webp",
+          "thumbnail": "img/products/generated/web/curtain-rail-full-length-thumb.webp",
+          "alt": "Illustrative full-length curtain rail installed across a Malaysian home window",
+          "caption": "Illustrative scene · full-length curtain rail",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "src": "img/products/generated/web/curtain-hardware-example.webp",
+          "thumbnail": "img/products/generated/web/curtain-hardware-example-thumb.webp",
+          "alt": "Full-length curtain rod and rail in an illustrative Malaysian home setting",
+          "caption": "Illustrative example · Full-length curtain rod and rail",
           "width": 1254,
           "height": 1254,
-          "featuredThumbnail": true
+          "exampleOnly": true
         }
       ],
       "documents": [],

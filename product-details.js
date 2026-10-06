@@ -77,38 +77,35 @@
         $('[data-enquiry-selection]').textContent = parts.length ? `Your enquiry: ${parts.join(' · ')}` : '';
         if (activeProduct) updateUrl();
     }
+    const overviewPhotos = product => product.gallery.filter(photo => photo.src.includes('/generated/') && !photo.src.includes('-detail') && !photo.exampleOnly);
+    const examplePhotos = product => product.gallery.filter(photo => !overviewPhotos(product).includes(photo) || photo.exampleOnly).filter(photo => !photo.src.includes('colour-material-inspiration'));
     function renderReferences() {
-        const refs = $('[data-references]'); refs.replaceChildren();
-        const docs = activeProduct.documents;
-        const selected = activeSeries?.document;
-        const ordered = selected ? [selected, ...docs.filter(d => d.src !== selected.src)] : docs;
-        for (const photo of ordered) refs.append(imageFigure(photo, true, ordered));
-        $('[data-series-title]').textContent = activeSeries ? `${activeSeries.name} Series` : 'Specifications & fabric references';
-        $('[data-series-description]').textContent = activeSeries ? 'Browse the original catalogue sheet below. Specifications apply to this series only; ask our team to confirm colours and option combinations.' : 'View the original sample images and catalogue sheets. Open a reference to read it at full size.';
+        $('[data-series-title]').textContent = activeSeries ? `${activeSeries.name} Series` : 'Specifications & product information';
+        $('[data-series-description]').textContent = activeSeries ? 'Specifications apply to this series only. Confirm colours, availability and option combinations with our team.' : activeProduct.description;
         const area = $('[data-spec-table]'); area.replaceChildren();
-        const specs = Object.entries(activeSeries?.specs || {});
+        const specs = Object.entries(activeSeries?.specs || { 'Product': activeProduct.name, ...(activeProduct.options.length ? {[activeProduct.optionLabel || 'Available options']: activeProduct.options.join(', ')} : {}) });
         if (specs.length) {
-            const table = node('table', 'pd-spec-table'); const caption = node('caption', 'visually-hidden', `${activeSeries.name} specifications`); table.append(caption);
+            const table = node('table', 'pd-spec-table'); const caption = node('caption', 'visually-hidden', `${activeSeries?.name || activeProduct.name} specifications`); table.append(caption);
             const tbody = node('tbody');
             for (const [label, value] of specs) { const row = node('tr'); const heading = node('th','',label); heading.scope = 'row'; row.append(heading, node('td','',value)); tbody.append(row); }
-            table.append(tbody); area.append(table, node('p','pd-small','Fabric width is not the guaranteed finished blind width. Final dimensions and suitability require confirmation.'));
+            table.append(tbody); area.append(table, node('p','pd-small',activeSeries ? 'Fabric width is not the guaranteed finished blind width. Final dimensions and suitability require confirmation.' : 'Confirm final dimensions, materials, colours and suitability with our team.'));
         }
-        $('[data-spec-section]').hidden = !ordered.length && !specs.length;
+        $('[data-spec-section]').hidden = false;
         $('[data-nav-specifications]').hidden = $('[data-spec-section]').hidden;
     }
     function showMainImage(photo) {
         const image = $('[data-product-image]'); image.src = photo.src; image.alt = photo.alt;
         if (photo.width) image.width = photo.width;
         if (photo.height) image.height = photo.height;
-        $('[data-main-image-button]').onclick = () => openImage(photo, $('[data-main-image-button]'), activeProduct.gallery);
+        $('[data-main-image-button]').onclick = () => openImage(photo, $('[data-main-image-button]'), overviewPhotos(activeProduct));
         $('[data-thumbnails]').querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.src === photo.src)));
     }
     function chooseOption(option) {
         activeOption = option;
         $('[data-options]').querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.textContent === option)));
-        // A matching filename can switch the project example; it never recolours a photo.
-        const keyword = option.toLowerCase().replace(' edge','');
-        const match = activeProduct.gallery.find(photo => decodeURIComponent(photo.src).toLowerCase().includes(keyword));
+        // Only generated overview variants can change the opening image.
+        const keyword = option.toLowerCase().replace(' edge','').replaceAll(' ', '-');
+        const match = overviewPhotos(activeProduct).find(photo => decodeURIComponent(photo.src).toLowerCase().replaceAll(' ', '-').includes(keyword));
         if (match) showMainImage(match);
         // Roller series and light-control choices must not contradict one another.
         if (activeProduct.id === 'roller' && activeSeries) {
@@ -143,14 +140,14 @@
         if (![...select.options].some(o => o.value === product.id)) select.add(new Option(product.name,product.id));
         select.value = product.id;
         const thumbs = $('[data-thumbnails]'); thumbs.replaceChildren();
-        $('[data-product-visual]').hidden = !product.gallery.length; $('#overview').classList.toggle('pd-no-image',!product.gallery.length);
-        const featuredPhotos = product.gallery.filter(photo => photo.featuredThumbnail);
-        const otherPhotos = product.gallery.filter(photo => !photo.featuredThumbnail);
-        for (const photo of [...featuredPhotos, ...otherPhotos].slice(0,7)) {
+        const primaryPhotos = overviewPhotos(product).filter(photo => !photo.exampleOnly);
+        $('[data-product-visual]').hidden = !primaryPhotos.length; $('#overview').classList.toggle('pd-no-image',!primaryPhotos.length);
+        thumbs.hidden = primaryPhotos.length < 2;
+        for (const photo of primaryPhotos) {
             const button = node('button'); button.type = 'button'; button.dataset.src = photo.src; button.setAttribute('aria-label', `Show ${photo.caption}`);
             const img = node('img'); img.src = photo.thumbnail || photo.src; img.alt = ''; img.width = 320; img.height = 320; img.loading='lazy'; img.decoding='async'; button.append(img); button.onclick=()=>showMainImage(photo); thumbs.append(button);
         }
-        if(product.gallery.length) showMainImage(product.gallery[0]); else $('[data-product-image]').removeAttribute('src');
+        if(primaryPhotos.length) showMainImage(primaryPhotos[0]); else $('[data-product-image]').removeAttribute('src');
         const options = $('[data-options]'); options.replaceChildren();
         $('[data-option-wrap]').hidden = !product.options.length; $('[data-option-label]').textContent = product.optionLabel || 'Options';
         for (const option of product.options) { const button = node('button','',option); button.type='button';button.setAttribute('aria-pressed',String(option===activeOption));button.onclick=()=>chooseOption(option);options.append(button); }
@@ -160,8 +157,11 @@
         for(const series of product.series) {const button=node('button','pd-series-button');button.type='button';button.dataset.series=series.name;button.setAttribute('aria-pressed',String(series===activeSeries));button.append(node('strong','',series.name),node('span','',series.specs['Light transmission'] || 'View catalogue details'));button.onclick=()=>chooseSeries(series);seriesGrid.append(button);}
         $('[data-series-section]').hidden=!product.series.length;$('[data-nav-series]').hidden=!product.series.length;
         renderReferences();
-        const gallery=$('[data-gallery]');gallery.replaceChildren();for(const photo of product.gallery) gallery.append(imageFigure(photo, false, product.gallery));
-        $('[data-gallery-section]').hidden=!product.gallery.length;$('[data-nav-gallery]').hidden=!product.gallery.length;
+        const examples = examplePhotos(product);
+        const gallery=$('[data-gallery]'); gallery.replaceChildren();
+        for(const photo of examples) gallery.append(imageFigure(photo, false, examples));
+        if (!examples.length) gallery.append(node('p','pd-small','Contact our team for product photos and suitable installation examples.'));
+        $('[data-gallery-section]').hidden=false; $('[data-nav-gallery]').hidden=false;
         $('[data-motorized-section]').hidden=product.id!=='motorized';
         const related=$('[data-motorized-links]');related.replaceChildren();
         for(const [label,id] of [['Roller Blinds','roller'],['Venetian Blinds','venetian'],['Ziptrak Outdoor Blinds','ziptrak-outdoor']]){const a=node('a','',label+' →');a.href=`product-details.html?product=${id}`;related.append(a);}
@@ -202,3 +202,4 @@
         window.open(`https://wa.me/60176356542?text=${encodeURIComponent(lines.join('\n'))}`,'_blank','noopener,noreferrer');
     });
 })();
+
