@@ -77,7 +77,7 @@
         $('[data-enquiry-selection]').textContent = parts.length ? `Your enquiry: ${parts.join(' · ')}` : '';
         if (activeProduct) updateUrl();
     }
-    const overviewPhotos = product => product.gallery.filter(photo => photo.src.includes('/generated/') && !photo.src.includes('-detail') && !photo.exampleOnly);
+    const overviewPhotos = product => product.gallery.filter(photo => photo.src.includes('/generated/') && (!photo.src.includes('-detail') || photo.overview === true) && !photo.exampleOnly);
     const examplePhotos = product => product.gallery.filter(photo => !overviewPhotos(product).includes(photo) || photo.exampleOnly).filter(photo => !photo.src.includes('colour-material-inspiration'));
     function renderReferences() {
         $('[data-series-title]').textContent = activeSeries ? `${activeSeries.name} Series` : 'Specifications & product information';
@@ -100,13 +100,16 @@
         $('[data-main-image-button]').onclick = () => openImage(photo, $('[data-main-image-button]'), overviewPhotos(activeProduct));
         $('[data-thumbnails]').querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.src === photo.src)));
     }
+    function showOptionImage() {
+        const photos = overviewPhotos(activeProduct);
+        const target = activeProduct.optionImages?.[activeOption];
+        const photo = photos.find(photo => photo.src === target) || photos[0];
+        if (photo) showMainImage(photo);
+    }
     function chooseOption(option) {
         activeOption = option;
         $('[data-options]').querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.textContent === option)));
-        // Only generated overview variants can change the opening image.
-        const keyword = option.toLowerCase().replace(' edge','').replaceAll(' ', '-');
-        const match = overviewPhotos(activeProduct).find(photo => decodeURIComponent(photo.src).toLowerCase().replaceAll(' ', '-').includes(keyword));
-        if (match) showMainImage(match);
+        showOptionImage();
         // Roller series and light-control choices must not contradict one another.
         if (activeProduct.id === 'roller' && activeSeries) {
             const matching = {'Blackwell Waterproof':'Blackout','Vado Solarscreen':'Sunscreen','Sega Classic':'Translucent'};
@@ -125,12 +128,13 @@
             $('[data-options]').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.textContent === activeOption)));
         }
         $('[data-series-grid]').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.series === series.name)));
+        showOptionImage();
         renderReferences(); updateSelection();
     }
     function showProduct(product, option = '', seriesName = '', updateHistory = true) {
         activeProduct = product;
-        activeOption = product.options.includes(option) ? option : '';
-        activeSeries = product.series.find(s => s.name === seriesName) || product.series[0] || null;
+        activeOption = product.options.includes(option) ? option : (product.defaultOption || '');
+        activeSeries = product.series.find(s => s.name === seriesName) || (!option ? product.series[0] : null) || null;
         $('[data-product-picker]').hidden = true; $('[data-product-content]').hidden = false;
         $('[data-product-name]').textContent = product.name; $('[data-product-category]').textContent = names[product.category];
         $('[data-product-description]').textContent = product.description; $('[data-breadcrumb]').textContent = product.name;
@@ -202,4 +206,5 @@
         window.open(`https://wa.me/60176356542?text=${encodeURIComponent(lines.join('\n'))}`,'_blank','noopener,noreferrer');
     });
 })();
+
 

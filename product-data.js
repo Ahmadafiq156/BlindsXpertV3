@@ -22,7 +22,8 @@ window.BLINDSXPERT_PRODUCTS = {
           "caption": "Illustrative detail · Zebra blind bands",
           "width": 1254,
           "height": 1254,
-          "featuredThumbnail": true
+          "featuredThumbnail": true,
+          "overview": true
         },
         {
           "src": "img/products/catalogue/02%20Zebra%20Blinds-20261001T083216Z-1-001/02%20Zebra%20Blinds/01%20Complete%20Project/A1.png",
@@ -43,6 +44,15 @@ window.BLINDSXPERT_PRODUCTS = {
           "src": "img/products/catalogue/02%20Zebra%20Blinds-20261001T083216Z-1-001/02%20Zebra%20Blinds/01%20Complete%20Project/A4.png",
           "alt": "Zebra blind project image 4",
           "caption": "Project image 4"
+        },
+        {
+          "src": "img/products/generated/web/zebra-custom-variant.webp",
+          "thumbnail": "img/products/generated/web/zebra-custom-variant-thumb.webp",
+          "alt": "Illustrative zebra custom variant in a Malaysian setting",
+          "caption": "Illustrative product view · zebra custom",
+          "width": 1254,
+          "height": 1254,
+          "overview": true
         }
       ],
       "documents": [
@@ -169,7 +179,12 @@ window.BLINDSXPERT_PRODUCTS = {
           }
         }
       ],
-      "optionLabel": "Range"
+      "optionLabel": "Range",
+      "optionImages": {
+        "Custom": "img/products/generated/web/zebra-custom-variant.webp",
+        "Generic": "img/products/generated/web/zebra-main.webp"
+      },
+      "defaultOption": "Generic"
     },
     {
       "id": "roller",
@@ -178,13 +193,23 @@ window.BLINDSXPERT_PRODUCTS = {
       "description": "A simple roll-up design for controlling light. Explore blackout, sunscreen and translucent fabric options.",
       "gallery": [
         {
+          "src": "img/products/generated/web/roller-blackout-variant.webp",
+          "thumbnail": "img/products/generated/web/roller-blackout-variant-thumb.webp",
+          "alt": "Illustrative roller blackout variant in a Malaysian setting",
+          "caption": "Illustrative product view · roller blackout",
+          "width": 1254,
+          "height": 1254,
+          "overview": true
+        },
+        {
           "src": "img/products/generated/web/roller-main.webp",
           "thumbnail": "img/products/generated/web/roller-main-thumb.webp",
           "alt": "Illustrative generated scene of a beige Roller blind in a bright interior",
           "caption": "Illustrative scene · Roller blind",
           "width": 1254,
           "height": 1254,
-          "featuredThumbnail": true
+          "featuredThumbnail": true,
+          "exampleOnly": true
         },
         {
           "src": "img/products/generated/web/roller-detail.webp",
@@ -193,7 +218,8 @@ window.BLINDSXPERT_PRODUCTS = {
           "caption": "Illustrative detail · Roller blind hem",
           "width": 1254,
           "height": 1254,
-          "featuredThumbnail": true
+          "featuredThumbnail": true,
+          "overview": true
         },
         {
           "src": "img/products/generated/web/roller-sunscreen-variant.webp",
@@ -202,7 +228,8 @@ window.BLINDSXPERT_PRODUCTS = {
           "caption": "Illustrative variant · Sunscreen Roller",
           "width": 1254,
           "height": 1254,
-          "featuredThumbnail": true
+          "featuredThumbnail": true,
+          "exampleOnly": true
         },
         {
           "src": "img/products/catalogue/01%20Roller%20Blinds-20261001T083215Z-1-001/01%20Roller%20Blinds/01%20Complete%20Project/A1.png",
@@ -238,6 +265,24 @@ window.BLINDSXPERT_PRODUCTS = {
           "src": "img/products/catalogue/01%20Roller%20Blinds-20261001T083215Z-1-001/01%20Roller%20Blinds/01%20Complete%20Project/A7.png",
           "alt": "Roller blind project image 7",
           "caption": "Project image 7"
+        },
+        {
+          "src": "img/products/generated/web/roller-sunscreen-v2-variant.webp",
+          "thumbnail": "img/products/generated/web/roller-sunscreen-v2-variant-thumb.webp",
+          "alt": "Illustrative roller sunscreen v2 variant in a Malaysian setting",
+          "caption": "Illustrative product view · roller sunscreen",
+          "width": 1254,
+          "height": 1254,
+          "overview": true
+        },
+        {
+          "src": "img/products/generated/web/roller-translucent-variant.webp",
+          "thumbnail": "img/products/generated/web/roller-translucent-variant-thumb.webp",
+          "alt": "Illustrative roller translucent variant in a Malaysian setting",
+          "caption": "Illustrative product view · roller translucent",
+          "width": 1254,
+          "height": 1254,
+          "overview": true
         }
       ],
       "documents": [
@@ -383,7 +428,13 @@ window.BLINDSXPERT_PRODUCTS = {
           }
         }
       ],
-      "optionLabel": "Fabric type"
+      "optionLabel": "Fabric type",
+      "optionImages": {
+        "Blackout": "img/products/generated/web/roller-blackout-variant.webp",
+        "Sunscreen": "img/products/generated/web/roller-sunscreen-v2-variant.webp",
+        "Translucent": "img/products/generated/web/roller-translucent-variant.webp"
+      },
+      "defaultOption": "Blackout"
     },
     {
       "id": "panel",
@@ -392,13 +443,23 @@ window.BLINDSXPERT_PRODUCTS = {
       "description": "Sliding panels for large windows, with blackout, sunscreen and translucent options.",
       "gallery": [
         {
+          "src": "img/products/generated/web/panel-blackout-variant.webp",
+          "thumbnail": "img/products/generated/web/panel-blackout-variant-thumb.webp",
+          "alt": "Illustrative panel blackout variant in a Malaysian setting",
+          "caption": "Illustrative product view · panel blackout",
+          "width": 1254,
+          "height": 1254,
+          "overview": true
+        },
+        {
           "src": "img/products/generated/web/panel-main.webp",
           "thumbnail": "img/products/generated/web/panel-main-thumb.webp",
           "alt": "Illustrative generated scene of beige Panel blinds across a sliding door",
           "caption": "Illustrative scene · Panel blinds",
           "width": 1254,
           "height": 1254,
-          "featuredThumbnail": true
+          "featuredThumbnail": true,
+          "exampleOnly": true
         },
         {
           "src": "img/products/generated/web/panel-detail.webp",
@@ -407,7 +468,8 @@ window.BLINDSXPERT_PRODUCTS = {
           "caption": "Illustrative detail · Panel blind fabric",
           "width": 1254,
           "height": 1254,
-          "featuredThumbnail": true
+          "featuredThumbnail": true,
+          "overview": true
         },
         {
           "src": "img/products/catalogue/07%20Panel%20Blinds-20261001T083229Z-1-001/07%20Panel%20Blinds/01%20Complete%20Project/Blackout.jpg",
@@ -427,7 +489,25 @@ window.BLINDSXPERT_PRODUCTS = {
         {
           "src": "img/products/catalogue/07%20Panel%20Blinds-20261001T083229Z-1-001/07%20Panel%20Blinds/01%20Complete%20Project/Gemini_Generated_Image_of8y1of8y1of8y1o.jpeg",
           "alt": "Panel blind example",
-          "caption": "Panel blind example"
+          "caption": "Illustrative example · Panel Blinds"
+        },
+        {
+          "src": "img/products/generated/web/panel-sunscreen-variant.webp",
+          "thumbnail": "img/products/generated/web/panel-sunscreen-variant-thumb.webp",
+          "alt": "Illustrative panel sunscreen variant in a Malaysian setting",
+          "caption": "Illustrative product view · panel sunscreen",
+          "width": 1254,
+          "height": 1254,
+          "overview": true
+        },
+        {
+          "src": "img/products/generated/web/panel-translucent-variant.webp",
+          "thumbnail": "img/products/generated/web/panel-translucent-variant-thumb.webp",
+          "alt": "Illustrative panel translucent variant in a Malaysian setting",
+          "caption": "Illustrative product view · panel translucent",
+          "width": 1254,
+          "height": 1254,
+          "overview": true
         }
       ],
       "documents": [
@@ -443,7 +523,13 @@ window.BLINDSXPERT_PRODUCTS = {
         "Translucent"
       ],
       "series": [],
-      "optionLabel": "Fabric type"
+      "optionLabel": "Fabric type",
+      "optionImages": {
+        "Blackout": "img/products/generated/web/panel-blackout-variant.webp",
+        "Sunscreen": "img/products/generated/web/panel-sunscreen-variant.webp",
+        "Translucent": "img/products/generated/web/panel-translucent-variant.webp"
+      },
+      "defaultOption": "Blackout"
     },
     {
       "id": "venetian",
@@ -485,7 +571,8 @@ window.BLINDSXPERT_PRODUCTS = {
           "caption": "Illustrative detail · Timber Venetian slats",
           "width": 1254,
           "height": 1254,
-          "featuredThumbnail": true
+          "featuredThumbnail": true,
+          "overview": true
         },
         {
           "src": "img/products/catalogue/03%20Venetian%20Blinds-20261001T083218Z-1-001/03%20Venetian%20Blinds/01%20Complete%20Project/Aluminium%201.png",
@@ -521,6 +608,15 @@ window.BLINDSXPERT_PRODUCTS = {
           "src": "img/homepage/installed-blinds/3.png",
           "alt": "Horizontal Venetian blinds fitted in a bright interior",
           "caption": "Previously listed Lantex Venetian image"
+        },
+        {
+          "src": "img/products/generated/web/venetian-lantex-variant.webp",
+          "thumbnail": "img/products/generated/web/venetian-lantex-variant-thumb.webp",
+          "alt": "Illustrative venetian lantex variant in a Malaysian setting",
+          "caption": "Illustrative product view · venetian lantex",
+          "width": 1254,
+          "height": 1254,
+          "overview": true
         }
       ],
       "documents": [
@@ -562,7 +658,14 @@ window.BLINDSXPERT_PRODUCTS = {
         "Lantex"
       ],
       "series": [],
-      "optionLabel": "Material"
+      "optionLabel": "Material",
+      "optionImages": {
+        "Aluminium": "img/products/generated/web/venetian-aluminium-variant.webp",
+        "Timber": "img/products/generated/web/venetian-timber-main.webp",
+        "PVC": "img/products/generated/web/venetian-pvc-variant.webp",
+        "Lantex": "img/products/generated/web/venetian-lantex-variant.webp"
+      },
+      "defaultOption": "Timber"
     },
     {
       "id": "vertical",
@@ -586,7 +689,8 @@ window.BLINDSXPERT_PRODUCTS = {
           "caption": "Illustrative detail · Vertical blind vanes",
           "width": 1254,
           "height": 1254,
-          "featuredThumbnail": true
+          "featuredThumbnail": true,
+          "overview": true
         },
         {
           "src": "img/products/generated/web/vertical-fabric-detail.webp",
@@ -595,7 +699,8 @@ window.BLINDSXPERT_PRODUCTS = {
           "caption": "Illustrative detail · Vertical blind fabric",
           "width": 1254,
           "height": 1254,
-          "featuredThumbnail": true
+          "featuredThumbnail": true,
+          "overview": true
         },
         {
           "src": "img/products/catalogue/06%20Vertical%20Blinds-20261001T083225Z-1-001/06%20Vertical%20Blinds/01%20Complete%20Project/Colour%20Mix%201.jpg",
@@ -621,6 +726,15 @@ window.BLINDSXPERT_PRODUCTS = {
           "src": "img/products/catalogue/06%20Vertical%20Blinds-20261001T083225Z-1-001/06%20Vertical%20Blinds/01%20Complete%20Project/Full%20Colour%203.jpg",
           "alt": "Vertical blind project image: Full colour · project image 3",
           "caption": "Full colour · project image 3"
+        },
+        {
+          "src": "img/products/generated/web/vertical-mix-match-variant.webp",
+          "thumbnail": "img/products/generated/web/vertical-mix-match-variant-thumb.webp",
+          "alt": "Illustrative vertical mix match variant in a Malaysian setting",
+          "caption": "Illustrative product view · vertical mix match",
+          "width": 1254,
+          "height": 1254,
+          "overview": true
         }
       ],
       "documents": [
@@ -640,7 +754,12 @@ window.BLINDSXPERT_PRODUCTS = {
         "Custom colour"
       ],
       "series": [],
-      "optionLabel": "Colour arrangement"
+      "optionLabel": "Colour arrangement",
+      "optionImages": {
+        "Mix & match colour": "img/products/generated/web/vertical-mix-match-variant.webp",
+        "Custom colour": "img/products/generated/web/vertical-main.webp"
+      },
+      "defaultOption": "Custom colour"
     },
     {
       "id": "roman",
@@ -673,7 +792,8 @@ window.BLINDSXPERT_PRODUCTS = {
           "caption": "Illustrative detail · Roman blind folds",
           "width": 1254,
           "height": 1254,
-          "featuredThumbnail": true
+          "featuredThumbnail": true,
+          "overview": true
         },
         {
           "src": "img/products/catalogue/04%20Roman%20Blinds-20261001T083221Z-1-001/04%20Roman%20Blinds/01%20Complete%20Project/Roman%20Scallop%20Edge%201.png",
@@ -774,7 +894,12 @@ window.BLINDSXPERT_PRODUCTS = {
           }
         }
       ],
-      "optionLabel": "Edge style"
+      "optionLabel": "Edge style",
+      "optionImages": {
+        "Straight edge": "img/products/generated/web/roman-straight-main.webp",
+        "Scallop edge": "img/products/generated/web/roman-scalloped-variant.webp"
+      },
+      "defaultOption": "Straight edge"
     },
     {
       "id": "dream",
@@ -823,7 +948,45 @@ window.BLINDSXPERT_PRODUCTS = {
         "Custom colour"
       ],
       "series": [],
-      "optionLabel": "Colour option"
+      "optionLabel": "Colour option",
+      "optionImages": {
+        "Custom colour": "img/products/generated/web/dream-main.webp"
+      },
+      "defaultOption": "Custom colour"
+    },
+    {
+      "id": "honeycomb",
+      "name": "Honeycomb Blinds",
+      "category": "indoor",
+      "description": "Its hexagonal hollow layers store air. The official site describes heat insulation, noise reduction and temperature stability.",
+      "gallery": [
+        {
+          "src": "img/products/generated/web/honeycomb-v2-main.webp",
+          "thumbnail": "img/products/generated/web/honeycomb-v2-main-thumb.webp",
+          "alt": "Illustrative honeycomb v2 main in a Malaysian setting",
+          "caption": "Illustrative product view · honeycomb",
+          "width": 1254,
+          "height": 1254,
+          "overview": true
+        },
+        {
+          "src": "img/gallery/samples/11.png",
+          "alt": "Cellular honeycomb blinds beside a window with a close-up of pleated cells",
+          "caption": "Honeycomb"
+        },
+        {
+          "src": "img/products/generated/web/honeycomb-v2-detail.webp",
+          "thumbnail": "img/products/generated/web/honeycomb-v2-detail-thumb.webp",
+          "alt": "Illustrative honeycomb v2 detail in a Malaysian setting",
+          "caption": "Illustrative detail · honeycomb detail",
+          "width": 1254,
+          "height": 1254,
+          "overview": true
+        }
+      ],
+      "documents": [],
+      "options": [],
+      "series": []
     },
     {
       "id": "wooden-outdoor",
@@ -849,6 +1012,15 @@ window.BLINDSXPERT_PRODUCTS = {
           "src": "img/projects/completed/MR.DIY%20Pulai,%20Johor.png",
           "alt": "MR.DIY Pulai, Johor · printed wooden outdoor blinds",
           "caption": "MR.DIY Pulai, Johor · printed wooden outdoor blinds"
+        },
+        {
+          "src": "img/products/generated/web/wooden-outdoor-printed-variant.webp",
+          "thumbnail": "img/products/generated/web/wooden-outdoor-printed-variant-thumb.webp",
+          "alt": "Illustrative wooden outdoor printed variant in a Malaysian setting",
+          "caption": "Illustrative product view · wooden outdoor printed",
+          "width": 1254,
+          "height": 1254,
+          "overview": true
         }
       ],
       "documents": [],
@@ -857,7 +1029,12 @@ window.BLINDSXPERT_PRODUCTS = {
         "UV / logo printing"
       ],
       "series": [],
-      "optionLabel": "Customisation"
+      "optionLabel": "Customisation",
+      "optionImages": {
+        "Standard finish": "img/products/generated/web/wooden-outdoor-main.webp",
+        "UV / logo printing": "img/products/generated/web/wooden-outdoor-printed-variant.webp"
+      },
+      "defaultOption": "Standard finish"
     },
     {
       "id": "bamboo-outdoor",
@@ -972,16 +1149,6 @@ window.BLINDSXPERT_PRODUCTS = {
       "series": []
     },
     {
-      "id": "fix-screen-outdoor",
-      "name": "Fix Screen Outdoor",
-      "category": "outdoor",
-      "description": "Ask our team about the Fix Screen Outdoor system and its suitability for your opening.",
-      "gallery": [],
-      "documents": [],
-      "options": [],
-      "series": []
-    },
-    {
       "id": "motorized",
       "name": "Motorized Solutions",
       "category": "motorized",
@@ -1077,42 +1244,12 @@ window.BLINDSXPERT_PRODUCTS = {
         "Curtain rod"
       ],
       "series": [],
-      "optionLabel": "Hardware type"
-    },
-    {
-      "id": "honeycomb",
-      "name": "Honeycomb",
-      "category": "indoor",
-      "description": "Its hexagonal hollow layers store air. The official site describes heat insulation, noise reduction and temperature stability.",
-      "gallery": [
-        {
-          "src": "img/products/generated/web/honeycomb-main.webp",
-          "thumbnail": "img/products/generated/web/honeycomb-main-thumb.webp",
-          "alt": "Illustrative generated scene of a beige Honeycomb blind",
-          "caption": "Illustrative scene · Honeycomb blind",
-          "width": 1254,
-          "height": 1254,
-          "featuredThumbnail": true
-        },
-        {
-          "src": "img/products/generated/web/honeycomb-detail.webp",
-          "thumbnail": "img/products/generated/web/honeycomb-detail-thumb.webp",
-          "alt": "Illustrative generated close-up of Honeycomb blind cells",
-          "caption": "Illustrative detail · Honeycomb cells",
-          "width": 1254,
-          "height": 1254,
-          "featuredThumbnail": true
-        },
-        {
-          "src": "img/gallery/samples/11.png",
-          "alt": "Cellular honeycomb blinds beside a window with a close-up of pleated cells",
-          "caption": "Honeycomb"
-        }
-      ],
-      "documents": [],
-      "options": [],
-      "series": [],
-      "legacy": true
+      "optionLabel": "Hardware type",
+      "optionImages": {
+        "Curtain rod": "img/products/generated/web/curtain-rod-full-length.webp",
+        "Curtain rail": "img/products/generated/web/curtain-rail-full-length.webp"
+      },
+      "defaultOption": "Curtain rod"
     }
   ],
   "aliases": {
