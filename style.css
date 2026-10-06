@@ -868,20 +868,20 @@ a {
 
 .home-hero .hero-arrow {
     top: 50%;
-    width: 46px;
-    height: 46px;
+    width: 40px;
+    height: 48px;
     transform: translateY(-50%);
-    border: 1px solid rgb(255 255 255 / 48%);
-    border-radius: 50%;
-    background: rgb(18 18 18 / 24%);
+    border: 0;
+    border-radius: 0;
+    background: transparent;
     color: #fff;
-    box-shadow: 0 3px 12px rgb(0 0 0 / 12%);
+    box-shadow: none;
 }
 
 .home-hero .hero-arrow:hover,
 .home-hero .hero-arrow:focus-visible {
-    border-color: rgb(255 255 255 / 78%);
-    background: rgb(18 18 18 / 42%);
+    border-color: transparent;
+    background: transparent;
     color: #fff;
 }
 
@@ -942,7 +942,9 @@ a {
     }
 
     .home-hero .hero-dots {
-        display: none;
+        bottom: 20px;
+        width: 54px;
+        gap: 3px;
     }
 
     .product-information-grid {
@@ -1309,28 +1311,32 @@ a {
     left: 50%;
     bottom: 20px;
     display: flex;
-    gap: 10px;
+    gap: 4px;
+    width: min(90px, 28vw);
+    height: 3px;
+    padding: 6px 0;
     transform: translateX(-50%)
 }
 
 .hero-dot {
-    width: 12px;
-    height: 12px;
+    flex: 1;
+    min-width: 0;
+    height: 3px;
     padding: 0;
-    border: 1px solid #fff;
-    border-radius: 50%;
-    background: #ffffff70;
+    border: 0;
+    border-radius: 999px;
+    background: #ffffff80;
     cursor: pointer;
-    transition: background .2s,transform .2s
+    transition: background .2s, height .2s
 }
 
 .hero-dot:hover {
-    transform: scale(1.12)
+    background: #fff
 }
 
 .hero-dot.is-active {
     background: var(--primary-red);
-    border-color: #fff
+    height: 4px
 }
 
 /* Products dropdown shared by all page headers */
@@ -1820,7 +1826,10 @@ a {
     }
     .hero-dot {
         width: 9px;
-        height: 9px
+        height: 2px
+    }
+    .hero-dot.is-active {
+        height: 3px
     }
     .hero-slide:first-child img {
         object-position: 50% 50%
