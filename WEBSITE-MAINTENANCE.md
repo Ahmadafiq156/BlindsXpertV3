@@ -41,7 +41,7 @@ Keep script order in HTML: product data and `image-viewer.js` load before `produ
 
 Product names, categories, descriptions, galleries, options, specifications, material/series references, and example photos are stored in `assets/data/product-data.js`. Use the existing product IDs and data shape. Product IDs are used in links and query strings; changing an ID requires updating links and any stored references.
 
-The catalogue cards and filter/category sections are in `products.html`; featured homepage cards are in `index.html`. Keep those page displays aligned with the product data when adding or removing an approved product. Do not restore an old product merely because an old image exists.
+The homepage catalogue is rendered from the centralized records by `assets/js/catalogue.js`. Existing Products page cards and category headings remain in `products.html`; the two pending-content records are inserted from the same shared data. Keep existing Products page displays aligned with approved product data. Do not restore an old product merely because an old image exists.
 
 Variants/options are data-driven. Follow the current product's option-to-image mapping in `product-data.js`; preserve option names and IDs. To change a main or variant photo, update the corresponding `src` and optional `thumbnail` in the data, then verify the catalogue and Product Details view. Keep image paths relative to the site root (for example `assets/img/products/...`) and URL-encode spaces and special characters in URLs.
 
@@ -90,3 +90,27 @@ There is no package manifest, framework, bundler, or database. The important run
 Frequently edited product content is already separated into a plain JavaScript data file. Projects, Gallery, testimonials, homepage content, and client logos remain in their page HTML, so those sections require code edits today. A future CMS can replace those sources with validated content records and media URLs while retaining the current presentation functions; no admin login, backend, database, API, or CMS is included here.
 
 For the local project folder label, this guide and README call the project **BlindsXpertV3**. The active workspace directory remains named `mockup1`; renaming the containing folder is a separate filesystem action because this workspace is opened at that path. The GitHub repository and Pages URL remain `mockup1`.
+
+## Catalogue update and pending images
+
+The two printing products use minimal records marked `contentPending: true`, with temporary illustrative images and empty specifications/options. Complete those records only with approved content. Their placement follows Roller Blinds and Wooden Outdoor Blinds.
+
+Homepage WhatsApp actions derive the existing official destination from the page and encode the selected product name into a neutral enquiry. No message is sent automatically.
+
+Each of the seven videos in `products.html` has a stable `data-video-id` (motorized-demo-01 through motorized-demo-07). Each video now uses its matched PNG poster in `assets/img/products/video-thumbnails/`. Replace that video's `poster` URL when updating its thumbnail. Keep `controls`, `playsinline`, and `preload="none"`. No video assets need to be moved or duplicated.
+
+The three Services story images have stable `data-service-image` markers: explore-ideas, measurement, installation. The supplied portrait images now live in `assets/img/services/assets/` as explore-ideas.png, measure-with-care.png and finish-installation.png. They use `object-fit: contain` within the existing image dimensions to keep the full composition visible.
+
+Social profiles link directly to the official accounts. Facebook uses the official Page Plugin iframe, automatically loaded when its section approaches the viewport, without an SDK, token, or third-party feed service. The direct Facebook link remains visible if the embed fails; Instagram and TikTok use profile cards. External platform availability and browser privacy settings may affect the optional embed.
+
+Homepage actions use flex columns and a bottom-aligned, full-width action area. WhatsApp foreground/background colors are explicit in default, hover, focus and active states. Social media precedes Customer Testimonials: Facebook on the left, with Instagram and TikTok side by side on the right at desktop widths; narrow screens stack. The homepage Payment / Deposit step has no supporting caption; Services retains its description.
+
+### Matched video posters
+
+- motorized-demo-01: Bright Neutral Open-Plan Living Space → `assets/img/products/video-thumbnails/bright-open-plan-living-space.png`.
+- motorized-demo-02: Automated Blinds in Oceanview Boardroom → `assets/img/products/video-thumbnails/oceanview-boardroom-motorized-blinds.png`.
+- motorized-demo-03: Warm Sunlit Reading Nook → `assets/img/products/video-thumbnails/sunlit-reading-nook-venetian-blinds.png`.
+- motorized-demo-04: Tranquil Bedroom with Corner Windows → `assets/img/products/video-thumbnails/bedroom-corner-window-vertical-blinds.png`.
+- motorized-demo-05: Tropical Patio with Roller Shades → `assets/img/products/video-thumbnails/tropical-patio-roller-shades.png`.
+- motorized-demo-06: Tropical Retreat with Remote Control → `assets/img/products/video-thumbnails/tropical-retreat-remote-control.png`.
+- motorized-demo-07: Modern Corner Living Room with Zebra Blinds → `assets/img/products/video-thumbnails/corner-living-room-zebra-blinds.png`.

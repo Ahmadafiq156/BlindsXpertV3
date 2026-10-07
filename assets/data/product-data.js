@@ -437,6 +437,27 @@ window.BLINDSXPERT_PRODUCTS = {
       "defaultOption": "Blackout"
     },
     {
+      "id": "roller-logo-printing",
+      "name": "Roller Blinds Logo Printing",
+      "category": "indoor",
+      "description": "Contact BlindsXpert for product information and available printing options.",
+      "contentPending": true,
+      "gallery": [
+        {
+          "src": "assets/img/products/generated/web/roller-blackout-variant.webp",
+          "thumbnail": "assets/img/products/generated/web/roller-blackout-variant-thumb.webp",
+          "alt": "Temporary illustrative Roller Blinds image; printing design not shown",
+          "caption": "Temporary illustrative image · printing design not shown",
+          "width": 1254,
+          "height": 1254,
+          "overview": true
+        }
+      ],
+      "documents": [],
+      "options": [],
+      "series": []
+    },
+    {
       "id": "panel",
       "name": "Panel Blinds",
       "category": "indoor",
@@ -1035,6 +1056,27 @@ window.BLINDSXPERT_PRODUCTS = {
         "UV / logo printing": "assets/img/products/generated/web/wooden-outdoor-printed-variant.webp"
       },
       "defaultOption": "Standard finish"
+    },
+    {
+      "id": "wooden-uv-logo-printing",
+      "name": "Wooden UV/Logo Printing",
+      "category": "outdoor",
+      "description": "Contact BlindsXpert for product information and available printing options.",
+      "contentPending": true,
+      "gallery": [
+        {
+          "src": "assets/img/products/generated/web/wooden-outdoor-main.webp",
+          "thumbnail": "assets/img/products/generated/web/wooden-outdoor-main-thumb.webp",
+          "alt": "Temporary illustrative Wooden Outdoor Blinds image; printing design not shown",
+          "caption": "Temporary illustrative image · printing design not shown",
+          "width": 1254,
+          "height": 1254,
+          "featuredThumbnail": true
+        }
+      ],
+      "documents": [],
+      "options": [],
+      "series": []
     },
     {
       "id": "bamboo-outdoor",

@@ -70,6 +70,9 @@ function setProductFilter(value) {
     document.querySelectorAll('#catalogue [data-category]').forEach(card => {
         card.classList.toggle('hidden', value !== 'all' && card.dataset.category !== value);
     });
+    const visibleCount = document.querySelectorAll('#catalogue article[data-category]:not(.hidden)').length;
+    const status = document.querySelector('[data-catalogue-status]');
+    if (status) status.textContent = `${visibleCount} products shown`;
     document.querySelectorAll('#catalogue [data-category-heading]').forEach((heading) => {
         const category = heading.dataset.categoryHeading;
         const hasVisibleProducts = [...document.querySelectorAll(`#catalogue > article[data-category="${category}"]`)]
@@ -320,12 +323,16 @@ const statsSection = document.querySelector('[data-stats]');
 const statCounters = [...document.querySelectorAll('[data-counter]')];
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+function formatCounter(value, finalValue) {
+    return (finalValue >= 1000 ? Math.floor(value / 1000) + 'K' : String(value)) + '+';
+}
+
 function showFinalCounterValues() {
     const numberFormat = new Intl.NumberFormat('en-US');
 
     statCounters.forEach((counter) => {
         const finalValue = Number(counter.dataset.counter);
-        counter.textContent = numberFormat.format(finalValue);
+        counter.textContent = formatCounter(finalValue, finalValue);
         counter.setAttribute('aria-label', numberFormat.format(finalValue));
     });
 }
@@ -340,7 +347,7 @@ function animateCounter(counter, duration = 1200) {
         const easedProgress = 1 - Math.pow(1 - progress, 3);
         const currentValue = Math.round(finalValue * easedProgress);
 
-        counter.textContent = numberFormat.format(currentValue);
+        counter.textContent = formatCounter(currentValue, finalValue);
 
         if (progress < 1) {
             window.requestAnimationFrame(updateCounter);
