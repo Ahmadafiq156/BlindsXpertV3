@@ -1042,6 +1042,18 @@ window.BLINDSXPERT_PRODUCTS = {
           "width": 1254,
           "height": 1254,
           "overview": true
+        },
+        {
+          "src": "assets/img/products/generated/web/wooden-outdoor-blinds-example-wide.png",
+          "alt": "Wooden outdoor blinds beneath a glass canopy beside a railing",
+          "caption": "Outdoor wooden blinds · wide view",
+          "exampleOnly": true
+        },
+        {
+          "src": "assets/img/products/generated/web/wooden-outdoor-blinds-example-close.png",
+          "alt": "Closer view of wooden outdoor blinds beneath a glass canopy",
+          "caption": "Outdoor wooden blinds · closer view",
+          "exampleOnly": true
         }
       ],
       "documents": [],
@@ -1277,6 +1289,24 @@ window.BLINDSXPERT_PRODUCTS = {
           "caption": "Illustrative example · Full-length curtain rod and rail",
           "width": 1254,
           "height": 1254,
+          "exampleOnly": true
+        },
+        {
+          "src": "assets/img/products/generated/web/curtain-rods-packaged-stock.png",
+          "alt": "Packaged curtain rods with decorative finials stacked on a pallet",
+          "caption": "Curtain rods · packaged stock",
+          "exampleOnly": true
+        },
+        {
+          "src": "assets/img/products/generated/web/curtain-rod-finial-details.png",
+          "alt": "Collage of curtain rod finials and a matching support bracket",
+          "caption": "Curtain rod finials · detail views",
+          "exampleOnly": true
+        },
+        {
+          "src": "assets/img/products/generated/web/curtain-rods-bundled-stock.png",
+          "alt": "Bundles of wrapped curtain rods in several finishes stacked on a vehicle",
+          "caption": "Curtain rods · bundled stock",
           "exampleOnly": true
         }
       ],
