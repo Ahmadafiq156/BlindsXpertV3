@@ -7,7 +7,7 @@
     const form = $('#productEnquiryForm');
     const note = $('#productFormNote');
     const dialog = $('[data-product-lightbox]');
-    let activeProduct, activeOption = '', activeSeries = null, returnFocus, viewerPhotos = [], viewerIndex = 0;
+    let activeProduct, activeOption = '', activeSeries = null;
     const names = {indoor:'Indoor blinds', outdoor:'Outdoor blinds', motorized:'Motorized solutions', other:'Other products'};
     const node = (tag, className, content) => {
         const el = document.createElement(tag);
@@ -15,46 +15,19 @@
         if (content !== undefined) el.textContent = content;
         return el;
     };
-    function renderViewerImage() {
-        const photo = viewerPhotos[viewerIndex];
-        if (!photo) return;
-        const image = $('[data-pd-lightbox-image]');
-        image.src = photo.src; image.alt = photo.alt;
-        if (photo.width) image.width = photo.width;
-        if (photo.height) image.height = photo.height;
-        $('[data-pd-lightbox-caption]').textContent = photo.caption;
-        $('[data-pd-previous]').hidden = viewerPhotos.length < 2;
-        $('[data-pd-next]').hidden = viewerPhotos.length < 2;
-    }
-    function openImage(photo, trigger, collection = [photo]) {
-        returnFocus = trigger;
-        viewerPhotos = collection;
-        viewerIndex = Math.max(0, viewerPhotos.findIndex(image => image.src === photo.src));
-        renderViewerImage();
-        dialog.showModal();
-    }
-    function moveViewer(direction) {
-        if (viewerPhotos.length < 2) return;
-        viewerIndex = (viewerIndex + direction + viewerPhotos.length) % viewerPhotos.length;
-        renderViewerImage();
-    }
-    $('[data-pd-close]').addEventListener('click', () => dialog.close());
-    $('[data-pd-previous]').addEventListener('click', () => moveViewer(-1));
-    $('[data-pd-next]').addEventListener('click', () => moveViewer(1));
-    dialog.addEventListener('keydown', event => {
-        if (event.key === 'ArrowLeft') { event.preventDefault(); moveViewer(-1); }
-        if (event.key === 'ArrowRight') { event.preventDefault(); moveViewer(1); }
+    const imageViewer = window.createBlindsXpertImageViewer({
+        dialog,
+        image: $('[data-pd-lightbox-image]'),
+        caption: $('[data-pd-lightbox-caption]'),
+        previous: $('[data-pd-previous]'),
+        next: $('[data-pd-next]'),
+        closeButton: $('[data-pd-close]'),
+        resolve: (photo, index, count) => ({ ...photo, hideNavigation: count < 2 })
     });
-    let touchStartX = null;
-    dialog.addEventListener('touchstart', event => { touchStartX = event.changedTouches[0]?.clientX ?? null; }, {passive:true});
-    dialog.addEventListener('touchend', event => {
-        if (touchStartX === null) return;
-        const distance = event.changedTouches[0].clientX - touchStartX;
-        if (Math.abs(distance) > 48) moveViewer(distance > 0 ? -1 : 1);
-        touchStartX = null;
-    }, {passive:true});
-    dialog.addEventListener('click', e => { if (e.target === dialog) { const r = dialog.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) dialog.close(); } });
-    dialog.addEventListener('close', () => { $('[data-pd-lightbox-image]').removeAttribute('src'); returnFocus?.focus(); });
+    function openImage(photo, trigger, collection = [photo]) {
+        const index = Math.max(0, collection.findIndex(image => image.src === photo.src));
+        imageViewer?.open(collection, index, trigger);
+    }
     function imageFigure(photo, reference = false, collection = [photo]) {
         const figure = node('figure', reference ? 'pd-reference' : 'pd-photo');
         const button = node('button'); button.type = 'button'; button.setAttribute('aria-label', `View full image: ${photo.caption}`);

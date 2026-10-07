@@ -292,80 +292,26 @@ if (testimonialCarousel) {
     renderTestimonials();
 }
 
-// Accessible full-image viewer shared by the testimony and gallery pages.
+// Gallery and testimonial photos use the same viewer as Product Details.
 const imageLightbox = document.querySelector('[data-image-lightbox]');
 if (imageLightbox) {
-    const lightboxImage = imageLightbox.querySelector('.image-lightbox-image');
-    const lightboxStatus = imageLightbox.querySelector('.image-lightbox-status');
-    const previousImage = imageLightbox.querySelector('[data-lightbox-previous]');
-    const nextImage = imageLightbox.querySelector('[data-lightbox-next]');
-    let activeImages = [];
-    let activeImageIndex = 0;
-    let lightboxReturnFocus = null;
-    function closeImageLightbox() {
-        if (!imageLightbox.open || imageLightbox.classList.contains('is-closing')) return;
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            imageLightbox.close();
-            return
+    const viewer = window.createBlindsXpertImageViewer({
+        dialog: imageLightbox,
+        image: imageLightbox.querySelector('.image-lightbox-image'),
+        caption: imageLightbox.querySelector('.image-lightbox-caption'),
+        status: imageLightbox.querySelector('.image-lightbox-status'),
+        previous: imageLightbox.querySelector('[data-lightbox-previous]'),
+        next: imageLightbox.querySelector('[data-lightbox-next]'),
+        closeButton: imageLightbox.querySelector('[data-lightbox-close]'),
+        closeDelay: 140,
+        resolve: (trigger, index, count) => {
+            const image = trigger.querySelector('img');
+            return { src: image.currentSrc || image.src, alt: image.alt, caption: image.alt };
         }
-        imageLightbox.classList.add('is-closing');
-        window.setTimeout(() => {
-            imageLightbox.close();
-            imageLightbox.classList.remove('is-closing')
-        }, 140);
-    }
-    function renderLightboxImage() {
-        const trigger = activeImages[activeImageIndex];
-        const image = trigger?.querySelector('img');
-        if (!image) return;
-        lightboxImage.src = image.currentSrc || image.src;
-        lightboxImage.alt = image.alt;
-        lightboxStatus.textContent = `Image ${activeImageIndex+1} of ${activeImages.length}`;
-        previousImage.disabled = activeImages.length < 2;
-        nextImage.disabled = activeImages.length < 2;
-    }
+    });
     document.querySelectorAll('[data-lightbox-gallery]').forEach(gallery => {
         const triggers = [...gallery.querySelectorAll('.lightbox-trigger')];
-        triggers.forEach((trigger, index) => trigger.addEventListener('click', () => {
-            activeImages = triggers;
-            activeImageIndex = index;
-            lightboxReturnFocus = trigger;
-            renderLightboxImage();
-            imageLightbox.classList.remove('is-closing');
-            document.body.classList.add('lightbox-open');
-            if (!imageLightbox.open) imageLightbox.showModal();
-        }));
-    });
-    previousImage.addEventListener('click', () => {
-        activeImageIndex = (activeImageIndex - 1 + activeImages.length) % activeImages.length;
-        renderLightboxImage()
-    });
-    nextImage.addEventListener('click', () => {
-        activeImageIndex = (activeImageIndex + 1) % activeImages.length;
-        renderLightboxImage()
-    });
-    imageLightbox.querySelector('[data-lightbox-close]').addEventListener('click', closeImageLightbox);
-    imageLightbox.addEventListener('click', event => {
-        if (event.target === imageLightbox) closeImageLightbox()
-    });
-    imageLightbox.addEventListener('cancel', event => {
-        event.preventDefault();
-        closeImageLightbox()
-    });
-    imageLightbox.addEventListener('keydown', event => {
-        if (!imageLightbox.open || activeImages.length < 2) return;
-        if (event.key === 'ArrowLeft') {
-            event.preventDefault();
-            previousImage.click()
-        }
-        if (event.key === 'ArrowRight') {
-            event.preventDefault();
-            nextImage.click()
-        }
-    });
-    imageLightbox.addEventListener('close', () => {
-        document.body.classList.remove('lightbox-open');
-        lightboxReturnFocus?.focus()
+        triggers.forEach((trigger, index) => trigger.addEventListener('click', () => viewer?.open(triggers, index, trigger)));
     });
 }
 

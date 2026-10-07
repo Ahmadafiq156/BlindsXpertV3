@@ -2129,26 +2129,25 @@ a {
 }
 
 .image-lightbox {
-    width: min(96vw,1440px);
+    width: min(1100px,94vw);
     max-width: none;
-    max-height: 94vh;
-    padding: 0;
+    max-height: 94dvh;
+    padding: 20px;
     border: 0;
-    border-radius: 8px;
-    background: #211f20;
-    color: #fff;
+    background: #fff;
+    color: var(--text-dark);
     box-shadow: 0 24px 80px #0008;
     overflow: visible
 }
 
 .image-lightbox::backdrop {
-    background: #111d;
+    background: #171717db;
     backdrop-filter: blur(5px)
 }
 
 .image-lightbox-shell {
     display: flex;
-    max-height: 94vh;
+    max-height: 94dvh;
     flex-direction: column
 }
 
@@ -2157,35 +2156,42 @@ a {
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    padding: 10px 14px 6px
+    padding: 0 0 8px
 }
 
 .image-lightbox-status {
     margin: 0;
-    color: #eee;
+    color: var(--text-muted);
     font-size: 13px
+}
+
+.image-lightbox-caption {
+    margin: 10px 0 0;
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.5
 }
 
 .lightbox-close,.lightbox-nav {
     display: grid;
     place-items: center;
+    width: 48px;
     min-width: 44px;
     min-height: 44px;
-    border: 1px solid #ffffff55;
-    border-radius: 50%;
-    background: #ffffff18;
-    color: #fff;
-    font: 400 28px/1 Arial,sans-serif;
+    border: 0;
+    background: #fff4f4;
+    color: var(--primary-red);
+    font: 400 32px/1 Arial,sans-serif;
     cursor: pointer;
     transition: background .18s,border-color .18s,transform .18s
 }
 
-.lightbox-close:hover,.lightbox-nav:hover:not(: disabled) {
+.lightbox-close:hover,.lightbox-nav:hover:not(:disabled) {
     background: var(--primary-red);
-    border-color: var(--primary-red)
+    color: #fff
 }
 
-.lightbox-close:active,.lightbox-nav:active:not(: disabled) {
+.lightbox-close:active,.lightbox-nav:active:not(:disabled) {
     transform: scale(.94)
 }
 
@@ -2196,20 +2202,19 @@ a {
 
 .image-lightbox-stage {
     display: grid;
-    grid-template-columns: 54px minmax(0,1fr) 54px;
+    grid-template-columns: 48px minmax(0,1fr) 48px;
     align-items: center;
     gap: 12px;
-    padding: 6px 14px 16px
+    padding: 0
 }
 
 .image-lightbox-image {
     display: block;
-    max-width: 100%;
-    max-height: 82vh;
-    width: auto;
-    height: auto;
+    min-width: 0;
+    width: 100%;
+    height: 72dvh;
     object-fit: contain;
-    margin: auto
+    margin: 0
 }
 
 .visually-hidden {
@@ -2371,11 +2376,10 @@ button:active,.btn:active {
     .image-lightbox-stage {
         grid-template-columns: 44px minmax(0,1fr) 44px;
         gap: 5px;
-        padding: 4px 8px 12px
+        padding: 0
     }
     .image-lightbox-image {
-        max-width: 100%;
-        max-height: 78vh
+        height: 68dvh
     }
     .motorized-video-grid {
         grid-template-columns: 1fr;
@@ -2397,7 +2401,8 @@ button:active,.btn:active {
         height: 210px
     }
     .image-lightbox {
-        width: 96vw
+        width: 96vw;
+        padding: 10px
     }
     .lightbox-close,.lightbox-nav {
         min-width: 42px;
@@ -2406,7 +2411,7 @@ button:active,.btn:active {
     .image-lightbox-stage {
         grid-template-columns: 38px minmax(0,1fr) 38px;
         gap: 4px;
-        padding-inline: 5px
+        padding: 0
     }
     .contact-social a {
         flex-basis: 100%
@@ -2567,12 +2572,7 @@ button:active,.btn:active {
     }
 }
 
-/* Lightbox scroll lock and quick open/close feedback */
-
-body.lightbox-open {
-    overflow: hidden;
-    overscroll-behavior: none
-}
+/* Quick open/close feedback for the shared image viewer. */
 
 .image-lightbox[open] {
     animation: lightbox-open .16s ease-out both
