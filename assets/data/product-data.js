@@ -7,13 +7,14 @@ window.BLINDSXPERT_PRODUCTS = {
       "description": "Alternating sheer and opaque fabric bands let you adjust daylight and privacy.",
       "gallery": [
         {
-          "src": "assets/img/products/generated/web/zebra-main.webp",
-          "thumbnail": "assets/img/products/generated/web/zebra-main-thumb.webp",
-          "alt": "Illustrative generated scene of beige Zebra blinds in a bright interior",
-          "caption": "Illustrative scene · Zebra blinds",
-          "width": 1254,
-          "height": 1254,
-          "featuredThumbnail": true
+          "src": "assets/img/products/indoor/zebra/zebra-blinds-main.png",
+          "thumbnail": "assets/img/products/indoor/zebra/zebra-blinds-main.png",
+          "alt": "Zebra blind with alternating sheer and opaque bands",
+          "caption": "Supplied product image · Zebra Blinds",
+          "width": 3919,
+          "height": 3919,
+          "featuredThumbnail": true,
+          "mainImage": true
         },
         {
           "src": "assets/img/products/generated/web/zebra-detail.webp",
@@ -80,109 +81,428 @@ window.BLINDSXPERT_PRODUCTS = {
           "src": "assets/img/products/catalogue/02%20Zebra%20Blinds-20261001T083216Z-1-001/02%20Zebra%20Blinds/02%20Specification/Generic/Generic%20A2.png",
           "alt": "Zebra blind generic option image 2",
           "caption": "Generic · image 2"
-        },
-        {
-          "src": "assets/img/products/fabrics/2%20Polyester%20zebra%20Fabric.png",
-          "alt": "Polyester zebra fabric range with alternating sheer and opaque bands",
-          "caption": "Polyester zebra fabric"
-        },
-        {
-          "src": "assets/img/products/fabrics/3%20Sunscreen%20zebra%20Fabric.png",
-          "alt": "Sunscreen zebra fabric samples",
-          "caption": "Sunscreen zebra fabric"
-        },
-        {
-          "src": "assets/img/products/fabrics/5%20Econo%20Series.png",
-          "alt": "Econo Series fabric sample",
-          "caption": "Econo Series"
-        },
-        {
-          "src": "assets/img/products/fabrics/6%20Sunshut%20Series.png",
-          "alt": "Sunshut Series fabric sample",
-          "caption": "Sunshut Series"
-        },
-        {
-          "src": "assets/img/products/fabrics/Cinma%20Series.png",
-          "alt": "Cinma Series fabric sample",
-          "caption": "Cinma Series"
-        },
-        {
-          "src": "assets/img/products/catalogue-reference/zebra-tisa-tuba.jpg",
-          "alt": "Zebra tisa tuba",
-          "caption": "Zebra tisa tuba"
-        },
-        {
-          "src": "assets/img/products/catalogue-reference/zebra-basha-bira.jpg",
-          "alt": "Zebra basha bira",
-          "caption": "Zebra basha bira"
-        },
-        {
-          "src": "assets/img/products/catalogue-reference/zebra-overview.jpg",
-          "alt": "Zebra overview",
-          "caption": "Zebra overview"
         }
       ],
       "options": [
         "Custom",
         "Generic"
       ],
+      "catalogueCollection": true,
       "series": [
         {
-          "name": "TISA",
-          "document": {
-            "src": "assets/img/products/catalogue-reference/zebra-tisa-tuba.jpg",
-            "alt": "TISA · catalogue sheet",
-            "caption": "TISA · catalogue sheet"
-          },
+          "name": "BX 101Z",
+          "displayCode": "BX 101Z",
+          "sourceCode": "SP 101Z",
+          "fabrics": [
+            {
+              "code": "SP 102Z",
+              "colourName": "WHITE"
+            },
+            {
+              "code": "SP 107Z",
+              "colourName": "LIGHT GREY"
+            },
+            {
+              "code": "SP 112Z",
+              "colourName": "BLACK"
+            },
+            {
+              "code": "SP 116Z",
+              "colourName": "PINK"
+            },
+            {
+              "code": "SP 120Z",
+              "colourName": "BLUE"
+            },
+            {
+              "code": "SP 121Z",
+              "colourName": "CREAM"
+            },
+            {
+              "code": "SP 122Z",
+              "colourName": "BROWN"
+            },
+            {
+              "code": "SP 123Z",
+              "colourName": "DARK BROWN"
+            },
+            {
+              "code": "SP 125Z",
+              "colourName": "GREY"
+            }
+          ],
+          "photos": [
+            {
+              "src": "assets/img/products/fabric-collections/zebra/bx-101z/bx-101z-catalogue-01.jpeg",
+              "alt": "BX 101Z catalogue fabric samples with printed colour codes and names",
+              "caption": "BX 101Z · fabric colours",
+              "width": 563,
+              "height": 1000
+            },
+            {
+              "src": "assets/img/products/fabric-collections/zebra/bx-101z/bx-101z-catalogue-02.jpeg",
+              "alt": "BX 101Z catalogue technical specification sheet",
+              "caption": "BX 101Z · specification sheet",
+              "width": 563,
+              "height": 1000
+            }
+          ],
           "specs": {
             "Composition": "100% polyester",
-            "Light transmission": "Translucent"
+            "Finished Width": "260cm / 300cm",
+            "Weight": "120g/m² ±5%",
+            "Stripe Size": "Solid 7.5cm; Sheer 5.0cm",
+            "Colour Fastness": "7 to 8"
           }
         },
         {
-          "name": "TUBA",
-          "document": {
-            "src": "assets/img/products/catalogue-reference/zebra-tisa-tuba.jpg",
-            "alt": "TUBA · catalogue sheet",
-            "caption": "TUBA · catalogue sheet"
-          },
+          "name": "BX 201Z",
+          "displayCode": "BX 201Z",
+          "sourceCode": "SP 201Z",
+          "fabrics": [
+            {
+              "code": "SP 201Z",
+              "colourName": "CREAM"
+            },
+            {
+              "code": "SP 203Z",
+              "colourName": "GREY"
+            },
+            {
+              "code": "SP 204Z",
+              "colourName": "BROWN"
+            },
+            {
+              "code": "SP 205Z",
+              "colourName": "GREEN"
+            },
+            {
+              "code": "SP 206Z",
+              "colourName": "BLUE"
+            }
+          ],
+          "photos": [
+            {
+              "src": "assets/img/products/fabric-collections/zebra/bx-201z/bx-201z-catalogue-01.jpeg",
+              "alt": "BX 201Z catalogue fabric samples with printed colour codes and names",
+              "caption": "BX 201Z · fabric colours",
+              "width": 563,
+              "height": 1000
+            },
+            {
+              "src": "assets/img/products/fabric-collections/zebra/bx-201z/bx-201z-catalogue-02.jpeg",
+              "alt": "BX 201Z catalogue technical specification sheet",
+              "caption": "BX 201Z · specification sheet",
+              "width": 563,
+              "height": 1000
+            }
+          ],
           "specs": {
             "Composition": "100% polyester",
-            "Light transmission": "Semi-blackout",
-            "Max. fabric width": "2.8 m"
+            "Finished Width": "250cm / 300cm",
+            "Weight": "120g/m² ±5%",
+            "Stripe Size": "Solid 8cm; Sheer 5cm",
+            "Colour Fastness": "4 to 5"
           }
         },
         {
-          "name": "BASHA Premium",
-          "document": {
-            "src": "assets/img/products/catalogue-reference/zebra-basha-bira.jpg",
-            "alt": "BASHA Premium · catalogue sheet",
-            "caption": "BASHA Premium · catalogue sheet"
-          },
+          "name": "BX 301Z",
+          "displayCode": "BX 301Z",
+          "sourceCode": "SP 301Z",
+          "fabrics": [
+            {
+              "code": "SP 301Z",
+              "colourName": "ORANGE"
+            },
+            {
+              "code": "SP 304Z",
+              "colourName": "GREY"
+            },
+            {
+              "code": "SP 305Z",
+              "colourName": "BROWN"
+            },
+            {
+              "code": "SP 308Z",
+              "colourName": "CREAM"
+            },
+            {
+              "code": "SP 309Z",
+              "colourName": "LIGHT BROWN"
+            },
+            {
+              "code": "SP 310Z",
+              "colourName": "BLACK"
+            }
+          ],
+          "photos": [
+            {
+              "src": "assets/img/products/fabric-collections/zebra/bx-301z/bx-301z-catalogue-01.jpeg",
+              "alt": "BX 301Z catalogue fabric samples with printed colour codes and names",
+              "caption": "BX 301Z · fabric colours",
+              "width": 563,
+              "height": 1000
+            },
+            {
+              "src": "assets/img/products/fabric-collections/zebra/bx-301z/bx-301z-catalogue-02.jpeg",
+              "alt": "BX 301Z catalogue technical specification sheet",
+              "caption": "BX 301Z · specification sheet",
+              "width": 563,
+              "height": 1000
+            }
+          ],
           "specs": {
             "Composition": "100% polyester",
-            "Light transmission": "Blackout",
-            "Max. fabric width": "3 m"
+            "Finished Width": "250cm / 300cm",
+            "Weight": "150g/m² ±5%",
+            "Stripe Size": "Solid 8cm; Sheer 5cm",
+            "Colour Fastness": "4 to 5"
           }
         },
         {
-          "name": "BIRA Designer",
-          "document": {
-            "src": "assets/img/products/catalogue-reference/zebra-basha-bira.jpg",
-            "alt": "BIRA Designer · catalogue sheet",
-            "caption": "BIRA Designer · catalogue sheet"
-          },
+          "name": "BX 401BL",
+          "displayCode": "BX 401BL",
+          "sourceCode": "SP 401BL",
+          "fabrics": [
+            {
+              "code": "SP 403BL",
+              "colourName": "BROWN"
+            },
+            {
+              "code": "SP 404BL",
+              "colourName": "GREY"
+            },
+            {
+              "code": "SP 411BL",
+              "colourName": "DARK GREY"
+            },
+            {
+              "code": "SP 412BL",
+              "colourName": "DARK BROWN"
+            },
+            {
+              "code": "SP 413BL",
+              "colourName": "BLACK"
+            }
+          ],
+          "photos": [
+            {
+              "src": "assets/img/products/fabric-collections/zebra/bx-401bl/bx-401bl-catalogue-01.jpeg",
+              "alt": "BX 401BL catalogue fabric samples with printed colour codes and names",
+              "caption": "BX 401BL · fabric colours",
+              "width": 563,
+              "height": 1000
+            },
+            {
+              "src": "assets/img/products/fabric-collections/zebra/bx-401bl/bx-401bl-catalogue-02.jpeg",
+              "alt": "BX 401BL catalogue technical specification sheet",
+              "caption": "BX 401BL · specification sheet",
+              "width": 563,
+              "height": 1000
+            }
+          ],
           "specs": {
             "Composition": "100% polyester",
-            "Light transmission": "Blackout",
-            "Max. fabric width": "3 m"
+            "Finished Width": "280cm / 300cm",
+            "Weight": "156g/m² ±5%",
+            "Stripe Size": "Solid 4.6cm; Sheer 2.9cm",
+            "Colour Fastness": "7 to fast 8"
+          }
+        },
+        {
+          "name": "BX 501BL",
+          "displayCode": "BX 501BL",
+          "sourceCode": "SP 501BL",
+          "fabrics": [
+            {
+              "code": "SP 501BL",
+              "colourName": "WHITE GREY"
+            },
+            {
+              "code": "SP 502BL",
+              "colourName": "BEIGE GREY"
+            },
+            {
+              "code": "SP 503BL",
+              "colourName": "GREY GREY"
+            },
+            {
+              "code": "SP 504BL",
+              "colourName": "GREY"
+            },
+            {
+              "code": "SP 505BL",
+              "colourName": "BLACK GREY"
+            },
+            {
+              "code": "SP 506BL",
+              "colourName": "BLACK"
+            },
+            {
+              "code": "SP 508BL",
+              "colourName": "BROWN"
+            }
+          ],
+          "photos": [
+            {
+              "src": "assets/img/products/fabric-collections/zebra/bx-501bl/bx-501bl-catalogue-01.jpeg",
+              "alt": "BX 501BL catalogue fabric samples with printed colour codes and names",
+              "caption": "BX 501BL · fabric colours",
+              "width": 563,
+              "height": 1000
+            },
+            {
+              "src": "assets/img/products/fabric-collections/zebra/bx-501bl/bx-501bl-catalogue-02.jpeg",
+              "alt": "BX 501BL catalogue technical specification sheet",
+              "caption": "BX 501BL · specification sheet",
+              "width": 563,
+              "height": 1000
+            }
+          ],
+          "specs": {
+            "Composition": "100% polyester",
+            "Finished Width": "280cm",
+            "Weight": "154g/m²",
+            "Stripe Size": "Solid 10cm; Sheer 7cm",
+            "Thickness Size": "Solid 0.52mm; Sheer 0.14mm"
+          }
+        },
+        {
+          "name": "BX 601BL",
+          "displayCode": "BX 601BL",
+          "sourceCode": "SP 601BL",
+          "fabrics": [
+            {
+              "code": "SP 601BL",
+              "colourName": "WHITE"
+            },
+            {
+              "code": "SP 603BL",
+              "colourName": "BROWN"
+            },
+            {
+              "code": "SP 604BL",
+              "colourName": "SILVER"
+            },
+            {
+              "code": "SP 605BL",
+              "colourName": "DARK GREY"
+            },
+            {
+              "code": "SP 606BL",
+              "colourName": "BLACK"
+            }
+          ],
+          "photos": [
+            {
+              "src": "assets/img/products/fabric-collections/zebra/bx-601bl/bx-601bl-catalogue-01.jpeg",
+              "alt": "BX 601BL catalogue fabric samples with printed colour codes and names",
+              "caption": "BX 601BL · fabric colours",
+              "width": 563,
+              "height": 1000
+            },
+            {
+              "src": "assets/img/products/fabric-collections/zebra/bx-601bl/bx-601bl-catalogue-02.jpeg",
+              "alt": "BX 601BL catalogue technical specification sheet",
+              "caption": "BX 601BL · specification sheet",
+              "width": 563,
+              "height": 1000
+            }
+          ],
+          "specs": {
+            "Composition": "100% polyester",
+            "Finished Width": "280cm",
+            "Thickness Size": "Solid 0.34mm; Sheer 0.07mm",
+            "Colour Fastness": "Above 4"
+          }
+        },
+        {
+          "name": "BX 701BL",
+          "displayCode": "BX 701BL",
+          "sourceCode": "SP 701BL",
+          "fabrics": [
+            {
+              "code": "SP 701BL",
+              "colourName": "BEIGE"
+            },
+            {
+              "code": "SP 703BL",
+              "colourName": "BROWN"
+            },
+            {
+              "code": "SP 704BL",
+              "colourName": "GREY"
+            }
+          ],
+          "photos": [
+            {
+              "src": "assets/img/products/fabric-collections/zebra/bx-701bl/bx-701bl-catalogue-01.jpeg",
+              "alt": "BX 701BL catalogue fabric samples with printed colour codes and names",
+              "caption": "BX 701BL · fabric colours",
+              "width": 563,
+              "height": 1000
+            },
+            {
+              "src": "assets/img/products/fabric-collections/zebra/bx-701bl/bx-701bl-catalogue-02.jpeg",
+              "alt": "BX 701BL catalogue technical specification sheet",
+              "caption": "BX 701BL · specification sheet",
+              "width": 563,
+              "height": 1000
+            }
+          ],
+          "specs": {
+            "Composition": "100% polyester",
+            "Width": "280cm",
+            "Thickness": "Solid 0.39mm; Sheer 0.07mm",
+            "Colour Fastness": "Above 4"
+          }
+        },
+        {
+          "name": "BX 801BL",
+          "displayCode": "BX 801BL",
+          "sourceCode": "SP 801BL",
+          "fabrics": [
+            {
+              "code": "SP 801BL",
+              "colourName": "GREY BLACK"
+            },
+            {
+              "code": "SP 802BL",
+              "colourName": "DARK GREY"
+            },
+            {
+              "code": "SP 803BL",
+              "colourName": "BRONZE"
+            }
+          ],
+          "photos": [
+            {
+              "src": "assets/img/products/fabric-collections/zebra/bx-801bl/bx-801bl-catalogue-01.jpeg",
+              "alt": "BX 801BL catalogue fabric samples with printed colour codes and names",
+              "caption": "BX 801BL · fabric colours",
+              "width": 563,
+              "height": 1000
+            },
+            {
+              "src": "assets/img/products/fabric-collections/zebra/bx-801bl/bx-801bl-catalogue-02.jpeg",
+              "alt": "BX 801BL catalogue technical specification sheet",
+              "caption": "BX 801BL · specification sheet",
+              "width": 563,
+              "height": 1000
+            }
+          ],
+          "specs": {
+            "Composition": "100% polyester",
+            "Width": "280cm",
+            "Thickness": "Solid 0.39mm; Sheer 0.07mm",
+            "Colour Fastness": "Above 4"
           }
         }
       ],
       "optionLabel": "Range",
       "optionImages": {
         "Custom": "assets/img/products/generated/web/zebra-custom-variant.webp",
-        "Generic": "assets/img/products/generated/web/zebra-main.webp"
+        "Generic": "assets/img/products/indoor/zebra/zebra-blinds-main.png"
       },
       "defaultOption": "Generic"
     },
@@ -444,13 +764,15 @@ window.BLINDSXPERT_PRODUCTS = {
       "contentPending": true,
       "gallery": [
         {
-          "src": "assets/img/products/generated/web/roller-blackout-variant.webp",
-          "thumbnail": "assets/img/products/generated/web/roller-blackout-variant-thumb.webp",
-          "alt": "Temporary illustrative Roller Blinds image; printing design not shown",
-          "caption": "Temporary illustrative image · printing design not shown",
+          "src": "assets/img/products/indoor/roller-logo-printing/roller-blinds-logo-printing-main.png",
+          "thumbnail": "assets/img/products/indoor/roller-logo-printing/roller-blinds-logo-printing-main.png",
+          "alt": "Roller blind with the BlindsXpert logo printed across the fabric",
+          "caption": "Supplied product image · Roller Blinds Logo Printing",
           "width": 1254,
           "height": 1254,
-          "overview": true
+          "overview": true,
+          "mainImage": true,
+          "fit": "contain"
         }
       ],
       "documents": [],
@@ -1032,13 +1354,14 @@ window.BLINDSXPERT_PRODUCTS = {
       "description": "Wooden blinds for outdoor spaces, with UV / logo printing available as a customisation option.",
       "gallery": [
         {
-          "src": "assets/img/products/generated/web/wooden-outdoor-main.webp",
-          "thumbnail": "assets/img/products/generated/web/wooden-outdoor-main-thumb.webp",
-          "alt": "Illustrative generated scene of a roll-up wooden outdoor blind",
-          "caption": "Illustrative scene · Wooden outdoor blind",
-          "width": 1254,
-          "height": 1254,
-          "featuredThumbnail": true
+          "src": "assets/img/products/outdoor/wooden/wooden-outdoor-blinds-main.png",
+          "thumbnail": "assets/img/products/outdoor/wooden/wooden-outdoor-blinds-main.png",
+          "alt": "Brown wooden outdoor blind beneath a tiled roof",
+          "caption": "Supplied product image · Wooden Outdoor Blinds",
+          "width": 3919,
+          "height": 3919,
+          "featuredThumbnail": true,
+          "mainImage": true
         },
         {
           "src": "assets/img/projects/completed/Saujana%20Impian.png",
@@ -1088,7 +1411,7 @@ window.BLINDSXPERT_PRODUCTS = {
       "series": [],
       "optionLabel": "Customisation",
       "optionImages": {
-        "Standard finish": "assets/img/products/generated/web/wooden-outdoor-main.webp",
+        "Standard finish": "assets/img/products/outdoor/wooden/wooden-outdoor-blinds-main.png",
         "UV / logo printing": "assets/img/products/generated/web/wooden-outdoor-printed-variant.webp"
       },
       "defaultOption": "Standard finish"
@@ -1101,13 +1424,15 @@ window.BLINDSXPERT_PRODUCTS = {
       "contentPending": true,
       "gallery": [
         {
-          "src": "assets/img/products/generated/web/wooden-outdoor-main.webp",
-          "thumbnail": "assets/img/products/generated/web/wooden-outdoor-main-thumb.webp",
-          "alt": "Temporary illustrative Wooden Outdoor Blinds image; printing design not shown",
-          "caption": "Temporary illustrative image · printing design not shown",
+          "src": "assets/img/products/outdoor/wooden-logo-printing/wooden-blinds-uv-logo-printing-main.png",
+          "thumbnail": "assets/img/products/outdoor/wooden-logo-printing/wooden-blinds-uv-logo-printing-main.png",
+          "alt": "Wooden outdoor blind with the BlindsXpert logo printed across the slats",
+          "caption": "Supplied product image · Wooden UV/Logo Printing",
           "width": 1254,
           "height": 1254,
-          "featuredThumbnail": true
+          "featuredThumbnail": true,
+          "mainImage": true,
+          "fit": "contain"
         }
       ],
       "documents": [],
@@ -1179,13 +1504,14 @@ window.BLINDSXPERT_PRODUCTS = {
       "description": "Explore PVC outdoor blinds for your space. Ask our team to confirm the available system, finish and installation requirements.",
       "gallery": [
         {
-          "src": "assets/img/products/generated/web/pvc-outdoor-main.webp",
-          "thumbnail": "assets/img/products/generated/web/pvc-outdoor-main-thumb.webp",
-          "alt": "Illustrative generated scene of a transparent PVC outdoor roller blind",
-          "caption": "Illustrative scene · PVC outdoor blind",
-          "width": 1254,
-          "height": 1254,
-          "featuredThumbnail": true
+          "src": "assets/img/products/outdoor/pvc/outdoor-pvc-blinds-main.png",
+          "thumbnail": "assets/img/products/outdoor/pvc/outdoor-pvc-blinds-main.png",
+          "alt": "Outdoor PVC blind displayed over a house window",
+          "caption": "Supplied product image · PVC Outdoor Blinds",
+          "width": 3919,
+          "height": 3919,
+          "featuredThumbnail": true,
+          "mainImage": true
         },
         {
           "src": "assets/img/projects/completed/Sunway%20Eastwood.png",

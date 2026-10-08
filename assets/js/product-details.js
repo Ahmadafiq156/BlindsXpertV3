@@ -50,24 +50,81 @@
         $('[data-enquiry-selection]').textContent = parts.length ? `Your enquiry: ${parts.join(' · ')}` : '';
         if (activeProduct) updateUrl();
     }
-    const overviewPhotos = product => product.gallery.filter(photo => photo.src.includes('/generated/') && (!photo.src.includes('-detail') || photo.overview === true) && !photo.exampleOnly);
+    const overviewPhotos = product => product.gallery.filter(photo => (photo.mainImage === true || (photo.src.includes('/generated/') && (!photo.src.includes('-detail') || photo.overview === true))) && !photo.exampleOnly);
     const examplePhotos = product => product.gallery.filter(photo => !overviewPhotos(product).includes(photo) || photo.exampleOnly).filter(photo => !photo.src.includes('colour-material-inspiration'));
     function renderReferences() {
-        $('[data-series-title]').textContent = activeSeries ? `${activeSeries.name} Series` : 'Specifications & product information';
-        $('[data-series-description]').textContent = activeSeries ? 'Specifications apply to this series only. Confirm colours, availability and option combinations with our team.' : activeProduct.description;
+        const referenceSeries = activeProduct.catalogueCollection ? null : activeSeries;
+        $('[data-series-title]').textContent = referenceSeries ? `${referenceSeries.name} Series` : 'Specifications & product information';
+        $('[data-series-description]').textContent = referenceSeries ? 'Specifications apply to this series only. Confirm colours, availability and option combinations with our team.' : activeProduct.description;
         const area = $('[data-spec-table]'); area.replaceChildren();
-        const specs = Object.entries(activeSeries?.specs || { 'Product': activeProduct.name, ...(activeProduct.options.length ? {[activeProduct.optionLabel || 'Available options']: activeProduct.options.join(', ')} : {}) });
+        const specs = Object.entries(referenceSeries?.specs || { 'Product': activeProduct.name, ...(activeProduct.options.length ? {[activeProduct.optionLabel || 'Available options']: activeProduct.options.join(', ')} : {}) });
         if (specs.length) {
-            const table = node('table', 'pd-spec-table'); const caption = node('caption', 'visually-hidden', `${activeSeries?.name || activeProduct.name} specifications`); table.append(caption);
+            const table = node('table', 'pd-spec-table'); const caption = node('caption', 'visually-hidden', `${referenceSeries?.name || activeProduct.name} specifications`); table.append(caption);
             const tbody = node('tbody');
             for (const [label, value] of specs) { const row = node('tr'); const heading = node('th','',label); heading.scope = 'row'; row.append(heading, node('td','',value)); tbody.append(row); }
-            table.append(tbody); area.append(table, node('p','pd-small',activeSeries ? 'Fabric width is not the guaranteed finished blind width. Final dimensions and suitability require confirmation.' : 'Confirm final dimensions, materials, colours and suitability with our team.'));
+            table.append(tbody); area.append(table, node('p','pd-small',referenceSeries ? 'Fabric width is not the guaranteed finished blind width. Final dimensions and suitability require confirmation.' : 'Confirm final dimensions, materials, colours and suitability with our team.'));
         }
         $('[data-spec-section]').hidden = false;
         $('[data-nav-specifications]').hidden = $('[data-spec-section]').hidden;
+        renderCataloguePhotos();
+    }
+    function renderCataloguePhotos() {
+        const panel = $('[data-catalogue-panel]');
+        if (!panel) return;
+        panel.hidden = !activeProduct.catalogueCollection || !activeSeries;
+        panel.replaceChildren();
+        if (panel.hidden) return;
+        const heading = node('h3', '', activeSeries.name);
+        heading.id = 'catalogue-series-heading';
+        heading.setAttribute('aria-live', 'polite');
+        const information = node('div', 'pd-catalogue-information');
+        const fabrics = (activeSeries.fabrics || []).filter(fabric => fabric.code && fabric.colourName);
+        if (fabrics.length) {
+            const fabricSection = node('div');
+            fabricSection.append(node('h4', '', 'Fabric codes & colour labels'));
+            const table = node('table', 'pd-spec-table pd-fabric-table');
+            table.append(node('caption', 'visually-hidden', `${activeSeries.name} printed fabric codes and colour labels`));
+            const head = node('thead'); const headers = node('tr');
+            for (const label of ['Fabric code (catalogue)', 'Colour label']) {
+                const th = node('th', '', label); th.scope = 'col'; headers.append(th);
+            }
+            head.append(headers); table.append(head);
+            const body = node('tbody');
+            for (const fabric of fabrics) {
+                const row = node('tr'); const code = node('th', '', fabric.code); code.scope = 'row';
+                row.append(code, node('td', '', fabric.colourName)); body.append(row);
+            }
+            table.append(body); fabricSection.append(table); information.append(fabricSection);
+        }
+        const specs = Object.entries(activeSeries.specs || {}).filter(([, value]) => value !== '' && value != null);
+        if (specs.length) {
+            const specSection = node('div'); specSection.append(node('h4', '', 'Catalogue specifications'));
+            const table = node('table', 'pd-spec-table');
+            table.append(node('caption', 'visually-hidden', `${activeSeries.name} catalogue specifications`));
+            const body = node('tbody');
+            for (const [label, value] of specs) {
+                const row = node('tr'); const th = node('th', '', label); th.scope = 'row';
+                row.append(th, node('td', '', value)); body.append(row);
+            }
+            table.append(body); specSection.append(table, node('p', 'pd-small', 'Catalogue fabric widths are not guaranteed finished blind widths. Confirm final dimensions, suitability and availability with our team.'));
+            information.append(specSection);
+        }
+        const photos = activeSeries.photos || [];
+        const grid = node('div', 'pd-catalogue-photos');
+        for (const photo of photos) {
+            const figure = imageFigure(photo, true, photos);
+            const original = node('a', 'pd-text-link', 'Open original photograph to zoom ↗');
+            original.href = photo.src; original.target = '_blank'; original.rel = 'noopener noreferrer';
+            original.setAttribute('aria-label', `Open original photograph to zoom: ${photo.caption} (new tab)`);
+            figure.append(original); grid.append(figure);
+        }
+        panel.append(heading);
+        if (activeSeries.description) panel.append(node('p', 'pd-small', activeSeries.description));
+        panel.append(node('p', 'pd-small', 'BX names identify the series on this website. Fabric references retain the codes and colour labels printed in the catalogue. Open either photograph for a larger view, or use its link for browser zoom.'), information, grid);
     }
     function showMainImage(photo) {
         const image = $('[data-product-image]'); image.src = photo.src; image.alt = photo.alt;
+        image.style.objectFit = photo.fit || '';
         if (photo.width) image.width = photo.width;
         if (photo.height) image.height = photo.height;
         $('[data-main-image-button]').onclick = () => openImage(photo, $('[data-main-image-button]'), overviewPhotos(activeProduct));
@@ -101,13 +158,22 @@
             $('[data-options]').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.textContent === activeOption)));
         }
         $('[data-series-grid]').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.series === series.name)));
+        if (activeProduct.catalogueCollection && window.matchMedia('(max-width: 760px)').matches) {
+            const selector = $('[data-series-grid]');
+            const selected = selector.querySelector('button[aria-pressed="true"]');
+            if (selected) {
+                const bounds = selector.getBoundingClientRect(); const button = selected.getBoundingClientRect();
+                if (button.left < bounds.left + 4) selector.scrollLeft += button.left - bounds.left - 4;
+                else if (button.right > bounds.right - 4) selector.scrollLeft += button.right - bounds.right + 4;
+            }
+        }
         showOptionImage();
         renderReferences(); updateSelection();
     }
     function showProduct(product, option = '', seriesName = '', updateHistory = true) {
         activeProduct = product;
         activeOption = product.options.includes(option) ? option : (product.defaultOption || '');
-        activeSeries = product.series.find(s => s.name === seriesName) || (!option ? product.series[0] : null) || null;
+        activeSeries = product.series.find(s => s.name === seriesName || (product.catalogueCollection && s.sourceCode && [s.sourceCode, `${s.sourceCode} SERIES`, `${s.displayCode} SERIES`].includes(seriesName))) || (product.catalogueCollection || !option ? product.series[0] : null) || null;
         $('[data-product-picker]').hidden = true; $('[data-product-content]').hidden = false;
         $('[data-product-name]').textContent = product.name; $('[data-product-category]').textContent = names[product.category];
         $('[data-product-description]').textContent = product.description; $('[data-breadcrumb]').textContent = product.name;
@@ -123,6 +189,7 @@
         for (const photo of primaryPhotos) {
             const button = node('button'); button.type = 'button'; button.dataset.src = photo.src; button.setAttribute('aria-label', `Show ${photo.caption}`);
             const img = node('img'); img.src = photo.thumbnail || photo.src; img.alt = ''; img.width = 320; img.height = 320; img.loading='lazy'; img.decoding='async'; button.append(img); button.onclick=()=>showMainImage(photo); thumbs.append(button);
+            if (photo.fit) img.style.objectFit = photo.fit;
         }
         if(primaryPhotos.length) showMainImage(primaryPhotos[0]); else $('[data-product-image]').removeAttribute('src');
         const options = $('[data-options]'); options.replaceChildren();
@@ -131,7 +198,33 @@
         const highlights = $('[data-highlights]');highlights.replaceChildren(); highlights.hidden=!product.highlights?.length;
         for(const label of product.highlights || []) highlights.append(node('li','',label));
         const seriesGrid=$('[data-series-grid]');seriesGrid.replaceChildren();
+        $('[data-series-section] h2').textContent = product.catalogueCollection ? 'Fabric & Colour Collection' : 'Choose a fabric series';
+        $('[data-series-section]').classList.toggle('pd-bx-collection', !!product.catalogueCollection);
+        $('[data-nav-series]').textContent = product.catalogueCollection ? 'Fabric & colour' : 'Series & fabrics';
+        seriesGrid.classList.toggle('pd-catalogue-selector', !!product.catalogueCollection);
+        if (product.catalogueCollection) {
+            seriesGrid.setAttribute('role', 'group');
+            seriesGrid.setAttribute('aria-label', 'Fabric series');
+        } else {
+            seriesGrid.removeAttribute('role');
+            seriesGrid.removeAttribute('aria-label');
+        }
         for(const series of product.series) {const button=node('button','pd-series-button');button.type='button';button.dataset.series=series.name;button.setAttribute('aria-pressed',String(series===activeSeries));button.append(node('strong','',series.name),node('span','',series.specs['Light transmission'] || 'View catalogue details'));button.onclick=()=>chooseSeries(series);seriesGrid.append(button);}
+        let cataloguePanel = $('[data-catalogue-panel]');
+        if (product.catalogueCollection && !cataloguePanel) {
+            cataloguePanel = node('div', 'pd-catalogue-panel');
+            cataloguePanel.id = 'fabric-catalogue-panel';
+            cataloguePanel.dataset.cataloguePanel = '';
+            cataloguePanel.setAttribute('role', 'region');
+            cataloguePanel.setAttribute('aria-labelledby', 'catalogue-series-heading');
+            seriesGrid.after(cataloguePanel);
+        }
+        if (product.catalogueCollection) {
+            seriesGrid.querySelectorAll('button').forEach(button => {
+                button.setAttribute('aria-controls', 'fabric-catalogue-panel');
+                button.querySelector('span').textContent = '2 catalogue photographs';
+            });
+        }
         $('[data-series-section]').hidden=!product.series.length;$('[data-nav-series]').hidden=!product.series.length;
         renderReferences();
         const examples = examplePhotos(product);

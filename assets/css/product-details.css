@@ -1,4 +1,24 @@
 /* Product family detail pages. Keep product media and specifications separate. */
+.pd-series-grid.pd-catalogue-selector { display: flex; flex-wrap: wrap; gap: 10px; }
+.pd-catalogue-selector .pd-series-button { min-height: 44px; padding: 12px 16px; flex: 0 0 auto; }
+.pd-catalogue-selector .pd-series-button strong { font-size: 15px; }
+.pd-catalogue-panel { min-width: 0; margin-top: 28px; }
+.pd-catalogue-panel h3 { font: 600 22px/1.4 "DM Sans",sans-serif; }
+.pd-section.pd-bx-collection { background: #f5f5f5; }
+.pd-catalogue-information { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; margin: 24px 0; }
+.pd-catalogue-information > div { min-width: 0; }
+.pd-catalogue-information h4 { font: 600 17px/1.4 "DM Sans",sans-serif; margin: 0 0 12px; }
+.pd-catalogue-information .pd-spec-table { table-layout: fixed; }
+.pd-catalogue-information .pd-spec-table th,.pd-catalogue-information .pd-spec-table td { overflow-wrap: anywhere; }
+.pd-catalogue-information .pd-fabric-table th { width: 45%; }
+.pd-catalogue-photos { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; align-items: start; }
+.pd-catalogue-photos .pd-reference img { display: block; width: 100%; max-width: 440px; height: auto; object-fit: contain; margin-inline: auto; }
+.pd-catalogue-photos .pd-text-link { display: inline-block; margin: 0 16px 16px; font-size: 13px; }
+@media(max-width:760px) {
+    .pd-series-grid.pd-catalogue-selector { flex-wrap: nowrap; overflow-x: auto; max-width: 100%; padding: 4px 4px 10px; }
+    .pd-catalogue-photos { grid-template-columns: minmax(0,1fr); gap: 20px; }
+    .pd-catalogue-information { grid-template-columns: minmax(0,1fr); }
+}
 .pd-main [hidden] { display:none !important; }
 .pd-main { --pd-line:#e5e3e1; }
 .pd-breadcrumb { display:flex;flex-wrap:wrap;gap:12px;padding-top:30px;padding-bottom:26px;font-size:13px;color:var(--text-muted); }

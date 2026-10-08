@@ -2532,6 +2532,24 @@ button:active,.btn:active {
     }
 }
 
+/* Animated navigation artwork; footer branding keeps its existing styling. */
+.site-header .navigation-logo-link {
+    width: 180px;
+    min-width: 0;
+    flex: 0 0 auto;
+    flex-wrap: nowrap;
+}
+.navigation-logo-animation { display: block; width: 100%; }
+.navigation-animated-logo { display: block; width: 100%; height: auto; object-fit: contain; }
+.navigation-static-logo { display: none; width: 100%; flex-wrap: wrap; align-items: center; }
+@media (max-width: 1200px) { .site-header .navigation-logo-link { width: 160px; } }
+@media (max-width: 600px) { .site-header .navigation-logo-link { width: 140px; } }
+@media (prefers-reduced-motion: reduce) {
+    .site-header .navigation-logo-link { width: 170px; }
+    .navigation-logo-animation { display: none; }
+    .navigation-static-logo { display: flex; }
+}
+
 /* Official BlindsXpert artwork and stable header interaction */
 
 .logo {

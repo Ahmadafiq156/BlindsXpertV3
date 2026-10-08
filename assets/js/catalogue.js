@@ -24,6 +24,7 @@
             const image = element('img', 'catalogue-image');
             image.src = photo.thumbnail || photo.src;
             image.alt = photo.alt;
+            if (photo.fit) image.style.objectFit = photo.fit;
             image.width = 640; image.height = 640;
             image.loading = 'lazy'; image.decoding = 'async';
             image.addEventListener('error', () => {
@@ -56,6 +57,15 @@
     else products.filter(product => product.contentPending).forEach(product => {
         const index = products.indexOf(product);
         document.getElementById(products[index - 1].id)?.after(card(product));
+    });
+    // Supplied main images also update the existing static Products-page cards.
+    if (!home) products.filter(product => product.gallery[0]?.mainImage).forEach(product => {
+        const image = document.getElementById(product.id)?.querySelector('.product-image-inner img.catalogue-image');
+        if (!image) return;
+        const photo = product.gallery[0];
+        image.src = photo.thumbnail || photo.src;
+        image.alt = photo.alt;
+        image.style.objectFit = photo.fit || '';
     });
 })();
 
