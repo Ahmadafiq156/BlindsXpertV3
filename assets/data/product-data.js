@@ -638,6 +638,14 @@ window.BLINDSXPERT_PRODUCTS = {
           "width": 1254,
           "height": 1254,
           "overview": true
+        },
+        {
+          "src": "assets/img/products/catalogue-reference/venetian-blinds-white-sunlit-window.png",
+          "alt": "White Venetian blinds beside a vase of flowers on a sunlit windowsill",
+          "caption": "White Venetian blinds at a sunlit window",
+          "width": 1136,
+          "height": 1384,
+          "exampleOnly": true
         }
       ],
       "documents": [
@@ -835,6 +843,14 @@ window.BLINDSXPERT_PRODUCTS = {
           "src": "assets/img/products/catalogue/04%20Roman%20Blinds-20261001T083221Z-1-001/04%20Roman%20Blinds/01%20Complete%20Project/Straight%20Edge%202.png",
           "alt": "Roman blind project image: Straight Edge · project image 2",
           "caption": "Straight Edge · project image 2"
+        },
+        {
+          "src": "assets/img/products/catalogue-reference/roman-blinds-cream-kitchen-window.png",
+          "alt": "Cream Roman blinds with dark trim above a kitchen sink",
+          "caption": "Roman blinds at a kitchen window",
+          "width": 1293,
+          "height": 1217,
+          "exampleOnly": true
         }
       ],
       "documents": [
@@ -1054,6 +1070,14 @@ window.BLINDSXPERT_PRODUCTS = {
           "alt": "Closer view of wooden outdoor blinds beneath a glass canopy",
           "caption": "Outdoor wooden blinds · closer view",
           "exampleOnly": true
+        },
+        {
+          "src": "assets/img/products/catalogue-reference/wooden-outdoor-blinds-green-geometric-print.png",
+          "alt": "Green horizontal outdoor blinds with a white geometric printed pattern",
+          "caption": "Green outdoor blinds with a geometric print",
+          "width": 1285,
+          "height": 1224,
+          "exampleOnly": true
         }
       ],
       "documents": [],
@@ -1196,6 +1220,14 @@ window.BLINDSXPERT_PRODUCTS = {
           "width": 1254,
           "height": 1254,
           "exampleOnly": true
+        },
+        {
+          "src": "assets/img/products/catalogue-reference/awning-purple-salon-entrance-canopy.png",
+          "alt": "Purple dome-shaped canopy above a salon entrance",
+          "caption": "Purple entrance canopy",
+          "width": 1295,
+          "height": 1215,
+          "exampleOnly": true
         }
       ],
       "documents": [],
@@ -1221,6 +1253,14 @@ window.BLINDSXPERT_PRODUCTS = {
           "src": "assets/img/projects/completed/Seri%20Kembangan.png",
           "alt": "Seri Kembangan · motorized indoor blinds",
           "caption": "Seri Kembangan · motorized indoor blinds"
+        },
+        {
+          "src": "assets/img/products/catalogue-reference/motorized-roller-blinds-office-remote.png",
+          "alt": "Office roller blinds with an overlaid remote-control illustration",
+          "caption": "Roller blinds with remote-control illustration",
+          "width": 1290,
+          "height": 1219,
+          "exampleOnly": true
         }
       ],
       "documents": [],
@@ -1253,6 +1293,14 @@ window.BLINDSXPERT_PRODUCTS = {
           "caption": "Illustrative example · Skylight shades",
           "width": 1254,
           "height": 1254,
+          "exampleOnly": true
+        },
+        {
+          "src": "assets/img/products/catalogue-reference/skylight-blinds-fabric-shades-glass-roof.png",
+          "alt": "Fabric skylight shades suspended beneath a sloping glass roof",
+          "caption": "Fabric shades beneath a glass roof",
+          "width": 1293,
+          "height": 1217,
           "exampleOnly": true
         }
       ],

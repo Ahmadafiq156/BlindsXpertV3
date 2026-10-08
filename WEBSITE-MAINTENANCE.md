@@ -8,6 +8,8 @@ This guide describes the current static website implementation. It is for develo
 BlindsXpertV3/
 ├── index.html, about.html, contact.html, gallery.html, product-details.html
 ├── products.html, projects.html, quote.html, services.html, 404.html
+├── careers.html, promotions.html, faqs.html
+├── return-policy.html, delivery-policy.html, term-of-payment.html
 ├── assets/
 │   ├── css/                 shared and Product Details styles
 │   ├── data/                product catalogue data
@@ -89,7 +91,7 @@ There is no package manifest, framework, bundler, or database. The important run
 
 Frequently edited product content is already separated into a plain JavaScript data file. Projects, Gallery, testimonials, homepage content, and client logos remain in their page HTML, so those sections require code edits today. A future CMS can replace those sources with validated content records and media URLs while retaining the current presentation functions; no admin login, backend, database, API, or CMS is included here.
 
-For the local project folder label, this guide and README call the project **BlindsXpertV3**. The active workspace directory remains named `mockup1`; renaming the containing folder is a separate filesystem action because this workspace is opened at that path. The GitHub repository and Pages URL remain `mockup1`.
+The active local project directory is `C:\Users\ahmad\Desktop\BlindsXpertV3`. The GitHub repository and Pages URL remain `mockup1`; local folder naming does not change the hosted project URL.
 
 ## Catalogue update and pending images
 
@@ -114,3 +116,76 @@ Homepage actions use flex columns and a bottom-aligned, full-width action area. 
 - motorized-demo-05: Tropical Patio with Roller Shades → `assets/img/products/video-thumbnails/tropical-patio-roller-shades.png`.
 - motorized-demo-06: Tropical Retreat with Remote Control → `assets/img/products/video-thumbnails/tropical-retreat-remote-control.png`.
 - motorized-demo-07: Modern Corner Living Room with Zebra Blinds → `assets/img/products/video-thumbnails/corner-living-room-zebra-blinds.png`.
+
+## Promotions, FAQs and pending policies
+
+- All five new pages are root HTML files. Header and footer markup is repeated across all 16 active root HTML files, including Careers; update every copy when changing shared links. The ignored nested mockup1 checkout is historical and is not the active website.
+- Add only approved promotion articles to the empty .promotion-grid in promotions.html. Use .promotion-card, an h3 title, an existing/approved image with meaningful alt text, a short description and an enquiry link. Optional dates use time elements with datetime attributes; terms use .promotion-terms. Omit dates/terms until approved. Remove the .promotion-empty block when real promotions are published; do not publish example offers or empty cards.
+- In faqs.html, each category is a section with an h2 and each question uses native details/summary. Edit the summary and .faq-answer paragraph directly. All 22 placeholder answers have been replaced with existing website facts, a catalogue-based general explanation, or explicit contact guidance where approval is missing; see the source review below. Keep the contact link or substitute a verified existing page link. Native accordions support keyboard use and work without JavaScript; supported browsers animate details content, with reduced motion respected.
+- Replace placeholders in return-policy.html, delivery-policy.html and term-of-payment.html only with approved company text. Keep the exact title Term of Payment. Review and remove each page's noindex,follow robots meta tag when substantive approved policy content is published. Update description and Open Graph/Twitter descriptions at the same time. These pages remain in the sitemap and internal links while pending.
+- For new pages, add a url/loc entry to sitemap.xml using the existing https://ahmadafiq156.github.io/mockup1/ base. Keep canonical and og:url consistent with that base and use relative internal links/assets so GitHub Pages project hosting works.
+- Shared navigation switches to the existing mobile menu at 1200px; CSS navigation rules and site.js media queries must use matching boundaries.
+
+## Careers records and future admin integration
+
+Careers now has a dedicated `careers.html` page. The existing `about.html#careers` section, six listed role names, ongoing-listing statement and recruitment email remain available. Navigation and footer Careers links point to the dedicated page. Do not treat the old source as a fresh confirmation that a role is open today; the public page asks visitors to confirm availability.
+
+- **Data:** `assets/data/careers-data.js` assigns `window.BLINDSXPERT_CAREERS`. It contains `schemaVersion`, source notes, the approved `recruitment` channel/instructions, and a `jobs` array. `assets/js/careers.js` renders cards, details and application links; `assets/css/careers.css` styles only this page. Keep data before the renderer in the deferred script order.
+- **Add manually:** copy a record, give it a stable unique lowercase/hyphenated `id`, use only approved text and set `status: "draft"`. Empty unknown fields stay empty strings or arrays. Never reuse an ID for a different role. Available fields are `title`, `department`, `location`, `employmentType`, `description`, `responsibilities`, `requirements`, `benefits`, `applicationMethod`, `applicationContact`, `applicationInstructions`, `closingDate`, `status`, `sortOrder`, and optional source notes. Job descriptions are previewed on the card and shown fully in details. Optional metadata and lists render only when supplied.
+- **Edit:** change the record in place without changing its stable ID. `sortOrder` controls the public sequence. Only the Installer record has an employment type because the existing title explicitly supplies Part-time / Full-time; other departments, locations, descriptions, requirements, benefits and closing dates are unknown and omitted.
+- **Publish/unpublish:** set `status: "published"` only after content and availability are approved. Change it back to `draft` to unpublish. The six migrated records are published because the existing About source explicitly lists them as ongoing; the UI labels them Listed opportunity and asks visitors to confirm availability. It does not assert newly verified open status. New records must not inherit published status by accident.
+- **Close/archive:** set `status: "closed"` or `status: "archived"`. These records remain in the data file but are excluded from Current Opportunities. Draft/closed/archived/unknown statuses never appear publicly. If none are published, the page shows No Current Openings and the requested check-back message. Invalid/missing data displays a loading-error message rather than pretending there are no jobs.
+- **Application information:** use `applicationMethod: "email"` with a verified email, or `"url"` with an approved absolute HTTPS URL. The current approved channel is `job.blindsxpert@gmail.com`; instructions specify sending an application with a photo, as in the original About content. Job-level fields override the `recruitment` defaults. If a role must have no application channel, set applicationMethod to none to prevent inheriting the global default. Invalid/unsafe channels do not produce Apply Now buttons. Email links open a draft with the job title in the subject; nothing is submitted by the site. The global recruitment block supplies the Interested in Joining Us? section. Update both defaults and any per-job overrides when changing contacts. Closing dates use `YYYY-MM-DD` and are displayed only when valid; they do not automatically change a record's status.
+- **Future integration:** `window.renderBlindsXpertCareers(data)` accepts the same data contract and re-renders without mutating records. A future API adapter can supply approved jobs to this function. Cards/details use DOM creation and `textContent`, not raw HTML. Record IDs are validated/deduplicated, and application URLs are restricted to verified email syntax or HTTPS. Keep rich-text sanitization separate if it is introduced later.
+- **Still not implemented:** login, roles/permissions, publish/edit controls, database persistence, API fetching, application uploads/storage, application processing and an admin dashboard. Those require a real authenticated backend. There are no localStorage accounts or fake forms. Without JavaScript, the page links to the preserved About careers information and approved recruitment email.
+
+## Additional product example images
+
+The six supplied PNGs were moved from the root into the existing `assets/img/products/catalogue-reference/` folder with product-specific lowercase filenames. New entries are appended to the matching `gallery` arrays in `assets/data/product-data.js` with `exampleOnly: true`, factual alt text/captions and the original pixel dimensions. They do not become main/variant images or alter product specifications. No images were converted or generated. The existing Product Details renderer and shared native-dialog viewer handle these examples without changes. Gallery thumbnails retain the existing square crop; the full-image viewer uses `object-fit: contain`.
+
+## Supplied page heroes, heading typography and navigation
+
+The October 2026 targeted pass uses the owner's supplied PNGs without conversion or generation. All six hero files are 2016 × 780; the recruitment graphic is 700 × 570. Original bytes were preserved and root copies were moved, not duplicated.
+
+| Original root filename | Final asset path | Placement |
+|---|---|---|
+| promotion.png | assets/img/promotions/promotions-hero.png | promotions.html hero |
+| faqs.png | assets/img/faqs/faqs-hero.png | faqs.html hero |
+| returnpolicy.png | assets/img/policies/return-policy-hero.png | return-policy.html hero |
+| deliverypolicy2.png | assets/img/policies/delivery-policy-hero.png | delivery-policy.html hero |
+| termofpayment.png | assets/img/policies/term-of-payment-hero.png | term-of-payment.html hero |
+| career.png | assets/img/careers/careers-hero.png | careers.html hero |
+| hire.png | assets/img/careers/careers-get-in-touch.png | Careers Get in Touch |
+| deliverypolicy.png | assets/img/policies/delivery-policy-hero-alternate.png | Retained alternate; no active reference |
+
+Replace the image in the matching page's `.information-hero`, preserving width/height attributes, heading, copy and shade. The individual hero classes in `assets/css/site.css` define each crop with `object-position`; all use cover without changing the existing hero dimensions. The scoped dark shade keeps text readable and becomes uniform on narrow screens. Other page heroes keep their existing images and overlays. These images are illustrative assets, not evidence of completed projects or company promises.
+
+Careers Get in Touch uses `.career-contact-layout` in `assets/css/careers.css`: image and existing recruitment copy side by side, stacking at 760px and below. The image frame retains the graphic's 700:570 ratio and uses cover. Keep the recruitment email, native job details and data/renderer contract unchanged when replacing this graphic; the supplied graphic does not verify current vacancy availability.
+
+H1 and H2 use **DM Sans**, the existing body font, with Arial/sans-serif fallbacks. The Google Fonts import retains weights 400/500/600/700 and `display=optional` to prevent late font swaps; the unused Playfair Display import was removed from all 16 pages. Shared heading rules use 700 weight, tighter letter spacing, balanced wrapping, 1.15 base line height and clamp sizing. Existing component-specific sizes remain; H3 and body rules are preserved. Edit `--heading-font` and the shared H1/H2 rules in `assets/css/site.css`, then inspect component overrides. Preserve semantic heading elements. External font delivery can fall back to system fonts. Optional display uses the fallback for that page view when the font misses its initial brief loading window; a later font download is available for subsequent views and does not replace text after it has painted.
+
+The dropdown overflow came from a 780px absolute panel with `right: -24px` relative to the much narrower Products item. Before the fix its left edge was approximately -268px at 1201px, -148px at 1366px and -111px at 1440px. Desktop CSS now starts from left alignment, caps width to the viewport minus 32px and limits height with vertical scrolling. `positionProductsDropdown()` in `assets/js/site.js` measures the anchor and clamps the panel within 16px viewport insets on opening, resize and font readiness. No fixed negative offset is used. At 1200px and below it remains an in-flow submenu inside the scrollable mobile navigation, with wrapping links. Mobile flex items must not shrink: the old Products wrapper shrank to 308px around 444px of content at 390px, allowing the submenu to overlap Projects, Promotions and FAQs. `.nav.open > * { flex-shrink: 0; }` reserves the full wrapper height so later links remain accessible by scrolling; the desktop hover bridge pseudo-element is disabled on mobile. Keep the CSS and JS breakpoint synchronized. Enhanced desktop visibility follows `.dropdown-open` so Escape closes the panel even while the item retains hover/focus; no-JavaScript hover/focus fallback remains. Pointer hover, keyboard focus/Enter, touch toggle and `aria-expanded` are coordinated; Escape restores focus and resizing across the breakpoint resets menus.
+
+## FAQ sources and company approval
+
+Keep the four categories and 22 questions in their current order. Edit only the `.faq-answer` paragraph when updating answers, with concise customer wording and relevant relative links. Native `details`/`summary` requires no accordion script. Confirm business-specific promises with the owner before publishing them and update this source review when facts change. Do not add policies to the FAQ by inference.
+
+| Question number(s) | Current factual basis | Approval still needed |
+|---|---|---|
+| 1–5: company, contact, location, quote, projects | products.html, services.html, contact.html, quote.html and its existing email-draft handler, projects.html | Any new hours, branches or company claims |
+| 6: blind types | products.html and assets/data/product-data.js | New product/availability claims |
+| 7: curtains and hardware | curtain-hardware catalogue record verifies rails and rods | Curtain fabric and curtain supply availability |
+| 8: roller versus zebra | General explanation grounded in the two catalogue descriptions | No company-specific performance promise is made |
+| 9: colours/materials | Roller Blackout/Sunscreen/Translucent and Venetian Aluminium/Timber/PVC/Lantex catalogue ranges | Current colours, materials and stock |
+| 10: window sizes | about.html states customised and ready-made coverings | Particular dimensions, suitability and custom options |
+| 11: motorized blinds | Catalogue and products.html list motorized demonstrations and Somfy/Dooya ranges | Project-specific options |
+| 12: measurement | services.html lists measurement in Kuala Lumpur/Selangor | Appointment availability, arrangements and any fee; this does not establish delivery coverage |
+| 13–14: installation/customization | services.html customer journey; about.html custom-covering statement | Project arrangements and suitable custom requirements |
+| 15: quote | quote.html and existing site.js email-draft behavior, contact.html | No automatic sending or backend submission is claimed |
+| 16: after quotation | Existing six-step customer journey in services.html/index.html | Payment amounts/deadlines, deposit terms and scheduling |
+| 17: installation duration | Contact guidance only; no approved duration | Company/project installation schedule |
+| 18–22: cleaning, frequency, water, motorized care, operating problems | Product-specific contact guidance; question 18 follows the owner's supplied neutral wording | Approved product-specific care methods, maintenance frequency, water suitability, motorized instructions and troubleshooting; repair/warranty terms remain unconfirmed |
+
+Of the 22 answers, 15 primarily use existing company/catalogue content, one provides a catalogue-grounded general product explanation (question 8), and six require company guidance (questions 17–22). Some supported answers also explicitly defer the particulars listed above. Policies remain pending and retain `noindex,follow`; promotions still contain no invented offers.
+
+The targeted pass was verified locally in headless Edge at 320, 360, 375, 390, 430, 768, 1024, 1366 and 1440px (144 page/width combinations). All six hero heights match the pre-change CSS at those widths. Heading semantics/copy, shared headers/footers, body/H3 styles, product/careers data and non-navigation handlers were preserved. Asset checks covered 1,444 HTML/catalogue references; local links/fragments and browser requests had no missing files or JavaScript errors. Navigation checks also included 1201px, every mobile link's unobscured click target, keyboard/Enter/Tab/Escape and desktop touch toggles. FAQ accordions work without JavaScript and with reduced motion; Careers cards/details, catalogue filters, product/shared viewers and seven video posters were checked. The visitor counter used a local deterministic response, not the production service; quote validation was checked without sending an enquiry. Font delivery was tested separately with only Google Fonts allowed: optional display prevents late text swaps, although the unchanged Careers and Product Details renderers can still shift sections during initial data rendering. This is not a guarantee of zero overall page CLS or a live integration/deployment test.

@@ -1,0 +1,36 @@
+warning: in the working copy of '404.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'WEBSITE-MAINTENANCE.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'about.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'assets/css/site.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'assets/data/product-data.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'assets/js/site.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'contact.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'gallery.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'product-details.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'products.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'projects.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'quote.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'services.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'sitemap.xml', LF will be replaced by CRLF the next time Git touches it
+M	404.html
+M	WEBSITE-MAINTENANCE.md
+M	about.html
+M	assets/css/site.css
+M	assets/data/product-data.js
+D	assets/img/unused/images/06 Project & sample/12.png
+D	assets/img/unused/images/06 Project & sample/13.png
+D	assets/img/unused/images/06 Project & sample/14.png
+D	assets/img/unused/images/06 Project & sample/16.png
+D	assets/img/unused/images/06 Project & sample/3.png
+D	assets/img/unused/images/06 Project & sample/6.png
+M	assets/js/site.js
+M	contact.html
+M	gallery.html
+M	index.html
+M	product-details.html
+M	products.html
+M	projects.html
+M	quote.html
+M	services.html
+M	sitemap.xml

@@ -3,6 +3,26 @@ const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#mainNav');
 const productsMenu = document.querySelector('.nav-products');
 const productsToggle = document.querySelector('.products-toggle');
+const productsDropdown = document.querySelector('#productDropdown');
+const desktopNavigation = window.matchMedia('(min-width: 1201px)');
+header?.classList.add('nav-enhanced');
+function positionProductsDropdown() {
+    if (!productsMenu || !productsDropdown) return;
+    if (!desktopNavigation.matches) {
+        productsDropdown.style.removeProperty('left');
+        return;
+    }
+    const anchor = productsMenu.getBoundingClientRect();
+    const width = productsDropdown.getBoundingClientRect().width;
+    const inset = 16;
+    const left = Math.max(inset, Math.min(anchor.left, document.documentElement.clientWidth - width - inset));
+    productsDropdown.style.left = `${left - anchor.left}px`;
+}
+function openProductsMenu() {
+    positionProductsDropdown();
+    productsMenu?.classList.add('dropdown-open');
+    productsToggle?.setAttribute('aria-expanded', 'true');
+}
 function updateHeader() {
     header?.classList.toggle('scrolled', window.scrollY > 18)
 }
@@ -22,29 +42,31 @@ toggle?.addEventListener('click', () => {
     if (open) closeProductsMenu();
 });
 productsToggle?.addEventListener('click', () => {
-    const desktop = window.matchMedia('(min-width: 961px)').matches;
-    const open = desktop || productsToggle.getAttribute('aria-expanded') !== 'true';
-    productsToggle.setAttribute('aria-expanded', String(open));
-    productsMenu?.classList.toggle('dropdown-open', open);
+    if (productsToggle.getAttribute('aria-expanded') === 'true') closeProductsMenu();
+    else openProductsMenu();
 });
-productsMenu?.addEventListener('pointerenter', () => {
-    if (window.matchMedia('(min-width: 961px)').matches) {
-        productsMenu.classList.add('dropdown-open');
-        productsToggle?.setAttribute('aria-expanded', 'true')
-    }
+productsMenu?.addEventListener('pointerenter', event => {
+    if (desktopNavigation.matches && event.pointerType !== 'touch') openProductsMenu();
 });
-productsMenu?.addEventListener('focusin', () => {
-    if (window.matchMedia('(min-width: 961px)').matches) {
-        productsMenu.classList.add('dropdown-open');
-        productsToggle?.setAttribute('aria-expanded', 'true')
-    }
+productsMenu?.addEventListener('focusin', event => {
+    if (desktopNavigation.matches && event.target !== productsToggle && !productsMenu.contains(event.relatedTarget)) openProductsMenu();
 });
 productsMenu?.addEventListener('mouseleave', () => {
-    if (window.matchMedia('(min-width: 961px)').matches) closeProductsMenu();
+    if (desktopNavigation.matches && !productsMenu.contains(document.activeElement)) closeProductsMenu();
 });
 productsMenu?.addEventListener('focusout', event => {
-    if (!productsMenu.contains(event.relatedTarget) && window.matchMedia('(min-width: 961px)').matches && !productsMenu.matches(':hover')) closeProductsMenu();
+    if (!productsMenu.contains(event.relatedTarget) && desktopNavigation.matches && !productsMenu.matches(':hover')) closeProductsMenu();
 });
+window.addEventListener('resize', positionProductsDropdown, {passive: true});
+desktopNavigation.addEventListener('change', () => {
+    closeProductsMenu();
+    nav?.classList.remove('open');
+    toggle?.setAttribute('aria-expanded', 'false');
+    toggle?.setAttribute('aria-label', 'Open navigation');
+    positionProductsDropdown();
+});
+positionProductsDropdown();
+document.fonts?.ready.then(positionProductsDropdown);
 nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     nav.classList.remove('open');
     toggle?.setAttribute('aria-expanded', 'false');
@@ -53,10 +75,14 @@ nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
 }));
 document.addEventListener('keydown', event => {
     if (event.key !== 'Escape') return;
-    if (productsMenu?.classList.contains('dropdown-open')) closeProductsMenu();
+    if (productsMenu?.classList.contains('dropdown-open')) {
+        closeProductsMenu();
+        if (productsMenu.contains(document.activeElement)) productsToggle?.focus();
+    }
     if (nav?.classList.contains('open')) {
         nav.classList.remove('open');
         toggle?.setAttribute('aria-expanded', 'false');
+        toggle?.setAttribute('aria-label', 'Open navigation');
         toggle?.focus();
     }
 });
