@@ -38,8 +38,9 @@
 @media (max-width: 600px) { .careers-grid { grid-template-columns: minmax(0,1fr); } .career-card,.career-empty { padding: 24px; } }
 
 /* Supplied recruitment artwork and verified email share one responsive section. */
-.career-contact-layout { display: grid; grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); gap: 48px; align-items: center; }
-.career-contact-image { width: 100%; aspect-ratio: 700 / 570; overflow: hidden; border: 1px solid var(--border-light); border-radius: 4px; background: #fff; }
-.career-contact-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.career-contact-layout { display: grid; grid-template-columns: minmax(0,300px) minmax(0,1fr); gap: 48px; align-items: center; }
+.career-contact-image { display: block; width: 100%; max-width: 300px; height: auto; object-fit: contain; margin-inline: auto; }
 .career-contact-layout .career-application { width: 100%; min-width: 0; }
-@media (max-width: 760px) { .career-contact-layout { grid-template-columns: minmax(0,1fr); gap: 28px; } .career-contact-image { max-width: 500px; } }
+@media (max-width: 1000px) { .career-contact-layout { grid-template-columns: minmax(0,250px) minmax(0,1fr); gap: 32px; } .career-contact-image { max-width: 250px; } }
+@media (max-width: 760px) { .career-contact-layout { grid-template-columns: minmax(0,1fr); gap: 28px; } }
+@media (max-width: 600px) { .career-contact-image { max-width: 200px; } }
