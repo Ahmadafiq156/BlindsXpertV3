@@ -2532,24 +2532,6 @@ button:active,.btn:active {
     }
 }
 
-/* Animated navigation artwork; footer branding keeps its existing styling. */
-.site-header .navigation-logo-link {
-    width: 180px;
-    min-width: 0;
-    flex: 0 0 auto;
-    flex-wrap: nowrap;
-}
-.navigation-logo-animation { display: block; width: 100%; }
-.navigation-animated-logo { display: block; width: 100%; height: auto; object-fit: contain; }
-.navigation-static-logo { display: none; width: 100%; flex-wrap: wrap; align-items: center; }
-@media (max-width: 1200px) { .site-header .navigation-logo-link { width: 160px; } }
-@media (max-width: 600px) { .site-header .navigation-logo-link { width: 140px; } }
-@media (prefers-reduced-motion: reduce) {
-    .site-header .navigation-logo-link { width: 170px; }
-    .navigation-logo-animation { display: none; }
-    .navigation-static-logo { display: flex; }
-}
-
 /* Official BlindsXpert artwork and stable header interaction */
 
 .logo {
@@ -2673,7 +2655,7 @@ button:active,.btn:active {
 }
 
 .gallery-image-trigger::after {
-    content: 'View full image  ↗';
+    content: 'View full image  â†—';
     position: absolute;
     right: 14px;
     bottom: 14px;
@@ -4072,3 +4054,74 @@ h2 { font-size: clamp(24px,3vw,36px); }
     .product-dropdown-group>a { white-space: normal; overflow-wrap: anywhere; }
 }
 @media (prefers-reduced-motion: reduce) { .product-dropdown { transition: none; } }
+
+/* Projects and About Us reuse the Products disclosure system. */
+.nav-products-top > .is-current-section,
+.product-dropdown-group > a[aria-current] { color: var(--primary-red); }
+.navigation-simple-dropdown { grid-template-columns: minmax(0,1fr); gap: 0; }
+.navigation-simple-dropdown .product-dropdown-group { display: flex; flex-direction: column; }
+@media (min-width: 1201px) {
+    .product-dropdown.navigation-simple-dropdown { width: 230px; padding: 12px; }
+    .navigation-simple-dropdown .product-dropdown-group > a { font-size: 13px; }
+}
+@media (max-width: 1200px) {
+    .nav-products.dropdown-open .product-dropdown { max-height: none; overflow: visible; }
+}
+#dealer-enquiries { scroll-margin-top: calc(var(--header-height) + 20px); }
+
+/* Visibility changes immediately so keyboard focus can enter the open panel. */
+.product-dropdown { transition: opacity .2s, transform .2s; }
+@media (prefers-reduced-motion: reduce) { .product-dropdown { transition: none; } }
+/* Targeted homepage typography and slideshow controls. */
+.home-hero.page-hero h1 { font-size:clamp(30px,3.5vw,48px); line-height:1.18; max-width:24ch; text-wrap:balance; }
+.home-hero .page-hero-copy > p:not(.eyebrow) { font-size:clamp(14px,1.15vw,16px); line-height:1.6; max-width:56ch; }
+.home-hero .hero-arrow { width:56px; height:56px; background:rgb(0 0 0 / 22%); border-radius:50%; }
+.home-hero .hero-arrow svg { width:34px; height:34px; stroke-width:2.2; }
+.home-hero .hero-arrow:hover,.home-hero .hero-arrow:focus-visible { background:rgb(0 0 0 / 40%); }
+@media (max-width:760px) {
+    .home-hero.page-hero h1 { font-size:clamp(24px,6vw,30px); line-height:1.2; }
+    .home-hero .page-hero-copy > p:not(.eyebrow) { font-size:13px; line-height:1.55; }
+    .home-hero .page-hero-copy { padding-left:54px; padding-right:54px; }
+    .home-hero .hero-arrow { width:48px; height:52px; background:transparent; border-radius:0; color:#fff; }
+    .home-hero .hero-arrow svg { width:32px; height:32px; }
+}
+
+/* Catalogue metadata stays in the content area, below the product name. */
+#catalogue .product-suitable { margin:6px 0 0; color:#666; font-size:13px; line-height:1.5; }
+.product-best-seller { display:inline-flex; align-items:center; align-self:flex-start; width:fit-content; padding:4px 8px; margin:8px 0 0; border-radius:20px; color:#9b202d; background:#fbeaec; font-size:10px; font-weight:700; line-height:1.3; letter-spacing:.5px; }
+#catalogue .card-copy { display:flex; flex-direction:column; }
+#catalogue .catalogue-actions { margin-top:auto; padding-top:16px; }
+#catalogue .card-copy > a:last-child { margin-top:auto; padding-top:16px; }
+
+/* Local profile snapshots have reserved space and no third-party dependencies. */
+.social-updates .social-grid { grid-template-columns:repeat(3,minmax(0,1fr)); align-items:stretch; }
+.social-updates .social-profile { display:flex; flex-direction:column; min-width:0; padding:22px; }
+.social-preview { display:block; width:100%; margin:6px 0 12px; background:#fff; border:1px solid var(--border-light); border-radius:4px; }
+.social-preview img { display:block; width:100%; height:auto; aspect-ratio:1917/1001; object-fit:contain; border-radius:4px; }
+.social-updates .home-product-action { margin-top:auto; padding-top:12px; }
+.social-updates .social-note { font-size:12px; color:#666; }
+@media (max-width:960px) { .social-updates .social-grid { grid-template-columns:1fr; } }
+.testimonial-card { display:flex; flex-direction:column; }
+.testimonial-card[hidden] { display:none; }
+.testimonial-rating { margin:10px 0 0; text-align:center; color:#d29400; font-size:20px; line-height:1; letter-spacing:2px; }
+
+/* Lightweight shared WhatsApp disclosure; below the header and native dialogs. */
+.whatsapp-widget { position:fixed; right:max(16px,env(safe-area-inset-right)); bottom:calc(var(--whatsapp-offset,16px) + env(safe-area-inset-bottom)); z-index:900; }
+.whatsapp-toggle { width:52px; height:52px; display:grid; place-items:center; margin-left:auto; padding:12px; border:0; border-radius:50%; color:#fff; background:#168b4b; box-shadow:0 4px 16px #0002; cursor:pointer; }
+.whatsapp-toggle svg { width:28px; height:28px; fill:currentColor; }
+.whatsapp-toggle:focus-visible,.whatsapp-close:focus-visible { outline:3px solid var(--primary-red); outline-offset:3px; }
+.whatsapp-popup { width:min(320px,calc(100vw - 32px)); max-height:calc(100dvh - 150px); overflow:auto; padding:22px; margin-bottom:12px; background:#fff; border:1px solid var(--border-light); border-radius:8px; box-shadow:0 8px 28px #0002; }
+.whatsapp-popup[hidden] { display:none; }
+.whatsapp-popup h2 { font-size:20px; line-height:1.3; margin:0 28px 12px 0; }
+.whatsapp-popup p { font-size:14px; line-height:1.6; margin:0 0 16px; }
+.whatsapp-popup .btn { width:100%; min-height:44px; justify-content:center; }
+.whatsapp-close { position:absolute; top:12px; right:12px; width:32px; height:32px; border:0; background:transparent; color:#555; font-size:26px; cursor:pointer; }
+.whatsapp-widget[hidden] { display:none; }
+#catalogue .product-card { display:flex; flex-direction:column; }
+#catalogue .card-copy { flex:1; }
+#catalogue .product-image-frame { flex-shrink:0; }
+@media (min-width:761px) and (max-width:1200px) {
+    .home-hero .page-hero-copy { padding-left:44px; padding-right:44px; }
+}
+
+.whatsapp-toggle[hidden] { display:none; }

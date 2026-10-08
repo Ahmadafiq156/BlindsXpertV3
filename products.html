@@ -31,11 +31,11 @@
         <a class="skip-link" href="#main">Skip to content</a>
         <header class="site-header">
             <div class="container nav-wrap">
-                <a class="logo navigation-logo-link" href="index.html" aria-label="BlindsXpert Malaysia"><picture class="navigation-logo-animation"><source media="(prefers-reduced-motion: reduce)" srcset="assets/img/header/logo%20no%20background.png"><img class="navigation-animated-logo" src="assets/img/header/blindsxpert-animated-logo.gif" alt="BlindsXpert Malaysia" width="4320" height="1440" fetchpriority="high" decoding="async"></picture><span class="navigation-static-logo" aria-hidden="true"><img
+                <a class="logo" href="index.html" aria-label="BlindsXpert Malaysia"><img
                             class="brand-mark"
                             src="assets/img/header/logo%20no%20background.png"
                             alt=""
-                        ><span>Blinds</span><b>Xpert</b><small>Your Window, Our Expertise</small></span></a>
+                        ><span>Blinds</span><b>Xpert</b><small>Your Window, Our Expertise</small></a>
                 <button
                     class="menu-toggle"
                     type="button"
@@ -45,7 +45,7 @@
                 ><span></span><span></span><span></span></button>
                 <nav class="nav" id="mainNav" aria-label="Main navigation">
                     <a href="index.html">Home</a>
-                    <div class="nav-products">
+                    <div class="nav-products" data-nav-dropdown>
                         <div class="nav-products-top">
                             <a href="products.html" aria-current="page">Products</a>
                             <button
@@ -87,15 +87,34 @@
                             </div>
                         </div>
                     </div>
-                    <a href="projects.html">Projects</a>
+                    <div class="nav-products" data-nav-dropdown>
+                    <div class="nav-products-top">
+                        <a href="projects.html">Projects</a>
+                        <button class="products-toggle" type="button" aria-label="Toggle Projects submenu" aria-expanded="false" aria-controls="projectsDropdown"><span aria-hidden="true"></span></button>
+                    </div>
+                    <div class="product-dropdown navigation-simple-dropdown" id="projectsDropdown" aria-label="Projects submenu">
+                        <div class="product-dropdown-group">
+                            <a href="gallery.html">Gallery</a>
+                        </div>
+                    </div>
+                </div>
+                    <div class="nav-products" data-nav-dropdown>
+                    <div class="nav-products-top">
+                        <a href="about.html">About Us</a>
+                        <button class="products-toggle" type="button" aria-label="Toggle About Us submenu" aria-expanded="false" aria-controls="aboutDropdown"><span aria-hidden="true"></span></button>
+                    </div>
+                    <div class="product-dropdown navigation-simple-dropdown" id="aboutDropdown" aria-label="About Us submenu">
+                        <div class="product-dropdown-group">
+                            <a href="careers.html">Careers</a>
+                            <a href="products.html#dealer-enquiries">Join as Dealer</a>
+                        </div>
+                    </div>
+                </div>
+                    <a href="services.html">Services</a>
                     <a href="promotions.html">Promotions</a>
                     <a href="faqs.html">FAQs</a>
-                    <a href="services.html">Services</a>
-                    <a href="about.html">About Us</a>
-                    <a href="gallery.html">Gallery</a>
-                    <a href="careers.html">Careers</a>
                     <a href="contact.html">Contact</a>
-                    <a class="nav-cta" href="quote.html">Get a Free Quote <span aria-hidden="true">→</span></a>
+                    <a class="nav-cta" href="quote.html">Get a Free Quote <span aria-hidden="true">â†’</span></a>
                 </nav>
             </div>
         </header>
@@ -139,7 +158,7 @@
                                 <p class="eyebrow">INDOOR</p>
                                 <h3>Zebra Blinds</h3>
                                 <p class="product-detail">Controls light while maintaining a view. The official site describes the Vision style as suited to modern homes.</p>
-                                <a href="product-details.html?product=zebra">View product details →</a>
+                                <a href="product-details.html?product=zebra">View product details â†’</a>
                             </div>
                         </article>
                         <article id="roller" class="product-card" data-category="indoor">
@@ -152,7 +171,7 @@
                                 <p class="eyebrow">INDOOR</p>
                                 <h3>Roller Blinds</h3>
                                 <p class="product-detail">Simple to operate: the blind rolls up or down to adjust shading.</p>
-                                <a href="product-details.html?product=roller">View product details →</a>
+                                <a href="product-details.html?product=roller">View product details â†’</a>
                             </div>
                         </article>
                         <article id="panel" class="product-card" data-category="indoor">
@@ -165,7 +184,7 @@
                                 <p class="eyebrow">INDOOR</p>
                                 <h3>Panel Blinds</h3>
                                 <p class="product-detail">A contemporary option for large windows that can also be used as a room divider or to hide an unwanted view.</p>
-                                <a href="product-details.html?product=panel">View product details →</a>
+                                <a href="product-details.html?product=panel">View product details â†’</a>
                             </div>
                         </article>
                         <article id="venetian" class="product-card" data-category="indoor">
@@ -178,7 +197,7 @@
                                 <p class="eyebrow">INDOOR</p>
                                 <h3>Venetian Blinds</h3>
                                 <p class="product-detail">Horizontal slats can be angled to regulate light and air, or drawn up to the top of the window.</p>
-                                <a href="product-details.html?product=venetian">View product details →</a>
+                                <a href="product-details.html?product=venetian">View product details â†’</a>
                             </div>
                         </article>
                         <article id="vertical" class="product-card" data-category="indoor">
@@ -191,7 +210,7 @@
                                 <p class="eyebrow">INDOOR</p>
                                 <h3>Vertical Blinds</h3>
                                 <p class="product-detail">Vertical fabric strips move to adjust light. The source notes they are less likely to collect dust and draw to the side.</p>
-                                <a href="product-details.html?product=vertical">View product details →</a>
+                                <a href="product-details.html?product=vertical">View product details â†’</a>
                             </div>
                         </article>
                         <article id="roman" class="product-card" data-category="indoor">
@@ -204,7 +223,7 @@
                                 <p class="eyebrow">INDOOR</p>
                                 <h3>Roman Blinds</h3>
                                 <p class="product-detail">Fabric panels raise into evenly sized horizontal folds using a cord system and rings sewn onto the fabric.</p>
-                                <a href="product-details.html?product=roman">View product details →</a>
+                                <a href="product-details.html?product=roman">View product details â†’</a>
                             </div>
                         </article>
                         <article id="dream" class="product-card" data-category="indoor">
@@ -216,12 +235,12 @@
                             <div class="card-copy">
                                 <p class="eyebrow">INDOOR</p>
                                 <h3>Dream Blinds</h3>
-                                <a href="product-details.html?product=dream">View product details →</a>
+                                <a href="product-details.html?product=dream">View product details â†’</a>
                             </div>
                         </article>
                         <article id="honeycomb" class="product-card" data-category="indoor">
  <div class="product-image-frame"><span class="product-image-inner"><img class="catalogue-image" src="assets/img/products/generated/web/honeycomb-v2-main-card.webp" alt="Illustrative beige Honeycomb Blinds with cellular pleats" width="640" height="640" loading="lazy" decoding="async"></span></div>
- <div class="card-copy"><p class="eyebrow">INDOOR</p><h3>Honeycomb Blinds</h3><p class="product-detail">Cellular blinds with a pleated fabric structure. Ask our team about options for your window.</p><a href="product-details.html?product=honeycomb">View product details →</a></div>
+ <div class="card-copy"><p class="eyebrow">INDOOR</p><h3>Honeycomb Blinds</h3><p class="product-detail">Cellular blinds with a pleated fabric structure. Ask our team about options for your window.</p><a href="product-details.html?product=honeycomb">View product details â†’</a></div>
 </article>
 <h2 class="product-category-heading" data-category-heading="outdoor">Outdoor</h2>
                         <article id="wooden-outdoor" class="product-card" data-category="outdoor">
@@ -235,7 +254,7 @@
                                 <h3>Wooden Outdoor Blinds</h3>
                                 <p class="product-detail">Wooden blinds for outdoor spaces, with UV / logo printing available as a customisation option.</p>
 
-                                <a href="product-details.html?product=wooden-outdoor">View product details →</a>
+                                <a href="product-details.html?product=wooden-outdoor">View product details â†’</a>
                             </div>
                         </article>
                         <article id="bamboo-outdoor" class="product-card" data-category="outdoor">
@@ -249,7 +268,7 @@
                                 <h3>Bamboo Outdoor Blinds</h3>
                                 <p class="product-detail">Outdoor bamboo blinds with a natural, traditional appearance.</p>
 
-                                <a href="product-details.html?product=bamboo-outdoor">View product details →</a>
+                                <a href="product-details.html?product=bamboo-outdoor">View product details â†’</a>
                             </div>
                         </article>
                         <article id="ziptrak-outdoor" class="product-card" data-category="outdoor">
@@ -262,7 +281,7 @@
                                 <p class="eyebrow">OUTDOOR</p>
                                 <h3>Ziptrak Outdoor Blinds</h3>
                                 <p class="product-detail">A track-guided outdoor blind system. Explore the PVC and motorized options listed in our catalogue with our team.</p>
-                                <a href="product-details.html?product=ziptrak-outdoor">View product details →</a>
+                                <a href="product-details.html?product=ziptrak-outdoor">View product details â†’</a>
                             </div>
                         </article>
                         <article id="pvc-outdoor" class="product-card" data-category="outdoor">
@@ -271,7 +290,7 @@
                                 <p class="eyebrow">OUTDOOR</p>
                                 <h3>PVC Outdoor Blinds</h3>
                                 <p class="product-detail">Explore PVC outdoor blinds for your space. Ask our team to confirm the available system, finish and installation requirements.</p>
-                                <a href="product-details.html?product=pvc-outdoor">View product details →</a>
+                                <a href="product-details.html?product=pvc-outdoor">View product details â†’</a>
                             </div>
                         </article>
                         <article id="awning-canopy" class="product-card" data-category="outdoor">
@@ -280,7 +299,7 @@
                                 <p class="eyebrow">OUTDOOR</p>
                                 <h3>Awnings &amp; Canopies</h3>
                                 <p class="product-detail">Awnings and canopies create a protected outdoor space.</p>
-                                <a href="product-details.html?product=awning-canopy">View product details →</a>
+                                <a href="product-details.html?product=awning-canopy">View product details â†’</a>
                             </div>
                         </article>
 
@@ -297,7 +316,7 @@
                                 <h3>Motorized Solutions</h3>
                                 <p class="product-detail">Explore motorized blind solutions, product demonstrations and the Somfy and Dooya ranges listed in our catalogue.</p>
 
-                                <a href="product-details.html?product=motorized">View product details →</a>
+                                <a href="product-details.html?product=motorized">View product details â†’</a>
                             </div>
                         </article>
 
@@ -309,7 +328,7 @@
                                 <h3>Skylight Blinds</h3>
                                 <p class="product-detail">Shading solutions for glass roofs and inclined windows. Ask our team about a system for your opening.</p>
 
-                                <a href="product-details.html?product=skylight">View product details →</a>
+                                <a href="product-details.html?product=skylight">View product details â†’</a>
                             </div>
                         </article>
                         <article id="curtain-hardware" class="product-card" data-category="other">
@@ -318,7 +337,7 @@
                                 <p class="eyebrow">OTHER</p>
                                 <h3>Curtain Hardware</h3>
                                 <p class="product-detail">Explore curtain rails and curtain rods. Our team can help you choose the hardware for your curtain and opening.</p>
-                                <a href="product-details.html?product=curtain-hardware">View product details →</a>
+                                <a href="product-details.html?product=curtain-hardware">View product details â†’</a>
                             </div>
                         </article>
 
@@ -342,7 +361,7 @@
                             rel="noopener noreferrer"
                             aria-label="View the BlindsXpert online catalogue in a new tab"
                             title="Opens the BlindsXpert online catalogue in a new tab"
-                        >View Online Catalogue <span aria-hidden="true">↗</span></a>
+                        >View Online Catalogue <span aria-hidden="true">â†—</span></a>
                     </div>
                 </div>
             </section>
@@ -406,7 +425,7 @@
                             alt="Roller blind blackout option, set A"
                             loading="lazy"
                         >
-                            <figcaption>Blackout · set A</figcaption>
+                            <figcaption>Blackout Â· set A</figcaption>
                         </figure>
                         <figure>
                             <img
@@ -414,7 +433,7 @@
                             alt="Roller blind sunscreen option, set A"
                             loading="lazy"
                         >
-                            <figcaption>Sunscreen · set A</figcaption>
+                            <figcaption>Sunscreen Â· set A</figcaption>
                         </figure>
                         <figure>
                             <img
@@ -422,7 +441,7 @@
                             alt="Roller blind translucent option, set A"
                             loading="lazy"
                         >
-                            <figcaption>Translucent · set A</figcaption>
+                            <figcaption>Translucent Â· set A</figcaption>
                         </figure>
                         <figure>
                             <img
@@ -430,7 +449,7 @@
                             alt="Roller blind blackout option, set B"
                             loading="lazy"
                         >
-                            <figcaption>Blackout · set B</figcaption>
+                            <figcaption>Blackout Â· set B</figcaption>
                         </figure>
                         <figure>
                             <img
@@ -438,7 +457,7 @@
                             alt="Roller blind sunscreen option, set B"
                             loading="lazy"
                         >
-                            <figcaption>Sunscreen · set B</figcaption>
+                            <figcaption>Sunscreen Â· set B</figcaption>
                         </figure>
                         <figure>
                             <img
@@ -446,7 +465,7 @@
                             alt="Roller blind translucent option, set B"
                             loading="lazy"
                         >
-                            <figcaption>Translucent · set B</figcaption>
+                            <figcaption>Translucent Â· set B</figcaption>
                         </figure>
                         <figure>
                             <img
@@ -534,7 +553,7 @@
                             alt="Zebra blind custom option image 1"
                             loading="lazy"
                         >
-                            <figcaption>Custom · image 1</figcaption>
+                            <figcaption>Custom Â· image 1</figcaption>
                         </figure>
                         <figure>
                             <img
@@ -542,7 +561,7 @@
                             alt="Zebra blind custom option image 2"
                             loading="lazy"
                         >
-                            <figcaption>Custom · image 2</figcaption>
+                            <figcaption>Custom Â· image 2</figcaption>
                         </figure>
                         <figure>
                             <img
@@ -550,7 +569,7 @@
                             alt="Zebra blind custom option image 3"
                             loading="lazy"
                         >
-                            <figcaption>Custom · image 3</figcaption>
+                            <figcaption>Custom Â· image 3</figcaption>
                         </figure>
                         <figure>
                             <img
@@ -558,7 +577,7 @@
                             alt="Zebra blind generic option image 1"
                             loading="lazy"
                         >
-                            <figcaption>Generic · image 1</figcaption>
+                            <figcaption>Generic Â· image 1</figcaption>
                         </figure>
                         <figure>
                             <img
@@ -566,7 +585,7 @@
                             alt="Zebra blind generic option image 2"
                             loading="lazy"
                         >
-                            <figcaption>Generic · image 2</figcaption>
+                            <figcaption>Generic Â· image 2</figcaption>
                         </figure>
                         <figure>
                             <img
@@ -676,7 +695,7 @@
                             alt="Aluminium Venetian blinds"
                             loading="lazy"
                         >
-                            <figcaption>Aluminium · project image 2</figcaption>
+                            <figcaption>Aluminium Â· project image 2</figcaption>
                         </figure>
                         <figure>
                             <img
@@ -684,7 +703,7 @@
                             alt="PVC Venetian blinds"
                             loading="lazy"
                         >
-                            <figcaption>PVC · project image 1</figcaption>
+                            <figcaption>PVC Â· project image 1</figcaption>
                         </figure>
                         <figure>
                             <img
@@ -692,7 +711,7 @@
                             alt="PVC Venetian blinds"
                             loading="lazy"
                         >
-                            <figcaption>PVC · project image 2</figcaption>
+                            <figcaption>PVC Â· project image 2</figcaption>
                         </figure>
                         <figure>
                             <img
@@ -700,7 +719,7 @@
                             alt="Timber Venetian blinds"
                             loading="lazy"
                         >
-                            <figcaption>Timber · project image 1</figcaption>
+                            <figcaption>Timber Â· project image 1</figcaption>
                         </figure>
                         <figure>
                             <img
@@ -708,7 +727,7 @@
                             alt="Timber Venetian blinds"
                             loading="lazy"
                         >
-                            <figcaption>Timber · project image 2</figcaption>
+                            <figcaption>Timber Â· project image 2</figcaption>
                         </figure>
                         <figure>
                             <img
@@ -753,34 +772,34 @@
                         <figure>
                             <img
                             src="assets/img/products/catalogue/06%20Vertical%20Blinds-20261001T083225Z-1-001/06%20Vertical%20Blinds/01%20Complete%20Project/Colour%20Mix%202.jpg"
-                            alt="Vertical blind project image: Mix and match colour · project image 2"
+                            alt="Vertical blind project image: Mix and match colour Â· project image 2"
                             loading="lazy"
                         >
-                            <figcaption>Mix and match colour · project image 2</figcaption>
+                            <figcaption>Mix and match colour Â· project image 2</figcaption>
                         </figure>
                         <figure>
                             <img
                             src="assets/img/products/catalogue/06%20Vertical%20Blinds-20261001T083225Z-1-001/06%20Vertical%20Blinds/01%20Complete%20Project/Full%20Colour%201.jpg"
-                            alt="Vertical blind project image: Full colour · project image 1"
+                            alt="Vertical blind project image: Full colour Â· project image 1"
                             loading="lazy"
                         >
-                            <figcaption>Full colour · project image 1</figcaption>
+                            <figcaption>Full colour Â· project image 1</figcaption>
                         </figure>
                         <figure>
                             <img
                             src="assets/img/products/catalogue/06%20Vertical%20Blinds-20261001T083225Z-1-001/06%20Vertical%20Blinds/01%20Complete%20Project/Full%20Colour%202.jpg"
-                            alt="Vertical blind project image: Full colour · project image 2"
+                            alt="Vertical blind project image: Full colour Â· project image 2"
                             loading="lazy"
                         >
-                            <figcaption>Full colour · project image 2</figcaption>
+                            <figcaption>Full colour Â· project image 2</figcaption>
                         </figure>
                         <figure>
                             <img
                             src="assets/img/products/catalogue/06%20Vertical%20Blinds-20261001T083225Z-1-001/06%20Vertical%20Blinds/01%20Complete%20Project/Full%20Colour%203.jpg"
-                            alt="Vertical blind project image: Full colour · project image 3"
+                            alt="Vertical blind project image: Full colour Â· project image 3"
                             loading="lazy"
                         >
-                            <figcaption>Full colour · project image 3</figcaption>
+                            <figcaption>Full colour Â· project image 3</figcaption>
                         </figure>
                         <figure>
                             <img
@@ -809,26 +828,26 @@
                         <figure>
                             <img
                             src="assets/img/products/catalogue/04%20Roman%20Blinds-20261001T083221Z-1-001/04%20Roman%20Blinds/01%20Complete%20Project/Roman%20Scallop%20Edge%202.png"
-                            alt="Roman blind project image: Scallop Edge · project image 2"
+                            alt="Roman blind project image: Scallop Edge Â· project image 2"
                             loading="lazy"
                         >
-                            <figcaption>Scallop Edge · project image 2</figcaption>
+                            <figcaption>Scallop Edge Â· project image 2</figcaption>
                         </figure>
                         <figure>
                             <img
                             src="assets/img/products/catalogue/04%20Roman%20Blinds-20261001T083221Z-1-001/04%20Roman%20Blinds/01%20Complete%20Project/Straight%20Edge%201.png"
-                            alt="Roman blind project image: Straight Edge · project image 1"
+                            alt="Roman blind project image: Straight Edge Â· project image 1"
                             loading="lazy"
                         >
-                            <figcaption>Straight Edge · project image 1</figcaption>
+                            <figcaption>Straight Edge Â· project image 1</figcaption>
                         </figure>
                         <figure>
                             <img
                             src="assets/img/products/catalogue/04%20Roman%20Blinds-20261001T083221Z-1-001/04%20Roman%20Blinds/01%20Complete%20Project/Straight%20Edge%202.png"
-                            alt="Roman blind project image: Straight Edge · project image 2"
+                            alt="Roman blind project image: Straight Edge Â· project image 2"
                             loading="lazy"
                         >
-                            <figcaption>Straight Edge · project image 2</figcaption>
+                            <figcaption>Straight Edge Â· project image 2</figcaption>
                         </figure>
                         <figure>
                             <img
@@ -857,26 +876,26 @@
                         <figure>
                             <img
                             src="assets/img/products/catalogue/05%20Dream%20Blinds-20261001T083223Z-1-001/05%20Dream%20Blinds/01%20Complete%20Project/Custom%20dream%20blinds%202.png"
-                            alt="Dream blinds project image: Custom dream blinds · project image 2"
+                            alt="Dream blinds project image: Custom dream blinds Â· project image 2"
                             loading="lazy"
                         >
-                            <figcaption>Custom dream blinds · project image 2</figcaption>
+                            <figcaption>Custom dream blinds Â· project image 2</figcaption>
                         </figure>
                         <figure>
                             <img
                             src="assets/img/products/catalogue/05%20Dream%20Blinds-20261001T083223Z-1-001/05%20Dream%20Blinds/01%20Complete%20Project/Full%20Colour%201.png"
-                            alt="Dream blinds project image: Full colour · project image 1"
+                            alt="Dream blinds project image: Full colour Â· project image 1"
                             loading="lazy"
                         >
-                            <figcaption>Full colour · project image 1</figcaption>
+                            <figcaption>Full colour Â· project image 1</figcaption>
                         </figure>
                         <figure>
                             <img
                             src="assets/img/products/catalogue/05%20Dream%20Blinds-20261001T083223Z-1-001/05%20Dream%20Blinds/01%20Complete%20Project/Full%20Colour%202.jpg"
-                            alt="Dream blinds project image: Full colour · project image 2"
+                            alt="Dream blinds project image: Full colour Â· project image 2"
                             loading="lazy"
                         >
-                            <figcaption>Full colour · project image 2</figcaption>
+                            <figcaption>Full colour Â· project image 2</figcaption>
                         </figure>
                         <figure>
                             <img
@@ -943,12 +962,12 @@
                             <div class="image-lightbox-toolbar">
                                 <h2 class="visually-hidden" id="imageLightboxTitle">Image viewer</h2>
                                 <p class="image-lightbox-status" aria-live="polite"></p>
-                                <button class="lightbox-close" type="button" data-lightbox-close aria-label="Close image viewer">×</button>
+                                <button class="lightbox-close" type="button" data-lightbox-close aria-label="Close image viewer">Ã—</button>
                             </div>
-                            <div class="image-lightbox-stage"><button class="lightbox-nav lightbox-previous" type="button" data-lightbox-previous aria-label="Previous image">‹</button><img
+                            <div class="image-lightbox-stage"><button class="lightbox-nav lightbox-previous" type="button" data-lightbox-previous aria-label="Previous image">â€¹</button><img
                             class="image-lightbox-image"
                             alt=""
-                        ><button class="lightbox-nav lightbox-next" type="button" data-lightbox-next aria-label="Next image">›</button></div>
+                        ><button class="lightbox-nav lightbox-next" type="button" data-lightbox-next aria-label="Next image">â€º</button></div>
                         <p class="image-lightbox-caption"></p>
                         </div>
                     </dialog>
@@ -1029,14 +1048,14 @@
                 </div>
             </section>
 
-            <section class="cta-band">
+            <section class="cta-band" id="dealer-enquiries">
                 <div class="container cta-inner">
                     <div>
                         <p class="eyebrow">DEALER / RESELLER ENQUIRIES</p>
                         <h2>Interested in becoming a dealer or reseller?</h2>
                         <p>Contact BlindsXpert to ask about the special pricing listed on its official website.</p>
                     </div>
-                    <a class="btn btn-red" href="https://wa.me/60176356542" target="_blank" rel="noopener">WhatsApp 017-635 6542 →</a>
+                    <a class="btn btn-red" href="https://wa.me/60176356542" target="_blank" rel="noopener">WhatsApp 017-635 6542 â†’</a>
                 </div>
             </section>
 
@@ -1073,7 +1092,7 @@
                 </div>
                 <div>
                     <h2>Products</h2>
-                    <a href="products.html">Indoor &amp; outdoor blinds</a><a href="products.html">Motorized blinds</a><a href="products.html">Curtain rails &amp; rods</a><a href="https://online.anyflip.com/djdfc/yobf/mobile/" target="_blank" rel="noopener noreferrer">Online Catalogue ↗</a>
+                    <a href="products.html">Indoor &amp; outdoor blinds</a><a href="products.html">Motorized blinds</a><a href="products.html">Curtain rails &amp; rods</a><a href="https://online.anyflip.com/djdfc/yobf/mobile/" target="_blank" rel="noopener noreferrer">Online Catalogue â†—</a>
                     <section class="footer-policies" aria-label="Policies">
                         <h2>Policies</h2>
                         <a href="return-policy.html">Return Policy</a><a href="delivery-policy.html">Delivery Policy</a><a href="term-of-payment.html">Term of Payment</a>
@@ -1109,11 +1128,11 @@
                 </div>
             </div>
             <div class="container footer-bottom">
-                <span>© 2026 BlindsXpert Malaysia</span>
+                <span>Â© 2026 BlindsXpert Malaysia</span>
                 <div class="footer-extras">
                     <p class="visitor-counter">
                         <span class="visitor-counter-label"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M3 20c.4-3.6 2.5-5.5 6-5.5s5.6 1.9 6 5.5M16 5.2a3.5 3.5 0 0 1 0 6.7M17 15c2.4.6 3.7 2.2 4 5"></path></svg>Visitors</span>
-                        <span class="visitor-counter-value">—</span>
+                        <span class="visitor-counter-value">â€”</span>
                         <span class="visitor-counter-note">Configure the shared counter endpoint to display live visits.</span>
                     </p>
                 </div>

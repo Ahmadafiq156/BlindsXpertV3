@@ -1,91 +1,115 @@
 const header = document.querySelector('.site-header');
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#mainNav');
-const productsMenu = document.querySelector('.nav-products');
-const productsToggle = document.querySelector('.products-toggle');
-const productsDropdown = document.querySelector('#productDropdown');
+const dropdowns = [...document.querySelectorAll('[data-nav-dropdown]')].map(menu => ({
+    menu, button: menu.querySelector('.products-toggle'), panel: menu.querySelector('.product-dropdown')
+}));
 const desktopNavigation = window.matchMedia('(min-width: 1201px)');
 header?.classList.add('nav-enhanced');
-function positionProductsDropdown() {
-    if (!productsMenu || !productsDropdown) return;
-    if (!desktopNavigation.matches) {
-        productsDropdown.style.removeProperty('left');
-        return;
-    }
-    const anchor = productsMenu.getBoundingClientRect();
-    const width = productsDropdown.getBoundingClientRect().width;
-    const inset = 16;
-    const left = Math.max(inset, Math.min(anchor.left, document.documentElement.clientWidth - width - inset));
-    productsDropdown.style.left = `${left - anchor.left}px`;
+function positionDropdowns() {
+    dropdowns.forEach(({menu, panel}) => {
+        if (!desktopNavigation.matches) { panel.style.removeProperty('left'); return; }
+        const anchor = menu.getBoundingClientRect();
+        const width = panel.getBoundingClientRect().width;
+        const left = Math.max(16, Math.min(anchor.left, document.documentElement.clientWidth - width - 16));
+        panel.style.left = `${left - anchor.left}px`;
+    });
 }
-function openProductsMenu() {
-    positionProductsDropdown();
-    productsMenu?.classList.add('dropdown-open');
-    productsToggle?.setAttribute('aria-expanded', 'true');
+function closeDropdown(item) {
+    item.menu.classList.remove('dropdown-open');
+    item.button.setAttribute('aria-expanded', 'false');
 }
-function updateHeader() {
-    header?.classList.toggle('scrolled', window.scrollY > 18)
+function closeDropdowns() { dropdowns.forEach(closeDropdown); }
+function openDropdown(item) {
+    dropdowns.filter(other => other !== item).forEach(closeDropdown);
+    positionDropdowns();
+    item.menu.classList.add('dropdown-open');
+    item.button.setAttribute('aria-expanded', 'true');
 }
-window.addEventListener('scroll', updateHeader, {
-    passive: true
-});
-updateHeader();
-function closeProductsMenu() {
-    productsMenu?.classList.remove('dropdown-open');
-    productsToggle?.setAttribute('aria-expanded', 'false');
-}
-toggle?.addEventListener('click', () => {
-    const open = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!open));
-    toggle.setAttribute('aria-label', open ? 'Open navigation' : 'Close navigation');
-    nav?.classList.toggle('open', !open);
-    if (open) closeProductsMenu();
-});
-productsToggle?.addEventListener('click', () => {
-    if (productsToggle.getAttribute('aria-expanded') === 'true') closeProductsMenu();
-    else openProductsMenu();
-});
-productsMenu?.addEventListener('pointerenter', event => {
-    if (desktopNavigation.matches && event.pointerType !== 'touch') openProductsMenu();
-});
-productsMenu?.addEventListener('focusin', event => {
-    if (desktopNavigation.matches && event.target !== productsToggle && !productsMenu.contains(event.relatedTarget)) openProductsMenu();
-});
-productsMenu?.addEventListener('mouseleave', () => {
-    if (desktopNavigation.matches && !productsMenu.contains(document.activeElement)) closeProductsMenu();
-});
-productsMenu?.addEventListener('focusout', event => {
-    if (!productsMenu.contains(event.relatedTarget) && desktopNavigation.matches && !productsMenu.matches(':hover')) closeProductsMenu();
-});
-window.addEventListener('resize', positionProductsDropdown, {passive: true});
-desktopNavigation.addEventListener('change', () => {
-    closeProductsMenu();
+function closeNavigation() {
     nav?.classList.remove('open');
     toggle?.setAttribute('aria-expanded', 'false');
     toggle?.setAttribute('aria-label', 'Open navigation');
-    positionProductsDropdown();
+    closeDropdowns();
+}
+function updateHeader() { header?.classList.toggle('scrolled', window.scrollY > 18); }
+window.addEventListener('scroll', updateHeader, {passive: true});
+updateHeader();
+toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    if (open) closeNavigation();
+    else {
+        toggle.setAttribute('aria-expanded', 'true');
+        toggle.setAttribute('aria-label', 'Close navigation');
+        nav?.classList.add('open');
+    }
 });
-positionProductsDropdown();
-document.fonts?.ready.then(positionProductsDropdown);
-nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    nav.classList.remove('open');
-    toggle?.setAttribute('aria-expanded', 'false');
-    toggle?.setAttribute('aria-label', 'Open navigation');
-    closeProductsMenu();
-}));
+dropdowns.forEach(item => {
+    const {menu, button, panel} = item;
+    button.addEventListener('click', () => {
+        if (button.getAttribute('aria-expanded') === 'true') closeDropdown(item);
+        else openDropdown(item);
+    });
+    button.addEventListener('keydown', event => {
+        if (event.key === 'ArrowDown') {
+            event.preventDefault();
+            openDropdown(item);
+            // Wait for the visible panel to render before moving keyboard focus.
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+                if (menu.classList.contains('dropdown-open')) panel.querySelector('a')?.focus();
+            }));
+        }
+    });
+    menu.addEventListener('pointerenter', event => {
+        if (desktopNavigation.matches && event.pointerType !== 'touch') openDropdown(item);
+    });
+    menu.addEventListener('focusin', event => {
+        if (desktopNavigation.matches && event.target !== button && !menu.contains(event.relatedTarget)) openDropdown(item);
+    });
+    menu.addEventListener('mouseleave', () => {
+        if (desktopNavigation.matches && !menu.contains(document.activeElement)) closeDropdown(item);
+    });
+    menu.addEventListener('focusout', event => {
+        if (!menu.contains(event.relatedTarget) && desktopNavigation.matches && !menu.matches(':hover')) closeDropdown(item);
+    });
+});
+window.addEventListener('resize', positionDropdowns, {passive: true});
+desktopNavigation.addEventListener('change', () => { closeNavigation(); positionDropdowns(); });
+positionDropdowns();
+document.fonts?.ready.then(positionDropdowns);
+nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNavigation));
+document.addEventListener('pointerdown', event => {
+    if (desktopNavigation.matches && !nav?.contains(event.target)) closeDropdowns();
+});
 document.addEventListener('keydown', event => {
     if (event.key !== 'Escape') return;
-    if (productsMenu?.classList.contains('dropdown-open')) {
-        closeProductsMenu();
-        if (productsMenu.contains(document.activeElement)) productsToggle?.focus();
-    }
-    if (nav?.classList.contains('open')) {
-        nav.classList.remove('open');
-        toggle?.setAttribute('aria-expanded', 'false');
-        toggle?.setAttribute('aria-label', 'Open navigation');
+    const open = dropdowns.find(item => item.menu.classList.contains('dropdown-open'));
+    if (open) {
+        const restore = open.menu.contains(document.activeElement);
+        closeDropdown(open);
+        if (restore) open.button.focus();
+    } else if (nav?.classList.contains('open')) {
+        closeNavigation();
         toggle?.focus();
     }
 });
+function updateDealerNavigation() {
+    if (!location.pathname.endsWith('/products.html')) return;
+    const dealer = location.hash === '#dealer-enquiries';
+    const productLink = nav?.querySelector('a[href="products.html"]');
+    const aboutLink = nav?.querySelector('a[href="about.html"]');
+    const dealerLink = nav?.querySelector('a[href="products.html#dealer-enquiries"]');
+    if (dealer) {
+        productLink?.removeAttribute('aria-current');
+        dealerLink?.setAttribute('aria-current', 'location');
+    } else {
+        productLink?.setAttribute('aria-current', 'page');
+        dealerLink?.removeAttribute('aria-current');
+    }
+    aboutLink?.classList.toggle('is-current-section', dealer);
+}
+window.addEventListener('hashchange', updateDealerNavigation);
+updateDealerNavigation();
 const filterButtons = [...document.querySelectorAll('[data-filter]')];
 function setProductFilter(value) {
     filterButtons.forEach(button => {
@@ -424,3 +448,82 @@ if ('IntersectionObserver' in window && !reduceMotion.matches) {
     });
 }
 
+
+// Shared WhatsApp contact disclosure. Official sales number already used by the site.
+(() => {
+    const whatsappContact = {
+        number: '60176356542',
+        message: 'Hello BlindsXpert, I would like help choosing blinds and arranging a measurement or quotation.'
+    };
+    const widget = document.createElement('aside');
+    widget.className = 'whatsapp-widget';
+    widget.setAttribute('aria-label', 'WhatsApp contact');
+    widget.innerHTML = `<div class="whatsapp-popup" id="whatsappContactPopup" role="region" aria-labelledby="whatsappContactTitle" hidden>
+        <button class="whatsapp-close" type="button" aria-label="Close WhatsApp contact">×</button>
+        <h2 id="whatsappContactTitle">Chat With BlindsXpert</h2>
+        <p>Need help choosing the right blinds? Chat with our team for product enquiries, measurements, and quotations.</p>
+        <a class="btn btn-red whatsapp-chat" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+    </div>
+    <button class="whatsapp-toggle" type="button" aria-label="Open WhatsApp contact" aria-controls="whatsappContactPopup" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.1-1.6A12 12 0 0 0 12 24c6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.5-8.5ZM12 22a10 10 0 0 1-5.1-1.4l-.4-.2-3.6.9 1-3.5-.3-.4A10 10 0 1 1 12 22Zm5.5-7.4c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.3 8.3 0 0 1-4.1-3.6c-.2-.3 0-.5.1-.6l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.3c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.7.3-.7.7-1.1 1.5-1.1 2.5 0 1.5 1.1 2.9 1.2 3.1.2.2 2.2 3.4 5.4 4.7 2 .9 2.8.9 3.8.8.6-.1 1.8-.8 2-1.5.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3Z"/></svg>
+    </button>`;
+    const button = widget.querySelector('.whatsapp-toggle');
+    const popup = widget.querySelector('.whatsapp-popup');
+    const close = widget.querySelector('.whatsapp-close');
+    const chat = widget.querySelector('.whatsapp-chat');
+    chat.href = `https://wa.me/${whatsappContact.number}?text=${encodeURIComponent(whatsappContact.message)}`;
+    document.body.append(widget);
+    function setOpen(open, restoreFocus = false) {
+        popup.hidden = !open;
+        button.setAttribute('aria-expanded', String(open));
+        button.setAttribute('aria-label', open ? 'Close WhatsApp contact' : 'Open WhatsApp contact');
+        if (open) { widget.style.setProperty('--whatsapp-offset', '16px'); close.focus(); }
+        else { if (restoreFocus) button.focus(); schedulePosition(); }
+    }
+    button.addEventListener('click', () => setOpen(popup.hidden));
+    close.addEventListener('click', () => setOpen(false, true));
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && !popup.hidden) {
+            event.preventDefault();
+            setOpen(false, true);
+        }
+    });
+    document.addEventListener('pointerdown', event => {
+        if (!popup.hidden && !widget.contains(event.target)) setOpen(false);
+    });
+    widget.addEventListener('focusout', event => {
+        if (!widget.contains(event.relatedTarget)) setOpen(false);
+    });
+    // Move the idle button above visible forms/CTAs rather than covering them.
+    let queued = false;
+    function schedulePosition() {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(() => {
+            queued = false;
+            if (!popup.hidden || widget.hidden) return;
+            button.hidden = false;
+            const targets = [...document.querySelectorAll('.btn,button,input,select,textarea,[data-filter],a.home-product-action')]
+                .filter(el => !widget.contains(el) && el.getClientRects().length && getComputedStyle(el).visibility !== 'hidden')
+                .map(el => el.getBoundingClientRect());
+            let found = false;
+            const limit = Math.max(16, innerHeight - (header?.getBoundingClientRect().height || 72) - 84);
+            for (let offset = 16; offset <= limit; offset += 8) {
+                widget.style.setProperty('--whatsapp-offset', `${offset}px`);
+                const r = button.getBoundingClientRect();
+                if (!targets.some(t => r.left < t.right && r.right > t.left && r.top < t.bottom && r.bottom > t.top)) { found = true; break; }
+            }
+            // Dense mobile forms can leave no safe position; restore on the next scroll.
+            button.hidden = !found;
+        });
+    }
+    window.addEventListener('scroll', schedulePosition, {passive:true});
+    window.addEventListener('resize', schedulePosition, {passive:true});
+    new MutationObserver(() => {
+        const suspended = nav?.classList.contains('open') || !!document.querySelector('dialog[open]');
+        widget.hidden = suspended;
+        if (suspended) setOpen(false);
+        else schedulePosition();
+    }).observe(document.body, {subtree:true, attributes:true, attributeFilter:['open','class']});
+    schedulePosition();
+})();

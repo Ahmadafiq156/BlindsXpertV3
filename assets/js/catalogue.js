@@ -10,6 +10,13 @@
         if (text) item.textContent = text;
         return item;
     }
+    function addProductLabels(copy, product) {
+        const name = copy.querySelector('h3');
+        if (!name) return;
+        const suitable = element('p', 'product-suitable', `Suitable for: ${(product.suitableFor || []).join(', ')}`);
+        name.after(suitable);
+        if (product.bestSeller) suitable.after(element('span', 'product-best-seller', 'BEST SELLER'));
+    }
     function card(product) {
         const article = element('article', 'product-card');
         article.id = product.id;
@@ -19,7 +26,7 @@
         frame.href = url;
         frame.setAttribute('aria-label', `View ${product.name} details`);
         const inner = element('span', 'product-image-inner');
-        const photo = product.gallery[0];
+        const photo = product.catalogueImage || product.gallery[0];
         if (photo) {
             const image = element('img', 'catalogue-image');
             image.src = photo.thumbnail || photo.src;
@@ -36,6 +43,7 @@
         frame.append(inner);
         const copy = element('div', 'card-copy');
         copy.append(element('p', 'eyebrow', product.category.toUpperCase()), element('h3', '', product.name));
+        addProductLabels(copy, product);
         const description = element('p', 'product-detail', product.description);
         if (home) frame.append(description); else copy.append(description);
         const actions = element('div', 'catalogue-actions');
@@ -58,11 +66,15 @@
         const index = products.indexOf(product);
         document.getElementById(products[index - 1].id)?.after(card(product));
     });
+    if (!home) products.forEach(product => {
+        const copy = document.getElementById(product.id)?.querySelector('.card-copy');
+        if (copy && !copy.querySelector('.product-suitable')) addProductLabels(copy, product);
+    });
     // Supplied main images also update the existing static Products-page cards.
-    if (!home) products.filter(product => product.gallery[0]?.mainImage).forEach(product => {
+    if (!home) products.filter(product => product.catalogueImage || product.gallery[0]?.mainImage).forEach(product => {
         const image = document.getElementById(product.id)?.querySelector('.product-image-inner img.catalogue-image');
         if (!image) return;
-        const photo = product.gallery[0];
+        const photo = product.catalogueImage || product.gallery[0];
         image.src = photo.thumbnail || photo.src;
         image.alt = photo.alt;
         image.style.objectFit = photo.fit || '';

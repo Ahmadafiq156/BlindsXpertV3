@@ -7,12 +7,12 @@ window.BLINDSXPERT_PRODUCTS = {
       "description": "Alternating sheer and opaque fabric bands let you adjust daylight and privacy.",
       "gallery": [
         {
-          "src": "assets/img/products/indoor/zebra/zebra-blinds-main.png",
-          "thumbnail": "assets/img/products/indoor/zebra/zebra-blinds-main.png",
-          "alt": "Zebra blind with alternating sheer and opaque bands",
-          "caption": "Supplied product image · Zebra Blinds",
-          "width": 3919,
-          "height": 3919,
+          "src": "assets/img/products/generated/web/zebra-main.webp",
+          "thumbnail": "assets/img/products/generated/web/zebra-main.webp",
+          "alt": "Illustrative generated scene of beige Zebra blinds in a bright interior",
+          "caption": "Illustrative scene · Zebra blinds",
+          "width": 1254,
+          "height": 1254,
           "featuredThumbnail": true,
           "mainImage": true
         },
@@ -504,7 +504,12 @@ window.BLINDSXPERT_PRODUCTS = {
         "Custom": "assets/img/products/generated/web/zebra-custom-variant.webp",
         "Generic": "assets/img/products/indoor/zebra/zebra-blinds-main.png"
       },
-      "defaultOption": "Generic"
+      "defaultOption": "Generic",
+      "suitableFor": [
+        "Home",
+        "Office"
+      ],
+      "bestSeller": true
     },
     {
       "id": "roller",
@@ -754,7 +759,12 @@ window.BLINDSXPERT_PRODUCTS = {
         "Sunscreen": "assets/img/products/generated/web/roller-sunscreen-v2-variant.webp",
         "Translucent": "assets/img/products/generated/web/roller-translucent-variant.webp"
       },
-      "defaultOption": "Blackout"
+      "defaultOption": "Blackout",
+      "suitableFor": [
+        "Bedroom",
+        "Office"
+      ],
+      "bestSeller": true
     },
     {
       "id": "roller-logo-printing",
@@ -777,7 +787,12 @@ window.BLINDSXPERT_PRODUCTS = {
       ],
       "documents": [],
       "options": [],
-      "series": []
+      "series": [],
+      "suitableFor": [
+        "Office",
+        "Retail Shop"
+      ],
+      "bestSeller": false
     },
     {
       "id": "panel",
@@ -872,7 +887,12 @@ window.BLINDSXPERT_PRODUCTS = {
         "Sunscreen": "assets/img/products/generated/web/panel-sunscreen-variant.webp",
         "Translucent": "assets/img/products/generated/web/panel-translucent-variant.webp"
       },
-      "defaultOption": "Blackout"
+      "defaultOption": "Blackout",
+      "suitableFor": [
+        "Living Room",
+        "Office"
+      ],
+      "bestSeller": false
     },
     {
       "id": "venetian",
@@ -1016,7 +1036,12 @@ window.BLINDSXPERT_PRODUCTS = {
         "PVC": "assets/img/products/generated/web/venetian-pvc-variant.webp",
         "Lantex": "assets/img/products/generated/web/venetian-lantex-variant.webp"
       },
-      "defaultOption": "Timber"
+      "defaultOption": "Timber",
+      "suitableFor": [
+        "Home",
+        "Office"
+      ],
+      "bestSeller": false
     },
     {
       "id": "vertical",
@@ -1110,7 +1135,12 @@ window.BLINDSXPERT_PRODUCTS = {
         "Mix & match colour": "assets/img/products/generated/web/vertical-mix-match-variant.webp",
         "Custom colour": "assets/img/products/generated/web/vertical-main.webp"
       },
-      "defaultOption": "Custom colour"
+      "defaultOption": "Custom colour",
+      "suitableFor": [
+        "Office",
+        "Commercial Space"
+      ],
+      "bestSeller": false
     },
     {
       "id": "roman",
@@ -1258,7 +1288,12 @@ window.BLINDSXPERT_PRODUCTS = {
         "Straight edge": "assets/img/products/generated/web/roman-straight-main.webp",
         "Scallop edge": "assets/img/products/generated/web/roman-scalloped-variant.webp"
       },
-      "defaultOption": "Straight edge"
+      "defaultOption": "Straight edge",
+      "suitableFor": [
+        "Bedroom",
+        "Living Room"
+      ],
+      "bestSeller": false
     },
     {
       "id": "dream",
@@ -1311,7 +1346,12 @@ window.BLINDSXPERT_PRODUCTS = {
       "optionImages": {
         "Custom colour": "assets/img/products/generated/web/dream-main.webp"
       },
-      "defaultOption": "Custom colour"
+      "defaultOption": "Custom colour",
+      "suitableFor": [
+        "Living Room",
+        "Home"
+      ],
+      "bestSeller": false
     },
     {
       "id": "honeycomb",
@@ -1345,7 +1385,12 @@ window.BLINDSXPERT_PRODUCTS = {
       ],
       "documents": [],
       "options": [],
-      "series": []
+      "series": [],
+      "suitableFor": [
+        "Bedroom",
+        "Living Room"
+      ],
+      "bestSeller": false
     },
     {
       "id": "wooden-outdoor",
@@ -1414,7 +1459,19 @@ window.BLINDSXPERT_PRODUCTS = {
         "Standard finish": "assets/img/products/outdoor/wooden/wooden-outdoor-blinds-main.png",
         "UV / logo printing": "assets/img/products/generated/web/wooden-outdoor-printed-variant.webp"
       },
-      "defaultOption": "Standard finish"
+      "defaultOption": "Standard finish",
+      "suitableFor": [
+        "Balcony",
+        "Patio"
+      ],
+      "bestSeller": true,
+      "catalogueImage": {
+        "src": "assets/img/projects/completed/Saujana%20Impian.png",
+        "alt": "Wooden outdoor blinds installed at Saujana Impian",
+        "width": 1422,
+        "height": 1106,
+        "fit": "contain"
+      }
     },
     {
       "id": "wooden-uv-logo-printing",
@@ -1437,7 +1494,12 @@ window.BLINDSXPERT_PRODUCTS = {
       ],
       "documents": [],
       "options": [],
-      "series": []
+      "series": [],
+      "suitableFor": [
+        "Retail Shop",
+        "Outdoor Area"
+      ],
+      "bestSeller": false
     },
     {
       "id": "bamboo-outdoor",
@@ -1462,7 +1524,12 @@ window.BLINDSXPERT_PRODUCTS = {
       ],
       "documents": [],
       "options": [],
-      "series": []
+      "series": [],
+      "suitableFor": [
+        "Patio",
+        "Outdoor Area"
+      ],
+      "bestSeller": false
     },
     {
       "id": "ziptrak-outdoor",
@@ -1495,7 +1562,12 @@ window.BLINDSXPERT_PRODUCTS = {
       "highlights": [
         "PVC options",
         "Motorized operation — ask about compatible combinations"
-      ]
+      ],
+      "suitableFor": [
+        "Balcony",
+        "Patio"
+      ],
+      "bestSeller": false
     },
     {
       "id": "pvc-outdoor",
@@ -1521,7 +1593,19 @@ window.BLINDSXPERT_PRODUCTS = {
       ],
       "documents": [],
       "options": [],
-      "series": []
+      "series": [],
+      "suitableFor": [
+        "Balcony",
+        "Outdoor Area"
+      ],
+      "bestSeller": true,
+      "catalogueImage": {
+        "src": "assets/img/projects/completed/Sunway%20Eastwood.png",
+        "alt": "PVC outdoor blinds installed at Sunway Eastwood",
+        "width": 1418,
+        "height": 1109,
+        "fit": "contain"
+      }
     },
     {
       "id": "awning-canopy",
@@ -1558,7 +1642,12 @@ window.BLINDSXPERT_PRODUCTS = {
       ],
       "documents": [],
       "options": [],
-      "series": []
+      "series": [],
+      "suitableFor": [
+        "Patio",
+        "Outdoor Area"
+      ],
+      "bestSeller": false
     },
     {
       "id": "motorized",
@@ -1595,7 +1684,12 @@ window.BLINDSXPERT_PRODUCTS = {
       "highlights": [
         "Explore compatible indoor and outdoor blinds",
         "Ask about motor and control compatibility"
-      ]
+      ],
+      "suitableFor": [
+        "Home",
+        "Office"
+      ],
+      "bestSeller": false
     },
     {
       "id": "skylight",
@@ -1632,7 +1726,12 @@ window.BLINDSXPERT_PRODUCTS = {
       ],
       "documents": [],
       "options": [],
-      "series": []
+      "series": [],
+      "suitableFor": [
+        "Home",
+        "Commercial Space"
+      ],
+      "bestSeller": false
     },
     {
       "id": "curtain-hardware",
@@ -1695,7 +1794,12 @@ window.BLINDSXPERT_PRODUCTS = {
         "Curtain rod": "assets/img/products/generated/web/curtain-rod-full-length.webp",
         "Curtain rail": "assets/img/products/generated/web/curtain-rail-full-length.webp"
       },
-      "defaultOption": "Curtain rod"
+      "defaultOption": "Curtain rod",
+      "suitableFor": [
+        "Home",
+        "Office"
+      ],
+      "bestSeller": false
     }
   ],
   "aliases": {

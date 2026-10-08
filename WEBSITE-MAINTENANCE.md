@@ -6,22 +6,22 @@ This guide describes the current static website implementation. It is for develo
 
 ```text
 BlindsXpertV3/
-├── index.html, about.html, contact.html, gallery.html, product-details.html
-├── products.html, projects.html, quote.html, services.html, 404.html
-├── careers.html, promotions.html, faqs.html
-├── return-policy.html, delivery-policy.html, term-of-payment.html
-├── assets/
-│   ├── css/                 shared and Product Details styles
-│   ├── data/                product catalogue data
-│   ├── img/                 grouped photographs, catalogue and UI images
-│   ├── js/                  shared and page-specific behavior
-│   └── video/               homepage and motorized product videos
-├── sitemap.xml
-├── robots.txt
-├── visitor-counter-config.js
-├── visitor-counter.js
-├── visitor-counter-worker.js
-└── wrangler.toml
+â”œâ”€â”€ index.html, about.html, contact.html, gallery.html, product-details.html
+â”œâ”€â”€ products.html, projects.html, quote.html, services.html, 404.html
+â”œâ”€â”€ careers.html, promotions.html, faqs.html
+â”œâ”€â”€ return-policy.html, delivery-policy.html, term-of-payment.html
+â”œâ”€â”€ assets/
+â”‚   â”œâ”€â”€ css/                 shared and Product Details styles
+â”‚   â”œâ”€â”€ data/                product catalogue data
+â”‚   â”œâ”€â”€ img/                 grouped photographs, catalogue and UI images
+â”‚   â”œâ”€â”€ js/                  shared and page-specific behavior
+â”‚   â””â”€â”€ video/               homepage and motorized product videos
+â”œâ”€â”€ sitemap.xml
+â”œâ”€â”€ robots.txt
+â”œâ”€â”€ visitor-counter-config.js
+â”œâ”€â”€ visitor-counter.js
+â”œâ”€â”€ visitor-counter-worker.js
+â””â”€â”€ wrangler.toml
 ```
 
 The HTML pages stay at the repository root so current static routes such as `products.html` continue to work. `assets/img/unused/` contains material whose current website use is uncertain; check all references and confirm with the content owner before deleting it. An older nested `mockup1/` checkout is also present in this workspace and is ignored by the active repository; it was left untouched.
@@ -109,13 +109,13 @@ Homepage actions use flex columns and a bottom-aligned, full-width action area. 
 
 ### Matched video posters
 
-- motorized-demo-01: Bright Neutral Open-Plan Living Space → `assets/img/products/video-thumbnails/bright-open-plan-living-space.png`.
-- motorized-demo-02: Automated Blinds in Oceanview Boardroom → `assets/img/products/video-thumbnails/oceanview-boardroom-motorized-blinds.png`.
-- motorized-demo-03: Warm Sunlit Reading Nook → `assets/img/products/video-thumbnails/sunlit-reading-nook-venetian-blinds.png`.
-- motorized-demo-04: Tranquil Bedroom with Corner Windows → `assets/img/products/video-thumbnails/bedroom-corner-window-vertical-blinds.png`.
-- motorized-demo-05: Tropical Patio with Roller Shades → `assets/img/products/video-thumbnails/tropical-patio-roller-shades.png`.
-- motorized-demo-06: Tropical Retreat with Remote Control → `assets/img/products/video-thumbnails/tropical-retreat-remote-control.png`.
-- motorized-demo-07: Modern Corner Living Room with Zebra Blinds → `assets/img/products/video-thumbnails/corner-living-room-zebra-blinds.png`.
+- motorized-demo-01: Bright Neutral Open-Plan Living Space â†’ `assets/img/products/video-thumbnails/bright-open-plan-living-space.png`.
+- motorized-demo-02: Automated Blinds in Oceanview Boardroom â†’ `assets/img/products/video-thumbnails/oceanview-boardroom-motorized-blinds.png`.
+- motorized-demo-03: Warm Sunlit Reading Nook â†’ `assets/img/products/video-thumbnails/sunlit-reading-nook-venetian-blinds.png`.
+- motorized-demo-04: Tranquil Bedroom with Corner Windows â†’ `assets/img/products/video-thumbnails/bedroom-corner-window-vertical-blinds.png`.
+- motorized-demo-05: Tropical Patio with Roller Shades â†’ `assets/img/products/video-thumbnails/tropical-patio-roller-shades.png`.
+- motorized-demo-06: Tropical Retreat with Remote Control â†’ `assets/img/products/video-thumbnails/tropical-retreat-remote-control.png`.
+- motorized-demo-07: Modern Corner Living Room with Zebra Blinds â†’ `assets/img/products/video-thumbnails/corner-living-room-zebra-blinds.png`.
 
 ## Promotions, FAQs and pending policies
 
@@ -145,7 +145,7 @@ The six supplied PNGs were moved from the root into the existing `assets/img/pro
 
 ## Supplied page heroes, heading typography and navigation
 
-The October 2026 targeted pass uses the owner's supplied PNGs without conversion or generation. All six hero files are 2016 × 780; the recruitment graphic is 700 × 570. Original bytes were preserved and root copies were moved, not duplicated.
+The October 2026 targeted pass uses the owner's supplied PNGs without conversion or generation. All six hero files are 2016 Ã— 780; the recruitment graphic is 700 Ã— 570. Original bytes were preserved and root copies were moved, not duplicated.
 
 | Original root filename | Final asset path | Placement |
 |---|---|---|
@@ -164,7 +164,7 @@ Careers Get in Touch uses `.career-contact-layout` in `assets/css/careers.css`: 
 
 H1 and H2 use **DM Sans**, the existing body font, with Arial/sans-serif fallbacks. The Google Fonts import retains weights 400/500/600/700 and `display=optional` to prevent late font swaps; the unused Playfair Display import was removed from all 16 pages. Shared heading rules use 700 weight, tighter letter spacing, balanced wrapping, 1.15 base line height and clamp sizing. Existing component-specific sizes remain; H3 and body rules are preserved. Edit `--heading-font` and the shared H1/H2 rules in `assets/css/site.css`, then inspect component overrides. Preserve semantic heading elements. External font delivery can fall back to system fonts. Optional display uses the fallback for that page view when the font misses its initial brief loading window; a later font download is available for subsequent views and does not replace text after it has painted.
 
-The dropdown overflow came from a 780px absolute panel with `right: -24px` relative to the much narrower Products item. Before the fix its left edge was approximately -268px at 1201px, -148px at 1366px and -111px at 1440px. Desktop CSS now starts from left alignment, caps width to the viewport minus 32px and limits height with vertical scrolling. `positionProductsDropdown()` in `assets/js/site.js` measures the anchor and clamps the panel within 16px viewport insets on opening, resize and font readiness. No fixed negative offset is used. At 1200px and below it remains an in-flow submenu inside the scrollable mobile navigation, with wrapping links. Mobile flex items must not shrink: the old Products wrapper shrank to 308px around 444px of content at 390px, allowing the submenu to overlap Projects, Promotions and FAQs. `.nav.open > * { flex-shrink: 0; }` reserves the full wrapper height so later links remain accessible by scrolling; the desktop hover bridge pseudo-element is disabled on mobile. Keep the CSS and JS breakpoint synchronized. Enhanced desktop visibility follows `.dropdown-open` so Escape closes the panel even while the item retains hover/focus; no-JavaScript hover/focus fallback remains. Pointer hover, keyboard focus/Enter, touch toggle and `aria-expanded` are coordinated; Escape restores focus and resizing across the breakpoint resets menus.
+The dropdown overflow came from a 780px absolute panel with `right: -24px` relative to the much narrower Products item. Before the fix its left edge was approximately -268px at 1201px, -148px at 1366px and -111px at 1440px. Desktop CSS now starts from left alignment, caps width to the viewport minus 32px and limits height with vertical scrolling. `positionDropdowns()` in `assets/js/site.js` measures the anchor and clamps the panel within 16px viewport insets on opening, resize and font readiness. No fixed negative offset is used. At 1200px and below it remains an in-flow submenu inside the scrollable mobile navigation, with wrapping links. Mobile flex items must not shrink: the old Products wrapper shrank to 308px around 444px of content at 390px, allowing the submenu to overlap Projects, Promotions and FAQs. `.nav.open > * { flex-shrink: 0; }` reserves the full wrapper height so later links remain accessible by scrolling; the desktop hover bridge pseudo-element is disabled on mobile. Keep the CSS and JS breakpoint synchronized. Enhanced desktop visibility follows `.dropdown-open` so Escape closes the panel even while the item retains hover/focus; no-JavaScript hover/focus fallback remains. Pointer hover, keyboard focus/Enter, touch toggle and `aria-expanded` are coordinated; Escape restores focus and resizing across the breakpoint resets menus.
 
 ## FAQ sources and company approval
 
@@ -172,7 +172,7 @@ Keep the four categories and 22 questions in their current order. Edit only the 
 
 | Question number(s) | Current factual basis | Approval still needed |
 |---|---|---|
-| 1–5: company, contact, location, quote, projects | products.html, services.html, contact.html, quote.html and its existing email-draft handler, projects.html | Any new hours, branches or company claims |
+| 1â€“5: company, contact, location, quote, projects | products.html, services.html, contact.html, quote.html and its existing email-draft handler, projects.html | Any new hours, branches or company claims |
 | 6: blind types | products.html and assets/data/product-data.js | New product/availability claims |
 | 7: curtains and hardware | curtain-hardware catalogue record verifies rails and rods | Curtain fabric and curtain supply availability |
 | 8: roller versus zebra | General explanation grounded in the two catalogue descriptions | No company-specific performance promise is made |
@@ -180,13 +180,13 @@ Keep the four categories and 22 questions in their current order. Edit only the 
 | 10: window sizes | about.html states customised and ready-made coverings | Particular dimensions, suitability and custom options |
 | 11: motorized blinds | Catalogue and products.html list motorized demonstrations and Somfy/Dooya ranges | Project-specific options |
 | 12: measurement | services.html lists measurement in Kuala Lumpur/Selangor | Appointment availability, arrangements and any fee; this does not establish delivery coverage |
-| 13–14: installation/customization | services.html customer journey; about.html custom-covering statement | Project arrangements and suitable custom requirements |
+| 13â€“14: installation/customization | services.html customer journey; about.html custom-covering statement | Project arrangements and suitable custom requirements |
 | 15: quote | quote.html and existing site.js email-draft behavior, contact.html | No automatic sending or backend submission is claimed |
 | 16: after quotation | Existing six-step customer journey in services.html/index.html | Payment amounts/deadlines, deposit terms and scheduling |
 | 17: installation duration | Contact guidance only; no approved duration | Company/project installation schedule |
-| 18–22: cleaning, frequency, water, motorized care, operating problems | Product-specific contact guidance; question 18 follows the owner's supplied neutral wording | Approved product-specific care methods, maintenance frequency, water suitability, motorized instructions and troubleshooting; repair/warranty terms remain unconfirmed |
+| 18â€“22: cleaning, frequency, water, motorized care, operating problems | Product-specific contact guidance; question 18 follows the owner's supplied neutral wording | Approved product-specific care methods, maintenance frequency, water suitability, motorized instructions and troubleshooting; repair/warranty terms remain unconfirmed |
 
-Of the 22 answers, 15 primarily use existing company/catalogue content, one provides a catalogue-grounded general product explanation (question 8), and six require company guidance (questions 17–22). Some supported answers also explicitly defer the particulars listed above. Policies remain pending and retain `noindex,follow`; promotions still contain no invented offers.
+Of the 22 answers, 15 primarily use existing company/catalogue content, one provides a catalogue-grounded general product explanation (question 8), and six require company guidance (questions 17â€“22). Some supported answers also explicitly defer the particulars listed above. Policies remain pending and retain `noindex,follow`; promotions still contain no invented offers.
 
 The targeted pass was verified locally in headless Edge at 320, 360, 375, 390, 430, 768, 1024, 1366 and 1440px (144 page/width combinations). All six hero heights match the pre-change CSS at those widths. Heading semantics/copy, shared headers/footers, body/H3 styles, product/careers data and non-navigation handlers were preserved. Asset checks covered 1,444 HTML/catalogue references; local links/fragments and browser requests had no missing files or JavaScript errors. Navigation checks also included 1201px, every mobile link's unobscured click target, keyboard/Enter/Tab/Escape and desktop touch toggles. FAQ accordions work without JavaScript and with reduced motion; Careers cards/details, catalogue filters, product/shared viewers and seven video posters were checked. The visitor counter used a local deterministic response, not the production service; quote validation was checked without sending an enquiry. Font delivery was tested separately with only Google Fonts allowed: optional display prevents late text swaps, although the unchanged Careers and Product Details renderers can still shift sections during initial data rendering. This is not a guarantee of zero overall page CLS or a live integration/deployment test.
 
@@ -205,7 +205,7 @@ The existing Zebra record (`id: zebra`) in `assets/data/product-data.js` has the
 | BX 701BL | SP 701BL | assets/img/products/fabric-collections/zebra/bx-701bl/ |
 | BX 801BL | SP 801BL | assets/img/products/fabric-collections/zebra/bx-801bl/ |
 
-Each directory contains `<directory>-catalogue-01.jpeg` (colours) and `<directory>-catalogue-02.jpeg` (specifications). The existing 16 assets were reused and renamed, with no duplicate set. Four sideways originals (BX 101Z specification, both BX 201Z photographs and BX 401BL colours) use JPEG EXIF orientation 6, rotating clockwise for display without recompressing or changing the encoded image pixels. Every display image is 563 × 1000 after orientation. The other twelve JPEGs retain their original bytes. Printed SP labels remain untouched. `info.zip` retains the source originals; preserve it when replacing assets.
+Each directory contains `<directory>-catalogue-01.jpeg` (colours) and `<directory>-catalogue-02.jpeg` (specifications). The existing 16 assets were reused and renamed, with no duplicate set. Four sideways originals (BX 101Z specification, both BX 201Z photographs and BX 401BL colours) use JPEG EXIF orientation 6, rotating clockwise for display without recompressing or changing the encoded image pixels. Every display image is 563 Ã— 1000 after orientation. The other twelve JPEGs retain their original bytes. Printed SP labels remain untouched. `info.zip` retains the source originals; preserve it when replacing assets.
 
 Series `name` and `displayCode` use the website BX identifier; `sourceCode` retains the source SP identifier internally. The `fabrics` array contains verified `{code, colourName}` records; these are the original printed fabric references, including their SP prefix, rather than renamed or inferred codes. `specs` holds only legible printed specifications and units. `photos` contains paths, BX alt text/captions and oriented width/height. A description is optional and is rendered only when supplied and verified; no source fabric names, patterns, light-transmission classifications or descriptive claims were inferred from appearance.
 
@@ -229,14 +229,80 @@ The five PNG uploads are retained byte-for-byte at their original dimensions. Th
 
 | Original upload | Existing product / ID | Final path | Pixels |
 |---|---|---|---|
-| pvcblinds.png | PVC Outdoor Blinds / pvc-outdoor | assets/img/products/outdoor/pvc/outdoor-pvc-blinds-main.png | 3919 × 3919 |
-| rollerblindsprint.png | Roller Blinds Logo Printing / roller-logo-printing | assets/img/products/indoor/roller-logo-printing/roller-blinds-logo-printing-main.png | 1254 × 1254 |
-| zebrablinds.png | Zebra Blinds / zebra | assets/img/products/indoor/zebra/zebra-blinds-main.png | 3919 × 3919 |
-| woodenblinds.png | Wooden Outdoor Blinds / wooden-outdoor | assets/img/products/outdoor/wooden/wooden-outdoor-blinds-main.png | 3919 × 3919 |
-| woodenblindsprint.png | Wooden UV/Logo Printing / wooden-uv-logo-printing | assets/img/products/outdoor/wooden-logo-printing/wooden-blinds-uv-logo-printing-main.png | 1254 × 1254 |
+| pvcblinds.png | PVC Outdoor Blinds / pvc-outdoor | assets/img/products/outdoor/pvc/outdoor-pvc-blinds-main.png | 3919 Ã— 3919 |
+| rollerblindsprint.png | Roller Blinds Logo Printing / roller-logo-printing | assets/img/products/indoor/roller-logo-printing/roller-blinds-logo-printing-main.png | 1254 Ã— 1254 |
+| zebrablinds.png | Zebra Blinds / zebra | assets/img/products/indoor/zebra/zebra-blinds-main.png | 3919 Ã— 3919 |
+| woodenblinds.png | Wooden Outdoor Blinds / wooden-outdoor | assets/img/products/outdoor/wooden/wooden-outdoor-blinds-main.png | 3919 Ã— 3919 |
+| woodenblindsprint.png | Wooden UV/Logo Printing / wooden-uv-logo-printing | assets/img/products/outdoor/wooden-logo-printing/wooden-blinds-uv-logo-printing-main.png | 1254 Ã— 1254 |
 
 Replace a product's `gallery[0]` in `assets/data/product-data.js`: update src, thumbnail (the same original path here), factual alt/caption and actual width/height; set `mainImage: true`. If a default `optionImages` entry points to the replaced image, update that path too. `assets/js/catalogue.js` uses this record for the homepage, the dynamically inserted printing cards, and the corresponding existing static Products-page cards after JavaScript loads. Static HTML images remain as the pre-existing no-JavaScript fallback. Do not add duplicate cards or image files. The Product Details renderer recognizes `mainImage` explicitly, keeping supplied images outside `/generated/` in the main gallery rather than Photos & examples.
 
 All five images are square, matching the existing square placeholders without distortion or cropping. Printing records additionally use `fit: "contain"`; the catalogue renderer, main-image renderer and gallery thumbnails apply this per-photo setting to keep logos visible. Other images retain their previous CSS fit. The outer frame, inner placeholder, card dimensions and interactions are unchanged. Old assets remain because other records, variants and static fallbacks still reference them. Root upload copies were moved and verified by SHA-256; no conversions or generated thumbnails were added.
 
 Verification note: data preservation, asset hashes, local paths and JavaScript syntax can be checked locally. The nine-width browser regression for these five replacements remains pending because the automatic approval reviewer reached its usage limit and could not authorize the browser launch. Do not describe this update as browser-verified until those checks have run.
+
+
+## Shared navigation dropdowns
+
+All sixteen root HTML headers use this order: Home, Products, Projects, About Us, Services, Promotions, FAQs, Contact, Get a Free Quote. Products retains its category links. Projects has only Gallery (`gallery.html`); its parent links to `projects.html`. About Us has only Careers (`careers.html`) and Join as Dealer (`products.html#dealer-enquiries`); its parent links to `about.html`. The dealer anchor targets the existing dealer/reseller section and its existing WhatsApp enquiry link; no new form or page is added.
+
+Each dropdown uses the same `nav-products`, `nav-products-top`, `products-toggle`, `product-dropdown` and `product-dropdown-group` classes plus `data-nav-dropdown`. Keep panel IDs unique and match each toggle's `aria-controls`. Projects/About panels add `navigation-simple-dropdown` for a compact single column. Parent links stay separate from toggle buttons. Edit every root HTML header when changing links; footer links are independent.
+
+`assets/js/site.js` initializes all disclosures through one shared collection. Hover/focus opens desktop menus; click, Enter and Space toggle them; ArrowDown on a toggle opens and focuses the first link. Tab follows native link order. Opening a menu closes the previous one. Escape closes a submenu and restores toggle focus; a subsequent Escape closes the mobile navigation. Outside desktop clicks close dropdowns. Panels clamp to 16px viewport insets. At 1200px and below, submenus expand in normal flow inside the scrollable hamburger menu and never shrink their wrappers or cover later links. Keep the CSS/JS breakpoint aligned.
+
+Projects/Gallery highlight the Projects parent; About/Careers highlight About Us, with the actual submenu page marked `aria-current="page"`. The dealer fragment highlights About Us and marks Join as Dealer as the current location. Preserve the restored static logo, sticky header and existing CTA. The parent itself carries aria-current on Projects/About pages; child pages highlight their parent section.
+
+Local verification: all sixteen pages at 320, 360, 375, 390, 430, 768, 1024, 1366 and 1440px (144 page/width checks) passed. Checks covered exact navigation order, all three dropdowns, local navigation files/fragments, viewport bounds, mobile in-flow spacing and unobstructed links, Enter/Space/ArrowDown/Escape, desktop hover/outside click, sticky positioning, unchanged 72px/82px header heights and active section indicators. Native mobile touch toggles and dealer navigation passed separately. Normal-motion desktop checks at 1366/1440px also passed with the animated logo enabled. No horizontal overflow, missing local browser requests or JavaScript errors were found. This was local testing; no enquiry was sent and no deployment performed.
+
+
+## Navigation and homepage improvements (current)
+
+The static header markup is restored from Git revision `888e2ae`: `assets/img/header/logo no background.png` (32×35px contained emblem), “BlindsXpert” text and “Your Window, Our Expertise” tagline in the existing 170px branding area. Every root HTML header uses the same original markup and styling, with the homepage link and accessible name retained. Animated navbar markup/styles are removed; the GIF asset is retained. Earlier animated-logo notes describe the previous implementation.
+
+Homepage-only typography uses a 30–48px heading on larger screens and 24–30px on mobile, with 1.18–1.2 line spacing and balanced wrapping. Supporting copy is 14–16px desktop/tablet and 13px mobile. CTA sizes are unchanged. Slideshow controls are 56×56px with 34px icons on desktop and 48×52px with 32px white icons on mobile. Swipe and automatic slideshow handlers are unchanged.
+
+The Zebra main image is restored from the same Git revision: `assets/img/products/generated/web/zebra-main.webp` (1254×1254px). Its original illustrative-image caption is preserved. Homepage, Products static fallback and central `gallery[0]` use this same image; `mainImage: true` keeps it in the Product Details gallery. The newer supplied PNG remains on disk. All BX series records, sixteen photographs, specifications, selectors, additional gallery entries and example photos remain unchanged.
+
+### Catalogue labels
+
+Edit each product's `suitableFor` array and `bestSeller` boolean in `assets/data/product-data.js`. `assets/js/catalogue.js` renders the labels for homepage cards and supplements existing static Products-page cards, including the printing cards. Suitable-use lines go directly below names; compact red-tinted badges stay in the content area. Applications are broad recommendations based on existing type/description, not a promise about moisture resistance or technical performance. Confirm the exact installation with the team. Only Zebra, Roller, Wooden Outdoor and PVC Outdoor are flagged as Best Sellers at the owner's request.
+
+| Product | Suitable for | Best Seller |
+|---|---|---|
+| Zebra Blinds | Home, Office | Yes |
+| Roller Blinds | Bedroom, Office | Yes |
+| Roller Blinds Logo Printing | Office, Retail Shop | — |
+| Panel Blinds | Living Room, Office | — |
+| Venetian Blinds | Home, Office | — |
+| Vertical Blinds | Office, Commercial Space | — |
+| Roman Blinds | Bedroom, Living Room | — |
+| Dream Blinds | Living Room, Home | — |
+| Honeycomb Blinds | Bedroom, Living Room | — |
+| Wooden Outdoor Blinds | Balcony, Patio | Yes |
+| Wooden UV/Logo Printing | Retail Shop, Outdoor Area | — |
+| Bamboo Outdoor Blinds | Patio, Outdoor Area | — |
+| Ziptrak Outdoor Blinds | Balcony, Patio | — |
+| PVC Outdoor Blinds | Balcony, Outdoor Area | Yes |
+| Awnings & Canopies | Patio, Outdoor Area | — |
+| Motorized Solutions | Home, Office | — |
+| Skylight Blinds | Home, Commercial Space | — |
+| Curtain Hardware | Home, Office | — |
+
+### Social snapshots
+
+The owner-supplied `instagram.png` and `tiktok.png` are copied unchanged to `assets/img/homepage/social/instagram-profile.png` (1917×1000px) and `tiktok-profile.png` (1917×1001px). The root originals remain. These are genuine profile screenshots, linked to their respective official profiles; individual post URLs were not provided, so none are invented. Update the image source, dimensions, accessible text and official link together in the homepage social section. Do not treat captured follower/view counts as live statistics. No live feed or third-party widget is loaded by this section. The official Facebook link remains in its own card. The old Facebook loader finds no feed holder and does not run.
+
+### Testimonial ratings and customer video
+
+The seven `Screenshot 2026-09-30 ...` review images visibly show five gold stars. Their homepage cards carry `data-rating="5"` and a matching accessible five-star element. Change both only when the approved screenshot/record supports the rating. The four chat-based cards (the JPG and three WhatsApp JPEGs) have no confirmed numeric rating and intentionally have no stars; obtain customer rating confirmation before adding one. Existing photos, carousel and shared full-image viewer are preserved.
+
+The existing 51.17-second customer video includes spoken recommendations and thanks, confirmed in its supplied subtitles. Its heading is “Hear From Our Customers”; supporting copy is “Watch customers share their experience with BlindsXpert and see our blinds in their homes and spaces.” The video file, controls, muted autoplay, loop, playsinline and aspect ratio are unchanged.
+
+### WhatsApp contact widget
+
+The shared `assets/js/site.js` injects one lightweight WhatsApp disclosure on every page. Edit the `whatsappContact.number` and `.message` configuration there; the current verified sales number is `60176356542`, reused from the existing site. The message is URL-encoded into a wa.me link. Edit popup heading/body in the same block. Opening the widget never sends a message; the user must select the WhatsApp link and send it in WhatsApp.
+
+The popup is initially closed, opens only on request, focuses its close button and supports close/ Escape with focus restoration, outside click and leaving focus. The floating button respects safe-area spacing, stays below the header/native image dialogs, hides during mobile navigation and image viewing, and moves away from visible form/CTA controls on scroll or resize. If a dense form fills every safe position, the idle button temporarily hides and is restored when scrolling frees space. Product Details uses its existing separate enquiry form; its logic is untouched. No plugin or new dependency is required.
+
+
+The supplied Wooden Outdoor and PVC Outdoor main PNGs already contain large Best Seller ribbons baked into their pixels. Their catalogue cards instead use the existing approved project photographs `assets/img/projects/completed/Saujana Impian.png` and `Sunway Eastwood.png` through an optional `catalogueImage` object. Edit this object to choose a clean approved card photo; it takes precedence over gallery[0] only in the catalogue renderer. Static Products fallback sources match it. Product Details galleries, original PNGs and project sections remain unchanged; no photo editing, cropping to hide captions or generation was performed.

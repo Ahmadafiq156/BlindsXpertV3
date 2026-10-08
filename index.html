@@ -31,11 +31,11 @@
         <a class="skip-link" href="#main">Skip to content</a>
         <header class="site-header">
             <div class="container nav-wrap">
-                <a class="logo navigation-logo-link" href="index.html" aria-label="BlindsXpert Malaysia"><picture class="navigation-logo-animation"><source media="(prefers-reduced-motion: reduce)" srcset="assets/img/header/logo%20no%20background.png"><img class="navigation-animated-logo" src="assets/img/header/blindsxpert-animated-logo.gif" alt="BlindsXpert Malaysia" width="4320" height="1440" fetchpriority="high" decoding="async"></picture><span class="navigation-static-logo" aria-hidden="true"><img
+                <a class="logo" href="index.html" aria-label="BlindsXpert Malaysia"><img
                             class="brand-mark"
                             src="assets/img/header/logo%20no%20background.png"
                             alt=""
-                        ><span>Blinds</span><b>Xpert</b><small>Your Window, Our Expertise</small></span></a>
+                        ><span>Blinds</span><b>Xpert</b><small>Your Window, Our Expertise</small></a>
                 <button
                     class="menu-toggle"
                     type="button"
@@ -45,7 +45,7 @@
                 ><span></span><span></span><span></span></button>
                 <nav class="nav" id="mainNav" aria-label="Main navigation">
                     <a href="index.html" aria-current="page">Home</a>
-                    <div class="nav-products">
+                    <div class="nav-products" data-nav-dropdown>
                         <div class="nav-products-top">
                             <a href="products.html">Products</a>
                             <button
@@ -87,13 +87,32 @@
                             </div>
                         </div>
                     </div>
-                    <a href="projects.html">Projects</a>
+                    <div class="nav-products" data-nav-dropdown>
+                    <div class="nav-products-top">
+                        <a href="projects.html">Projects</a>
+                        <button class="products-toggle" type="button" aria-label="Toggle Projects submenu" aria-expanded="false" aria-controls="projectsDropdown"><span aria-hidden="true"></span></button>
+                    </div>
+                    <div class="product-dropdown navigation-simple-dropdown" id="projectsDropdown" aria-label="Projects submenu">
+                        <div class="product-dropdown-group">
+                            <a href="gallery.html">Gallery</a>
+                        </div>
+                    </div>
+                </div>
+                    <div class="nav-products" data-nav-dropdown>
+                    <div class="nav-products-top">
+                        <a href="about.html">About Us</a>
+                        <button class="products-toggle" type="button" aria-label="Toggle About Us submenu" aria-expanded="false" aria-controls="aboutDropdown"><span aria-hidden="true"></span></button>
+                    </div>
+                    <div class="product-dropdown navigation-simple-dropdown" id="aboutDropdown" aria-label="About Us submenu">
+                        <div class="product-dropdown-group">
+                            <a href="careers.html">Careers</a>
+                            <a href="products.html#dealer-enquiries">Join as Dealer</a>
+                        </div>
+                    </div>
+                </div>
+                    <a href="services.html">Services</a>
                     <a href="promotions.html">Promotions</a>
                     <a href="faqs.html">FAQs</a>
-                    <a href="services.html">Services</a>
-                    <a href="about.html">About Us</a>
-                    <a href="gallery.html">Gallery</a>
-                    <a href="careers.html">Careers</a>
                     <a href="contact.html">Contact</a>
                     <a class="nav-cta" href="quote.html">Get a Free Quote <span aria-hidden="true">→</span></a>
                 </nav>
@@ -416,19 +435,12 @@
 
             <section class="section light-panel social-updates" aria-labelledby="socialTitle">
                 <div class="container">
-                    <div class="section-heading"><div><p class="eyebrow">STAY CONNECTED</p><h2 id="socialTitle">Follow Our Latest Updates</h2></div></div>
-                    <div class="social-grid">
-                        <article class="social-profile"><h3><svg class="social-platform-icon facebook-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path
-                                    d="M13.7 21v-7.3h2.5l.4-3h-2.9V8.8c0-.9.3-1.5 1.5-1.5h1.5V4.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2v2H7.6v3h2.6V21h3.5Z"
-                                /></svg><span>Facebook</span></h3><p>Visit our official page for the latest updates.</p><a class="home-product-action" href="https://www.facebook.com/blindsxpertmy/" target="_blank" rel="noopener noreferrer">Follow BlindsXpert on Facebook →</a><div data-facebook-feed></div><p class="social-note">If updates are unavailable, open our Facebook page above.</p></article>
-                        <div class="social-profile-pair"><article class="social-profile"><h3><svg class="social-platform-icon instagram-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle class="social-dot" cx="18" cy="6" r="1" /></svg><span>Instagram</span></h3><p>Explore updates from @blindsxpert.</p><a class="home-product-action" href="https://www.instagram.com/blindsxpert/" target="_blank" rel="noopener noreferrer">Follow on Instagram →</a></article>
-                        <article class="social-profile"><h3><svg class="social-platform-icon tiktok-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path
+                    <div class="section-heading"><div><p class="eyebrow">STAY CONNECTED</p><h2 id="socialTitle">Follow Our Latest Updates</h2><p class="section-intro">Explore our blinds, recent projects and updates on our official social channels.</p></div></div>
+                    <div class="social-grid"><article class="social-profile"><h3><svg class="social-platform-icon instagram-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle class="social-dot" cx="18" cy="6" r="1" /></svg><span>Instagram</span></h3><a class="social-preview" href="https://www.instagram.com/blindsxpert/" target="_blank" rel="noopener noreferrer" aria-label="Open BlindsXpert's official Instagram profile"><img src="assets/img/homepage/social/instagram-profile.png" alt="Supplied screenshot of the official BlindsXpert Instagram profile" width="1917" height="1000" loading="lazy" decoding="async"></a><p class="social-note">Profile snapshot · @blindsxpert</p><a class="home-product-action" href="https://www.instagram.com/blindsxpert/" target="_blank" rel="noopener noreferrer">Follow on Instagram →</a></article><article class="social-profile"><h3><svg class="social-platform-icon tiktok-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path
                                     d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.57v13.67a2.9 2.9 0 1 1-2.9-2.9c.3 0 .59.05.86.14V9.27a6.47 6.47 0 1 0 5.61 6.4V8.7a8.34 8.34 0 0 0 4.88 1.57V6.72c-.37 0-.74-.01-1.11-.03Z"
-                                /></svg><span>TikTok</span></h3><p>Visit @blindsxpert_tiktok for the latest videos.</p><a class="home-product-action" href="https://www.tiktok.com/@blindsxpert_tiktok" target="_blank" rel="noopener noreferrer">Follow on TikTok →</a></article>
-                    </div>
-</div>
-                </div>
-            </section>
+                                /></svg><span>TikTok</span></h3><a class="social-preview" href="https://www.tiktok.com/@blindsxpert_tiktok" target="_blank" rel="noopener noreferrer" aria-label="Open BlindsXpert's official TikTok profile"><img src="assets/img/homepage/social/tiktok-profile.png" alt="Supplied screenshot of the official BlindsXpert TikTok profile" width="1917" height="1001" loading="lazy" decoding="async"></a><p class="social-note">Profile snapshot · @blindsxpert_tiktok</p><a class="home-product-action" href="https://www.tiktok.com/@blindsxpert_tiktok" target="_blank" rel="noopener noreferrer">Follow on TikTok →</a></article><article class="social-profile social-facebook"><h3><svg class="social-platform-icon facebook-icon" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path
+                                    d="M13.7 21v-7.3h2.5l.4-3h-2.9V8.8c0-.9.3-1.5 1.5-1.5h1.5V4.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2v2H7.6v3h2.6V21h3.5Z"
+                                /></svg><span>Facebook</span></h3><p>Visit our official Facebook page for project photos, product updates and news from BlindsXpert.</p><a class="home-product-action" href="https://www.facebook.com/blindsxpertmy/" target="_blank" rel="noopener noreferrer">Follow BlindsXpert on Facebook →</a></article></div></div></section>
 
             <section class="section testimonial-section" aria-labelledby="testimonialsTitle">
                 <div class="container">
@@ -441,7 +453,7 @@
                     <div class="testimonial-carousel" data-testimonial-carousel>
                         <div class="testimonial-viewport">
                             <div class="testimonial-track" aria-live="polite" data-lightbox-gallery="testimonials">
-                                <article class="testimonial-card"><button
+                                <article class="testimonial-card" data-rating="5"><button
                                         class="lightbox-trigger testimonial-image-trigger"
                                         type="button"
                                         aria-label="Open full-size customer testimonial image 1"
@@ -450,8 +462,8 @@
                                             src="assets/img/homepage/testimonials/images/Screenshot%202026-09-30%20085832.png"
                                             alt="Customer review by Putri batrisyia"
                                             loading="lazy"
-                                        ></button></article>
-                                <article class="testimonial-card"><button
+                                        ></button><p class="testimonial-rating" aria-label="Customer rating: 5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p></article>
+                                <article class="testimonial-card" data-rating="5"><button
                                         class="lightbox-trigger testimonial-image-trigger"
                                         type="button"
                                         aria-label="Open full-size customer testimonial image 2"
@@ -460,8 +472,8 @@
                                             src="assets/img/homepage/testimonials/images/Screenshot%202026-09-30%20085857.png"
                                             alt="Customer review by Rezza Whatt"
                                             loading="lazy"
-                                        ></button></article>
-                                <article class="testimonial-card"><button
+                                        ></button><p class="testimonial-rating" aria-label="Customer rating: 5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p></article>
+                                <article class="testimonial-card" data-rating="5"><button
                                         class="lightbox-trigger testimonial-image-trigger"
                                         type="button"
                                         aria-label="Open full-size customer testimonial image 3"
@@ -470,8 +482,8 @@
                                             src="assets/img/homepage/testimonials/images/Screenshot%202026-09-30%20090009.png"
                                             alt="Customer review by Fatihah Rosezain"
                                             loading="lazy"
-                                        ></button></article>
-                                <article class="testimonial-card" hidden><button
+                                        ></button><p class="testimonial-rating" aria-label="Customer rating: 5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p></article>
+                                <article class="testimonial-card" hidden data-rating="5"><button
                                         class="lightbox-trigger testimonial-image-trigger"
                                         type="button"
                                         aria-label="Open full-size customer testimonial image 4"
@@ -480,8 +492,8 @@
                                             src="assets/img/homepage/testimonials/images/Screenshot%202026-09-30%20090034.png"
                                             alt="Customer review by Suhaili Zulkafli"
                                             loading="lazy"
-                                        ></button></article>
-                                <article class="testimonial-card" hidden><button
+                                        ></button><p class="testimonial-rating" aria-label="Customer rating: 5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p></article>
+                                <article class="testimonial-card" hidden data-rating="5"><button
                                         class="lightbox-trigger testimonial-image-trigger"
                                         type="button"
                                         aria-label="Open full-size customer testimonial image 5"
@@ -490,8 +502,8 @@
                                             src="assets/img/homepage/testimonials/images/Screenshot%202026-09-30%20090050.png"
                                             alt="Customer review by Muhammad Yusri bin Hasan"
                                             loading="lazy"
-                                        ></button></article>
-                                <article class="testimonial-card" hidden><button
+                                        ></button><p class="testimonial-rating" aria-label="Customer rating: 5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p></article>
+                                <article class="testimonial-card" hidden data-rating="5"><button
                                         class="lightbox-trigger testimonial-image-trigger"
                                         type="button"
                                         aria-label="Open full-size customer testimonial image 6"
@@ -500,8 +512,8 @@
                                             src="assets/img/homepage/testimonials/images/Screenshot%202026-09-30%20090106.png"
                                             alt="BlindsXpert customer testimonial"
                                             loading="lazy"
-                                        ></button></article>
-                                <article class="testimonial-card" hidden><button
+                                        ></button><p class="testimonial-rating" aria-label="Customer rating: 5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p></article>
+                                <article class="testimonial-card" hidden data-rating="5"><button
                                         class="lightbox-trigger testimonial-image-trigger"
                                         type="button"
                                         aria-label="Open full-size customer testimonial image 7"
@@ -510,7 +522,7 @@
                                             src="assets/img/homepage/testimonials/images/Screenshot%202026-09-30%20090138.png"
                                             alt="BlindsXpert customer review screenshot"
                                             loading="lazy"
-                                        ></button></article>
+                                        ></button><p class="testimonial-rating" aria-label="Customer rating: 5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p></article>
                                 <article class="testimonial-card" hidden><button
                                         class="lightbox-trigger testimonial-image-trigger"
                                         type="button"
@@ -562,8 +574,8 @@
                             <div class="section-heading">
                                 <div>
                                     <p class="eyebrow">CUSTOMER STORIES</p>
-                                    <h2>BlindsXpert customer video</h2>
-                                    <p class="section-intro">A combined video featuring multiple clients.</p>
+                                    <h2>Hear From Our Customers</h2>
+                                    <p class="section-intro">Watch customers share their experience with BlindsXpert and see our blinds in their homes and spaces.</p>
                                 </div>
                             </div>
                             <div class="customer-stories-video">
