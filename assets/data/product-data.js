@@ -96,39 +96,57 @@ window.BLINDSXPERT_PRODUCTS = {
           "fabrics": [
             {
               "code": "SP 102Z",
-              "colourName": "WHITE"
+              "colourName": "WHITE",
+              "displayCode": "BX 102Z",
+              "closeUpImage": null
             },
             {
               "code": "SP 107Z",
-              "colourName": "LIGHT GREY"
+              "colourName": "LIGHT GREY",
+              "displayCode": "BX 107Z",
+              "closeUpImage": null
             },
             {
               "code": "SP 112Z",
-              "colourName": "BLACK"
+              "colourName": "BLACK",
+              "displayCode": "BX 112Z",
+              "closeUpImage": null
             },
             {
               "code": "SP 116Z",
-              "colourName": "PINK"
+              "colourName": "PINK",
+              "displayCode": "BX 116Z",
+              "closeUpImage": null
             },
             {
               "code": "SP 120Z",
-              "colourName": "BLUE"
+              "colourName": "BLUE",
+              "displayCode": "BX 120Z",
+              "closeUpImage": null
             },
             {
               "code": "SP 121Z",
-              "colourName": "CREAM"
+              "colourName": "CREAM",
+              "displayCode": "BX 121Z",
+              "closeUpImage": null
             },
             {
               "code": "SP 122Z",
-              "colourName": "BROWN"
+              "colourName": "BROWN",
+              "displayCode": "BX 122Z",
+              "closeUpImage": null
             },
             {
               "code": "SP 123Z",
-              "colourName": "DARK BROWN"
+              "colourName": "DARK BROWN",
+              "displayCode": "BX 123Z",
+              "closeUpImage": null
             },
             {
               "code": "SP 125Z",
-              "colourName": "GREY"
+              "colourName": "GREY",
+              "displayCode": "BX 125Z",
+              "closeUpImage": null
             }
           ],
           "photos": [
@@ -162,23 +180,33 @@ window.BLINDSXPERT_PRODUCTS = {
           "fabrics": [
             {
               "code": "SP 201Z",
-              "colourName": "CREAM"
+              "colourName": "CREAM",
+              "displayCode": "BX 201Z",
+              "closeUpImage": null
             },
             {
               "code": "SP 203Z",
-              "colourName": "GREY"
+              "colourName": "GREY",
+              "displayCode": "BX 203Z",
+              "closeUpImage": null
             },
             {
               "code": "SP 204Z",
-              "colourName": "BROWN"
+              "colourName": "BROWN",
+              "displayCode": "BX 204Z",
+              "closeUpImage": null
             },
             {
               "code": "SP 205Z",
-              "colourName": "GREEN"
+              "colourName": "GREEN",
+              "displayCode": "BX 205Z",
+              "closeUpImage": null
             },
             {
               "code": "SP 206Z",
-              "colourName": "BLUE"
+              "colourName": "BLUE",
+              "displayCode": "BX 206Z",
+              "closeUpImage": null
             }
           ],
           "photos": [
@@ -266,23 +294,33 @@ window.BLINDSXPERT_PRODUCTS = {
           "fabrics": [
             {
               "code": "SP 403BL",
-              "colourName": "BROWN"
+              "colourName": "BROWN",
+              "displayCode": "BX 403BL",
+              "closeUpImage": null
             },
             {
               "code": "SP 404BL",
-              "colourName": "GREY"
+              "colourName": "GREY",
+              "displayCode": "BX 404BL",
+              "closeUpImage": null
             },
             {
               "code": "SP 411BL",
-              "colourName": "DARK GREY"
+              "colourName": "DARK GREY",
+              "displayCode": "BX 411BL",
+              "closeUpImage": null
             },
             {
               "code": "SP 412BL",
-              "colourName": "DARK BROWN"
+              "colourName": "DARK BROWN",
+              "displayCode": "BX 412BL",
+              "closeUpImage": null
             },
             {
               "code": "SP 413BL",
-              "colourName": "BLACK"
+              "colourName": "BLACK",
+              "displayCode": "BX 413BL",
+              "closeUpImage": null
             }
           ],
           "photos": [
@@ -316,31 +354,45 @@ window.BLINDSXPERT_PRODUCTS = {
           "fabrics": [
             {
               "code": "SP 501BL",
-              "colourName": "WHITE GREY"
+              "colourName": "WHITE GREY",
+              "displayCode": "BX 501BL",
+              "closeUpImage": null
             },
             {
               "code": "SP 502BL",
-              "colourName": "BEIGE GREY"
+              "colourName": "BEIGE GREY",
+              "displayCode": "BX 502BL",
+              "closeUpImage": null
             },
             {
               "code": "SP 503BL",
-              "colourName": "GREY GREY"
+              "colourName": "GREY GREY",
+              "displayCode": "BX 503BL",
+              "closeUpImage": null
             },
             {
               "code": "SP 504BL",
-              "colourName": "GREY"
+              "colourName": "GREY",
+              "displayCode": "BX 504BL",
+              "closeUpImage": null
             },
             {
               "code": "SP 505BL",
-              "colourName": "BLACK GREY"
+              "colourName": "BLACK GREY",
+              "displayCode": "BX 505BL",
+              "closeUpImage": null
             },
             {
               "code": "SP 506BL",
-              "colourName": "BLACK"
+              "colourName": "BLACK",
+              "displayCode": "BX 506BL",
+              "closeUpImage": null
             },
             {
               "code": "SP 508BL",
-              "colourName": "BROWN"
+              "colourName": "BROWN",
+              "displayCode": "BX 508BL",
+              "closeUpImage": null
             }
           ],
           "photos": [
@@ -509,7 +561,13 @@ window.BLINDSXPERT_PRODUCTS = {
         "Home",
         "Office"
       ],
-      "bestSeller": true
+      "bestSeller": true,
+      "visibleSeries": [
+        "BX 101Z",
+        "BX 201Z",
+        "BX 401BL",
+        "BX 501BL"
+      ]
     },
     {
       "id": "roller",

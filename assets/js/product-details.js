@@ -7,7 +7,12 @@
     const form = $('#productEnquiryForm');
     const note = $('#productFormNote');
     const dialog = $('[data-product-lightbox]');
-    let activeProduct, activeOption = '', activeSeries = null;
+    let activeProduct, activeOption = '', activeSeries = null, activeColour = null;
+    const selectableSeries = product => product.id === 'zebra' && product.visibleSeries
+        ? product.visibleSeries.map(name => product.series.find(series => series.name === name)).filter(Boolean)
+        : product.series;
+    const colourCode = fabric => fabric.displayCode || fabric.code;
+    const seriesColours = series => (series?.fabrics || []).filter(fabric => fabric.code && fabric.colourName);
     const names = {indoor:'Indoor blinds', outdoor:'Outdoor blinds', motorized:'Motorized solutions', other:'Other products'};
     const node = (tag, className, content) => {
         const el = document.createElement(tag);
@@ -43,16 +48,88 @@
         url.searchParams.set('product', activeProduct.id);
         if (activeOption) url.searchParams.set('option', activeOption); else url.searchParams.delete('option');
         if (activeSeries) url.searchParams.set('series', activeSeries.name); else url.searchParams.delete('series');
+        if (activeColour) url.searchParams.set('colour', colourCode(activeColour)); else url.searchParams.delete('colour');
         history.replaceState({}, '', url);
     }
     function updateSelection() {
-        const parts = [activeProduct?.name, activeOption, activeSeries ? `${activeSeries.name} series` : ''].filter(Boolean);
+        const parts = [activeProduct?.name, activeOption, activeSeries ? `${activeSeries.name} series` : '', activeColour ? `${colourCode(activeColour)} · ${activeColour.colourName}` : ''].filter(Boolean);
         $('[data-enquiry-selection]').textContent = parts.length ? `Your enquiry: ${parts.join(' · ')}` : '';
         if (activeProduct) updateUrl();
     }
     const overviewPhotos = product => product.gallery.filter(photo => (photo.mainImage === true || (photo.src.includes('/generated/') && (!photo.src.includes('-detail') || photo.overview === true))) && !photo.exampleOnly);
     const examplePhotos = product => product.gallery.filter(photo => !overviewPhotos(product).includes(photo) || photo.exampleOnly).filter(photo => !photo.src.includes('colour-material-inspiration'));
+    function renderColourPalette() {
+        const section = node('div', 'pd-colour-selection');
+        const controls = node('div', 'pd-colour-controls');
+        controls.append(node('h4', '', 'Choose a colour'), node('p', 'pd-small', 'Neutral swatches: exact fabric colours are not yet verified. Please confirm with physical samples.'));
+        const palette = node('div', 'pd-colour-palette');
+        palette.setAttribute('role', 'group');
+        palette.setAttribute('aria-label', `${activeSeries.name} colours`);
+        const preview = node('figure', 'pd-colour-preview');
+        const frame = node('div', 'pd-colour-preview-frame');
+        const caption = node('figcaption');
+        caption.setAttribute('aria-live', 'polite');
+        preview.append(frame, caption);
+        function updatePreview() {
+            palette.querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.colour === colourCode(activeColour))));
+            const fabric = activeColour;
+            const placeholder = node('div', 'pd-colour-placeholder');
+            const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            icon.setAttribute('viewBox', '0 0 24 24');
+            icon.setAttribute('aria-hidden', 'true');
+            const shape = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            shape.setAttribute('d', 'M3 3h18v18H3z M3 17l5-5 4 4 3-3 6 6 M16 7h.01');
+            icon.append(shape);
+            placeholder.append(icon, node('span', '', 'Colour photo pending'));
+            frame.replaceChildren(placeholder);
+            frame.getAnimations().forEach(animation => animation.cancel());
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                frame.animate([{opacity:0.65}, {opacity:1}], {duration:180, easing:'ease-out'});
+            }
+            caption.replaceChildren(node('span', 'pd-selected-series', activeSeries.name), document.createTextNode(' · '), node('strong', 'pd-selected-code', colourCode(fabric)), document.createTextNode(' · '), node('span', 'pd-selected-name', fabric.colourName));
+            if (fabric.closeUpImage) {
+                const image = node('img');
+                image.alt = `${activeSeries.name} ${colourCode(fabric)} ${fabric.colourName} fabric close-up`;
+                image.hidden = true;
+                image.addEventListener('load', () => {
+                    if (activeColour !== fabric || image.parentElement !== frame) return;
+                    placeholder.remove(); image.hidden = false;
+                }, {once:true});
+                image.addEventListener('error', () => {
+                    image.remove();
+                    if (activeColour === fabric && placeholder.isConnected) placeholder.querySelector('span').textContent = 'Colour photo unavailable';
+                }, {once:true});
+                frame.append(image);
+                image.src = fabric.closeUpImage;
+            }
+        }
+        for (const fabric of seriesColours(activeSeries)) {
+            const button = node('button', 'pd-colour-swatch');
+            button.type = 'button';
+            button.dataset.colour = colourCode(fabric);
+            const verified = fabric.swatch?.verified === true && /^#[0-9a-f]{6}$/i.test(fabric.swatch.value || '');
+            button.setAttribute('aria-label', `Select ${colourCode(fabric)} ${fabric.colourName}${verified ? '' : '; exact fabric colour not verified'}`);
+            button.title = `${colourCode(fabric)} · ${fabric.colourName}`;
+            const chip = node('span', 'pd-swatch-chip');
+            chip.setAttribute('aria-hidden', 'true');
+            if (verified) chip.style.backgroundColor = fabric.swatch.value;
+            button.append(chip, node('span', 'pd-swatch-code', colourCode(fabric)));
+            button.addEventListener('click', () => { activeColour = fabric; updatePreview(); updateSelection(); });
+            palette.append(button);
+        }
+        controls.append(palette);
+        section.append(preview, controls);
+        if (activeColour) updatePreview();
+        return section;
+    }
     function renderReferences() {
+        if (activeProduct.id === 'zebra') {
+            $('[data-spec-table]').replaceChildren();
+            $('[data-spec-section]').hidden = true;
+            $('[data-nav-specifications]').hidden = true;
+            renderCataloguePhotos();
+            return;
+        }
         const referenceSeries = activeProduct.catalogueCollection ? null : activeSeries;
         $('[data-series-title]').textContent = referenceSeries ? `${referenceSeries.name} Series` : 'Specifications & product information';
         $('[data-series-description]').textContent = referenceSeries ? 'Specifications apply to this series only. Confirm colours, availability and option combinations with our team.' : activeProduct.description;
@@ -77,6 +154,27 @@
         const heading = node('h3', '', activeSeries.name);
         heading.id = 'catalogue-series-heading';
         heading.setAttribute('aria-live', 'polite');
+        if (activeProduct.id === 'zebra') {
+            panel.removeAttribute('aria-labelledby');
+            panel.setAttribute('aria-label', 'Fabric colour configurator');
+            panel.append(renderColourPalette());
+            const specs = Object.entries(activeSeries.specs || {}).filter(([, value]) => value !== '' && value != null);
+            if (specs.length) {
+                const specificationSection = node('section', 'pd-fabric-specifications');
+                specificationSection.append(node('h4', '', 'Fabric Specifications'));
+                const table = node('table', 'pd-spec-table');
+                table.append(node('caption', 'visually-hidden', `${activeSeries.name} fabric specifications`));
+                const body = node('tbody');
+                for (const [label, value] of specs) {
+                    const row = node('tr'); const th = node('th', '', label); th.scope = 'row';
+                    row.append(th, node('td', '', value)); body.append(row);
+                }
+                table.append(body);
+                specificationSection.append(table, node('p', 'pd-small', 'Catalogue fabric widths are not guaranteed finished blind widths. Confirm final dimensions, suitability and availability with our team.'));
+                panel.append(specificationSection);
+            }
+            return;
+        }
         const information = node('div', 'pd-catalogue-information');
         const fabrics = (activeSeries.fabrics || []).filter(fabric => fabric.code && fabric.colourName);
         if (fabrics.length) {
@@ -120,7 +218,7 @@
         }
         panel.append(heading);
         if (activeSeries.description) panel.append(node('p', 'pd-small', activeSeries.description));
-        panel.append(node('p', 'pd-small', 'BX names identify the series on this website. Fabric references retain the codes and colour labels printed in the catalogue. Open either photograph for a larger view, or use its link for browser zoom.'), information, grid);
+        panel.append(node('p', 'pd-small', activeProduct.id === 'zebra' ? 'BX labels use the catalogue code suffixes. Original sheets retain their printed SP labels. Open either catalogue photograph for a larger view.' : 'BX names identify the series on this website. Fabric references retain the codes and colour labels printed in the catalogue. Open either photograph for a larger view, or use its link for browser zoom.'), information, grid);
     }
     function showMainImage(photo) {
         const image = $('[data-product-image]'); image.src = photo.src; image.alt = photo.alt;
@@ -153,6 +251,7 @@
     }
     function chooseSeries(series) {
         activeSeries = series;
+        activeColour = activeProduct.id === 'zebra' ? seriesColours(series)[0] || null : null;
         if (activeProduct.id === 'roller') {
             activeOption = {'Blackwell Waterproof':'Blackout','Vado Solarscreen':'Sunscreen','Sega Classic':'Translucent'}[series.name] || '';
             $('[data-options]').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.textContent === activeOption)));
@@ -170,10 +269,12 @@
         showOptionImage();
         renderReferences(); updateSelection();
     }
-    function showProduct(product, option = '', seriesName = '', updateHistory = true) {
+    function showProduct(product, option = '', seriesName = '', updateHistory = true, requestedColour = '') {
         activeProduct = product;
         activeOption = product.options.includes(option) ? option : (product.defaultOption || '');
-        activeSeries = product.series.find(s => s.name === seriesName || (product.catalogueCollection && s.sourceCode && [s.sourceCode, `${s.sourceCode} SERIES`, `${s.displayCode} SERIES`].includes(seriesName))) || (product.catalogueCollection || !option ? product.series[0] : null) || null;
+        const visibleSeries = selectableSeries(product);
+        activeSeries = visibleSeries.find(s => s.name === seriesName || (product.catalogueCollection && s.sourceCode && [s.sourceCode, `${s.sourceCode} SERIES`, `${s.displayCode} SERIES`].includes(seriesName))) || (product.catalogueCollection || !option ? visibleSeries[0] : null) || null;
+        activeColour = product.id === 'zebra' ? seriesColours(activeSeries)[0] || null : null;
         $('[data-product-picker]').hidden = true; $('[data-product-content]').hidden = false;
         $('[data-product-name]').textContent = product.name; $('[data-product-category]').textContent = names[product.category];
         $('[data-product-description]').textContent = product.description; $('[data-breadcrumb]').textContent = product.name;
@@ -209,7 +310,7 @@
             seriesGrid.removeAttribute('role');
             seriesGrid.removeAttribute('aria-label');
         }
-        for(const series of product.series) {const button=node('button','pd-series-button');button.type='button';button.dataset.series=series.name;button.setAttribute('aria-pressed',String(series===activeSeries));button.append(node('strong','',series.name),node('span','',series.specs['Light transmission'] || 'View catalogue details'));button.onclick=()=>chooseSeries(series);seriesGrid.append(button);}
+        for(const series of visibleSeries) {const button=node('button','pd-series-button');button.type='button';button.dataset.series=series.name;button.setAttribute('aria-pressed',String(series===activeSeries));button.append(node('strong','',series.name),node('span','',series.specs['Light transmission'] || 'View catalogue details'));button.onclick=()=>chooseSeries(series);seriesGrid.append(button);}
         let cataloguePanel = $('[data-catalogue-panel]');
         if (product.catalogueCollection && !cataloguePanel) {
             cataloguePanel = node('div', 'pd-catalogue-panel');
@@ -222,7 +323,7 @@
         if (product.catalogueCollection) {
             seriesGrid.querySelectorAll('button').forEach(button => {
                 button.setAttribute('aria-controls', 'fabric-catalogue-panel');
-                button.querySelector('span').textContent = '2 catalogue photographs';
+                button.querySelector('span').textContent = product.id === 'zebra' ? 'Choose a colour' : '2 catalogue photographs';
             });
         }
         $('[data-series-section]').hidden=!product.series.length;$('[data-nav-series]').hidden=!product.series.length;
@@ -237,10 +338,14 @@
         for(const [label,id] of [['Roller Blinds','roller'],['Venetian Blinds','venetian'],['Ziptrak Outdoor Blinds','ziptrak-outdoor']]){const a=node('a','',label+' →');a.href=`product-details.html?product=${id}`;related.append(a);}
         if(activeOption)chooseOption(activeOption);
         if(activeSeries)chooseSeries(activeSeries);
+        if (product.id === 'zebra' && requestedColour) {
+            activeColour = seriesColours(activeSeries).find(fabric => [colourCode(fabric), fabric.code].includes(requestedColour)) || activeColour;
+            renderCataloguePhotos();
+        }
         if(updateHistory)updateSelection();
     }
     function showPicker(message) {
-        activeProduct=null;activeOption='';activeSeries=null;
+        activeProduct=null;activeOption='';activeSeries=null;activeColour=null;
         $('[data-product-content]').hidden=true;$('[data-product-picker]').hidden=false;
         $('[data-product-picker] > p').textContent=message;
         const grid=$('[data-picker-grid]');grid.replaceChildren();
@@ -252,7 +357,7 @@
     for(const product of data.products.filter(p=>!p.legacy))select.add(new Option(product.name,product.id));
     const params=new URLSearchParams(location.search);const requested=params.get('product');const alias=data.aliases[requested];
     const initial=data.products.find(p=>p.id===(alias?.id || requested));
-    if(initial)showProduct(initial,params.get('option') || alias?.option,params.get('series'));
+    if(initial)showProduct(initial,params.get('option') || alias?.option,params.get('series'),true,params.get('colour'));
     else showPicker(requested ? 'That product link is unavailable. Choose a product family below.' : 'Choose a product family to explore the available options.');
     select.addEventListener('change',()=>{const p=data.products.find(p=>p.id===select.value);if(p)showProduct(p);else showPicker('Choose a product family to explore the available options.');note.textContent='WhatsApp will open with your enquiry for you to review and send.';});
     const required=[...form.querySelectorAll('[required]')];required.forEach(field=>field.addEventListener('input',()=>field.setCustomValidity('')));
@@ -263,6 +368,7 @@
         const f=new FormData(form);const lines=['BlindsXpert product enquiry','',`Product: ${activeProduct.name}`];
         if(activeOption)lines.push(`${activeProduct.optionLabel || 'Option'}: ${activeOption}`);
         if(activeSeries)lines.push(`Fabric series: ${activeSeries.name}`);
+        if(activeColour)lines.push(`Colour: ${colourCode(activeColour)} · ${activeColour.colourName}`);
         lines.push(`Name: ${f.get('name').trim()}`,`Phone: ${phone.value.trim()}`);
         if(f.get('address').trim())lines.push(`Address / area: ${f.get('address').trim()}`);
         if(f.get('email').trim())lines.push(`Email: ${f.get('email').trim()}`);
