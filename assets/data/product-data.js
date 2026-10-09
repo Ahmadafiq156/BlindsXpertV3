@@ -502,7 +502,7 @@ window.BLINDSXPERT_PRODUCTS = {
       "optionLabel": "Range",
       "optionImages": {
         "Custom": "assets/img/products/generated/web/zebra-custom-variant.webp",
-        "Generic": "assets/img/products/indoor/zebra/zebra-blinds-main.png"
+        "Generic": "assets/img/products/generated/web/zebra-main.webp"
       },
       "defaultOption": "Generic",
       "suitableFor": [

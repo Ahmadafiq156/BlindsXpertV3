@@ -473,12 +473,13 @@ if ('IntersectionObserver' in window && !reduceMotion.matches) {
     const chat = widget.querySelector('.whatsapp-chat');
     chat.href = `https://wa.me/${whatsappContact.number}?text=${encodeURIComponent(whatsappContact.message)}`;
     document.body.append(widget);
+    let restoreWidgetFocus = false;
     function setOpen(open, restoreFocus = false) {
         popup.hidden = !open;
         button.setAttribute('aria-expanded', String(open));
         button.setAttribute('aria-label', open ? 'Close WhatsApp contact' : 'Open WhatsApp contact');
-        if (open) { widget.style.setProperty('--whatsapp-offset', '16px'); close.focus(); }
-        else { if (restoreFocus) button.focus(); schedulePosition(); }
+        if (open) { restoreWidgetFocus = false; widget.style.setProperty('--whatsapp-offset', '16px'); close.focus({preventScroll: true}); }
+        else { restoreWidgetFocus ||= restoreFocus; schedulePosition(); }
     }
     button.addEventListener('click', () => setOpen(popup.hidden));
     close.addEventListener('click', () => setOpen(false, true));
@@ -514,7 +515,14 @@ if ('IntersectionObserver' in window && !reduceMotion.matches) {
                 if (!targets.some(t => r.left < t.right && r.right > t.left && r.top < t.bottom && r.bottom > t.top)) { found = true; break; }
             }
             // Dense mobile forms can leave no safe position; restore on the next scroll.
+            const needsFocus = restoreWidgetFocus || (!found && document.activeElement === button);
             button.hidden = !found;
+            if (needsFocus) {
+                // Keep keyboard focus on a visible control when collision avoidance hides the opener.
+                const fallback = toggle?.getClientRects().length ? toggle : header?.querySelector('.logo');
+                (found ? button : fallback)?.focus({preventScroll: true});
+                restoreWidgetFocus = false;
+            }
         });
     }
     window.addEventListener('scroll', schedulePosition, {passive:true});
