@@ -305,7 +305,7 @@ The shared `assets/js/site.js` injects one lightweight WhatsApp disclosure on ev
 The popup is initially closed, opens only on request, focuses its close button and supports close/ Escape with focus restoration, outside click and leaving focus. Focus does not scroll the page. Closing restores focus after collision positioning; if dense controls require hiding the opener, focus moves to the visible header navigation button (or brand link on desktop). The floating button respects safe-area spacing, stays below the header/native image dialogs, hides during mobile navigation and image viewing, and moves away from visible form/CTA controls on scroll or resize. If a dense form fills every safe position, the idle button temporarily hides and is restored when scrolling frees space. Product Details uses its existing separate enquiry form; its logic is untouched. No plugin or new dependency is required.
 
 
-The supplied Wooden Outdoor and PVC Outdoor main PNGs already contain large Best Seller ribbons baked into their pixels. Their catalogue cards instead use the existing approved project photographs `assets/img/projects/completed/Saujana Impian.png` and `Sunway Eastwood.png` through an optional `catalogueImage` object. Edit this object to choose a clean approved card photo; it takes precedence over gallery[0] only in the catalogue renderer. Static Products fallback sources match it. Product Details galleries, original PNGs and project sections remain unchanged; no photo editing, cropping to hide captions or generation was performed.
+Earlier supplied Wooden Outdoor and PVC Outdoor main PNGs contained large Best Seller ribbons baked into their pixels. Their catalogue cards previously used the existing approved project photographs `assets/img/projects/completed/Saujana Impian.png` and `Sunway Eastwood.png` through an optional `catalogueImage` object. This optional object takes precedence over gallery[0] only in the catalogue renderer. The 9 October replacement below removes these two overrides so both catalogues and Product Details use the newly supplied originals. Earlier photographs remain on disk; no photo editing, cropping to hide captions or generation was performed.
 
 
 ## Interrupted-work completion verification (9 October 2026)
@@ -329,7 +329,7 @@ The official embed was observed loading genuine page identity and timeline posts
 
 ### Supplied project photographs
 
-All 35 original PNGs are upright 1254×1254px images, extracted byte-for-byte and verified against their uploaded ZIP entries using SHA-256. They are stored once under `assets/img/projects/`, with no converted or generated photographs. The original uploaded ZIPs remain untouched and ignored by the existing `*.zip` rule. Project labels use the supplied folder names, with only capitalization/spacing normalized. Client details, dates, specifications and detailed descriptions were not supplied and were not invented. New cards use the neutral Other projects filter pending approved categorization. Historical Projects-page labels, cover sources, alt text and styling are preserved. Their covers now use semantic viewer buttons as documented below.
+All 35 original PNGs are upright 1254×1254px images, extracted byte-for-byte and verified against their uploaded ZIP entries using SHA-256. They are stored once under `assets/img/projects/`, with no converted or generated photographs. The five original uploaded project ZIPs were subsequently deleted after a second byte/hash comparison confirmed every non-directory entry was preserved; see the product/ZIP cleanup section below. They were ignored by the existing `*.zip` rule. Project labels use the supplied folder names, with only capitalization/spacing normalized. Client details, dates, specifications and detailed descriptions were not supplied and were not invented. New cards use the neutral Other projects filter pending approved categorization. Historical Projects-page labels, cover sources, alt text and styling are preserved. Their covers now use semantic viewer buttons as documented below.
 
 | Supplied project | Image directory | Total photos | Representative source / final image | Homepage |
 |---|---|---|---|---|
@@ -383,3 +383,77 @@ Cursor investigation found three explicit `cursor:zoom-in` rules on `.project-co
 Validation: local headless Edge passed 320, 360, 375, 390, 430, 768, 1024, 1366 and 1440px. At each width all 13 historical originals and 35 new photographs were opened in their 18 distinct groups; every viewer thumbnail selected the correct source. Checks covered pointer cursor inheritance and unobstructed image hit targets, Enter/Space activation, keyboard focus outlines, next/previous/arrow navigation, simulated swipe, single-photo disabled navigation, Escape/close and original-trigger focus restoration. Promotions passed pointer, full-poster contain scaling, both keyboard activations, close/focus and preserved 45/55 desktop/mobile stacking. Cursor checks with intentionally delayed image responses passed before and after decode on both pages. Navigation and WhatsApp passed at all widths with existing collision hiding respected.
 
 Gallery, testimonial viewer, FAQ grouping and Products passed at 320/1440px; actual homepage anchors and mobile tap/swipe passed separately. All eight BX selectors/sixteen images passed at 320/1440px. Homepage, Promotions HTML, Products, Product Details, Gallery, FAQs, product data and both shared viewer/init scripts match the starting HEAD byte-for-byte after line-ending normalization. Historical image markup/alt text, titles and product labels were preserved. All 1,530 local reference/fragment checks resolved; tested flows had no JavaScript errors, missing local responses or page overflow. Git diff whitespace checks passed. No image files were changed, added or deleted; no staging, commit, push or deployment was performed. Physical Windows cursor rendering, physical-device gestures and browsers other than Edge were not verified; a true stuck OS/browser wait cursor was not reproduced.
+
+
+## Product image replacement, demonstration counts and verified ZIP cleanup (9 October 2026)
+
+Four root uploads were moved, preserving every byte and their original 1254×1254px PNG dimensions. Match filenames and visible content: the Roller printing image shows a Kedai Kopi logo, the wooden printing image shows a Natura Plant & Decor logo, ordinary Wooden shows an unprinted outdoor blind, and PVC shows a grey roller blind above a sheltered doorway. `Bamboo.png` is outside this request and remains untouched. Older product photographs remain on disk; only the four new upload copies were organized, without conversion, recompression or duplication.
+
+| Product ID | Original upload | Previous main image | New main/catalogue/viewer image |
+|---|---|---|---|
+| `roller-logo-printing` | `Roller indoor logo.png` | `assets/img/products/indoor/roller-logo-printing/roller-blinds-logo-printing-main.png` | `assets/img/products/indoor/roller-logo-printing/roller-blinds-logo-printing-upload.png` |
+| `wooden-uv-logo-printing` | `Wooden logo.png` | `assets/img/products/outdoor/wooden-logo-printing/wooden-blinds-uv-logo-printing-main.png` | `assets/img/products/outdoor/wooden-logo-printing/wooden-blinds-logo-printing-upload.png` |
+| `wooden-outdoor` | `Wooden.png` | `assets/img/products/outdoor/wooden/wooden-outdoor-blinds-main.png` | `assets/img/products/outdoor/wooden/wooden-outdoor-blinds-upload.png` |
+| `pvc-outdoor` | `Pvc blinds.png` | `assets/img/products/outdoor/pvc/outdoor-pvc-blinds-main.png` | `assets/img/products/outdoor/pvc/pvc-outdoor-blinds-upload.png` |
+
+Wooden and PVC catalogue cards previously used `assets/img/projects/completed/Saujana%20Impian.png` and `Sunway%20Eastwood.png`. Their `catalogueImage` overrides were removed. Both catalogue renderers now use the same `gallery[0]` as Product Details; existing static Wooden/PVC HTML fallbacks were also updated. The two printing cards are still inserted from centralized data, preserving their IDs, categories, descriptions and destinations. All four records use the actual original path for `src` and `thumbnail`, correct intrinsic dimensions and `fit:"contain"`; the existing square outer/inner card frames remain unchanged.
+
+To replace an approved main photograph, put the unmodified file in the appropriate existing product folder, update `gallery[0]` in `assets/data/product-data.js` (src, thumbnail, alt, caption, width, height, mainImage and fit), and update an existing static Products fallback where present. Remove or update any `catalogueImage` override and any option mapping pointing at the old main photo. Inspect the resulting catalogue/main/full-image viewer rather than editing only one page. Do not delete old images without checking other references.
+
+Ordinary `wooden-outdoor` now has exactly its one newly supplied main photograph. Its gallery references to earlier examples/printing variants, Standard finish/UV option list, optionImages, optionLabel and defaultOption were removed from that record; image files were retained. The renderer already hides option UI and thumbnail navigation when they are not needed, so no new special-case UI was added. The description was minimally shortened to “Wooden blinds for outdoor spaces.” to remove the obsolete printing-option claim. The independent `wooden-uv-logo-printing` product remains separate, with only its main photograph replaced. The legacy `uv-printing-wooden-outdoor` Product Details alias and catalogue hash mapping now target that separate printing product without an obsolete option parameter. Other product records, variants, specifications, descriptions and all BX data are unchanged.
+
+### Demonstration sold-count configuration
+
+`assets/data/sales-counts.js` contains `window.BLINDSXPERT_SALES_COUNTS`, loaded before `catalogue.js` on Home and Products. It is deliberately separate from factual product data. Both catalogues use the same `demoCounts` map, with a small `.product-sold-count` badge at the right of the `.product-meta-row`, opposite the category and above the title. Per the owner's local-preview request, badges show only “[count] Sold”; the visible Demo suffix was removed. All entries in `demoCounts`, including Roller 1K+ and Wooden Outdoor 3K+, remain temporary, unverified values. Removing the visible suffix does not verify the figures or authorize publishing them. Existing BEST SELLER badges remain controlled by their original product records. Product Details does not load this configuration or show sold badges.
+
+- `enabled:false`: hide every sold-count badge on both pages after reload.
+- `demo:true`: use the internally identified, unverified `demoCounts` map for the local preview. Badges display “[count] Sold” without a visible Demo suffix.
+- `demo:false`: use only `verifiedCounts`. It is currently empty, so switching off demo mode automatically hides all unverified values.
+- To publish approved counts, add only verified entries to `verifiedCounts`, then set `demo:false`. Omit/delete a product key to remove its badge. Store the count string without “Sold” (e.g. “900+”); the renderer supplies the suffix. Before public release, disable all badges or replace the entries with company-approved verified figures; removing visible Demo text for the local preview does not change their unverified status.
+
+The required explanatory comment is in the file: “Temporary demonstration values only. Replace with verified BlindsXpert sales figures before public release.”
+
+| Product ID | Local preview badge |
+|---|---|
+| `zebra` | 1.5K+ Sold |
+| `roller` | 1K+ Sold |
+| `roller-logo-printing` | 500+ Sold |
+| `panel` | 800+ Sold |
+| `venetian` | 1.2K+ Sold |
+| `vertical` | 500+ Sold |
+| `roman` | 800+ Sold |
+| `dream` | 500+ Sold |
+| `honeycomb` | 500+ Sold |
+| `wooden-outdoor` | 3K+ Sold |
+| `wooden-uv-logo-printing` | 800+ Sold |
+| `bamboo-outdoor` | 1.2K+ Sold |
+| `ziptrak-outdoor` | 500+ Sold |
+| `pvc-outdoor` | 2K+ Sold |
+| `awning-canopy` | 500+ Sold |
+| `motorized` | 1.5K+ Sold |
+| `skylight` | 500+ Sold |
+| `curtain-hardware` | 2.5K+ Sold |
+
+### ZIP cleanup
+
+The short names `proj 2.zip` through `proj 6.zip` were not present. Their five original upload archives had the longer names below. Each was opened, passed its ZIP CRC/readability test, and had every non-directory entry compared byte-for-byte and by SHA-256 with the correctly named extracted project photo. No extra/unpreserved files were found, and the active HTML/JS/CSS contained no ZIP references. Only these five verified archives were deleted. All 35 extracted project PNGs and all 18 cards remain; `info.zip`, unrelated ZIPs and product assets were retained. The archives were already Git-ignored, so these deletions do not appear as tracked Git deletions.
+
+| Deleted archive | Preserved photos |
+|---|---|
+| `Proj 2 - Hulu Langat-20261009T003529Z-1-001.zip` | 8 |
+| `Proj 3 - Edgewood Residence-20261009T003532Z-1-001.zip` | 8 |
+| `Proj 4 - Taman Putra Perdana-20261009T003542Z-1-001.zip` | 7 |
+| `Proj 5 - Surau Al- Idris Rawang-20261009T003548Z-1-001.zip` | 8 |
+| `Proj 6 - SK setiawangsa-20261009T003554Z-1-001.zip` | 4 |
+
+
+Validation for this update: local headless Edge passed all nine widths (320, 360, 375, 390, 430, 768, 1024, 1366, 1440px). At each width checks covered 18 products and 18 matching Demo badges on each catalogue; all four new images at original resolution, square two-layer frames and contain fit; main/full-image source matching, Escape and focus restoration on all four Product Details pages; ordinary Wooden single-photo/no-option UI; equal card row heights; unchanged BEST SELLER membership; category filters, navigation, WhatsApp and no horizontal overflow. Separate reload tests confirmed central disable on both pages, demo-off hiding all unverified values, and only one explicitly configured verified value rendering without a Demo tag. The legacy printing alias resolves to the separate printing product.
+
+All fourteen unrelated product records, including the full Zebra BX series/fabric data and other variants, match their pre-edit records. Four new PNGs match their root upload SHA-256 hashes; no image conversion occurred. Post-cleanup checks at 320/1440px opened all 48 project photographs (including every one of the 35 ZIP-sourced originals) across eighteen groups and opened the unchanged Promotions poster. The five archives' deletion report confirms 35 verified entries with no unpreserved files; info.zip and Bamboo.png remain. All eight BX selectors/sixteen images passed separately at 320/1440px. All 1,521 local references/fragments resolved; JavaScript syntax, git diff whitespace and tested browser error/missing-local-response checks passed. No staging, commit, push, enquiry sending or deployment was performed. Physical-device gestures, browsers other than Edge and external service availability were not verified. Sales figures are visibly marked demonstration values and remain unverified.
+
+
+### Sold badge position update (9 October 2026)
+
+The shared catalogue renderer now puts the existing category and sold badge in one `.product-meta-row` on both Home and Products. Flexbox aligns category left/count right, with a gap, a wrapping category and non-wrapping compact badge to avoid mobile overlap. The former below-title badge margin is removed. Product data, all count values, internal demo/enabled flags, suitable text, BEST SELLER badges, images and action links are unchanged. Visible badges contain no Demo word; the configuration and documentation continue identifying the local preview values as unverified. Disable them before publishing unless the company approves the figures.
+
+Verification for the badge-position update passed in local Edge at 320, 360, 375, 390, 430, 768, 1024, 1366 and 1440px: all 18 cards on both catalogues have unchanged values and a right-aligned badge opposite the category, no visible Demo suffix, no category/count overlap (including a long-text stress check), equal row heights, unchanged BEST SELLER membership, decoded images and preserved product/WhatsApp destinations. Actual product-link navigation passed for all four categories at 320/1440px. Central disable and demo-off hiding of unverified values still work. No horizontal overflow, JavaScript errors or missing local responses were observed; syntax and whitespace checks passed. No staging, commit, push or deployment was performed.

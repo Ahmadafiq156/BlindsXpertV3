@@ -774,9 +774,9 @@ window.BLINDSXPERT_PRODUCTS = {
       "contentPending": true,
       "gallery": [
         {
-          "src": "assets/img/products/indoor/roller-logo-printing/roller-blinds-logo-printing-main.png",
-          "thumbnail": "assets/img/products/indoor/roller-logo-printing/roller-blinds-logo-printing-main.png",
-          "alt": "Roller blind with the BlindsXpert logo printed across the fabric",
+          "src": "assets/img/products/indoor/roller-logo-printing/roller-blinds-logo-printing-upload.png",
+          "thumbnail": "assets/img/products/indoor/roller-logo-printing/roller-blinds-logo-printing-upload.png",
+          "alt": "Roller blind with a printed Kedai Kopi logo",
           "caption": "Supplied product image · Roller Blinds Logo Printing",
           "width": 1254,
           "height": 1254,
@@ -1396,82 +1396,28 @@ window.BLINDSXPERT_PRODUCTS = {
       "id": "wooden-outdoor",
       "name": "Wooden Outdoor Blinds",
       "category": "outdoor",
-      "description": "Wooden blinds for outdoor spaces, with UV / logo printing available as a customisation option.",
+      "description": "Wooden blinds for outdoor spaces.",
       "gallery": [
         {
-          "src": "assets/img/products/outdoor/wooden/wooden-outdoor-blinds-main.png",
-          "thumbnail": "assets/img/products/outdoor/wooden/wooden-outdoor-blinds-main.png",
-          "alt": "Brown wooden outdoor blind beneath a tiled roof",
+          "src": "assets/img/products/outdoor/wooden/wooden-outdoor-blinds-upload.png",
+          "thumbnail": "assets/img/products/outdoor/wooden/wooden-outdoor-blinds-upload.png",
+          "alt": "Light-coloured wooden outdoor blind across a covered patio opening",
           "caption": "Supplied product image · Wooden Outdoor Blinds",
-          "width": 3919,
-          "height": 3919,
-          "featuredThumbnail": true,
-          "mainImage": true
-        },
-        {
-          "src": "assets/img/projects/completed/Saujana%20Impian.png",
-          "alt": "Saujana Impian · wooden outdoor blinds",
-          "caption": "Saujana Impian · wooden outdoor blinds"
-        },
-        {
-          "src": "assets/img/projects/completed/MR.DIY%20Pulai,%20Johor.png",
-          "alt": "MR.DIY Pulai, Johor · printed wooden outdoor blinds",
-          "caption": "MR.DIY Pulai, Johor · printed wooden outdoor blinds"
-        },
-        {
-          "src": "assets/img/products/generated/web/wooden-outdoor-printed-variant.webp",
-          "thumbnail": "assets/img/products/generated/web/wooden-outdoor-printed-variant-thumb.webp",
-          "alt": "Illustrative wooden outdoor printed variant in a Malaysian setting",
-          "caption": "Illustrative product view · wooden outdoor printed",
           "width": 1254,
           "height": 1254,
-          "overview": true
-        },
-        {
-          "src": "assets/img/products/generated/web/wooden-outdoor-blinds-example-wide.png",
-          "alt": "Wooden outdoor blinds beneath a glass canopy beside a railing",
-          "caption": "Outdoor wooden blinds · wide view",
-          "exampleOnly": true
-        },
-        {
-          "src": "assets/img/products/generated/web/wooden-outdoor-blinds-example-close.png",
-          "alt": "Closer view of wooden outdoor blinds beneath a glass canopy",
-          "caption": "Outdoor wooden blinds · closer view",
-          "exampleOnly": true
-        },
-        {
-          "src": "assets/img/products/catalogue-reference/wooden-outdoor-blinds-green-geometric-print.png",
-          "alt": "Green horizontal outdoor blinds with a white geometric printed pattern",
-          "caption": "Green outdoor blinds with a geometric print",
-          "width": 1285,
-          "height": 1224,
-          "exampleOnly": true
+          "featuredThumbnail": true,
+          "mainImage": true,
+          "fit": "contain"
         }
       ],
       "documents": [],
-      "options": [
-        "Standard finish",
-        "UV / logo printing"
-      ],
+      "options": [],
       "series": [],
-      "optionLabel": "Customisation",
-      "optionImages": {
-        "Standard finish": "assets/img/products/outdoor/wooden/wooden-outdoor-blinds-main.png",
-        "UV / logo printing": "assets/img/products/generated/web/wooden-outdoor-printed-variant.webp"
-      },
-      "defaultOption": "Standard finish",
       "suitableFor": [
         "Balcony",
         "Patio"
       ],
-      "bestSeller": true,
-      "catalogueImage": {
-        "src": "assets/img/projects/completed/Saujana%20Impian.png",
-        "alt": "Wooden outdoor blinds installed at Saujana Impian",
-        "width": 1422,
-        "height": 1106,
-        "fit": "contain"
-      }
+      "bestSeller": true
     },
     {
       "id": "wooden-uv-logo-printing",
@@ -1481,9 +1427,9 @@ window.BLINDSXPERT_PRODUCTS = {
       "contentPending": true,
       "gallery": [
         {
-          "src": "assets/img/products/outdoor/wooden-logo-printing/wooden-blinds-uv-logo-printing-main.png",
-          "thumbnail": "assets/img/products/outdoor/wooden-logo-printing/wooden-blinds-uv-logo-printing-main.png",
-          "alt": "Wooden outdoor blind with the BlindsXpert logo printed across the slats",
+          "src": "assets/img/products/outdoor/wooden-logo-printing/wooden-blinds-logo-printing-upload.png",
+          "thumbnail": "assets/img/products/outdoor/wooden-logo-printing/wooden-blinds-logo-printing-upload.png",
+          "alt": "Outdoor wooden blind with a printed Natura Plant & Decor logo",
           "caption": "Supplied product image · Wooden UV/Logo Printing",
           "width": 1254,
           "height": 1254,
@@ -1576,14 +1522,15 @@ window.BLINDSXPERT_PRODUCTS = {
       "description": "Explore PVC outdoor blinds for your space. Ask our team to confirm the available system, finish and installation requirements.",
       "gallery": [
         {
-          "src": "assets/img/products/outdoor/pvc/outdoor-pvc-blinds-main.png",
-          "thumbnail": "assets/img/products/outdoor/pvc/outdoor-pvc-blinds-main.png",
-          "alt": "Outdoor PVC blind displayed over a house window",
+          "src": "assets/img/products/outdoor/pvc/pvc-outdoor-blinds-upload.png",
+          "thumbnail": "assets/img/products/outdoor/pvc/pvc-outdoor-blinds-upload.png",
+          "alt": "Grey PVC outdoor roller blind above a sheltered doorway",
           "caption": "Supplied product image · PVC Outdoor Blinds",
-          "width": 3919,
-          "height": 3919,
+          "width": 1254,
+          "height": 1254,
           "featuredThumbnail": true,
-          "mainImage": true
+          "mainImage": true,
+          "fit": "contain"
         },
         {
           "src": "assets/img/projects/completed/Sunway%20Eastwood.png",
@@ -1598,14 +1545,7 @@ window.BLINDSXPERT_PRODUCTS = {
         "Balcony",
         "Outdoor Area"
       ],
-      "bestSeller": true,
-      "catalogueImage": {
-        "src": "assets/img/projects/completed/Sunway%20Eastwood.png",
-        "alt": "PVC outdoor blinds installed at Sunway Eastwood",
-        "width": 1418,
-        "height": 1109,
-        "fit": "contain"
-      }
+      "bestSeller": true
     },
     {
       "id": "awning-canopy",
@@ -1820,8 +1760,7 @@ window.BLINDSXPERT_PRODUCTS = {
       "option": "Lantex"
     },
     "uv-printing-wooden-outdoor": {
-      "id": "wooden-outdoor",
-      "option": "UV / logo printing"
+      "id": "wooden-uv-logo-printing"
     },
     "ziptrak-pvc-outdoor": {
       "id": "ziptrak-outdoor"

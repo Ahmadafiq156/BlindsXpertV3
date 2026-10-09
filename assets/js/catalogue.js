@@ -79,6 +79,25 @@
         image.alt = photo.alt;
         image.style.objectFit = photo.fit || '';
     });
+    // Both catalogues share the header row; demo status stays in the configuration.
+    const sales = window.BLINDSXPERT_SALES_COUNTS;
+    products.forEach(product => {
+        const copy = document.getElementById(product.id)?.querySelector('.card-copy');
+        if (!copy) return;
+        copy.querySelector('.product-sold-count')?.remove();
+        const category = copy.querySelector('.eyebrow');
+        if (!category) return;
+        let row = copy.querySelector('.product-meta-row');
+        if (!row) {
+            row = element('div', 'product-meta-row');
+            category.before(row);
+            row.append(category);
+        }
+        if (!sales?.enabled) return;
+        const count = (sales.demo ? sales.demoCounts : sales.verifiedCounts)?.[product.id];
+        if (!count) return;
+        row.append(element('span', 'product-sold-count', `${count} Sold`));
+    });
 })();
 
 // Load the official Page Plugin as its section approaches the viewport.

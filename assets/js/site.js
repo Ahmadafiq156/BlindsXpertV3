@@ -153,7 +153,7 @@ function syncProductFilterToHash() {
     } else {
         // Keep saved catalogue links working after grouping product variants.
         const aliases = {
-            'uv-printing-wooden-outdoor': 'wooden-outdoor',
+            'uv-printing-wooden-outdoor': 'wooden-uv-logo-printing',
             'ziptrak-pvc-outdoor': 'ziptrak-outdoor',
             'ziptrack-motorized-outdoor': 'ziptrak-outdoor',
             'curtain-rail': 'curtain-hardware',
