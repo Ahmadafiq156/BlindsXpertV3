@@ -4158,7 +4158,11 @@ h2 { font-size: clamp(24px,3vw,36px); }
 /* Non-interactive project/promotion imagery keeps the normal arrow cursor. */
 .projects-hero > img,.promotions-hero > img,.client-logo-card img { cursor:default; }
 
-.product-sold-count { display:inline-flex; flex:0 0 auto; white-space:nowrap; width:fit-content; margin:0; padding:4px 8px; border-radius:4px; background:#f7eeee; color:#8b2934; font-size:11px; font-weight:600; line-height:1.4; }
+.product-sold-count { display:inline-flex; flex:0 0 auto; white-space:nowrap; width:fit-content; margin:0; padding:4px 8px; border-radius:4px; background:#E8F5E9; color:#2E7D32; font-size:11px; font-weight:600; line-height:1.4; }
 
-#catalogue .product-meta-row { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:7px; }
-#catalogue .product-meta-row .eyebrow { flex:1; min-width:0; margin:0; overflow-wrap:anywhere; }
+#catalogue .product-meta-row { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; margin-bottom:7px; }
+#catalogue .product-meta-row .eyebrow { flex:1 1 auto; min-width:0; margin:0; overflow-wrap:anywhere; }
+
+#catalogue .product-meta-badges { display:flex; align-items:center; justify-content:flex-end; flex-wrap:wrap; gap:6px; margin-left:auto; max-width:100%; }
+.product-rating { display:inline-flex; align-items:center; flex:0 0 auto; gap:4px; padding:4px 8px; border-radius:4px; background:#FFF8E6; color:#8B6508; font-size:11px; font-weight:600; line-height:1.4; white-space:nowrap; }
+.product-rating svg { display:block; width:12px; height:12px; fill:#D49A16; }

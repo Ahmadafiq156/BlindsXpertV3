@@ -93,10 +93,26 @@
             category.before(row);
             row.append(category);
         }
-        if (!sales?.enabled) return;
-        const count = (sales.demo ? sales.demoCounts : sales.verifiedCounts)?.[product.id];
-        if (!count) return;
-        row.append(element('span', 'product-sold-count', `${count} Sold`));
+        row.querySelector('.product-meta-badges')?.remove();
+        const badges = element('div', 'product-meta-badges');
+        const ratings = sales?.rating;
+        const value = ratings?.demo ? ratings.demoValue : ratings?.verifiedValues?.[product.id];
+        if (ratings?.enabled && value != null && value !== '' && Number.isFinite(Number(value)) && Number(value) >= 0 && Number(value) <= 5) {
+            const rating = element('span', 'product-rating');
+            rating.setAttribute('aria-label', `${ratings.demo ? 'Sample rating' : 'Rating'}: ${Number(value).toFixed(1)} out of 5`);
+            const star = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            star.setAttribute('viewBox', '0 0 24 24');
+            star.setAttribute('aria-hidden', 'true');
+            star.setAttribute('focusable', 'false');
+            const shape = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            shape.setAttribute('d', 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z');
+            star.append(shape);
+            rating.append(star, element('span', '', Number(value).toFixed(1)));
+            badges.append(rating);
+        }
+        const count = sales?.enabled ? (sales.demo ? sales.demoCounts : sales.verifiedCounts)?.[product.id] : null;
+        if (count) badges.append(element('span', 'product-sold-count', `${count} Sold`));
+        if (badges.childElementCount) row.append(badges);
     });
 })();
 

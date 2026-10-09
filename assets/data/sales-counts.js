@@ -1,5 +1,6 @@
 // Temporary demonstration values only. Replace with verified BlindsXpert sales figures before public release.
-// Set enabled:false to hide all badges. demo:false uses verifiedCounts only.
+// Set enabled:false to hide sold badges. demo:false uses verifiedCounts only.
+// Rating values are mockup placeholders, not verified review scores.
 window.BLINDSXPERT_SALES_COUNTS = {
   "enabled": true,
   "demo": true,
@@ -23,5 +24,11 @@ window.BLINDSXPERT_SALES_COUNTS = {
     "skylight": "500+",
     "curtain-hardware": "2.5K+"
   },
-  "verifiedCounts": {}
+  "verifiedCounts": {},
+  "rating": {
+    "enabled": true,
+    "demo": true,
+    "demoValue": "5.0",
+    "verifiedValues": {}
+  }
 };
