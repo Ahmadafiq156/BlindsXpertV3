@@ -18,6 +18,7 @@ window.createBlindsXpertImageViewer = function ({
     let returnFocus = null;
     let touchStartX = null;
     let closeTimer = null;
+    const thumbnails = dialog.querySelector('[data-lightbox-thumbnails]');
 
     function render() {
         const item = items[index];
@@ -33,6 +34,9 @@ window.createBlindsXpertImageViewer = function ({
         next.hidden = details.hideNavigation === true;
         previous.disabled = items.length < 2;
         next.disabled = items.length < 2;
+        thumbnails?.querySelectorAll('button').forEach((button, position) => {
+            button.setAttribute('aria-pressed', String(position === index));
+        });
     }
 
     function move(direction) {
@@ -62,6 +66,20 @@ window.createBlindsXpertImageViewer = function ({
         dialog.classList.remove('is-closing');
         if (closeTimer) window.clearTimeout(closeTimer);
         closeTimer = null;
+        if (thumbnails) {
+            thumbnails.replaceChildren(...items.map((item, position) => {
+                const details = resolve(item, position, items.length);
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.setAttribute('aria-label', `View photograph ${position + 1} of ${items.length}`);
+                const preview = document.createElement('img');
+                preview.src = details.src;
+                preview.alt = '';
+                button.append(preview);
+                button.addEventListener('click', () => { index = position; render(); });
+                return button;
+            }));
+        }
         render();
         if (!dialog.open) dialog.showModal();
     }

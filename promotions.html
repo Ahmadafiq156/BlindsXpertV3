@@ -121,9 +121,40 @@
 
         <main id="main">
  <section class="page-hero information-hero promotions-hero"><img src="assets/img/promotions/promotions-hero.png" alt="Illustrative living room with roller and zebra blinds beside a sofa" width="2016" height="780" fetchpriority="high" decoding="async"><div class="page-hero-shade" aria-hidden="true"></div><div class="container page-hero-copy"><h1>Promotions</h1><p>Discover the latest updates and promotional offers from BlindsXpert.</p></div></section>
- <section class="section information-section"><div class="container information-content promotion-empty"><h2>Our Latest Promotions</h2><p>Promotional updates will be available here soon.</p><p>Contact our team to enquire about our current products and services.</p><a class="btn btn-red" href="contact.html">Contact Us <span aria-hidden="true">→</span></a></div>
- <!-- Add approved promotion-card articles inside this grid. See WEBSITE-MAINTENANCE.md. -->
- <div class="container promotion-grid"></div></section>
+ <section class="section information-section">
+                <div class="container information-content"><h2>Our Latest Promotions</h2></div>
+                <!-- Copy a promotion-card article for each approved update. See WEBSITE-MAINTENANCE.md. -->
+                <div class="container promotion-grid">
+                    <article class="promotion-card" data-lightbox-gallery="social-media-promotion">
+                        <button class="lightbox-trigger promotion-poster" type="button" aria-label="Enlarge BlindsXpert social media poster">
+                            <img src="assets/img/promotions/blindsxpert-follow-social-media.png" alt="BlindsXpert Follow Our Social Media poster featuring Facebook, Instagram and TikTok profiles" width="1672" height="941" loading="lazy">
+                        </button>
+                        <div class="promotion-copy">
+                            <p class="eyebrow">STAY CONNECTED</p>
+                            <h2>Follow BlindsXpert on Social Media</h2>
+                            <p>Stay connected with BlindsXpert on Facebook, Instagram and TikTok for the latest promotions, new products, project updates and window blinds inspiration.</p>
+                            <p>Contact our team to enquire about our current products and services.</p>
+                            <div class="promotion-actions" aria-label="Official BlindsXpert social accounts">
+                                <a class="btn btn-outline-dark" href="https://www.facebook.com/blindsxpertmy/" target="_blank" rel="noopener noreferrer">Facebook <span aria-hidden="true">↗</span></a>
+                                <a class="btn btn-outline-dark" href="https://www.instagram.com/blindsxpert/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a>
+                                <a class="btn btn-outline-dark" href="https://www.tiktok.com/@blindsxpert_tiktok" target="_blank" rel="noopener noreferrer">TikTok <span aria-hidden="true">↗</span></a>
+                            </div>
+                            <a class="btn btn-red" href="contact.html">Contact Us <span aria-hidden="true">→</span></a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <dialog class="image-lightbox" data-image-lightbox aria-labelledby="imageLightboxTitle">
+                <div class="image-lightbox-shell">
+                    <div class="image-lightbox-toolbar">
+                        <h2 class="visually-hidden" id="imageLightboxTitle">Image viewer</h2>
+                        <p class="image-lightbox-status" aria-live="polite"></p>
+                        <button class="lightbox-close" type="button" data-lightbox-close aria-label="Close image viewer">×</button>
+                    </div>
+                    <div class="image-lightbox-stage"><button class="lightbox-nav lightbox-previous" type="button" data-lightbox-previous aria-label="Previous image">‹</button><img class="image-lightbox-image" alt=""><button class="lightbox-nav lightbox-next" type="button" data-lightbox-next aria-label="Next image">›</button></div>
+                    <p class="image-lightbox-caption"></p>
+                </div>
+            </dialog>
  </main>
 
         <footer class="footer">
@@ -189,6 +220,7 @@
 
         <script src="visitor-counter-config.js" defer></script>
         <script src="visitor-counter.js" defer></script>
+        <script src="assets/js/image-viewer.js" defer></script>
         <script src="assets/js/site.js" defer></script>
     </body>
 </html>

@@ -110,6 +110,20 @@ function updateDealerNavigation() {
 }
 window.addEventListener('hashchange', updateDealerNavigation);
 updateDealerNavigation();
+// One FAQ answer across every category. The shared native name also works without JavaScript.
+const faqItems = [...document.querySelectorAll('details.faq-item')];
+function closeOtherFaqs(selected) {
+    faqItems.forEach(item => { if (item !== selected) item.open = false; });
+}
+faqItems.forEach(item => {
+    // Close before the native click opens an answer, including Enter/Space activation.
+    item.querySelector('summary')?.addEventListener('click', () => {
+        if (!item.open) closeOtherFaqs(item);
+    });
+    item.addEventListener('toggle', () => {
+        if (item.open) closeOtherFaqs(item);
+    });
+});
 const filterButtons = [...document.querySelectorAll('[data-filter]')];
 function setProductFilter(value) {
     filterButtons.forEach(button => {
