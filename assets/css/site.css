@@ -4002,7 +4002,7 @@ a:focus-visible, button:focus-visible { outline:3px solid var(--primary-red); ou
 .promotion-grid:empty { display: none; }
 .promotion-card { display:grid; grid-template-columns:minmax(0,45fr) minmax(0,55fr); align-items:center; gap:28px; background:#fff; padding:24px; border:1px solid var(--border-light); border-radius:4px; }
 .promotion-card img { display:block; width:100%; height:auto; object-fit:contain; border-radius:3px; }
-.promotion-poster { display:block; width:100%; height:auto; padding:0; border:0; background:transparent; cursor:zoom-in; }
+.promotion-poster { display:block; width:100%; height:auto; padding:0; border:0; background:transparent; cursor:pointer; }
 .promotion-poster:focus-visible { outline:3px solid var(--primary-red); outline-offset:3px; }
 .promotion-copy { min-width:0; }
 .promotion-copy h2 { font-size:clamp(22px,2.2vw,30px); line-height:1.25; margin:0 0 16px; }
@@ -4138,10 +4138,10 @@ h2 { font-size: clamp(24px,3vw,36px); }
 
 /* Supplied project covers and additional photographs reuse the shared viewer. */
 .project-card-link img,.project-collection img { height:auto; }
-.project-cover-trigger { display:block; width:100%; height:auto; padding:0; border:0; background:#fff; cursor:zoom-in; }
+.project-cover-trigger { display:block; width:100%; height:auto; padding:0; border:0; background:#fff; cursor:pointer; }
 .project-photo-grid[hidden] { display:none; }
 .project-photo-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; padding-top:8px; }
-.project-photo-trigger { padding:0; border:0; background:#fff; cursor:zoom-in; }
+.project-photo-trigger { padding:0; border:0; background:#fff; cursor:pointer; }
 .project-photo-grid img { aspect-ratio:1; object-fit:contain; }
 .project-collection:hover .project-photo-grid img { transform:none; }
 .project-cover-trigger:focus-visible,.project-photo-trigger:focus-visible { outline:3px solid var(--primary-red); outline-offset:-3px; }
@@ -4154,3 +4154,6 @@ h2 { font-size: clamp(24px,3vw,36px); }
 .image-lightbox-thumbnails button[aria-pressed="true"] { border-color:var(--primary-red); }
 .image-lightbox-thumbnails button:focus-visible { outline:3px solid var(--primary-red); outline-offset:-3px; }
 .image-lightbox:has([data-lightbox-thumbnails]) .image-lightbox-image { max-height:calc(100dvh - 240px); }
+
+/* Non-interactive project/promotion imagery keeps the normal arrow cursor. */
+.projects-hero > img,.promotions-hero > img,.client-logo-card img { cursor:default; }
