@@ -8,7 +8,17 @@
     const note = $('#productFormNote');
     const dialog = $('[data-product-lightbox]');
     let activeProduct, activeOption = '', activeFabricVariant = '', activeCellSize = '', activeFabricType = '', activeSeries = null, activeColour = null;
-    const catalogue = product => window.BLINDSXPERT_FABRIC_CATALOGUES?.[product?.fabricCatalogue];
+    const sharedRoller = window.BLINDSXPERT_FABRIC_CATALOGUES?.roller;
+    const rollerImages = window.BLINDSXPERT_ROLLER_IMAGES;
+    // Derived once: filtering/reclassification/images apply only to Roller, never to its shared-source users.
+    const rollerCatalogue = sharedRoller ? {
+        variants: rollerImages?.variants || sharedRoller.variants,
+        collections: sharedRoller.collections.filter(series => rollerImages?.collections[series.id]).map(series => {
+            const availability = rollerImages.collections[series.id];
+            return {...series, variant:availability.variant, fabrics:series.fabrics.filter(fabric => availability.colours[fabric.code]).map(fabric => ({...fabric, closeUpImage:availability.colours[fabric.code].src, swatchHex:availability.colours[fabric.code].swatchHex}))};
+        }).filter(series => series.fabrics.length)
+    } : null;
+    const catalogue = product => product?.id === 'roller' ? rollerCatalogue : window.BLINDSXPERT_FABRIC_CATALOGUES?.[product?.fabricCatalogue];
     const usesCatalogue = product => !!catalogue(product);
     const isHoneycomb = (product = activeProduct) => product?.fabricSelectionMode === 'cell-size';
     const linkedVariant = product => product.fabricSelectionMode === 'product-variant';
@@ -74,7 +84,7 @@
     function renderColourPalette() {
         const section = node('div', 'pd-colour-selection');
         const controls = node('div', 'pd-colour-controls');
-        controls.append(node('h4', '', 'Choose a colour'), node('p', 'pd-small', 'Swatch colours approximate supplier photographs. Please confirm with physical samples.'));
+        controls.append(node('h4', '', activeProduct.fabricCatalogue === 'roller' ? 'STEP 3 — Choose a Colour' : 'Choose a colour'), node('p', 'pd-small', 'Swatch colours approximate supplier photographs. Please confirm with physical samples.'));
         const palette = node('div', 'pd-colour-palette');
         palette.setAttribute('role', 'group');
         palette.setAttribute('aria-label', `${activeSeries.name} colours`);
@@ -94,7 +104,9 @@
             shape.setAttribute('d', 'M3 3h18v18H3z M3 17l5-5 4 4 3-3 6 6 M16 7h.01');
             icon.append(shape);
             placeholder.append(icon, node('span', '', 'Colour photo pending'));
-            frame.replaceChildren(placeholder);
+            const actualImage = previewImage(fabric);
+            const loading = node('div', 'pd-colour-loading', 'Loading fabric photo…'); loading.setAttribute('role', 'status');
+            frame.replaceChildren(activeProduct.id === 'roller' && actualImage ? loading : placeholder);
             frame.getAnimations().forEach(animation => animation.cancel());
             if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                 frame.animate([{opacity:0.65}, {opacity:1}], {duration:180, easing:'ease-out'});
@@ -106,10 +118,11 @@
                 image.hidden = true;
                 image.addEventListener('load', () => {
                     if (activeColour !== fabric || image.parentElement !== frame) return;
-                    placeholder.remove(); image.hidden = false;
+                    placeholder.remove(); loading.remove(); image.hidden = false;
                 }, {once:true});
                 image.addEventListener('error', () => {
                     image.remove();
+                    if (activeColour === fabric && loading.isConnected) { loading.textContent = 'Fabric image could not load. Please try another colour.'; loading.setAttribute('role', 'alert'); }
                     if (activeColour === fabric && placeholder.isConnected) placeholder.querySelector('span').textContent = 'Colour photo unavailable';
                 }, {once:true});
                 frame.append(image);
@@ -157,6 +170,7 @@
         renderReferences(); updateSelection();
     }
     function renderHoneycombConfigurator() {
+        $('[data-series-section]').classList.remove('pd-stepped-fabrics');
         const source = catalogue(activeProduct);
         const focus = {size:document.activeElement?.dataset.cellSize, collection:document.activeElement?.dataset.series, type:document.activeElement?.dataset.honeycombType};
         const section = $('[data-series-section]'); section.hidden = false; section.classList.add('pd-bx-collection');
@@ -220,7 +234,10 @@
         const source = catalogue(activeProduct);
         const focusedVariant = document.activeElement?.dataset.fabricVariant;
         const focusedCollection = document.activeElement?.dataset.series;
+        const focusedPending = document.activeElement?.hasAttribute('data-pending-browse');
         const section = $('[data-series-section]');
+        const stepped = activeProduct.fabricCatalogue === 'roller';
+        section.classList.toggle('pd-stepped-fabrics', stepped);
         section.hidden = false; section.classList.add('pd-bx-collection');
         section.querySelector('h2').textContent = 'Fabric & Colour Collection';
         $('[data-nav-series]').hidden = false; $('[data-nav-series]').textContent = 'Fabric & colour';
@@ -232,12 +249,15 @@
             variants = node('div', 'pd-roller-variants'); variants.dataset.fabricVariants = '';
             $('[data-series-grid]').before(variants);
         }
-        variants.className = 'pd-roller-variants';
+        variants.className = stepped ? 'pd-roller-variants pd-fabric-variants' : 'pd-roller-variants';
+        let variantLabel = $('[data-fabric-variant-label]');
+        if (!variantLabel) { variantLabel = node('h3', 'pd-config-step'); variantLabel.dataset.fabricVariantLabel = ''; variants.before(variantLabel); }
+        variantLabel.hidden = !stepped; variantLabel.textContent = 'STEP 1 — Choose Fabric Variant';
         variants.hidden = !source.variants; variants.replaceChildren();
         variants.setAttribute('role', 'group');
         variants.setAttribute('aria-label', linkedVariant(activeProduct) ? 'Product fabric variant' : 'Fabric type (separate from product options)');
         for (const variant of source.variants || []) {
-            const button = node('button', 'pd-series-button'); button.type = 'button';
+            const button = node('button', stepped ? 'pd-series-button pd-variant-button' : 'pd-series-button'); button.type = 'button';
             button.dataset.fabricVariant = variant;
             const count = source.collections.filter(collection => collection.variant === variant).length;
             button.append(node('strong', '', variant), node('span', '', count+' fabric collections'));
@@ -246,6 +266,9 @@
             variants.append(button);
         }
         const grid = $('[data-series-grid]'); grid.hidden = false; grid.classList.add('pd-catalogue-selector'); grid.replaceChildren();
+        let seriesLabel = $('[data-fabric-series-label]');
+        if (!seriesLabel) { seriesLabel = node('h3', 'pd-config-step'); seriesLabel.dataset.fabricSeriesLabel = ''; grid.before(seriesLabel); }
+        seriesLabel.hidden = !stepped; seriesLabel.textContent = 'STEP 2 — Choose Fabric Series';
         grid.setAttribute('role', 'group'); grid.setAttribute('aria-label', 'Fabric collections');
         const appendButton = (collection, target) => {
             const button = node('button', 'pd-series-button'); button.type = 'button'; button.dataset.series = collection.id;
@@ -258,17 +281,22 @@
         if (!pending) { pending = node('section', 'pd-unclassified'); pending.dataset.fabricUnclassified = ''; grid.after(pending); }
         pending.replaceChildren(); pending.hidden = !source.variants || !source.collections.some(collection => collection.variant == null);
         if (!pending.hidden) {
-            pending.append(node('h3', '', 'Collections awaiting variant confirmation'), node('p', 'pd-small', 'These supplier sheets do not state Blackout, Sunscreen or Translucent. Select a collection to enquire without assigning a variant.'));
-            const pendingGrid = node('div', 'pd-series-grid pd-catalogue-selector');
-            pendingGrid.setAttribute('role', 'group'); pendingGrid.setAttribute('aria-label', 'Collections with classification pending');
-            for (const collection of source.collections.filter(collection => collection.variant == null)) appendButton(collection, pendingGrid);
-            pending.append(pendingGrid);
+            const browse = node('button', 'pd-text-link pd-pending-browse', activeFabricVariant ? 'Browse collections awaiting variant confirmation' : 'Return to '+source.variants[0]+' fabrics');
+            browse.type = 'button'; browse.dataset.pendingBrowse = ''; browse.setAttribute('aria-expanded', String(!activeFabricVariant));
+            browse.onclick = () => linkedVariant(activeProduct) ? chooseOption(activeFabricVariant ? '' : source.variants[0]) : chooseFabricVariant(activeFabricVariant ? '' : source.variants[0]); pending.append(browse);
+            if (!activeFabricVariant) {
+                pending.append(node('h3', '', 'Collections awaiting variant confirmation'), node('p', 'pd-small', 'These supplier sheets do not state Blackout, Sunscreen or Translucent. Select a collection to enquire without assigning a variant.'));
+                const pendingGrid = node('div', 'pd-series-grid pd-catalogue-selector');
+                pendingGrid.setAttribute('role', 'group'); pendingGrid.setAttribute('aria-label', 'Collections with classification pending');
+                for (const collection of source.collections.filter(collection => collection.variant == null)) appendButton(collection, pendingGrid);
+                pending.append(pendingGrid);
+            }
         }
         let panel = $('[data-fabric-panel]');
         if (!panel) { panel = node('div', 'pd-catalogue-panel'); panel.dataset.fabricPanel = ''; pending.after(panel); }
         pending.after(panel);
         panel.hidden = false; panel.setAttribute('role', 'region'); panel.setAttribute('aria-label', 'Fabric colours and specifications');
-        if (!activeSeries) panel.replaceChildren(node('p', 'pd-small', 'Fabric collection information coming soon.'));
+        if (!activeSeries) panel.replaceChildren(node('p', 'pd-small', activeProduct.id === 'roller' ? 'No supplied colour images are available for this variant. Please contact our team.' : 'Fabric collection information coming soon.'));
         else {
             panel.replaceChildren();
             if (source.variants && activeSeries.variant == null) panel.append(node('p', 'pd-small', 'Selected fabric classification is pending supplier confirmation.'));
@@ -289,8 +317,14 @@
         if ($('[data-catalogue-panel]')) $('[data-catalogue-panel]').hidden = true;
         const buttons = focusedVariant ? variants.querySelectorAll('button') : focusedCollection ? section.querySelectorAll('button[data-series]') : [];
         [...buttons].find(button => focusedVariant ? button.dataset.fabricVariant === focusedVariant : button.dataset.series === focusedCollection)?.focus({preventScroll:true});
+        if (focusedPending) pending.querySelector('[data-pending-browse]')?.focus({preventScroll:true});
     }
     function renderReferences() {
+        if (activeProduct.placeholderOnly) {
+            $('[data-spec-table]').replaceChildren(); $('[data-spec-section]').hidden = true; $('[data-nav-specifications]').hidden = true;
+            if ($('[data-catalogue-panel]')) $('[data-catalogue-panel]').hidden = true;
+            return;
+        }
         if (usesCatalogue(activeProduct)) {
             $('[data-spec-table]').replaceChildren(); $('[data-spec-section]').hidden = true; $('[data-nav-specifications]').hidden = true;
             renderFabricConfigurator(); return;
@@ -422,7 +456,8 @@
     }
     function showProduct(product, option = '', seriesName = '', updateHistory = true, requestedColour = '', requestedFabricVariant = '', requestedCellSize = '', requestedFabricType = '') {
         activeProduct = product;
-        for (const selector of ['[data-fabric-variants]', '[data-fabric-panel]', '[data-fabric-unclassified]', '[data-honeycomb-types]', '[data-honeycomb-collection-label]']) if ($(selector)) $(selector).hidden = true;
+        for (const selector of ['[data-fabric-variants]', '[data-fabric-panel]', '[data-fabric-unclassified]', '[data-honeycomb-types]', '[data-honeycomb-collection-label]', '[data-fabric-variant-label]', '[data-fabric-series-label]']) if ($(selector)) $(selector).hidden = true;
+        $('[data-series-section]').classList.remove('pd-stepped-fabrics');
         activeOption = product.options.includes(option) ? option : (product.defaultOption || '');
         const source = catalogue(product);
         activeCellSize = isHoneycomb(product) ? source.sizes.includes(requestedCellSize) ? requestedCellSize : source.sizes[0] : '';
@@ -494,7 +529,7 @@
         const gallery=$('[data-gallery]'); gallery.replaceChildren();
         for(const photo of examples) gallery.append(imageFigure(photo, false, examples));
         if (!examples.length) gallery.append(node('p','pd-small','Contact our team for product photos and suitable installation examples.'));
-        $('[data-gallery-section]').hidden=false; $('[data-nav-gallery]').hidden=false;
+        $('[data-gallery-section]').hidden=!!product.placeholderOnly; $('[data-nav-gallery]').hidden=!!product.placeholderOnly;
         $('[data-motorized-section]').hidden=product.id!=='motorized';
         const related=$('[data-motorized-links]');related.replaceChildren();
         for(const [label,id] of [['Roller Blinds','roller'],['Venetian Blinds','venetian'],['Ziptrak Outdoor Blinds','ziptrak-outdoor']]){const a=node('a','',label+' →');a.href=`product-details.html?product=${id}`;related.append(a);}

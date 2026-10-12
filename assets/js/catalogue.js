@@ -13,12 +13,20 @@
     function addProductLabels(copy, product) {
         const name = copy.querySelector('h3');
         if (!name) return;
-        const suitable = element('p', 'product-suitable', `Suitable for: ${(product.suitableFor || []).join(', ')}`);
-        name.after(suitable);
-        if (product.bestSeller) suitable.after(element('span', 'product-best-seller', 'BEST SELLER'));
+        let label = name;
+        if (product.suitableFor?.length) {
+            const suitable = element('p', 'product-suitable', `Suitable for: ${product.suitableFor.join(', ')}`);
+            name.after(suitable); label = suitable;
+        }
+        if (product.bestSeller) label.after(element('span', 'product-best-seller', 'BEST SELLER'));
+    }
+    function imagePlaceholder(name) {
+        const placeholder = element('span', 'product-image-placeholder');
+        placeholder.append(element('span', '', name)); return placeholder;
     }
     function card(product) {
         const article = element('article', 'product-card');
+        if (product.placeholderOnly) article.classList.add('product-card-pending');
         article.id = product.id;
         article.dataset.category = product.category;
         const url = `product-details.html?product=${encodeURIComponent(product.id)}`;
@@ -36,16 +44,16 @@
             image.loading = 'lazy'; image.decoding = 'async';
             image.addEventListener('error', () => {
                 image.hidden = true;
-                inner.append(element('span', 'product-image-placeholder', product.name));
+                inner.append(imagePlaceholder(product.name));
             }, {once: true});
             inner.append(image);
-        } else inner.append(element('span', 'product-image-placeholder', product.name));
+        } else inner.append(imagePlaceholder(product.name));
         frame.append(inner);
         const copy = element('div', 'card-copy');
         copy.append(element('p', 'eyebrow', product.category.toUpperCase()), element('h3', '', product.name));
         addProductLabels(copy, product);
         const description = element('p', 'product-detail', (home && product.catalogueDescription) || product.description);
-        if (home) frame.append(description); else copy.append(description);
+        if (home && !product.placeholderOnly) frame.append(description); else copy.append(description);
         const actions = element('div', 'catalogue-actions');
         const details = element('a', 'home-product-action', 'View product details →'); details.href = url;
         actions.append(details);
@@ -94,6 +102,7 @@
             row.append(category);
         }
         row.querySelector('.product-meta-badges')?.remove();
+        if (product.catalogueBadges === false) return;
         const badges = element('div', 'product-meta-badges');
         const ratings = sales?.rating;
         const value = ratings?.demo ? ratings.demoValue : ratings?.verifiedValues?.[product.id];

@@ -562,3 +562,37 @@ Add future close-ups to `assets/img/products/fabric-collections/honeycomb/<colle
 Only Dream display labels convert an actual leading `A1` prefix to `BX`, preserving the separator: `A1-101` → `BX-101`; `A1 101` → `BX 101`. The three visible groups are now BX-1xx/BX-2xx/BX-8xx colours. Their stable IDs, original `code`, `sourceName`, archive references and image paths retain A1 for traceability. The selected caption, swatches and WhatsApp draft use `displayCode`. Original A1 colour parameters still resolve to the same record. Do not do global string replacement across files or other product data.
 
 See `CATALOGUE-HONEYCOMB-UPDATE-REPORT.md` for all counts, renamed Dream codes, source questions, modified files and current verification results.
+
+## Roller photographs, selector steps and new products (12 October 2026 — current)
+
+This section supersedes the earlier instructions that all Roller colours use placeholders and all selectors use identical cards. `assets/data/fabric-catalogue.js` remains the complete supplier source (89 Roller colours, 15 collections). Do not remove its missing-photo records: Panel, Vertical and Roman depend on the full source.
+
+### Roller-only availability and future photographs
+
+`assets/data/roller-colour-images.js` assigns `window.BLINDSXPERT_ROLLER_IMAGES`. Its `collections` object is keyed by the stable supplier-series ID. Each entry has the latest supplied-folder `variant` and `colours` keyed by the **original supplier code**, not an approximate colour name. Each mapped colour records `src`, Roller-specific `swatchHex`, original `source`, sample method and source/web dimensions. The Product Details page loads this mapping after the complete supplier catalogue and before the renderer.
+
+The renderer builds one stable derived Roller view: include only mapped series/colours, resolve their sparse photograph/HEX records, and apply the supplied-folder category. Nothing is mutated in the shared supplier catalogue. Other Roller-source users retain all 89 choices and their original image behaviour. Current Roller view has 12 series/47 colours: Blackout 16, Sunscreen 16, Translucent 15. BX 210 and Econo follow Sunscreen/Translucent in the new folder only on this view. BX 110, Carmen and Urban Stripe are hidden only for Roller. Unavailable codes are rejected by URL lookup and cannot enter enquiry state.
+
+To add an approved future image, verify its series and original code against supplier information first; add verified new supplier data only when actually supported. Export an uncropped, visually checked web derivative under `assets/img/products/roller-blinds/<variant>/<series-id>/<code>.webp` and retain the original source. Add the exact case-sensitive **relative** `src`, representative photographic `swatchHex` and source reference to that code's mapping. For code aliases, preserve the original supplier code key (e.g. RITZ 3001 rather than guessing a new code from the BX-labelled filename). Never match solely by colour appearance. Keep filenames/folders ASCII and consistently lower-case where practical; verify casing for GitHub Pages. Re-test image decoding, exact preview selection, rapid image changes, resets, unavailable deep links and enquiry drafts.
+
+Original files remain in `ROLLER BLINDS/`; all 50 were inspected. The 47 approved files were exported with contain-preserving dimensions, at maximum 1200px, WebP quality 92. SUNSHUT 01/02/05 have no verified supplier-catalogue match and remain excluded, with original files intact. Confirm the new supplier series/codes before adding them; do not silently merge SUNSHUT with Sunset. The complete mapping, hidden codes and source questions are in `ROLLER-IMAGES-PRODUCTS-UPDATE-REPORT.md`.
+
+The shared preview stays capped at 360px and square, using contain sizing. Roller valid selections show one real photograph and a loading status until decoded; “photo pending” placeholders are retained for other products. Existing per-product future photo overrides remain available.
+
+### Distinct variant and series controls
+
+The `.pd-stepped-fabrics` section is used by Roller, Panel, Vertical and Roman. Step headings identify fabric variant, supplier series and colour. `.pd-variant-button` is tinted, taller (112px desktop/88px narrow mobile), with stronger type and an active red accent; series cards in `.pd-catalogue-selector` are compact white 80px controls. Grid remains aligned to the full 1180px container and wraps without horizontal scrolling or a 900px cap. The preview/palette/specification layout is otherwise unchanged. Roman's Edge style and Vertical's Colour arrangement remain separate original product options.
+
+Known series cards are filtered by the active fabric variant. Panel/Vertical/Roman's originally unclassified supplier collections remain accessible through “Browse collections awaiting variant confirmation”; that view does not invent a category and enquiries mark classification pending. Normal variant views therefore do not mix unclassified cards into the selected variant. Buttons preserve Enter/Space/Tab, pressed states, focus retention and touch behaviour.
+
+### Motorized shared image
+
+`motorizedblinds.png` is referenced in place by the Motorized catalogue override and main gallery record; no duplicate copy is needed. Keep `mainImage: true` so the root-supplied image appears in the overview gallery, and retain thumbnail/lightbox dimensions, caption, alt and contain sizing. The old Motorized examples are preserved.
+
+### Insect Screen and Tinted placeholders
+
+New central `assets/data/product-data.js` entries use IDs `insect-screen` and `tinted`, titles Insect Screen/Tinted, category `other`, empty media/options/specifications, `contentPending: true`, `placeholderOnly: true` and `catalogueBadges: false`. Home and Products use the existing square branded placeholder with the product name, then link to the shared Product Details template. The template shows “Product information coming soon.” and the normal enquiry form without fabricated gallery/specification content. Both catalogue filter counts include the new entries. Products now includes the same accessible count status as Home.
+
+Do not enable ratings/sales/BEST SELLER unless verified values and authorization are supplied. `catalogueBadges: false` specifically opts these records out of the global demonstration badges. The shared card component skips an empty suitability list instead of creating a blank claim.
+
+When approved content arrives, place its image under an organised product asset folder and set the product's `catalogueImage`/`gallery` mapping, with verified alt/caption/dimensions; remove `placeholderOnly` when the detail content is ready. Add only verified descriptions, options and specifications. Keep the existing `INSECT SCREEN/` and `TINTED/` source folders intact; their photographs were intentionally not added under the current placeholder-only request. Re-test both catalogue cards, filters/count announcements, links and enquiry values at all required widths.

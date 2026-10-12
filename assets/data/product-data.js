@@ -1667,13 +1667,15 @@ window.BLINDSXPERT_PRODUCTS = {
       "description": "Explore motorized blind solutions, product demonstrations and the Somfy and Dooya ranges listed in our catalogue.",
       "gallery": [
         {
-          "src": "assets/img/products/generated/web/motorized-main.webp",
-          "thumbnail": "assets/img/products/generated/web/motorized-main-thumb.webp",
-          "alt": "Illustrative generated scene of two motorized beige Roller blinds",
-          "caption": "Illustrative scene · Motorized blinds",
+          "src": "motorizedblinds.png",
+          "thumbnail": "motorizedblinds.png",
+          "alt": "Supplied illustration of motorized roller blinds with a remote control",
+          "caption": "Supplied illustration · Motorized roller blinds",
           "width": 1254,
           "height": 1254,
-          "featuredThumbnail": true
+          "featuredThumbnail": true,
+          "mainImage": true,
+          "fit": "contain"
         },
         {
           "src": "assets/img/projects/completed/Seri%20Kembangan.png",
@@ -1811,6 +1813,37 @@ window.BLINDSXPERT_PRODUCTS = {
         "Office"
       ],
       "bestSeller": false
+    }
+,
+    {
+      "id": "insect-screen",
+      "name": "Insect Screen",
+      "category": "other",
+      "description": "Product information coming soon.",
+      "gallery": [],
+      "documents": [],
+      "options": [],
+      "series": [],
+      "suitableFor": [],
+      "bestSeller": false,
+      "contentPending": true,
+      "placeholderOnly": true,
+      "catalogueBadges": false
+    },
+    {
+      "id": "tinted",
+      "name": "Tinted",
+      "category": "other",
+      "description": "Product information coming soon.",
+      "gallery": [],
+      "documents": [],
+      "options": [],
+      "series": [],
+      "suitableFor": [],
+      "bestSeller": false,
+      "contentPending": true,
+      "placeholderOnly": true,
+      "catalogueBadges": false
     }
   ],
   "aliases": {
