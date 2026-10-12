@@ -7,12 +7,22 @@
     const form = $('#productEnquiryForm');
     const note = $('#productFormNote');
     const dialog = $('[data-product-lightbox]');
-    let activeProduct, activeOption = '', activeSeries = null, activeColour = null;
-    const selectableSeries = product => product.id === 'zebra' && product.visibleSeries
-        ? product.visibleSeries.map(name => product.series.find(series => series.name === name)).filter(Boolean)
-        : product.series;
-    const colourCode = fabric => fabric.displayCode || fabric.code;
-    const seriesColours = series => (series?.fabrics || []).filter(fabric => fabric.code && fabric.colourName);
+    let activeProduct, activeOption = '', activeFabricVariant = '', activeCellSize = '', activeFabricType = '', activeSeries = null, activeColour = null;
+    const catalogue = product => window.BLINDSXPERT_FABRIC_CATALOGUES?.[product?.fabricCatalogue];
+    const usesCatalogue = product => !!catalogue(product);
+    const isHoneycomb = (product = activeProduct) => product?.fabricSelectionMode === 'cell-size';
+    const linkedVariant = product => product.fabricSelectionMode === 'product-variant';
+    const selectableSeries = product => {
+        const source = catalogue(product);
+        if (isHoneycomb(product)) return source?.collections.filter(collection => collection.cellSize === activeCellSize) || [];
+        return source ? source.collections.filter(collection => !source.variants || collection.variant === (activeFabricVariant || null))
+            : product.series;
+    };
+    const colourCode = fabric => fabric?.displayCode || fabric?.code || '';
+    const seriesColours = series => (series?.types ? series.types.find(type => type.id === activeFabricType)?.fabrics || [] : series?.fabrics || []).filter(fabric => fabric.code);
+    const selectedFabricType = () => activeSeries?.types?.find(type => type.id === activeFabricType);
+    const selectedFabricLabel = () => isHoneycomb() ? [activeCellSize, activeSeries?.name, selectedFabricType()?.name].filter(Boolean).join(' · ') : [activeFabricVariant, activeSeries?.name].filter(Boolean).join(' · ');
+    const previewImage = fabric => fabric?.closeUpImages?.[activeProduct.id] || fabric?.closeUpImage;
     const names = {indoor:'Indoor blinds', outdoor:'Outdoor blinds', motorized:'Motorized solutions', other:'Other products'};
     const node = (tag, className, content) => {
         const el = document.createElement(tag);
@@ -47,12 +57,15 @@
         const url = new URL(location.href);
         url.searchParams.set('product', activeProduct.id);
         if (activeOption) url.searchParams.set('option', activeOption); else url.searchParams.delete('option');
-        if (activeSeries) url.searchParams.set('series', activeSeries.name); else url.searchParams.delete('series');
+        if (activeSeries) url.searchParams.set('series', usesCatalogue(activeProduct) ? activeSeries.id : activeSeries.name); else url.searchParams.delete('series');
+        if (usesCatalogue(activeProduct) && catalogue(activeProduct).variants) url.searchParams.set('fabricVariant', activeFabricVariant || 'unclassified'); else url.searchParams.delete('fabricVariant');
+        if (isHoneycomb()) { url.searchParams.set('cellSize', activeCellSize); url.searchParams.set('fabricType', activeFabricType); }
+        else { url.searchParams.delete('cellSize'); url.searchParams.delete('fabricType'); }
         if (activeColour) url.searchParams.set('colour', colourCode(activeColour)); else url.searchParams.delete('colour');
         history.replaceState({}, '', url);
     }
     function updateSelection() {
-        const parts = [activeProduct?.name, activeOption, activeSeries ? `${activeSeries.name} series` : '', activeColour ? `${colourCode(activeColour)} · ${activeColour.colourName}` : ''].filter(Boolean);
+        const parts = [activeProduct?.name, activeOption, isHoneycomb() ? selectedFabricLabel() : !linkedVariant(activeProduct) ? activeFabricVariant : '', !isHoneycomb() && activeSeries ? `${activeSeries.name} series` : '', activeColour ? [colourCode(activeColour), activeColour.colourName].filter(Boolean).join(' · ') : ''].filter(Boolean);
         $('[data-enquiry-selection]').textContent = parts.length ? `Your enquiry: ${parts.join(' · ')}` : '';
         if (activeProduct) updateUrl();
     }
@@ -61,7 +74,7 @@
     function renderColourPalette() {
         const section = node('div', 'pd-colour-selection');
         const controls = node('div', 'pd-colour-controls');
-        controls.append(node('h4', '', 'Choose a colour'), node('p', 'pd-small', 'Neutral swatches: exact fabric colours are not yet verified. Please confirm with physical samples.'));
+        controls.append(node('h4', '', 'Choose a colour'), node('p', 'pd-small', 'Swatch colours approximate supplier photographs. Please confirm with physical samples.'));
         const palette = node('div', 'pd-colour-palette');
         palette.setAttribute('role', 'group');
         palette.setAttribute('aria-label', `${activeSeries.name} colours`);
@@ -86,8 +99,8 @@
             if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                 frame.animate([{opacity:0.65}, {opacity:1}], {duration:180, easing:'ease-out'});
             }
-            caption.replaceChildren(node('span', 'pd-selected-series', activeSeries.name), document.createTextNode(' · '), node('strong', 'pd-selected-code', colourCode(fabric)), document.createTextNode(' · '), node('span', 'pd-selected-name', fabric.colourName));
-            if (fabric.closeUpImage) {
+            caption.replaceChildren(node('span', 'pd-selected-series', selectedFabricLabel()), document.createTextNode(' · '), node('strong', 'pd-selected-code', fabric ? colourCode(fabric) : 'Colour not selected'), document.createTextNode(fabric?.colourName ? ' · ' : ''), node('span', 'pd-selected-name', fabric?.colourName || ''));
+            if (previewImage(fabric)) {
                 const image = node('img');
                 image.alt = `${activeSeries.name} ${colourCode(fabric)} ${fabric.colourName} fabric close-up`;
                 image.hidden = true;
@@ -100,35 +113,187 @@
                     if (activeColour === fabric && placeholder.isConnected) placeholder.querySelector('span').textContent = 'Colour photo unavailable';
                 }, {once:true});
                 frame.append(image);
-                image.src = fabric.closeUpImage;
+                image.src = previewImage(fabric);
             }
         }
         for (const fabric of seriesColours(activeSeries)) {
             const button = node('button', 'pd-colour-swatch');
             button.type = 'button';
             button.dataset.colour = colourCode(fabric);
-            const verified = fabric.swatch?.verified === true && /^#[0-9a-f]{6}$/i.test(fabric.swatch.value || '');
-            button.setAttribute('aria-label', `Select ${colourCode(fabric)} ${fabric.colourName}${verified ? '' : '; exact fabric colour not verified'}`);
+            const approximate = /^#[0-9a-f]{6}$/i.test(fabric.swatchHex || '');
+            button.setAttribute('aria-label', `Select ${colourCode(fabric)} ${fabric.colourName}${approximate ? '; approximate photographed colour' : '; colour sample pending review'}`);
             button.title = `${colourCode(fabric)} · ${fabric.colourName}`;
             const chip = node('span', 'pd-swatch-chip');
             chip.setAttribute('aria-hidden', 'true');
-            if (verified) chip.style.backgroundColor = fabric.swatch.value;
+            if (approximate) chip.style.backgroundColor = fabric.swatchHex;
             button.append(chip, node('span', 'pd-swatch-code', colourCode(fabric)));
             button.addEventListener('click', () => { activeColour = fabric; updatePreview(); updateSelection(); });
             palette.append(button);
         }
         controls.append(palette);
+        if (!seriesColours(activeSeries).length) {
+            controls.replaceChildren(node('h4', '', 'Choose a colour'), node('p', 'pd-small', 'Colour options coming soon. Verified supplier colour codes and close-up photographs are pending.'));
+        }
         section.append(preview, controls);
-        if (activeColour) updatePreview();
+        updatePreview();
         return section;
     }
+    function chooseFabricVariant(variant) {
+        activeFabricVariant = variant;
+        activeSeries = selectableSeries(activeProduct)[0] || null;
+        activeColour = seriesColours(activeSeries)[0] || null;
+        renderReferences(); updateSelection();
+    }
+    function chooseCellSize(size) {
+        activeCellSize = size;
+        activeSeries = selectableSeries(activeProduct)[0] || null;
+        activeFabricType = activeSeries?.types[0]?.id || '';
+        activeColour = seriesColours(activeSeries)[0] || null;
+        renderReferences(); updateSelection();
+    }
+    function chooseHoneycombType(type) {
+        activeFabricType = type.id;
+        activeColour = seriesColours(activeSeries)[0] || null;
+        renderReferences(); updateSelection();
+    }
+    function renderHoneycombConfigurator() {
+        const source = catalogue(activeProduct);
+        const focus = {size:document.activeElement?.dataset.cellSize, collection:document.activeElement?.dataset.series, type:document.activeElement?.dataset.honeycombType};
+        const section = $('[data-series-section]'); section.hidden = false; section.classList.add('pd-bx-collection');
+        section.querySelector('h2').textContent = 'Fabric & Colour Collection';
+        section.querySelector('.pd-section-intro').textContent = 'Choose Honeycomb size, the applicable collection or fabric type, and colour.';
+        $('[data-nav-series]').hidden = false; $('[data-nav-series]').textContent = 'Fabric & colour';
+        let variants = $('[data-fabric-variants]');
+        if (!variants) { variants = node('div'); variants.dataset.fabricVariants = ''; $('[data-series-grid]').before(variants); }
+        variants.hidden = false; variants.className = ''; variants.replaceChildren();
+        variants.setAttribute('role', 'group'); variants.setAttribute('aria-label', 'Honeycomb cell size');
+        variants.append(node('h3', 'pd-selector-label', 'Choose Honeycomb Size'));
+        const sizes = node('div', 'pd-series-grid');
+        for (const size of source.sizes) {
+            const button = node('button', 'pd-series-button'); button.type = 'button'; button.dataset.cellSize = size;
+            button.append(node('strong', '', size), node('span', '', 'Cell size'));
+            button.setAttribute('aria-pressed', String(size === activeCellSize)); button.onclick = () => chooseCellSize(size); sizes.append(button);
+        }
+        variants.append(sizes);
+        let collectionLabel = $('[data-honeycomb-collection-label]');
+        const grid = $('[data-series-grid]'); grid.classList.add('pd-catalogue-selector'); grid.replaceChildren();
+        if (!collectionLabel) { collectionLabel = node('h3', 'pd-selector-label'); collectionLabel.dataset.honeycombCollectionLabel = ''; grid.before(collectionLabel); }
+        const collections = selectableSeries(activeProduct);
+        collectionLabel.hidden = false; collectionLabel.textContent = collections.length > 1 ? 'Choose Collection' : 'Collection: '+activeSeries.name;
+        grid.hidden = collections.length < 2; grid.setAttribute('role', 'group'); grid.setAttribute('aria-label', 'Honeycomb supplier collection');
+        for (const collection of collections) {
+            const button = node('button', 'pd-series-button'); button.type = 'button'; button.dataset.series = collection.id;
+            button.append(node('strong', '', collection.name), node('span', '', collection.cellSize));
+            button.setAttribute('aria-pressed', String(activeSeries === collection)); button.onclick = () => chooseSeries(collection); grid.append(button);
+        }
+        let types = $('[data-honeycomb-types]');
+        if (!types) { types = node('div'); types.dataset.honeycombTypes = ''; grid.after(types); }
+        types.replaceChildren(); types.hidden = activeSeries.types.every(type => !type.name);
+        if (!types.hidden) {
+            types.append(node('h3', 'pd-selector-label', 'Choose Fabric Type'));
+            const typeGrid = node('div', 'pd-series-grid'); typeGrid.setAttribute('role', 'group'); typeGrid.setAttribute('aria-label', 'Honeycomb fabric type');
+            for (const type of activeSeries.types) {
+                const button = node('button', 'pd-series-button'); button.type = 'button'; button.dataset.honeycombType = type.id;
+                button.append(node('strong', '', type.name), node('span', '', type.fabrics.length+' colours'));
+                button.setAttribute('aria-pressed', String(type.id === activeFabricType)); button.onclick = () => chooseHoneycombType(type); typeGrid.append(button);
+            }
+            types.append(typeGrid);
+        }
+        if ($('[data-fabric-unclassified]')) $('[data-fabric-unclassified]').hidden = true;
+        if ($('[data-catalogue-panel]')) $('[data-catalogue-panel]').hidden = true;
+        let panel = $('[data-fabric-panel]');
+        if (!panel) { panel = node('div', 'pd-catalogue-panel'); panel.dataset.fabricPanel = ''; }
+        types.after(panel); panel.hidden = false; panel.setAttribute('role', 'region'); panel.setAttribute('aria-label', 'Honeycomb colours and product specifications');
+        panel.replaceChildren(renderColourPalette());
+        if (selectedFabricType()?.provisional) panel.append(node('p', 'pd-small', 'Honeycomb-38 Semi-Blackout grouping includes S and SF codes as printed. Supplier classification verification is pending.'));
+        const specs = node('section', 'pd-fabric-specifications'); specs.append(node('h4', '', 'Product Specifications'));
+        const table = node('table', 'pd-spec-table'); table.append(node('caption', 'visually-hidden', 'Honeycomb product specifications'));
+        const body = node('tbody');
+        const values = {...activeProduct.productSpecs, 'Selected Cell Size':activeCellSize, 'Selected Collection':activeSeries.name, ...(selectedFabricType()?.name ? {'Selected Fabric Type':selectedFabricType().name} : {}), 'Colour Options':seriesColours(activeSeries).length+' verified codes in the selected collection'+(selectedFabricType()?.name ? ' / fabric type' : '')};
+        for (const [label, value] of Object.entries(values)) { const row = node('tr'); const th = node('th', '', label); th.scope = 'row'; row.append(th, node('td', '', value)); body.append(row); }
+        table.append(body); specs.append(table, node('p', 'pd-small', 'Fabric composition, weight, maximum width and installation limits are pending verified supplier information. Confirm suitability with our team.')); panel.append(specs);
+        const selector = focus.size ? '[data-cell-size]' : focus.type ? '[data-honeycomb-type]' : focus.collection ? '[data-series]' : null;
+        if (selector) [...section.querySelectorAll(selector)].find(button => focus.size ? button.dataset.cellSize === focus.size : focus.type ? button.dataset.honeycombType === focus.type : button.dataset.series === focus.collection)?.focus({preventScroll:true});
+    }
+    function renderFabricConfigurator() {
+        if (isHoneycomb()) { renderHoneycombConfigurator(); return; }
+        const source = catalogue(activeProduct);
+        const focusedVariant = document.activeElement?.dataset.fabricVariant;
+        const focusedCollection = document.activeElement?.dataset.series;
+        const section = $('[data-series-section]');
+        section.hidden = false; section.classList.add('pd-bx-collection');
+        section.querySelector('h2').textContent = 'Fabric & Colour Collection';
+        $('[data-nav-series]').hidden = false; $('[data-nav-series]').textContent = 'Fabric & colour';
+        section.querySelector('.pd-section-intro').textContent = source.variants
+            ? 'Choose a fabric type, collection and colour. Confirm availability with our team.'
+            : 'Choose a fabric collection and colour. Confirm availability with our team.';
+        let variants = $('[data-fabric-variants]');
+        if (!variants) {
+            variants = node('div', 'pd-roller-variants'); variants.dataset.fabricVariants = '';
+            $('[data-series-grid]').before(variants);
+        }
+        variants.className = 'pd-roller-variants';
+        variants.hidden = !source.variants; variants.replaceChildren();
+        variants.setAttribute('role', 'group');
+        variants.setAttribute('aria-label', linkedVariant(activeProduct) ? 'Product fabric variant' : 'Fabric type (separate from product options)');
+        for (const variant of source.variants || []) {
+            const button = node('button', 'pd-series-button'); button.type = 'button';
+            button.dataset.fabricVariant = variant;
+            const count = source.collections.filter(collection => collection.variant === variant).length;
+            button.append(node('strong', '', variant), node('span', '', count+' fabric collections'));
+            button.setAttribute('aria-pressed', String(activeFabricVariant === variant));
+            button.onclick = () => linkedVariant(activeProduct) ? chooseOption(variant) : chooseFabricVariant(variant);
+            variants.append(button);
+        }
+        const grid = $('[data-series-grid]'); grid.hidden = false; grid.classList.add('pd-catalogue-selector'); grid.replaceChildren();
+        grid.setAttribute('role', 'group'); grid.setAttribute('aria-label', 'Fabric collections');
+        const appendButton = (collection, target) => {
+            const button = node('button', 'pd-series-button'); button.type = 'button'; button.dataset.series = collection.id;
+            button.append(node('strong', '', collection.name), node('span', '', collection.fabrics.length+' colours'));
+            button.setAttribute('aria-pressed', String(activeSeries === collection));
+            button.onclick = () => chooseSeries(collection); target.append(button);
+        };
+        for (const collection of source.collections.filter(collection => !source.variants || collection.variant === activeFabricVariant)) appendButton(collection, grid);
+        let pending = $('[data-fabric-unclassified]');
+        if (!pending) { pending = node('section', 'pd-unclassified'); pending.dataset.fabricUnclassified = ''; grid.after(pending); }
+        pending.replaceChildren(); pending.hidden = !source.variants || !source.collections.some(collection => collection.variant == null);
+        if (!pending.hidden) {
+            pending.append(node('h3', '', 'Collections awaiting variant confirmation'), node('p', 'pd-small', 'These supplier sheets do not state Blackout, Sunscreen or Translucent. Select a collection to enquire without assigning a variant.'));
+            const pendingGrid = node('div', 'pd-series-grid pd-catalogue-selector');
+            pendingGrid.setAttribute('role', 'group'); pendingGrid.setAttribute('aria-label', 'Collections with classification pending');
+            for (const collection of source.collections.filter(collection => collection.variant == null)) appendButton(collection, pendingGrid);
+            pending.append(pendingGrid);
+        }
+        let panel = $('[data-fabric-panel]');
+        if (!panel) { panel = node('div', 'pd-catalogue-panel'); panel.dataset.fabricPanel = ''; pending.after(panel); }
+        pending.after(panel);
+        panel.hidden = false; panel.setAttribute('role', 'region'); panel.setAttribute('aria-label', 'Fabric colours and specifications');
+        if (!activeSeries) panel.replaceChildren(node('p', 'pd-small', 'Fabric collection information coming soon.'));
+        else {
+            panel.replaceChildren();
+            if (source.variants && activeSeries.variant == null) panel.append(node('p', 'pd-small', 'Selected fabric classification is pending supplier confirmation.'));
+            if (activeProduct.fabricCatalogue === 'dream') panel.append(node('p', 'pd-small', 'Collections are grouped by printed colour codes; supplier collection names are pending.'));
+            panel.append(renderColourPalette());
+            const specs = node('section', 'pd-fabric-specifications'); specs.append(node('h4', '', 'Fabric Specifications'));
+            const entries = Object.entries(activeSeries.specs || {}).filter(([, value]) => value !== '' && value != null);
+            if (entries.length) {
+                const table = node('table', 'pd-spec-table'); table.append(node('caption', 'visually-hidden', activeSeries.name+' fabric specifications'));
+                const body = node('tbody');
+                for (const [label, value] of entries) { const row = node('tr'); const th = node('th', '', label); th.scope = 'row'; row.append(th, node('td', '', value)); body.append(row); }
+                table.append(body); specs.append(table);
+                specs.append(node('p', 'pd-small', 'Supplier fabric specifications only. Finished blind dimensions, hardware and installation suitability require confirmation.'));
+                if (activeSeries.reviewNotice) specs.append(node('p', 'pd-small', activeSeries.reviewNotice));
+            } else specs.append(node('p', 'pd-small', 'Verified fabric specifications are pending.'));
+            panel.append(specs);
+        }
+        if ($('[data-catalogue-panel]')) $('[data-catalogue-panel]').hidden = true;
+        const buttons = focusedVariant ? variants.querySelectorAll('button') : focusedCollection ? section.querySelectorAll('button[data-series]') : [];
+        [...buttons].find(button => focusedVariant ? button.dataset.fabricVariant === focusedVariant : button.dataset.series === focusedCollection)?.focus({preventScroll:true});
+    }
     function renderReferences() {
-        if (activeProduct.id === 'zebra') {
-            $('[data-spec-table]').replaceChildren();
-            $('[data-spec-section]').hidden = true;
-            $('[data-nav-specifications]').hidden = true;
-            renderCataloguePhotos();
-            return;
+        if (usesCatalogue(activeProduct)) {
+            $('[data-spec-table]').replaceChildren(); $('[data-spec-section]').hidden = true; $('[data-nav-specifications]').hidden = true;
+            renderFabricConfigurator(); return;
         }
         const referenceSeries = activeProduct.catalogueCollection ? null : activeSeries;
         $('[data-series-title]').textContent = referenceSeries ? `${referenceSeries.name} Series` : 'Specifications & product information';
@@ -154,27 +319,6 @@
         const heading = node('h3', '', activeSeries.name);
         heading.id = 'catalogue-series-heading';
         heading.setAttribute('aria-live', 'polite');
-        if (activeProduct.id === 'zebra') {
-            panel.removeAttribute('aria-labelledby');
-            panel.setAttribute('aria-label', 'Fabric colour configurator');
-            panel.append(renderColourPalette());
-            const specs = Object.entries(activeSeries.specs || {}).filter(([, value]) => value !== '' && value != null);
-            if (specs.length) {
-                const specificationSection = node('section', 'pd-fabric-specifications');
-                specificationSection.append(node('h4', '', 'Fabric Specifications'));
-                const table = node('table', 'pd-spec-table');
-                table.append(node('caption', 'visually-hidden', `${activeSeries.name} fabric specifications`));
-                const body = node('tbody');
-                for (const [label, value] of specs) {
-                    const row = node('tr'); const th = node('th', '', label); th.scope = 'row';
-                    row.append(th, node('td', '', value)); body.append(row);
-                }
-                table.append(body);
-                specificationSection.append(table, node('p', 'pd-small', 'Catalogue fabric widths are not guaranteed finished blind widths. Confirm final dimensions, suitability and availability with our team.'));
-                panel.append(specificationSection);
-            }
-            return;
-        }
         const information = node('div', 'pd-catalogue-information');
         const fabrics = (activeSeries.fabrics || []).filter(fabric => fabric.code && fabric.colourName);
         if (fabrics.length) {
@@ -238,23 +382,30 @@
         activeOption = option;
         $('[data-options]').querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.textContent === option)));
         showOptionImage();
-        // Roller series and light-control choices must not contradict one another.
-        if (activeProduct.id === 'roller' && activeSeries) {
-            const matching = {'Blackwell Waterproof':'Blackout','Vado Solarscreen':'Sunscreen','Sega Classic':'Translucent'};
-            if (matching[activeSeries.name] !== option) {
-                activeSeries = null;
-                $('[data-series-grid]').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed','false'));
-                renderReferences();
+        if (usesCatalogue(activeProduct) && linkedVariant(activeProduct)) {
+            activeFabricVariant = option;
+            if (!selectableSeries(activeProduct).includes(activeSeries)) {
+                activeSeries = selectableSeries(activeProduct)[0] || null;
+                activeColour = seriesColours(activeSeries)[0] || null;
             }
+            renderReferences();
         }
         updateSelection();
     }
     function chooseSeries(series) {
         activeSeries = series;
-        activeColour = activeProduct.id === 'zebra' ? seriesColours(series)[0] || null : null;
-        if (activeProduct.id === 'roller') {
-            activeOption = {'Blackwell Waterproof':'Blackout','Vado Solarscreen':'Sunscreen','Sega Classic':'Translucent'}[series.name] || '';
-            $('[data-options]').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.textContent === activeOption)));
+        if (isHoneycomb()) { activeCellSize = series.cellSize; activeFabricType = series.types[0]?.id || ''; }
+        activeColour = usesCatalogue(activeProduct) ? seriesColours(series)[0] || null : null;
+        if (usesCatalogue(activeProduct)) {
+            const source = catalogue(activeProduct);
+            if (source.variants) {
+                activeFabricVariant = series.variant || '';
+                if (linkedVariant(activeProduct)) {
+                    activeOption = activeFabricVariant;
+                    $('[data-options]').querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.textContent === activeOption)));
+                }
+            }
+            renderReferences(); updateSelection(); return;
         }
         $('[data-series-grid]').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.series === series.name)));
         if (activeProduct.catalogueCollection && window.matchMedia('(max-width: 760px)').matches) {
@@ -269,12 +420,21 @@
         showOptionImage();
         renderReferences(); updateSelection();
     }
-    function showProduct(product, option = '', seriesName = '', updateHistory = true, requestedColour = '') {
+    function showProduct(product, option = '', seriesName = '', updateHistory = true, requestedColour = '', requestedFabricVariant = '', requestedCellSize = '', requestedFabricType = '') {
         activeProduct = product;
+        for (const selector of ['[data-fabric-variants]', '[data-fabric-panel]', '[data-fabric-unclassified]', '[data-honeycomb-types]', '[data-honeycomb-collection-label]']) if ($(selector)) $(selector).hidden = true;
         activeOption = product.options.includes(option) ? option : (product.defaultOption || '');
+        const source = catalogue(product);
+        activeCellSize = isHoneycomb(product) ? source.sizes.includes(requestedCellSize) ? requestedCellSize : source.sizes[0] : '';
+        activeFabricType = '';
+        activeFabricVariant = source?.variants ? linkedVariant(product) ? activeOption : source.variants.includes(requestedFabricVariant) ? requestedFabricVariant : source.variants[0] : '';
+        if (source?.variants && requestedFabricVariant === 'unclassified') {
+            activeFabricVariant = ''; if (linkedVariant(product)) activeOption = '';
+        }
         const visibleSeries = selectableSeries(product);
-        activeSeries = visibleSeries.find(s => s.name === seriesName || (product.catalogueCollection && s.sourceCode && [s.sourceCode, `${s.sourceCode} SERIES`, `${s.displayCode} SERIES`].includes(seriesName))) || (product.catalogueCollection || !option ? visibleSeries[0] : null) || null;
-        activeColour = product.id === 'zebra' ? seriesColours(activeSeries)[0] || null : null;
+        activeSeries = visibleSeries.find(s => s.id === seriesName || s.name === seriesName || ([s.sourceSeries, s.sourceCode].filter(Boolean).some(code => [code, `${code} SERIES`, `${s.name} SERIES`].includes(seriesName)))) || (usesCatalogue(product) || product.catalogueCollection || !option ? visibleSeries[0] : null) || null;
+        if (isHoneycomb(product)) activeFabricType = activeSeries?.types.find(type => type.id === requestedFabricType)?.id || activeSeries?.types[0]?.id || '';
+        activeColour = usesCatalogue(product) ? seriesColours(activeSeries)[0] || null : null;
         $('[data-product-picker]').hidden = true; $('[data-product-content]').hidden = false;
         $('[data-product-name]').textContent = product.name; $('[data-product-category]').textContent = names[product.category];
         $('[data-product-description]').textContent = product.description; $('[data-breadcrumb]').textContent = product.name;
@@ -298,7 +458,9 @@
         for (const option of product.options) { const button = node('button','',option); button.type='button';button.setAttribute('aria-pressed',String(option===activeOption));button.onclick=()=>chooseOption(option);options.append(button); }
         const highlights = $('[data-highlights]');highlights.replaceChildren(); highlights.hidden=!product.highlights?.length;
         for(const label of product.highlights || []) highlights.append(node('li','',label));
+        $('[data-series-section] .pd-section-intro').textContent = 'Select a series to view its catalogue details. Confirm colours and availability with our team.';
         const seriesGrid=$('[data-series-grid]');seriesGrid.replaceChildren();
+        seriesGrid.hidden = false;
         $('[data-series-section] h2').textContent = product.catalogueCollection ? 'Fabric & Colour Collection' : 'Choose a fabric series';
         $('[data-series-section]').classList.toggle('pd-bx-collection', !!product.catalogueCollection);
         $('[data-nav-series]').textContent = product.catalogueCollection ? 'Fabric & colour' : 'Series & fabrics';
@@ -326,7 +488,7 @@
                 button.querySelector('span').textContent = product.id === 'zebra' ? 'Choose a colour' : '2 catalogue photographs';
             });
         }
-        $('[data-series-section]').hidden=!product.series.length;$('[data-nav-series]').hidden=!product.series.length;
+        $('[data-series-section]').hidden=!usesCatalogue(product) && !product.series.length;$('[data-nav-series]').hidden=$('[data-series-section]').hidden;
         renderReferences();
         const examples = examplePhotos(product);
         const gallery=$('[data-gallery]'); gallery.replaceChildren();
@@ -337,15 +499,15 @@
         const related=$('[data-motorized-links]');related.replaceChildren();
         for(const [label,id] of [['Roller Blinds','roller'],['Venetian Blinds','venetian'],['Ziptrak Outdoor Blinds','ziptrak-outdoor']]){const a=node('a','',label+' →');a.href=`product-details.html?product=${id}`;related.append(a);}
         if(activeOption)chooseOption(activeOption);
-        if(activeSeries)chooseSeries(activeSeries);
-        if (product.id === 'zebra' && requestedColour) {
+        if(activeSeries && !isHoneycomb())chooseSeries(activeSeries);
+        if (usesCatalogue(product) && requestedColour) {
             activeColour = seriesColours(activeSeries).find(fabric => [colourCode(fabric), fabric.code].includes(requestedColour)) || activeColour;
-            renderCataloguePhotos();
+            renderFabricConfigurator();
         }
         if(updateHistory)updateSelection();
     }
     function showPicker(message) {
-        activeProduct=null;activeOption='';activeSeries=null;activeColour=null;
+        activeProduct=null;activeOption='';activeFabricVariant='';activeCellSize='';activeFabricType='';activeSeries=null;activeColour=null;
         $('[data-product-content]').hidden=true;$('[data-product-picker]').hidden=false;
         $('[data-product-picker] > p').textContent=message;
         const grid=$('[data-picker-grid]');grid.replaceChildren();
@@ -357,7 +519,7 @@
     for(const product of data.products.filter(p=>!p.legacy))select.add(new Option(product.name,product.id));
     const params=new URLSearchParams(location.search);const requested=params.get('product');const alias=data.aliases[requested];
     const initial=data.products.find(p=>p.id===(alias?.id || requested));
-    if(initial)showProduct(initial,params.get('option') || alias?.option,params.get('series'),true,params.get('colour'));
+    if(initial)showProduct(initial,params.get('option') || alias?.option,params.get('series'),true,params.get('colour'),params.get('fabricVariant'),params.get('cellSize'),params.get('fabricType'));
     else showPicker(requested ? 'That product link is unavailable. Choose a product family below.' : 'Choose a product family to explore the available options.');
     select.addEventListener('change',()=>{const p=data.products.find(p=>p.id===select.value);if(p)showProduct(p);else showPicker('Choose a product family to explore the available options.');note.textContent='WhatsApp will open with your enquiry for you to review and send.';});
     const required=[...form.querySelectorAll('[required]')];required.forEach(field=>field.addEventListener('input',()=>field.setCustomValidity('')));
@@ -366,9 +528,14 @@
         const phone=form.elements.phone;const digits=phone.value.replace(/\D/g,'');if(!/^[+\d\s().-]+$/.test(phone.value)||digits.length<7||digits.length>16)phone.setCustomValidity('Enter a phone number containing 7 to 16 digits.');
         if(!form.reportValidity()||!activeProduct)return;
         const f=new FormData(form);const lines=['BlindsXpert product enquiry','',`Product: ${activeProduct.name}`];
-        if(activeOption)lines.push(`${activeProduct.optionLabel || 'Option'}: ${activeOption}`);
-        if(activeSeries)lines.push(`Fabric series: ${activeSeries.name}`);
-        if(activeColour)lines.push(`Colour: ${colourCode(activeColour)} · ${activeColour.colourName}`);
+        if(activeOption)lines.push(`${activeProduct.id === 'roller' ? 'Variant' : activeProduct.optionLabel || 'Option'}: ${activeOption}`);
+        if (isHoneycomb()) {
+            lines.push('Cell Size: '+activeCellSize, 'Collection: '+activeSeries.name);
+            if (selectedFabricType()?.name) lines.push('Fabric Type: '+selectedFabricType().name);
+        } else if(activeSeries)lines.push('Fabric series: '+activeSeries.name);
+        if (usesCatalogue(activeProduct) && catalogue(activeProduct).variants && !linkedVariant(activeProduct) && activeFabricVariant) lines.push('Fabric type: '+activeFabricVariant);
+        if (usesCatalogue(activeProduct) && catalogue(activeProduct).variants && activeSeries?.variant == null) lines.push('Fabric classification: Pending supplier confirmation');
+        if(activeColour)lines.push('Colour: '+[colourCode(activeColour), activeColour.colourName].filter(Boolean).join(' · '));
         lines.push(`Name: ${f.get('name').trim()}`,`Phone: ${phone.value.trim()}`);
         if(f.get('address').trim())lines.push(`Address / area: ${f.get('address').trim()}`);
         if(f.get('email').trim())lines.push(`Email: ${f.get('email').trim()}`);

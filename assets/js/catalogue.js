@@ -44,7 +44,7 @@
         const copy = element('div', 'card-copy');
         copy.append(element('p', 'eyebrow', product.category.toUpperCase()), element('h3', '', product.name));
         addProductLabels(copy, product);
-        const description = element('p', 'product-detail', product.description);
+        const description = element('p', 'product-detail', (home && product.catalogueDescription) || product.description);
         if (home) frame.append(description); else copy.append(description);
         const actions = element('div', 'catalogue-actions');
         const details = element('a', 'home-product-action', 'View product details →'); details.href = url;

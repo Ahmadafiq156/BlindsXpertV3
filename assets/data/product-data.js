@@ -2,6 +2,8 @@ window.BLINDSXPERT_PRODUCTS = {
   "products": [
     {
       "id": "zebra",
+      "fabricCatalogue": "zebra",
+      "fabricSelectionMode": "flat",
       "name": "Zebra Blinds",
       "category": "indoor",
       "description": "Alternating sheer and opaque fabric bands let you adjust daylight and privacy.",
@@ -561,16 +563,12 @@ window.BLINDSXPERT_PRODUCTS = {
         "Home",
         "Office"
       ],
-      "bestSeller": true,
-      "visibleSeries": [
-        "BX 101Z",
-        "BX 201Z",
-        "BX 401BL",
-        "BX 501BL"
-      ]
+      "bestSeller": true
     },
     {
       "id": "roller",
+      "fabricCatalogue": "roller",
+      "fabricSelectionMode": "product-variant",
       "name": "Roller Blinds",
       "category": "indoor",
       "description": "A simple roll-up design for controlling light. Explore blackout, sunscreen and translucent fabric options.",
@@ -854,6 +852,8 @@ window.BLINDSXPERT_PRODUCTS = {
     },
     {
       "id": "panel",
+      "fabricCatalogue": "roller",
+      "fabricSelectionMode": "product-variant",
       "name": "Panel Blinds",
       "category": "indoor",
       "description": "Sliding panels for large windows, with blackout, sunscreen and translucent options.",
@@ -1103,6 +1103,8 @@ window.BLINDSXPERT_PRODUCTS = {
     },
     {
       "id": "vertical",
+      "fabricCatalogue": "roller",
+      "fabricSelectionMode": "fabric-variant",
       "name": "Vertical Blinds",
       "category": "indoor",
       "description": "Vertical fabric vanes for adjusting light and privacy. Choose a coordinated colour or a mix-and-match arrangement.",
@@ -1202,6 +1204,8 @@ window.BLINDSXPERT_PRODUCTS = {
     },
     {
       "id": "roman",
+      "fabricCatalogue": "roller",
+      "fabricSelectionMode": "fabric-variant",
       "name": "Roman Blinds",
       "category": "indoor",
       "description": "Fabric blinds that gather into soft horizontal folds. Explore edge styles and fabric series for your windows.",
@@ -1355,6 +1359,8 @@ window.BLINDSXPERT_PRODUCTS = {
     },
     {
       "id": "dream",
+      "fabricCatalogue": "dream",
+      "fabricSelectionMode": "flat",
       "name": "Dream Blinds",
       "category": "indoor",
       "description": "Explore the custom-colour Dream Blinds option and the examples below. Ask our team about fabrics and finishes for your space.",
@@ -1413,9 +1419,15 @@ window.BLINDSXPERT_PRODUCTS = {
     },
     {
       "id": "honeycomb",
+      "fabricCatalogue": "honeycomb",
+      "fabricSelectionMode": "cell-size",
+      "alternativeName": "Cellular Blinds",
+      "catalogueDescription": "Its hexagonal hollow layers store air. The official site describes heat insulation, noise reduction and temperature stability.",
+      "productSpecs": {"Product Type": "Honeycomb Blinds", "Design": "Cellular / Honeycomb Structure", "Available Cell Sizes": "25mm, 26mm and 38mm", "Colour Options": "Based on the selected collection"},
+      "highlights": ["Cellular honeycomb structure designed to help reduce heat transfer", "Energy-saving design; results depend on fabric, window and installation", "Fabric-dependent light control, privacy and UV protection", "May help soften sound; acoustic performance varies"],
       "name": "Honeycomb Blinds",
       "category": "indoor",
-      "description": "Its hexagonal hollow layers store air. The official site describes heat insulation, noise reduction and temperature stability.",
+      "description": "Also known as Cellular Blinds. Honeycomb Blinds use a cellular fabric construction with air pockets designed to help reduce heat transfer through windows. Their pleated appearance provides a clean modern look while supporting privacy and light control.",
       "gallery": [
         {
           "src": "assets/img/products/generated/web/honeycomb-v2-main.webp",
@@ -1649,6 +1661,7 @@ window.BLINDSXPERT_PRODUCTS = {
     },
     {
       "id": "motorized",
+      "catalogueImage": {"src": "motorizedblinds.png", "thumbnail": "motorizedblinds.png", "alt": "Supplied illustration of motorized roller blinds with a remote control", "fit": "cover"},
       "name": "Motorized Solutions",
       "category": "motorized",
       "description": "Explore motorized blind solutions, product demonstrations and the Somfy and Dooya ranges listed in our catalogue.",
