@@ -4175,3 +4175,4 @@ h2 { font-size: clamp(24px,3vw,36px); }
 #catalogue .product-meta-badges { display:flex; align-items:center; justify-content:flex-end; flex-wrap:wrap; gap:6px; margin-left:auto; max-width:100%; }
 .product-rating { display:inline-flex; align-items:center; flex:0 0 auto; gap:4px; padding:4px 8px; border-radius:4px; background:#FFF8E6; color:#8B6508; font-size:11px; font-weight:600; line-height:1.4; white-space:nowrap; }
 .product-rating svg { display:block; width:12px; height:12px; fill:#D49A16; }
+.product-demo-label { margin-left:3px; font-size:9px; font-weight:600; }

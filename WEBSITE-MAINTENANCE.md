@@ -596,3 +596,248 @@ New central `assets/data/product-data.js` entries use IDs `insect-screen` and `t
 Do not enable ratings/sales/BEST SELLER unless verified values and authorization are supplied. `catalogueBadges: false` specifically opts these records out of the global demonstration badges. The shared card component skips an empty suitability list instead of creating a blank claim.
 
 When approved content arrives, place its image under an organised product asset folder and set the product's `catalogueImage`/`gallery` mapping, with verified alt/caption/dimensions; remove `placeholderOnly` when the detail content is ready. Add only verified descriptions, options and specifications. Keep the existing `INSECT SCREEN/` and `TINTED/` source folders intact; their photographs were intentionally not added under the current placeholder-only request. Re-test both catalogue cards, filters/count announcements, links and enquiry values at all required widths.
+
+
+## Enhanced Zebra and shared Roller photographs — 13 October 2026
+
+The complete supplier catalogue remains in `assets/data/fabric-catalogue.js`. Visible catalogues are derived in `assets/js/product-details.js`; unavailable colours and empty series never enter selection state, URL selection, or enquiry drafts. Original source ZIPs and supplier records are retained.
+
+Zebra source: `Zebra_Blinds_Enhanced_All_26.zip` (the supplied filename differs from the requested All_26S name). All 26 JPG files were inspected, including their subfolders. 22 verified images are stored without renaming or recompression in `assets/img/products/zebra-blinds/colours/<series>/`. `assets/data/zebra-colour-images.js` records each source path, supplier-record key, photograph path, approximate HEX and central-texture median sampling method. The four conflicting files are recorded in its unmatched list and remain excluded.
+
+| Zebra series | Available displayed codes | Hidden original codes |
+|---|---|---|
+| BX 101Z | BX 107Z, BX 112Z, BX 120Z | BX 102Z, BX 116Z, BX 121Z, BX 122Z, BX 123Z, BX 125Z |
+| BX 201Z | BX 204Z, BX 205Z | BX 207Z, BX 203Z, BX 206Z |
+| BX 301Z | Hidden series | BX 301Z, BX 304Z, BX 305Z, BX 308Z, BX 309Z, BX 310Z |
+| BX 401BL | BX 402BL, BX 403BL, BX 404BL, BX 411BL | BX 412BL, BX 413BL |
+| BX 501BL | BX 501BL, BX 502BL, BX 503BL, BX 505BL | BX 504BL, BX 506BL, BX 508BL |
+| BX 601BL | BX 601BL, BX 603BL, BX 604BL, BX 605BL | BX 606BL |
+| BX 701BL | BX 701BL, BX 704BL | BX 703BL |
+| BX 801BL | BX 801BL, BX 802BL, BX 803BL | None |
+
+BX 301Z is hidden entirely. 22 of 44 original Zebra colours are visible; 22 are hidden. The SP 402 record was transcribed as code SP 402 and name BL CREAM. Its printed supplier label SP 402 BL CREAM and supplied SP402BL Cream photograph verify the visible BX 402BL / CREAM correction; only the derived display is corrected. Original data remains intact.
+
+Unmatched files and catalogue conflicts:
+
+- SP112Z Pink.jpg: supplier SP 112Z is BLACK; PINK is SP 116Z. No reassignment from appearance.
+- SP201Z Cream.jpg: supplier CREAM is SP 207Z; no SP 201Z colour record.
+- SP201Z Grey.jpg: supplier GREY is SP 203Z; no SP 201Z colour record.
+- SP703BL Cream.jpg: supplier SP 703BL is BROWN, not CREAM.
+
+Roller, Vertical, Panel and Roman resolve the same derived catalogue using the unchanged `assets/data/roller-colour-images.js`: 47 image-backed colours across 12 series, with 42 of 89 supplier colours hidden for each product. BX 110, Carmen and Urban Stripe are hidden entirely. No Roller image, swatch or classification assignment was changed, and no Roller assets were copied.
+
+| Shared series | Available displayed codes | Hidden codes for Vertical, Panel and Roman (also already hidden for Roller) |
+|---|---|---|
+| Cinma | CINMA 01, CINMA 02, CINMA 03, CINMA 04 | None |
+| Venus | VENUS 01, VENUS 02, VENUS 03, VENUS 04 | None |
+| BX 5406 | BX 5406R-9, BX 5406R-2, BX 5406R-6, BX 5406R-12 | BX 5406R-5, BX 5406R-7, BX 5406R-10, BX 5406R-11, BX 5406R-13, BX 5406R-14 |
+| BX 200 | BX 200-1, BX 200-2, BX 200-4, BX 200-5 | BX 200-3 |
+| BX 210 | BX 210-6, BX 210-7, BX 210-8, BX 210-9 | BX 210-1, BX 210-2, BX 210-3, BX 210-4, BX 210-5 |
+| BX 211 | BX 211-1, BX 211-2, BX 211-3, BX 211-4 | BX 211-5, BX 211-9 |
+| BX 3000 | RITZ 3001, RITZ 3002, RITZ 3003, RITZ 3004 | RITZ 3011, RITZ 3012, RITZ 3013, RITZ 3014, RITZ 3015, RITZ 3016 |
+| BX 4000 | BX 4000-1, BX 4000-4, BX 4000-5, BX 4000-6 | BX 4000-3, BX 4000-7 |
+| BX 110 | Hidden series | BX 110-2, BX 110-4, BX 110-6 |
+| Aurora | AURORA 02, AURORA 03, AURORA 04 | AURORA 01 |
+| Max | MAX 01, MAX 02, MAX 03, MAX 04 | None |
+| Sunset | SUNSET 01, SUNSET 02, SUNSET 03, SUNSET 04 | None |
+| Carmen | Hidden series | CARMEN CM13, CARMEN CM23, CARMEN CM45, CARMEN CM74, CARMEN CM87, CARMEN CM98 |
+| Econo | EC 4037, EC 4083, EC 4093, EC 4061 | EC 4022, EC 4057, EC 4013, EC 4032 |
+| Urban Stripe | Hidden series | URBAN STRIPE US14, URBAN STRIPE US23, URBAN STRIPE US34, URBAN STRIPE US48, URBAN STRIPE US88, URBAN STRIPE US97 |
+
+Product variants are controlled separately by `fabricSelectionMode` in product-data.js. Roller and Panel link Blackout / Sunscreen / Translucent product options to fabric variants. Vertical retains Mix & match colour / Custom colour, and Roman retains Straight edge / Scallop edge independently of fabric variants. Verified image-map classifications determine available fabric series; unclassified supplier collections remain in the explicit pending-classification browser. Never infer a classification or replace a product's options with Roller options.
+
+To add future Zebra images, verify both series and printed colour code/name against the source catalogue, place the photograph under the matching series folder, and add its original supplier-record key to zebra-colour-images.js. Sample representative fabric texture away from labels, borders, glare and shadows, then inspect the swatch visually. Keep the BX display suffix intact. To restore a hidden colour or series, supply and verify the missing photograph and add its mapping; the derived selector automatically restores it. Resolve the four conflicts with authoritative supplier mapping before restoring them. Do not bypass the availability filter or use a generic photograph.
+
+To add a shared Roller image, follow the same verification process in roller-colour-images.js; its path and colour automatically apply to all four products. Preserve original supplier data and the explicit variant associations. Relative paths, exact filename casing and existing source filenames are retained. Spaces in preserved Zebra filenames are URL-encoded by the browser and work under a GitHub Pages subdirectory.
+
+The preview uses the existing single square frame, maximum width 360px and object-fit: contain. Specifications, full-width selectors, red selection borders, gallery assets, keyboard buttons and touch support continue using the existing design system.
+
+Validation: all ten requested widths passed, with 2,100 selected-colour checks and intercepted WhatsApp drafts. Specifications, option preservation, keyboard/focus, emulated touch, 20 product pages and GitHub Pages subdirectory paths were checked. See ZEBRA-SHARED-FABRIC-UPDATE-REPORT.md for the complete inventory and testing limits.
+
+
+## Insect Screen and Tinted — 13 October 2026
+
+Both products remain in Other, without sold counts, ratings or BEST SELLER badges. Product overview, catalogueImage and gallery records are maintained in assets/data/product-data.js. The two completed dynamic cards use catalogueDynamic; catalogue.js inserts them once on the Products page and uses the same records on Homepage. Main images are the explicitly supplied root Insect Screen.png and Tinted Glass.png, kept intact and copied byte-for-byte to:
+
+- assets/img/products/insect-screen/main/insect-screen.png
+- assets/img/products/tinted/main/tinted.png
+
+Each path supplies Homepage, Products and the main Product Details image using the existing square frames and cover fitting. These are approved product images, not claimed completed projects. Source originals remain in the project root. All other product records, galleries and images are preserved.
+
+Supplier details are in assets/data/other-product-details.js, loaded only by product-details.html. assets/js/product-details.js handles product-specific selectors through detailSelector (screen / film) without forcing either product into the fabric catalogue.
+
+### Insect Screen
+
+Four systems: Magnet Insect Screen; Chain Type Sliding Insect Screen; Cord Type Sliding Insect Screen; Roll-Up Insect Screen. Selection uses Screen Type → Applicable Mesh / Colour → Specifications, four keyboard-accessible cards, and full-width responsive layout. Enquiries include only the selected system's verified material and finish. Magnet and Roll-Up have no verified selectable material/finish and therefore add neither value to the enquiry.
+
+Sliding-only mesh: 100% Polyester; Dark Grey; Water Repellency Grade 4; Oil Repellency Grade 6; Colour Fastness to Light Grade 6; 20 × 20 normal mesh count; supplier declaration “Free Formaldehyde.” No testing standard is invented. Source: INSECT SCREEN/WhatsApp Image 2026-10-12 at 15.15.07.jpeg. Applied to Chain and Cord only.
+
+### Chain Type Sliding Insect Screen
+
+- Top Rail: Height ±49.67mm; Width ±38.8mm; Thickness ±1.79mm; Alloy 6063 T5 (Powder Coated)
+- Vertical Rail: Width ±38.75mm; Gap (Outer) ±31.54mm; Gap (Inner) ±29.11mm; Thickness ±1.12mm; Alloy 6063 T5 (Powder Coated)
+- Pull Rail: Width ±56.58mm; Gap (Outer) ±32.39mm; Gap (Inner) ±34.80mm; Thickness ±1.12mm; Alloy 6063 T5 (Powder Coated)
+
+Accessories: Top Rail End Cap, Chain, Bottom PVC Guide Tape, Installation Bracket, Vertical Rail End Cap, Pull Rod End Cap.
+
+### Cord Type Sliding Insect Screen
+
+- Top Rail (45mm): Height ±45mm; Width (Outer) ±33.91mm; Width (Inner) ±26.85mm; Thickness ±1.50mm; Alloy 6063 T5 (Powder Coated)
+- Top Rail (40mm): Height ±40mm; Width (Outer) ±33.91mm; Width (Inner) ±26.85mm; Thickness ±1.50mm; Alloy 6063 T5 (Powder Coated)
+- Bottom Rail: Height ±14.95mm; Width (Outer) ±37.97mm; Width (Inner) ±25.48mm; Thickness ±1.50mm; Alloy 6063 T5 (Powder Coated)
+- Vertical Rail: Width ±23.2mm; Gap (Outer) ±25.70mm; Gap (Inner) ±15.15mm; Thickness ±1.52mm; Alloy 6063 T5 (Powder Coated)
+- Pull Rail: Width ±45.22mm; Gap (Outer) ±24.87mm; Gap (Inner) ±30.75mm; Thickness ±1.52mm; Alloy 6063 T5 (Powder Coated)
+
+Accessories: Top Rail End Cap, PVC Strip, Vertical Rail End Cap, Pull Rail End Cap, Bottom Rail End Cap, Installation Bracket, Side Guide End Cap.
+
+The two cord top-rail profiles are separate supplier tables, not interchangeable values. Chain Pull Rail has inner gap ±34.80mm and outer ±32.39mm as printed; the unusual ordering is flagged for confirmation.
+
+Additional glass-yarn reference: PVC-coated glass yarn; mesh 18 × 16; Anthracite Charcoal; widths 24–92 inches. Kept separate with system applicability pending, never submitted as a selected option. Additional unheaded aluminium hardware is shown in a separate reference disclosure, with obscured head-rail weight omitted. Adjacent-page context is not treated as a verified Roll-Up hardware assignment. Finish abbreviations MB, NA and MF remain uninterpreted.
+
+Clip-On Extension Frame is an accessory, not a fifth screen type. Compatibility needs confirmation. The original frame photo and maintenance/hardware pages contain historical prices; those scans remain local and are not exposed on the public page. No old price-list numbers are published.
+
+Features are system-specific: magnet fit/removal; chain removal, washing, vacuum cleaning and water resistance from its labelled maintenance page; sliding polyester properties for Chain/Cord; roll-down insect barrier and roll-up window access from the Roll-Up page. No universal washable/removable claim is made.
+
+Six price-free reference photographs are stored under assets/img/products/insect-screen/reference/: magnet-system, chain-system, cord-system, roll-up-system, sliding-mesh and glass-yarn-mesh JPEGs. Four system scans appear in the gallery with supplier-example/technical captions and contain fitting. The sliding-mesh label is available in a disclosure for the two sliding systems. The additional glass-yarn reference is displayed separately. Supplier originals and all nine original source files are untouched.
+
+### Tinted films
+
+47 TINTED photographs inspected. 29 primary labelled sample photographs map confidently to 29 selectable films. Nine alternate photographs carry readable matching codes and remain unused to avoid redundant options/previews. Nine other photos have no fully readable code association and are excluded. No unlabelled sample is linked by visual similarity or timestamp alone. No film groups are inferred.
+
+The film object stores id, code, shade, image (src/alt/caption), specs with exact metric names, source and notes. Preview and per-card sample use that film's own labelled photograph. One large contain-fit square preview remains at maximum 360px; it updates with the selected film, specifications, URL film parameter and WhatsApp draft. The shared viewer opens the full supplier sample/label. Originals remain in TINTED, with verified primary copies under assets/img/products/tinted/samples/.
+
+2ply/3ply is labelled construction, not mil thickness. Safety 800 and Safety 400 labels explicitly state 8mil and 4mil. UV400 6590's handwritten IRR 90% is kept under IRR only, with no TSER inference or invented measurement definition. RS 15 USA actually prints 17% VLT; its code does not override that figure. Film-specific VLT, UVR and TSER are not treated as equivalent metrics, and no night-privacy promise is made.
+
+| Film code | Verified shade | Verified label figures | Primary source |
+|---|---|---|---|
+| UV400 6590 | Nature Green | Visible Light Transmittance (VLT): 65%; Ultraviolet Rejected (UVR): 100%; Labelled construction: 2ply; IRR (handwritten label): 90% | TINTED/WhatsApp Image 2026-10-12 at 15.15.08 (1).jpeg |
+| DBK 35 USA | Black | Visible Light Transmittance (VLT): 35%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 2ply; Total Solar Energy Rejected (TSER): 60% | TINTED/WhatsApp Image 2026-10-12 at 15.15.09 (1).jpeg |
+| DBK 50 USA | Black | Visible Light Transmittance (VLT): 50%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 2ply; Total Solar Energy Rejected (TSER): 55% | TINTED/WhatsApp Image 2026-10-12 at 15.15.09.jpeg |
+| DBK 05 USA | Black | Visible Light Transmittance (VLT): 05%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 2ply; Total Solar Energy Rejected (TSER): 65% | TINTED/WhatsApp Image 2026-10-12 at 15.15.10 (2).jpeg |
+| DBK 20 USA | Black | Visible Light Transmittance (VLT): 20%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 2ply; Total Solar Energy Rejected (TSER): 63% | TINTED/WhatsApp Image 2026-10-12 at 15.15.10.jpeg |
+| RS 50 USA | Silver | Visible Light Transmittance (VLT): 50%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 2ply; Total Solar Energy Rejected (TSER): 60% | TINTED/WhatsApp Image 2026-10-12 at 15.15.13 (1).jpeg |
+| Blackout USA | Black | Visible Light Transmittance (VLT): 00%; Ultraviolet Rejected (UVR): 99%; Total Solar Energy Rejected (TSER): 95% | TINTED/WhatsApp Image 2026-10-12 at 15.15.13.jpeg |
+| RS 15 USA | Silver | Visible Light Transmittance (VLT): 17%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 2ply; Total Solar Energy Rejected (TSER): 85% | TINTED/WhatsApp Image 2026-10-12 at 15.15.14 (1).jpeg |
+| NSN 20 | Light Grey | Visible Light Transmittance (VLT): 20%; Ultraviolet Rejected (UVR): 100%; Labelled construction: 2ply; Total Solar Energy Rejected (TSER): 75% | TINTED/WhatsApp Image 2026-10-12 at 15.15.15 (1).jpeg |
+| BL6018 USA | Light Blue | Visible Light Transmittance (VLT): 38%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 2ply; Total Solar Energy Rejected (TSER): 56% | TINTED/WhatsApp Image 2026-10-12 at 15.15.15 (2).jpeg |
+| RS 05 USA | Silver | Visible Light Transmittance (VLT): 05%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 2ply; Total Solar Energy Rejected (TSER): 95% | TINTED/WhatsApp Image 2026-10-12 at 15.15.15.jpeg |
+| GN50 USA | Light Green | Visible Light Transmittance (VLT): 30%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 2ply; Total Solar Energy Rejected (TSER): 60% | TINTED/WhatsApp Image 2026-10-12 at 15.15.16.jpeg |
+| GL8055 USA | Light Gold | Visible Light Transmittance (VLT): 50%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 2ply; Total Solar Energy Rejected (TSER): 65% | TINTED/WhatsApp Image 2026-10-12 at 15.15.18.jpeg |
+| BZ5048 USA | Light Brown | Visible Light Transmittance (VLT): 30%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 2ply; Total Solar Energy Rejected (TSER): 67% | TINTED/WhatsApp Image 2026-10-12 at 15.15.21.jpeg |
+| 3610 USA | Silver (out) / Grey (in) | Visible Light Transmittance (VLT): 10%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 2ply; Total Solar Energy Rejected (TSER): 80% | TINTED/WhatsApp Image 2026-10-12 at 15.15.22.jpeg |
+| 4050 USA | Blue (out) / Silver (in) | Visible Light Transmittance (VLT): 12%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 2ply; Total Solar Energy Rejected (TSER): 80% | TINTED/WhatsApp Image 2026-10-12 at 15.15.41.jpeg |
+| 4061 USA | Green (out) / Silver (in) | Visible Light Transmittance (VLT): 12%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 2ply; Total Solar Energy Rejected (TSER): 80% | TINTED/WhatsApp Image 2026-10-12 at 15.15.42 (1).jpeg |
+| 3630 USA | Gold (out) / Silver (in) | Visible Light Transmittance (VLT): 15%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 2ply; Total Solar Energy Rejected (TSER): 80% | TINTED/WhatsApp Image 2026-10-12 at 15.15.43.jpeg |
+| 3510 USA | Brown (out) / Silver (in) | Visible Light Transmittance (VLT): 12%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 2ply; Total Solar Energy Rejected (TSER): 80% | TINTED/WhatsApp Image 2026-10-12 at 15.15.44.jpeg |
+| 5038 USA | Dark Grey | Visible Light Transmittance (VLT): 10%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 3ply; Total Solar Energy Rejected (TSER): 86% | TINTED/WhatsApp Image 2026-10-12 at 15.15.45 (1).jpeg |
+| 5035 USA | Dark Green | Visible Light Transmittance (VLT): 12%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 3ply; Total Solar Energy Rejected (TSER): 86% | TINTED/WhatsApp Image 2026-10-12 at 15.15.46.jpeg |
+| 5030 USA | Dark Gold | Visible Light Transmittance (VLT): 12%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 3ply; Total Solar Energy Rejected (TSER): 86% | TINTED/WhatsApp Image 2026-10-12 at 15.15.47.jpeg |
+| 6035 USA | Blue | Visible Light Transmittance (VLT): 15%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 3ply; Total Solar Energy Rejected (TSER): 86% | TINTED/WhatsApp Image 2026-10-12 at 15.15.49.jpeg |
+| 6036 USA | Green | Visible Light Transmittance (VLT): 10%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 3ply; Total Solar Energy Rejected (TSER): 86% | TINTED/WhatsApp Image 2026-10-12 at 15.15.50 (1).jpeg |
+| 6037 USA | Bronze | Visible Light Transmittance (VLT): 15%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 3ply; Total Solar Energy Rejected (TSER): 86% | TINTED/WhatsApp Image 2026-10-12 at 15.15.51.jpeg |
+| 7035 USA | Blue (out) / Black (in) | Visible Light Transmittance (VLT): 5%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 3ply; Total Solar Energy Rejected (TSER): 86% | TINTED/WhatsApp Image 2026-10-12 at 15.15.52.jpeg |
+| 7036 USA | Green (out) / Black (in) | Visible Light Transmittance (VLT): 5%; Ultraviolet Rejected (UVR): 99%; Labelled construction: 3ply; Total Solar Energy Rejected (TSER): 86% | TINTED/WhatsApp Image 2026-10-12 at 15.15.53.jpeg |
+| Safety 800 | Clear Safety Film | Visible Light Transmittance (VLT): 90%; Ultraviolet Rejected (UVR): 99%; Total Solar Energy Rejected (TSER): 19%; Film thickness: 8mil | TINTED/WhatsApp Image 2026-10-12 at 15.15.54 (1).jpeg |
+| Safety 400 | Clear Safety Film | Visible Light Transmittance (VLT): 90%; Ultraviolet Rejected (UVR): 99%; Total Solar Energy Rejected (TSER): 19%; Film thickness: 4mil | TINTED/WhatsApp Image 2026-10-12 at 15.15.54.jpeg |
+
+### Unused / uncertain film photographs
+
+- `TINTED/WhatsApp Image 2026-10-12 at 15.15.08 (2).jpeg`: No fully readable code/shade association; glare, paper occlusion or unlabelled reverse sample. Excluded pending supplier confirmation.
+- `TINTED/WhatsApp Image 2026-10-12 at 15.15.10 (1).jpeg`: No fully readable code/shade association; glare, paper occlusion or unlabelled reverse sample. Excluded pending supplier confirmation.
+- `TINTED/WhatsApp Image 2026-10-12 at 15.15.11.jpeg`: No fully readable code/shade association; glare, paper occlusion or unlabelled reverse sample. Excluded pending supplier confirmation.
+- `TINTED/WhatsApp Image 2026-10-12 at 15.15.14 (2).jpeg`: No fully readable code/shade association; glare, paper occlusion or unlabelled reverse sample. Excluded pending supplier confirmation.
+- `TINTED/WhatsApp Image 2026-10-12 at 15.15.14.jpeg`: No fully readable code/shade association; glare, paper occlusion or unlabelled reverse sample. Excluded pending supplier confirmation.
+- `TINTED/WhatsApp Image 2026-10-12 at 15.15.21 (1).jpeg`: No fully readable code/shade association; glare, paper occlusion or unlabelled reverse sample. Excluded pending supplier confirmation.
+- `TINTED/WhatsApp Image 2026-10-12 at 15.15.40.jpeg`: Alternate photograph with same readable code: 4050 USA; primary verified photograph already used.
+- `TINTED/WhatsApp Image 2026-10-12 at 15.15.42 (2).jpeg`: Alternate photograph with same readable code: 3630 USA; primary verified photograph already used.
+- `TINTED/WhatsApp Image 2026-10-12 at 15.15.42.jpeg`: Alternate photograph with same readable code: 4061 USA; primary verified photograph already used.
+- `TINTED/WhatsApp Image 2026-10-12 at 15.15.43 (1).jpeg`: Alternate photograph with same readable code: 3510 USA; primary verified photograph already used.
+- `TINTED/WhatsApp Image 2026-10-12 at 15.15.45 (2).jpeg`: Alternate photograph with same readable code: 5035 USA; primary verified photograph already used.
+- `TINTED/WhatsApp Image 2026-10-12 at 15.15.45.jpeg`: No fully readable code/shade association; glare, paper occlusion or unlabelled reverse sample. Excluded pending supplier confirmation.
+- `TINTED/WhatsApp Image 2026-10-12 at 15.15.46 (1).jpeg`: Alternate photograph with same readable code: 5030 USA; primary verified photograph already used.
+- `TINTED/WhatsApp Image 2026-10-12 at 15.15.48.jpeg`: Alternate photograph with same readable code: 6035 USA; primary verified photograph already used.
+- `TINTED/WhatsApp Image 2026-10-12 at 15.15.50 (2).jpeg`: Alternate photograph with same readable code: 6037 USA; primary verified photograph already used.
+- `TINTED/WhatsApp Image 2026-10-12 at 15.15.50.jpeg`: Alternate photograph with same readable code: 6036 USA; primary verified photograph already used.
+- `TINTED/WhatsApp Image 2026-10-12 at 15.15.51 (1).jpeg`: No fully readable code/shade association; glare, paper occlusion or unlabelled reverse sample. Excluded pending supplier confirmation.
+- `TINTED/WhatsApp Image 2026-10-12 at 15.15.52 (1).jpeg`: No fully readable code/shade association; glare, paper occlusion or unlabelled reverse sample. Excluded pending supplier confirmation.
+
+### Future maintenance
+
+To add a film, inspect the sample's own label; add a unique film record to other-product-details.js with a supplier-verified code/shade, exact metric names/values/units, one matched sample path and source provenance. Omit unreadable fields and add a review note. Preserve construction versus thickness. If no usable sample exists, omit image.src and the selector will show a clearly labelled technical-label placeholder. Do not create film groups or map a reverse image without authoritative evidence.
+
+To replace a main image, update both catalogueImage and its mainImage gallery record in product-data.js to the same approved relative path. The shared catalogue renderer uses that record on both listing pages. Keep catalogueDynamic for these two cards and catalogueBadges: false; keep source originals. To add a screen option, update both its product options/defaultOption and the systems data, separating applicable mesh properties and per-system hardware. Keep additional unassigned materials out of selectable enquiries.
+
+See INSECT-TINTED-IMPLEMENTATION-REPORT.md for testing and the final modified-file list.
+
+Insect/Tinted validation: all ten requested widths passed, including 290 film selections, 40 screen selections, 330 intercepted WhatsApp drafts and 40 listing-card checks. Native keyboard/focus, emulated touch, galleries/lightboxes, category filters, 20 product pages and GitHub Pages-style /mockup1/ paths passed. See INSECT-TINTED-IMPLEMENTATION-REPORT.md for evidence and limits.
+
+
+## Dream, Insect Screen and Tinted updates — 13 October 2026
+
+This section supersedes the earlier Insect/Tinted badge opt-out and image-gallery notes. All updates are local; original assets and the full supplier fabric catalogue are retained. Pre-existing user deletions of nine root INSECT SCREEN WhatsApp files were observed and not reverted or repeated by this task; their existing website reference assets remain intact.
+
+### Dream photographs and collections
+
+DREAM BLINDS contains 13 files: 12 colour PNGs and Information.jpeg (a supplier features/operating reference, not a colour). All 12 colour filenames match both an existing BX display code and supplier colour label in the three original info2.zip sheets. No unmatched Dream file remains; the information photo is classified separately. Every collection has four verified colours.
+
+assets/data/dream-colour-images.js holds image availability, displayed collection names, source paths, approximate HEX samples and the supplier feature text. assets/js/product-details.js derives a filtered Dream catalogue without altering assets/data/fabric-catalogue.js. The 21 original supplier colour records/specifications remain intact; nine colours without a new photo are excluded from selectors, selection state and WhatsApp drafts.
+
+The third existing record is actually BX-8xx, not BX-3xx. It is displayed as BX-300 as requested, while individual BX-801/812/813/814 identifiers remain unchanged. Stable original series IDs and A1 supplier keys are retained for links/provenance. Collection labels and enquiries now use BX-100 / BX-200 / BX-300; no colour identifier is replaced with a collection name.
+
+| Displayed collection | Available colours | Hidden original colours |
+|---|---|---|
+| BX-100 (source a1-1xx) | BX-101 — White; BX-104 — Smoke Grey; BX-105 — Khaki; BX-109 — Ocean Blue | BX-102 — Beige; BX-103 — Apricot yellow; BX-111 — Ice Grey |
+| BX-200 (source a1-2xx) | BX-202 — beige; BX-203 — Apricot yellow; BX-211 — Ice Grey; BX-212 — Black | BX-201 — White; BX-204 — Smoke Grey; BX-205 — Khaki |
+| BX-300 (source a1-8xx) | BX-801 — White; BX-812 — Bone; BX-813 — Light brown; BX-814 — Silver grey | BX-802 — beige; BX-804 — Smoke Gray; BX-805 — Khaki |
+
+| Collection | Supplier key | Original photograph | Public path | Approximate HEX |
+|---|---|---|---|---|
+| BX-100 | A1-101 | DREAM BLINDS/BX-101 WHITE.png | assets/img/products/dream-blinds/colours/bx-100/BX-101 WHITE.png | #A78F71 |
+| BX-100 | A1-104 | DREAM BLINDS/BX-104 SMOKE GREY.png | assets/img/products/dream-blinds/colours/bx-100/BX-104 SMOKE GREY.png | #545659 |
+| BX-100 | A1-105 | DREAM BLINDS/BX-105 KHAKI.png | assets/img/products/dream-blinds/colours/bx-100/BX-105 KHAKI.png | #8B857D |
+| BX-100 | A1-109 | DREAM BLINDS/BX-109 OCEAN BLUE.png | assets/img/products/dream-blinds/colours/bx-100/BX-109 OCEAN BLUE.png | #50687E |
+| BX-200 | A1-202 | DREAM BLINDS/BX-202 BEIGE.png | assets/img/products/dream-blinds/colours/bx-200/BX-202 BEIGE.png | #AEA9A0 |
+| BX-200 | A1-203 | DREAM BLINDS/BX-203 APRICOT YELLOW.png | assets/img/products/dream-blinds/colours/bx-200/BX-203 APRICOT YELLOW.png | #A89D91 |
+| BX-200 | A1-211 | DREAM BLINDS/BX-211 ICE GREY.png | assets/img/products/dream-blinds/colours/bx-200/BX-211 ICE GREY.png | #8C8B8D |
+| BX-200 | A1-212 | DREAM BLINDS/BX-212 BLACK.png | assets/img/products/dream-blinds/colours/bx-200/BX-212 BLACK.png | #202224 |
+| BX-300 | A1-801 | DREAM BLINDS/BX-801 WHITE.png | assets/img/products/dream-blinds/colours/bx-300/BX-801 WHITE.png | #A9A8A8 |
+| BX-300 | A1-812 | DREAM BLINDS/BX-812 BONE.png | assets/img/products/dream-blinds/colours/bx-300/BX-812 BONE.png | #CCC1B2 |
+| BX-300 | A1-813 | DREAM BLINDS/BX-813 LIGHT BROWN.png | assets/img/products/dream-blinds/colours/bx-300/BX-813 LIGHT BROWN.png | #ADA79C |
+| BX-300 | A1-814 | DREAM BLINDS/BX-814 SILVER GREY.png | assets/img/products/dream-blinds/colours/bx-300/BX-814 SILVER GREY.png | #6B6D70 |
+
+Images are copied without renaming, resizing or recompression below assets/img/products/dream-blinds/colours/. Each HEX is the median RGB of the central 35%–65% fabric region, after inspecting all photographs; sample areas contain fabric texture without printed labels/borders. Photographed colour appearance is approximate, and supplier colour names remain unchanged. The existing single contain-fit square preview remains at maximum 360px with red selection borders.
+
+Dream information is copied to assets/img/products/dream-blinds/reference/information.jpeg. “Why Choose Dream Blinds?” presents Flexible Light Control, Custom Colour Combinations, Quality Fabric & Accessories, Easy Cleaning & Maintenance, Replaceable Components and Convenient Walk-Through. “How Dream Blinds Work” explains light/privacy adjustment, vane movement and walk-through access using the supplied reference and no invented mechanism or figures. A new Why Dream Blinds? jump link is shown only for Dream; all existing navigation, gallery, examples, supplier specifications and enquiries remain. Original unusual thickness/light-fastness units stay flagged for supplier review.
+
+### Shared Products navigation
+
+assets/js/site.js adds Insect Screen and Tinted once to each existing Other products dropdown group, before the shared click/focus/touch handlers bind. Exact links are product-details.html?product=insect-screen and product-details.html?product=tinted. Existing links/styling are preserved; deduplication allows later static entries without duplicating them. This one shared list applies to all 16 root HTML pages with a Products dropdown.
+
+### Catalogue metadata and badges
+
+Both records remain in Other and retain their approved catalogueImage paths. Suitable for: Insect Screen — Residential windows and door openings; Tinted — Residential and commercial glass windows. These scopes follow the supplier door/window examples and commercial/residential film labels. Existing card typography, frames, actions and hover styles are reused. Neither product is marked BEST SELLER.
+
+The existing sales-counts.js configuration explicitly runs in demo mode. Both new records now allow configured badges through catalogueBadges: true and catalogueDemoLabels: true. The shared 5.0 demo rating appears in the existing gold badge with a visible Demo label and a demo title/accessible label. No verified review score is invented. Demo sold counts for both products are null, so no numerical sold badge is displayed. Verified sales and review values are also null. All existing products' configured values are unchanged.
+
+To add genuine sales, put the confirmed value under verifiedCounts['insect-screen'] / verifiedCounts.tinted and set sales.demo: false. New configured counts display Number+ Sold in the existing #E8F5E9 / #2E7D32 badge. To add genuine ratings, set rating.verifiedValues for the product and rating.demo: false. Set each enabled flag to false to hide its badge type. Demo counts may be configured only as explicit placeholders; these two products then display Demo visibly. Never treat demoValue or demoCounts as genuine statistics. Global mode switches affect all products, so review every product's verified data before disabling demo mode.
+
+### New Insect Screen images
+
+Six named source PNGs were inspected and mapped by their explicit names and correspondence with prior supplier examples:
+
+| Source | Public path | Purpose |
+|---|---|---|
+| INSECT SCREEN/Magnet Insect Screen.png | assets/img/products/insect-screen/examples/magnet.png | Magnet Insect Screen overview selection and Photos & Examples |
+| INSECT SCREEN/Chain Type Sliding Insect Screen.png | assets/img/products/insect-screen/examples/chain.png | Chain Type Sliding Insect Screen overview selection and Photos & Examples |
+| INSECT SCREEN/Cord Type Sliding Insect Screen.png | assets/img/products/insect-screen/examples/cord.png | Cord Type Sliding Insect Screen overview selection and Photos & Examples |
+| INSECT SCREEN/Roll-Up Insect Screen.png | assets/img/products/insect-screen/examples/roll-up.png | Roll-Up Insect Screen overview selection and Photos & Examples |
+| INSECT SCREEN/PVC-coated glass-yarn mesh.png | assets/img/products/insect-screen/examples/glass-yarn-mesh.png | Separate unassigned glass-yarn mesh reference |
+| INSECT SCREEN/Supplier sliding-screen mesh specification label.png | assets/img/products/insect-screen/examples/sliding-mesh-label.png | Sliding-only specification disclosure |
+
+Screen selection changes the Product Details overview to the matching new type photo. The overview gallery also retains the approved general product image. Homepage/Products still use assets/img/products/insect-screen/main/insect-screen.png; Tinted's catalogue image is unchanged. The four new system images also serve the Photos & Examples grid: this intentionally reuses the same file for overview selection and the separate example/lightbox browser, with no duplicate files or duplicate entries within either list. Original Chain/Cord hardware scans remain accessible as technical disclosures in the selected specifications. All original mesh, hardware, features, accessories, supplier uncertainties and enquiry data remain intact. Roll-Up's new image retains its side-guide diagram. Additional mesh remains unassigned and cannot enter enquiries.
+
+### Future updates
+
+Verify Dream filenames against the supplier key and colour label before adding availability entries. Add a photo mapping to restore a hidden colour; do not bypass image filtering. Keep collection names separate from colour identifiers. For screens, update systems.photos and the matching product gallery/optionImages record together; keep catalogueImage separate when changing only Product Details. Preserve originalReferencePhotos for verified diagrams and source history.
+
+Dream/Insect/Tinted validation: all ten requested widths passed, including 160 dropdown checks across 16 pages, 120 Dream colour selections, 40 screen selections, 160 intercepted WhatsApp drafts and 40 default listing-card checks. Four badge configuration states were checked on both catalogues at every width. See DREAM-INSECT-TINTED-UPDATE-REPORT.md for results, supplier uncertainties and test limits.

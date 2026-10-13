@@ -5,6 +5,8 @@ window.BLINDSXPERT_SALES_COUNTS = {
   "enabled": true,
   "demo": true,
   "demoCounts": {
+    "insect-screen": null,
+    "tinted": null,
     "zebra": "1.5K+",
     "roller": "1K+",
     "roller-logo-printing": "500+",
@@ -24,11 +26,11 @@ window.BLINDSXPERT_SALES_COUNTS = {
     "skylight": "500+",
     "curtain-hardware": "2.5K+"
   },
-  "verifiedCounts": {},
+  "verifiedCounts": {"insect-screen": null, "tinted": null},
   "rating": {
     "enabled": true,
     "demo": true,
     "demoValue": "5.0",
-    "verifiedValues": {}
+    "verifiedValues": {"insect-screen": null, "tinted": null}
   }
 };

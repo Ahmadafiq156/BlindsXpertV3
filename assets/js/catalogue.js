@@ -70,7 +70,8 @@
         copy.append(actions); article.append(frame, copy); return article;
     }
     if (home) grid.replaceChildren(...products.map(card));
-    else products.filter(product => product.contentPending).forEach(product => {
+    else products.filter(product => product.contentPending || product.catalogueDynamic).forEach(product => {
+        if (document.getElementById(product.id)) return;
         const index = products.indexOf(product);
         document.getElementById(products[index - 1].id)?.after(card(product));
     });
@@ -117,10 +118,22 @@
             shape.setAttribute('d', 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z');
             star.append(shape);
             rating.append(star, element('span', '', Number(value).toFixed(1)));
+            if (product.catalogueDemoLabels && ratings.demo) {
+                rating.append(element('span', 'product-demo-label', 'Demo'));
+                rating.title = 'Demo rating; no verified reviews configured';
+            }
             badges.append(rating);
         }
         const count = sales?.enabled ? (sales.demo ? sales.demoCounts : sales.verifiedCounts)?.[product.id] : null;
-        if (count) badges.append(element('span', 'product-sold-count', `${count} Sold`));
+        if (count) {
+            const label = product.catalogueDemoLabels && !String(count).endsWith('+') ? `${count}+` : count;
+            const sold = element('span', 'product-sold-count', `${label} Sold`);
+            if (product.catalogueDemoLabels && sales.demo) {
+                sold.append(element('span', 'product-demo-label', 'Demo'));
+                sold.title = 'Demo sold count; not verified sales';
+            }
+            badges.append(sold);
+        }
         if (badges.childElementCount) row.append(badges);
     });
 })();

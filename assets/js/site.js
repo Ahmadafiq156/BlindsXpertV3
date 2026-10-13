@@ -1,6 +1,17 @@
 const header = document.querySelector('.site-header');
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#mainNav');
+// Shared additions for every page's existing Products dropdown.
+const additionalProductLinks = [
+    {id:'insect-screen', name:'Insect Screen'},
+    {id:'tinted', name:'Tinted'}
+];
+const otherProductGroup = [...document.querySelectorAll('#productDropdown .product-dropdown-group')].find(group => group.querySelector('.product-dropdown-heading')?.getAttribute('href') === 'products.html#category-other');
+if (otherProductGroup) for (const product of additionalProductLinks) {
+    if ([...otherProductGroup.querySelectorAll('a')].some(link => new URL(link.href).searchParams.get('product') === product.id)) continue;
+    const link = document.createElement('a'); link.href = `product-details.html?product=${product.id}`; link.textContent = product.name;
+    otherProductGroup.append(link);
+}
 const dropdowns = [...document.querySelectorAll('[data-nav-dropdown]')].map(menu => ({
     menu, button: menu.querySelector('.products-toggle'), panel: menu.querySelector('.product-dropdown')
 }));

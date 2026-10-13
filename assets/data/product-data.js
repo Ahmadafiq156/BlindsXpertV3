@@ -1819,31 +1819,124 @@ window.BLINDSXPERT_PRODUCTS = {
       "id": "insect-screen",
       "name": "Insect Screen",
       "category": "other",
-      "description": "Product information coming soon.",
-      "gallery": [],
+      "description": "A physical barrier against insects while allowing airflow through the mesh. Compare magnet, chain sliding, cord sliding and roll-up systems using the supplier catalogue.",
+      "catalogueDescription": "A physical barrier against insects while allowing airflow through the mesh. Compare magnet, chain sliding, cord sliding and roll-up systems using the supplier catalogue.",
+      "catalogueImage": {
+        "src": "assets/img/products/insect-screen/main/insect-screen.png",
+        "alt": "Insect Screen approved product catalogue image",
+        "caption": "Insect Screen — approved product image",
+        "mainImage": true,
+        "fit": "cover",
+        "width": 1254,
+        "height": 1254
+      },
+      "gallery": [
+        {
+          "src": "assets/img/products/insect-screen/main/insect-screen.png",
+          "alt": "Insect Screen approved product catalogue image",
+          "caption": "Insect Screen — approved product image",
+          "mainImage": true,
+          "fit": "cover",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "src": "assets/img/products/insect-screen/examples/magnet.png",
+          "alt": "Magnet Insect Screen — supplied screen example",
+          "caption": "Magnet Insect Screen — supplied example",
+          "fit": "contain",
+          "source": "INSECT SCREEN/Magnet Insect Screen.png",
+          "mainImage": true
+        },
+        {
+          "src": "assets/img/products/insect-screen/examples/chain.png",
+          "alt": "Chain Type Sliding Insect Screen — supplied screen example",
+          "caption": "Chain Type Sliding Insect Screen — supplied example; original hardware diagrams retained in specifications",
+          "fit": "contain",
+          "source": "INSECT SCREEN/Chain Type Sliding Insect Screen.png",
+          "mainImage": true
+        },
+        {
+          "src": "assets/img/products/insect-screen/examples/cord.png",
+          "alt": "Cord Type Sliding Insect Screen — supplied screen example",
+          "caption": "Cord Type Sliding Insect Screen — supplied example; original hardware diagrams retained in specifications",
+          "fit": "contain",
+          "source": "INSECT SCREEN/Cord Type Sliding Insect Screen.png",
+          "mainImage": true
+        },
+        {
+          "src": "assets/img/products/insect-screen/examples/roll-up.png",
+          "alt": "Roll-Up Insect Screen — supplied screen example",
+          "caption": "Roll-Up Insect Screen — supplied example",
+          "fit": "contain",
+          "source": "INSECT SCREEN/Roll-Up Insect Screen.png",
+          "mainImage": true
+        }
+      ],
       "documents": [],
-      "options": [],
+      "options": [
+        "Magnet Insect Screen",
+        "Chain Type Sliding Insect Screen",
+        "Cord Type Sliding Insect Screen",
+        "Roll-Up Insect Screen"
+      ],
+      "defaultOption": "Magnet Insect Screen",
+      "optionLabel": "Screen type",
       "series": [],
-      "suitableFor": [],
+      "suitableFor": [
+        "Residential windows and door openings"
+      ],
       "bestSeller": false,
-      "contentPending": true,
-      "placeholderOnly": true,
-      "catalogueBadges": false
+      "contentPending": false,
+      "catalogueDynamic": true,
+      "catalogueBadges": true,
+      "catalogueDemoLabels": true,
+      "detailSelector": "screen",
+      "optionImages": {
+        "Magnet Insect Screen": "assets/img/products/insect-screen/examples/magnet.png",
+        "Chain Type Sliding Insect Screen": "assets/img/products/insect-screen/examples/chain.png",
+        "Cord Type Sliding Insect Screen": "assets/img/products/insect-screen/examples/cord.png",
+        "Roll-Up Insect Screen": "assets/img/products/insect-screen/examples/roll-up.png"
+      }
     },
     {
       "id": "tinted",
       "name": "Tinted",
       "category": "other",
-      "description": "Product information coming soon.",
-      "gallery": [],
+      "description": "Choose from supplier-labelled window films for different light transmission, ultraviolet rejection and solar-energy performance. Shade, construction and verified specifications are shown for each film.",
+      "catalogueDescription": "Choose from supplier-labelled window films for different light transmission, ultraviolet rejection and solar-energy performance. Shade, construction and verified specifications are shown for each film.",
+      "catalogueImage": {
+        "src": "assets/img/products/tinted/main/tinted.png",
+        "alt": "Tinted approved product catalogue image",
+        "caption": "Tinted — approved product image",
+        "mainImage": true,
+        "fit": "cover",
+        "width": 1254,
+        "height": 1254
+      },
+      "gallery": [
+        {
+          "src": "assets/img/products/tinted/main/tinted.png",
+          "alt": "Tinted approved product catalogue image",
+          "caption": "Tinted — approved product image",
+          "mainImage": true,
+          "fit": "cover",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
       "documents": [],
       "options": [],
+      "defaultOption": "",
+      "optionLabel": "Options",
       "series": [],
-      "suitableFor": [],
+      "suitableFor": ["Residential and commercial glass windows"],
       "bestSeller": false,
-      "contentPending": true,
-      "placeholderOnly": true,
-      "catalogueBadges": false
+      "contentPending": false,
+      "catalogueDynamic": true,
+      "catalogueBadges": true,
+      "catalogueDemoLabels": true,
+      "detailSelector": "film"
     }
   ],
   "aliases": {

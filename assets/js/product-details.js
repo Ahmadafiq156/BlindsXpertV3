@@ -7,10 +7,16 @@
     const form = $('#productEnquiryForm');
     const note = $('#productFormNote');
     const dialog = $('[data-product-lightbox]');
+    const defaultGalleryHeading = $('[data-gallery-section] h2').textContent;
+    const defaultGalleryIntro = $('[data-gallery-section] .pd-section-intro').textContent;
+    const defaultImageNote = $('[data-product-visual] .pd-image-note')?.textContent;
     let activeProduct, activeOption = '', activeFabricVariant = '', activeCellSize = '', activeFabricType = '', activeSeries = null, activeColour = null;
+    let activeFilm = null;
+    const otherDetails = product => window.BLINDSXPERT_OTHER_DETAILS?.[product?.id];
+    const selectedScreen = () => otherDetails(activeProduct)?.systems?.find(system => system.name === activeOption);
     const sharedRoller = window.BLINDSXPERT_FABRIC_CATALOGUES?.roller;
     const rollerImages = window.BLINDSXPERT_ROLLER_IMAGES;
-    // Derived once: filtering/reclassification/images apply only to Roller, never to its shared-source users.
+    // Shared image-backed view; original supplier records and product options stay intact.
     const rollerCatalogue = sharedRoller ? {
         variants: rollerImages?.variants || sharedRoller.variants,
         collections: sharedRoller.collections.filter(series => rollerImages?.collections[series.id]).map(series => {
@@ -18,7 +24,27 @@
             return {...series, variant:availability.variant, fabrics:series.fabrics.filter(fabric => availability.colours[fabric.code]).map(fabric => ({...fabric, closeUpImage:availability.colours[fabric.code].src, swatchHex:availability.colours[fabric.code].swatchHex}))};
         }).filter(series => series.fabrics.length)
     } : null;
-    const catalogue = product => product?.id === 'roller' ? rollerCatalogue : window.BLINDSXPERT_FABRIC_CATALOGUES?.[product?.fabricCatalogue];
+    const zebraImages = window.BLINDSXPERT_ZEBRA_IMAGES;
+    const zebraCatalogue = {
+        collections: (window.BLINDSXPERT_FABRIC_CATALOGUES?.zebra.collections || []).map(series => ({
+            ...series,
+            fabrics: series.fabrics.filter(fabric => zebraImages?.collections[series.id]?.colours[fabric.code]).map(fabric => {
+                const image = zebraImages.collections[series.id].colours[fabric.code];
+                return {...fabric, displayCode:image.displayCode || fabric.displayCode, colourName:image.colourName || fabric.colourName, closeUpImage:image.src, swatchHex:image.swatchHex};
+            })
+        })).filter(series => series.fabrics.length)
+    };
+    const dreamImages = window.BLINDSXPERT_DREAM_IMAGES;
+    const dreamCatalogue = {
+        collections: (window.BLINDSXPERT_FABRIC_CATALOGUES?.dream.collections || []).map(series => ({
+            ...series, name:dreamImages?.collections[series.id]?.name || series.name,
+            fabrics: series.fabrics.filter(fabric => dreamImages?.collections[series.id]?.colours[fabric.code]).map(fabric => {
+                const image = dreamImages.collections[series.id].colours[fabric.code];
+                return {...fabric, closeUpImage:image.src, swatchHex:image.swatchHex};
+            })
+        })).filter(series => series.fabrics.length)
+    };
+    const catalogue = product => product?.fabricCatalogue === 'roller' ? rollerCatalogue : product?.id === 'zebra' ? zebraCatalogue : product?.id === 'dream' ? dreamCatalogue : window.BLINDSXPERT_FABRIC_CATALOGUES?.[product?.fabricCatalogue];
     const usesCatalogue = product => !!catalogue(product);
     const isHoneycomb = (product = activeProduct) => product?.fabricSelectionMode === 'cell-size';
     const linkedVariant = product => product.fabricSelectionMode === 'product-variant';
@@ -72,10 +98,11 @@
         if (isHoneycomb()) { url.searchParams.set('cellSize', activeCellSize); url.searchParams.set('fabricType', activeFabricType); }
         else { url.searchParams.delete('cellSize'); url.searchParams.delete('fabricType'); }
         if (activeColour) url.searchParams.set('colour', colourCode(activeColour)); else url.searchParams.delete('colour');
+        if (activeFilm) url.searchParams.set('film', activeFilm.code); else url.searchParams.delete('film');
         history.replaceState({}, '', url);
     }
     function updateSelection() {
-        const parts = [activeProduct?.name, activeOption, isHoneycomb() ? selectedFabricLabel() : !linkedVariant(activeProduct) ? activeFabricVariant : '', !isHoneycomb() && activeSeries ? `${activeSeries.name} series` : '', activeColour ? [colourCode(activeColour), activeColour.colourName].filter(Boolean).join(' · ') : ''].filter(Boolean);
+        const parts = [activeProduct?.name, activeOption, selectedScreen()?.mesh, selectedScreen()?.finish, activeFilm ? `${activeFilm.code} · ${activeFilm.shade}` : '', isHoneycomb() ? selectedFabricLabel() : !linkedVariant(activeProduct) ? activeFabricVariant : '', !isHoneycomb() && activeSeries ? `${activeSeries.name} series` : '', activeColour ? [colourCode(activeColour), activeColour.colourName].filter(Boolean).join(' · ') : ''].filter(Boolean);
         $('[data-enquiry-selection]').textContent = parts.length ? `Your enquiry: ${parts.join(' · ')}` : '';
         if (activeProduct) updateUrl();
     }
@@ -106,7 +133,7 @@
             placeholder.append(icon, node('span', '', 'Colour photo pending'));
             const actualImage = previewImage(fabric);
             const loading = node('div', 'pd-colour-loading', 'Loading fabric photo…'); loading.setAttribute('role', 'status');
-            frame.replaceChildren(activeProduct.id === 'roller' && actualImage ? loading : placeholder);
+            frame.replaceChildren(actualImage ? loading : placeholder);
             frame.getAnimations().forEach(animation => animation.cancel());
             if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                 frame.animate([{opacity:0.65}, {opacity:1}], {duration:180, easing:'ease-out'});
@@ -300,7 +327,7 @@
         else {
             panel.replaceChildren();
             if (source.variants && activeSeries.variant == null) panel.append(node('p', 'pd-small', 'Selected fabric classification is pending supplier confirmation.'));
-            if (activeProduct.fabricCatalogue === 'dream') panel.append(node('p', 'pd-small', 'Collections are grouped by printed colour codes; supplier collection names are pending.'));
+            if (activeProduct.fabricCatalogue === 'dream') panel.append(node('p', 'pd-small', 'Choose a verified photographed colour from the selected BX collection. Individual colour identifiers retain the supplier code suffixes.'));
             panel.append(renderColourPalette());
             const specs = node('section', 'pd-fabric-specifications'); specs.append(node('h4', '', 'Fabric Specifications'));
             const entries = Object.entries(activeSeries.specs || {}).filter(([, value]) => value !== '' && value != null);
@@ -319,7 +346,131 @@
         [...buttons].find(button => focusedVariant ? button.dataset.fabricVariant === focusedVariant : button.dataset.series === focusedCollection)?.focus({preventScroll:true});
         if (focusedPending) pending.querySelector('[data-pending-browse]')?.focus({preventScroll:true});
     }
+    function specificationTable(title, values) {
+        const table = node('table', 'pd-spec-table');
+        table.append(node('caption', 'visually-hidden', title));
+        const body = node('tbody');
+        for (const [label, value] of Object.entries(values || {})) {
+            const row = node('tr'); const th = node('th', '', label); th.scope = 'row';
+            row.append(th, node('td', '', value)); body.append(row);
+        }
+        table.append(body); return table;
+    }
+    function detailsList(items) {
+        const list = node('ul', 'pd-detail-list');
+        for (const item of items || []) list.append(node('li', '', item));
+        return list;
+    }
+    function renderOtherProductDetails() {
+        const source = otherDetails(activeProduct);
+        const screenMode = activeProduct.detailSelector === 'screen';
+        const section = $('[data-series-section]');
+        const focusedScreen = document.activeElement?.dataset.screen;
+        section.hidden = false; section.classList.add('pd-bx-collection', 'pd-other-details');
+        section.querySelector('h2').textContent = screenMode ? 'Choose Screen Type' : 'Choose Window Film';
+        section.querySelector('.pd-section-intro').textContent = screenMode
+            ? 'Choose a screen system to review its applicable material, finish and supplier specifications.'
+            : 'Compare verified film codes and shades. Each preview shows the physical supplier sample with its own label.';
+        $('[data-nav-series]').hidden = false;
+        $('[data-nav-series]').textContent = screenMode ? 'Screen types' : 'Window films';
+        $('[data-spec-section]').hidden = true; $('[data-nav-specifications]').hidden = true;
+        if ($('[data-catalogue-panel]')) $('[data-catalogue-panel]').hidden = true;
+        const grid = $('[data-series-grid]'); grid.replaceChildren(); grid.hidden = !screenMode;
+        grid.className = 'pd-series-grid pd-catalogue-selector pd-screen-types';
+        grid.setAttribute('role', 'group'); grid.setAttribute('aria-label', 'Screen types');
+        let heading = $('[data-other-step]');
+        if (!heading) { heading = node('h3', 'pd-config-step'); heading.dataset.otherStep = ''; grid.before(heading); }
+        heading.hidden = !screenMode; heading.textContent = 'STEP 1 — Choose Screen Type';
+        let panel = $('[data-other-panel]');
+        if (!panel) { panel = node('div', 'pd-catalogue-panel'); panel.dataset.otherPanel = ''; grid.after(panel); }
+        panel.hidden = false; panel.replaceChildren();
+        if (screenMode) {
+            const screen = selectedScreen();
+            for (const system of source.systems) {
+                const button = node('button', 'pd-series-button pd-screen-button'); button.type = 'button'; button.dataset.screen = system.id;
+                button.setAttribute('aria-pressed', String(system === screen));
+                button.append(node('strong', '', system.name), node('span', '', system.description));
+                button.addEventListener('click', () => chooseOption(system.name)); grid.append(button);
+            }
+            const selection = node('div', 'pd-screen-selection'); selection.setAttribute('aria-live', 'polite');
+            const material = node('section', 'pd-screen-material');
+            material.append(node('h3', 'pd-config-step', 'STEP 2 — View Available Mesh / Material'), node('p', 'pd-verified-option', screen.mesh || 'Material specification pending supplier confirmation.'));
+            const finish = node('section', 'pd-screen-finish');
+            finish.append(node('h3', 'pd-config-step', 'STEP 3 — View Available Colour / Finish'), node('p', 'pd-verified-option', screen.finish || 'Colour / finish options pending supplier confirmation.'));
+            selection.append(material, finish); panel.append(selection);
+            const specs = node('section', 'pd-screen-specifications');
+            specs.append(node('h3', 'pd-config-step', 'STEP 4 — Review Specifications'), node('h4', '', screen.name));
+            if (screen.meshSpecs) {
+                specs.append(node('h4', '', 'Sliding-screen mesh'), specificationTable(screen.name + ' mesh specifications', screen.meshSpecs), node('p', 'pd-small', 'Supplier-labelled for sliding insect screens only. “Free Formaldehyde” is a supplier declaration; no testing standard is supplied.'));
+                const reference = node('details', 'pd-supplier-reference');
+                reference.append(node('summary', '', 'View sliding-mesh supplier label'), imageFigure(source.slidingMeshPhoto, true));
+                specs.append(reference);
+            } else specs.append(node('p', 'pd-small', 'Mesh specifications for this system require supplier confirmation.'));
+            for (const [component, values] of Object.entries(screen.hardware)) {
+                specs.append(node('h4', '', component), specificationTable(screen.name + ' — ' + component, values));
+            }
+            if (screen.id === 'chain') specs.append(node('p', 'pd-small', 'Pull-rail gap values are preserved as printed. The listed inner gap exceeds the outer gap; confirm dimensions before ordering.'));
+            if (screen.id === 'cord') specs.append(node('p', 'pd-small', 'The supplier lists two top-rail profiles (45mm and 40mm). Confirm the applicable profile before ordering.'));
+            if (['chain', 'cord'].includes(screen.id) && screen.originalReferencePhotos?.length) {
+                const diagram = node('details', 'pd-supplier-reference');
+                diagram.append(node('summary', '', 'View original supplier hardware diagram'), imageFigure(screen.originalReferencePhotos[0], true)); specs.append(diagram);
+            }
+            if (screen.accessories.length) specs.append(node('h4', '', 'Installation & accessories'), detailsList(screen.accessories));
+            specs.append(node('h4', '', 'Features & care'), detailsList(screen.features));
+            panel.append(specs);
+            const references = node('div', 'pd-screen-references');
+            const mesh = source.referenceMesh;
+            const meshDetails = node('details', 'pd-supplier-reference');
+            meshDetails.append(node('summary', '', mesh.title), specificationTable(mesh.title, mesh.specs), node('p', 'pd-small', 'This PVC-coated glass-yarn mesh is separate from the polyester sliding mesh. Its compatible screen system requires confirmation; it is not an enquiry selection.'), imageFigure(mesh.photo, true));
+            const hardware = node('details', 'pd-supplier-reference');
+            hardware.append(node('summary', '', source.referenceHardware.title), node('p', 'pd-small', source.referenceHardware.note));
+            for (const [component, values] of Object.entries(source.referenceHardware.components)) hardware.append(node('h4', '', component), specificationTable(component, values));
+            const accessory = node('section');
+            accessory.append(node('h4', '', source.extensionFrame.name), node('p', 'pd-small', source.extensionFrame.note));
+            references.append(accessory, meshDetails, hardware); panel.append(references);
+            if (focusedScreen) grid.querySelector(`[data-screen="${focusedScreen}"]`)?.focus({preventScroll:true});
+        } else {
+            const selection = node('div', 'pd-colour-selection pd-film-selection');
+            const preview = node('figure', 'pd-colour-preview'); const frame = node('div', 'pd-colour-preview-frame');
+            const caption = node('figcaption'); caption.setAttribute('aria-live', 'polite'); preview.append(frame, caption);
+            const controls = node('div', 'pd-colour-controls'); controls.append(node('h3', 'pd-config-step', 'Choose Window Film'), node('p', 'pd-small', 'Photographed sample appearance varies with lighting and the glass behind it. Compare the verified figures below.'));
+            const palette = node('div', 'pd-film-grid'); palette.setAttribute('role', 'group'); palette.setAttribute('aria-label', 'Window film codes and shades');
+            const specs = node('section', 'pd-film-specifications'); specs.setAttribute('aria-live', 'polite');
+            function updateFilm() {
+                const film = activeFilm;
+                palette.querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.film === film.code)));
+                const loading = node('p', 'pd-colour-loading', 'Loading supplier film sample…'); loading.setAttribute('role', 'status');
+                frame.replaceChildren(loading);
+                if (film.image?.src) {
+                    const image = node('img'); image.alt = film.image.alt; image.hidden = true;
+                    image.addEventListener('load', () => { if (activeFilm !== film || image.parentElement !== frame) return; loading.remove(); image.hidden = false; }, {once:true});
+                    image.addEventListener('error', () => { if (activeFilm !== film) return; image.remove(); loading.textContent = 'Supplier film sample could not load. Please try another film.'; loading.setAttribute('role', 'alert'); }, {once:true});
+                    frame.append(image); image.src = film.image.src;
+                } else loading.textContent = 'Sample photograph unavailable — technical label only.';
+                caption.textContent = film.code + ' · ' + film.shade;
+                specs.replaceChildren(node('h3', 'pd-config-step', 'Film Specifications'), specificationTable(film.code + ' specifications', film.specs));
+                for (const note of film.notes) specs.append(node('p', 'pd-small', note));
+                specs.append(node('h4', '', 'Light, UV & solar performance'), node('p', 'pd-small', 'The supplier figures above describe this film’s light transmission, ultraviolet rejection and, where verified, total solar energy rejected. These are distinct metrics. Shade and labelled construction vary by film; privacy at night is not guaranteed.'));
+                if (film.image?.src) {
+                    const reference = node('button', 'pd-text-link pd-film-reference', 'View supplier sample & label'); reference.type = 'button';
+                    reference.onclick = () => openImage(film.image, reference); specs.append(reference);
+                }
+                updateSelection();
+            }
+            for (const film of source.films) {
+                const button = node('button', 'pd-series-button pd-film-card'); button.type = 'button'; button.dataset.film = film.code;
+                if (film.image?.src) {
+                    const chip = node('img', 'pd-film-chip'); chip.src = film.image.src; chip.alt = ''; chip.width = 48; chip.height = 48; chip.loading = 'lazy'; button.append(chip);
+                }
+                button.append(node('strong', '', film.code), node('span', '', film.shade));
+                button.addEventListener('click', () => { activeFilm = film; updateFilm(); }); palette.append(button);
+            }
+            controls.append(palette); selection.append(preview, controls); panel.append(selection, specs); updateFilm();
+        }
+    }
+
     function renderReferences() {
+        if (otherDetails(activeProduct)) { renderOtherProductDetails(); return; }
         if (activeProduct.placeholderOnly) {
             $('[data-spec-table]').replaceChildren(); $('[data-spec-section]').hidden = true; $('[data-nav-specifications]').hidden = true;
             if ($('[data-catalogue-panel]')) $('[data-catalogue-panel]').hidden = true;
@@ -416,6 +567,7 @@
         activeOption = option;
         $('[data-options]').querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.textContent === option)));
         showOptionImage();
+        if (otherDetails(activeProduct)) renderReferences();
         if (usesCatalogue(activeProduct) && linkedVariant(activeProduct)) {
             activeFabricVariant = option;
             if (!selectableSeries(activeProduct).includes(activeSeries)) {
@@ -454,10 +606,32 @@
         showOptionImage();
         renderReferences(); updateSelection();
     }
+    function renderDreamInformation(product) {
+        let section = $('[data-dream-information]');
+        let link = $('[data-nav-dream-information]');
+        if (!section && product.id === 'dream') {
+            section = node('section', 'container pd-section pd-dream-information'); section.id = 'dream-information'; section.dataset.dreamInformation = '';
+            $('[data-gallery-section]').before(section);
+            section.append(node('p', 'eyebrow', 'LIGHT, PRIVACY & EVERYDAY LIVING'), node('h2', '', 'Why Choose Dream Blinds?'));
+            const features = node('div', 'pd-dream-feature-grid');
+            for (const feature of dreamImages.features) {
+                const card = node('article', 'pd-dream-feature-card'); card.append(node('h3', '', feature.title), node('p', '', feature.description)); features.append(card);
+            }
+            section.append(features);
+            const operation = node('div', 'pd-dream-operation'); const copy = node('div');
+            copy.append(node('h3', '', 'How Dream Blinds Work'), node('p', '', dreamImages.operation));
+            operation.append(copy, imageFigure(dreamImages.information, true)); section.append(operation);
+            link = node('a', '', 'Why Dream Blinds?'); link.href = '#dream-information'; link.dataset.navDreamInformation = ''; $('[data-nav-gallery]').before(link);
+        }
+        if (section) section.hidden = product.id !== 'dream';
+        if (link) link.hidden = product.id !== 'dream';
+    }
+
     function showProduct(product, option = '', seriesName = '', updateHistory = true, requestedColour = '', requestedFabricVariant = '', requestedCellSize = '', requestedFabricType = '') {
         activeProduct = product;
-        for (const selector of ['[data-fabric-variants]', '[data-fabric-panel]', '[data-fabric-unclassified]', '[data-honeycomb-types]', '[data-honeycomb-collection-label]', '[data-fabric-variant-label]', '[data-fabric-series-label]']) if ($(selector)) $(selector).hidden = true;
-        $('[data-series-section]').classList.remove('pd-stepped-fabrics');
+        activeFilm = otherDetails(product)?.films?.find(film => film.code === new URL(location.href).searchParams.get('film')) || otherDetails(product)?.films?.[0] || null;
+        for (const selector of ['[data-fabric-variants]', '[data-fabric-panel]', '[data-fabric-unclassified]', '[data-honeycomb-types]', '[data-honeycomb-collection-label]', '[data-fabric-variant-label]', '[data-fabric-series-label]', '[data-other-step]', '[data-other-panel]']) if ($(selector)) $(selector).hidden = true;
+        $('[data-series-section]').classList.remove('pd-stepped-fabrics', 'pd-other-details');
         activeOption = product.options.includes(option) ? option : (product.defaultOption || '');
         const source = catalogue(product);
         activeCellSize = isHoneycomb(product) ? source.sizes.includes(requestedCellSize) ? requestedCellSize : source.sizes[0] : '';
@@ -473,6 +647,8 @@
         $('[data-product-picker]').hidden = true; $('[data-product-content]').hidden = false;
         $('[data-product-name]').textContent = product.name; $('[data-product-category]').textContent = names[product.category];
         $('[data-product-description]').textContent = product.description; $('[data-breadcrumb]').textContent = product.name;
+        const imageNote = $('[data-product-visual] .pd-image-note');
+        if (imageNote) imageNote.textContent = product.id === 'insect-screen' ? 'Supplied screen examples. Confirm materials, finishes and suitability with our team.' : defaultImageNote;
         document.title = `${product.name} | BlindsXpert Malaysia`;
         const canonical = new URL('product-details.html', 'https://ahmadafiq156.github.io/mockup1/'); canonical.searchParams.set('product',product.id); document.querySelector('link[rel=canonical]').href = canonical.href;
         document.querySelector('meta[name=description]').content = product.description;
@@ -489,12 +665,13 @@
         }
         if(primaryPhotos.length) showMainImage(primaryPhotos[0]); else $('[data-product-image]').removeAttribute('src');
         const options = $('[data-options]'); options.replaceChildren();
-        $('[data-option-wrap]').hidden = !product.options.length; $('[data-option-label]').textContent = product.optionLabel || 'Options';
+        $('[data-option-wrap]').hidden = !product.options.length || product.detailSelector === 'screen'; $('[data-option-label]').textContent = product.optionLabel || 'Options';
         for (const option of product.options) { const button = node('button','',option); button.type='button';button.setAttribute('aria-pressed',String(option===activeOption));button.onclick=()=>chooseOption(option);options.append(button); }
         const highlights = $('[data-highlights]');highlights.replaceChildren(); highlights.hidden=!product.highlights?.length;
         for(const label of product.highlights || []) highlights.append(node('li','',label));
         $('[data-series-section] .pd-section-intro').textContent = 'Select a series to view its catalogue details. Confirm colours and availability with our team.';
         const seriesGrid=$('[data-series-grid]');seriesGrid.replaceChildren();
+        seriesGrid.classList.remove('pd-screen-types');
         seriesGrid.hidden = false;
         $('[data-series-section] h2').textContent = product.catalogueCollection ? 'Fabric & Colour Collection' : 'Choose a fabric series';
         $('[data-series-section]').classList.toggle('pd-bx-collection', !!product.catalogueCollection);
@@ -525,10 +702,14 @@
         }
         $('[data-series-section]').hidden=!usesCatalogue(product) && !product.series.length;$('[data-nav-series]').hidden=$('[data-series-section]').hidden;
         renderReferences();
-        const examples = examplePhotos(product);
+        renderDreamInformation(product);
+        const examples = product.detailSelector === 'screen' ? otherDetails(product).systems.flatMap(system => system.photos) : examplePhotos(product);
         const gallery=$('[data-gallery]'); gallery.replaceChildren();
+        gallery.classList.toggle('pd-supplier-gallery', product.detailSelector === 'screen');
+        $('[data-gallery-section] h2').textContent = product.detailSelector === 'screen' ? 'Screen type examples & technical diagrams' : defaultGalleryHeading;
+        $('[data-gallery-section] .pd-section-intro').textContent = product.detailSelector === 'screen' ? 'Supplier catalogue examples and hardware diagrams. Open any image for a full view.' : product.detailSelector === 'film' ? 'Explore the supplier film samples and labels in the window-film selector above.' : defaultGalleryIntro;
         for(const photo of examples) gallery.append(imageFigure(photo, false, examples));
-        if (!examples.length) gallery.append(node('p','pd-small','Contact our team for product photos and suitable installation examples.'));
+        if (!examples.length) gallery.append(node('p','pd-small',product.detailSelector === 'film' ? 'Supplier film samples and their labels are shown in the film selector. Completed-project photographs are not supplied.' : 'Contact our team for product photos and suitable installation examples.'));
         $('[data-gallery-section]').hidden=!!product.placeholderOnly; $('[data-nav-gallery]').hidden=!!product.placeholderOnly;
         $('[data-motorized-section]').hidden=product.id!=='motorized';
         const related=$('[data-motorized-links]');related.replaceChildren();
@@ -542,7 +723,7 @@
         if(updateHistory)updateSelection();
     }
     function showPicker(message) {
-        activeProduct=null;activeOption='';activeFabricVariant='';activeCellSize='';activeFabricType='';activeSeries=null;activeColour=null;
+        activeFilm=null;activeProduct=null;activeOption='';activeFabricVariant='';activeCellSize='';activeFabricType='';activeSeries=null;activeColour=null;
         $('[data-product-content]').hidden=true;$('[data-product-picker]').hidden=false;
         $('[data-product-picker] > p').textContent=message;
         const grid=$('[data-picker-grid]');grid.replaceChildren();
@@ -564,6 +745,13 @@
         if(!form.reportValidity()||!activeProduct)return;
         const f=new FormData(form);const lines=['BlindsXpert product enquiry','',`Product: ${activeProduct.name}`];
         if(activeOption)lines.push(`${activeProduct.id === 'roller' ? 'Variant' : activeProduct.optionLabel || 'Option'}: ${activeOption}`);
+        const screen = selectedScreen();
+        if (screen?.mesh) lines.push('Mesh / material: '+screen.mesh);
+        if (screen?.finish) lines.push('Colour / finish: '+screen.finish);
+        if (activeFilm) {
+            lines.push('Film code: '+activeFilm.code, 'Film shade: '+activeFilm.shade);
+            for (const [metric, value] of Object.entries(activeFilm.specs).filter(([key]) => !['Film code', 'Film shade / colour'].includes(key))) lines.push(metric+': '+value);
+        }
         if (isHoneycomb()) {
             lines.push('Cell Size: '+activeCellSize, 'Collection: '+activeSeries.name);
             if (selectedFabricType()?.name) lines.push('Fabric Type: '+selectedFabricType().name);
