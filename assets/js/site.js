@@ -4,7 +4,7 @@ const nav = document.querySelector('#mainNav');
 // Shared additions for every page's existing Products dropdown.
 const additionalProductLinks = [
     {id:'insect-screen', name:'Insect Screen'},
-    {id:'tinted', name:'Tinted'}
+    {id:'tinted', name:'Window Tinting Film'}
 ];
 const otherProductGroup = [...document.querySelectorAll('#productDropdown .product-dropdown-group')].find(group => group.querySelector('.product-dropdown-heading')?.getAttribute('href') === 'products.html#category-other');
 if (otherProductGroup) for (const product of additionalProductLinks) {

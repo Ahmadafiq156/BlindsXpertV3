@@ -841,3 +841,68 @@ Screen selection changes the Product Details overview to the matching new type p
 Verify Dream filenames against the supplier key and colour label before adding availability entries. Add a photo mapping to restore a hidden colour; do not bypass image filtering. Keep collection names separate from colour identifiers. For screens, update systems.photos and the matching product gallery/optionImages record together; keep catalogueImage separate when changing only Product Details. Preserve originalReferencePhotos for verified diagrams and source history.
 
 Dream/Insect/Tinted validation: all ten requested widths passed, including 160 dropdown checks across 16 pages, 120 Dream colour selections, 40 screen selections, 160 intercepted WhatsApp drafts and 40 default listing-card checks. Four badge configuration states were checked on both catalogues at every width. See DREAM-INSECT-TINTED-UPDATE-REPORT.md for results, supplier uncertainties and test limits.
+
+
+## Dream corrections, shared enquiry links and local preview badges — 13 October 2026
+
+This update supersedes the previous BX-300 collection label, original Dream colour photo paths and visible Demo badge wording. Implemented locally only; no staging, commit, push or deployment.
+
+### Dream corrected image mapping
+
+BX_Fabric_Color_Corrected_12.zip contains exactly 12 PNGs. Every filename matches both an existing individual BX display code and supplier colour label. All 12 are verified and integrated, four per collection, with no unmatched files or code corrections required. Final collection labels are BX-100, BX-200 and BX-800. The third stable supplier/URL collection ID remains a1-8xx; individual BX-801/812/813/814 codes are unchanged. BX-100 and BX-200 codes/collection labels are unchanged.
+
+The active manifest is assets/data/dream-colour-images.js. Corrected assets are copied byte-for-byte under assets/img/products/dream-blinds/colours/corrected/<collection>/, preserving each original filename and casing. Old photographs and original supplier records remain retained; previousPhotographs stores the prior provenance and is not used by the selector. New paths prevent old cached images from resolving in the active preview. HEX swatches are visually reviewed central-fabric median RGB values (35%–65% on both axes), excluding labels/backgrounds. The existing single square contain-fit preview remains at maximum 360px.
+
+| Collection | Individual colour | Corrected ZIP filename | Active public path | Approximate HEX |
+|---|---|---|---|---|
+| BX-100 | BX-101 — White | BX-101 WHITE.png | assets/img/products/dream-blinds/colours/corrected/bx-100/BX-101 WHITE.png | #F2F3F2 |
+| BX-100 | BX-104 — Smoke Grey | BX-104 SMOKE GREY.png | assets/img/products/dream-blinds/colours/corrected/bx-100/BX-104 SMOKE GREY.png | #7C8084 |
+| BX-100 | BX-105 — Khaki | BX-105 KHAKI.png | assets/img/products/dream-blinds/colours/corrected/bx-100/BX-105 KHAKI.png | #A19B80 |
+| BX-100 | BX-109 — Ocean Blue | BX-109 OCEAN BLUE.png | assets/img/products/dream-blinds/colours/corrected/bx-100/BX-109 OCEAN BLUE.png | #5A83A6 |
+| BX-200 | BX-202 — beige | BX-202 BEIGE.png | assets/img/products/dream-blinds/colours/corrected/bx-200/BX-202 BEIGE.png | #D1C4B1 |
+| BX-200 | BX-203 — Apricot yellow | BX-203 APRICOT YELLOW.png | assets/img/products/dream-blinds/colours/corrected/bx-200/BX-203 APRICOT YELLOW.png | #E7C596 |
+| BX-200 | BX-211 — Ice Grey | BX-211 ICE GREY.png | assets/img/products/dream-blinds/colours/corrected/bx-200/BX-211 ICE GREY.png | #D4DADD |
+| BX-200 | BX-212 — Black | BX-212 BLACK.png | assets/img/products/dream-blinds/colours/corrected/bx-200/BX-212 BLACK.png | #1C1D1E |
+| BX-800 | BX-801 — White | BX-801 WHITE.png | assets/img/products/dream-blinds/colours/corrected/bx-800/BX-801 WHITE.png | #F2F3F3 |
+| BX-800 | BX-812 — Bone | BX-812 BONE.png | assets/img/products/dream-blinds/colours/corrected/bx-800/BX-812 BONE.png | #E4DDD0 |
+| BX-800 | BX-813 — Light brown | BX-813 LIGHT BROWN.png | assets/img/products/dream-blinds/colours/corrected/bx-800/BX-813 LIGHT BROWN.png | #B69575 |
+| BX-800 | BX-814 — Silver grey | BX-814 SILVER GREY.png | assets/img/products/dream-blinds/colours/corrected/bx-800/BX-814 SILVER GREY.png | #BABFC3 |
+
+The nine previously unavailable supplier colours remain hidden: BX-102/103/111, BX-201/204/205, BX-802/804/805. The complete 21-colour supplier catalogue and specifications remain unchanged.
+
+### Removed illustration
+
+The Dream supplier features/operating illustration is no longer rendered, thumbnailed or included in a visible viewer group. assets/img/products/dream-blinds/reference/information.jpeg is preserved; its metadata is retained with visible:false. The pre-existing deletion of root DREAM BLINDS/Information.jpeg was left intact. The six written features, How Dream Blinds Work, all other main/gallery images and the existing navigation/WhatsApp flow are retained. The operation paragraph now occupies a full-width column with no empty figure.
+
+### Shared enquiry prompt
+
+renderMoreOptionsLink in assets/js/product-details.js creates one compact data-more-options paragraph beneath the relevant selector, or beneath overview options for products without a collection. Wording adapts to fabric colours, window film, and finishes/custom requirements. Products with no selections receive no duplicate or misplaced prompt. Re-rendering/switching products reuses and moves the same node.
+
+The native link points to the existing #product-enquiry section, keeping the page/query and selection/form state. It does not open WhatsApp or submit the form. Existing site scroll-behavior:smooth applies normally; the existing reduced-motion stylesheet sets auto. The enquiry section has scroll-margin-top:calc(var(--header-height) + 20px), keeping the destination below the sticky header at mobile and desktop sizes. Relative same-page fragments work below a GitHub Pages project subdirectory.
+
+### Rating and sold-count placeholders
+
+The centralized assets/data/sales-counts.js retains demo:true and rating.demo:true for local design preview. Insect Screen and Tinted each now have demoCounts:"100+" and share demoValue:"5.0". These are user-requested dummy figures, not real sales/reviews. Both product records mark catalogueBadgeStatus:"unverified-demo" and catalogueDemoLabels:false. No fixed visible Demo text appears on their cards; sample status remains in accessible labels/tooltips and underlying data. Existing gold/green colours, star icon, spacing and all other products' values/verified data are preserved. No review count, testimonial or BEST SELLER claim was added.
+
+Production-safe switch: set allowDemoBadges:false. This makes both badge types use verifiedCounts / rating.verifiedValues even if legacy demo flags remain true, hiding missing/unverified values while retaining configured verified values. Populate those verified maps only with genuine documented data. Individual enabled flags still hide their badge types; demo:false and rating.demo:false also select verified-only data. Never publish the local dummy values as real statistics.
+
+For future colour corrections, verify each archive filename against its individual supplier record, retain previous provenance/assets, and update only the active manifest entry/photo and representative swatch. Keep collection labels separate from colour codes.
+
+Corrections validation: all ten requested widths passed, including 120 corrected Dream photo selections/drafts, 110 shared-link checks across 11 applicable selector pages, and 40 catalogue-card checks. All 20 product pages were checked for prompt applicability. Native keyboard/touch, normal/reduced motion, preserved gallery viewers and production-only badge fallback passed. See DREAM-CORRECTIONS-CATALOGUE-REPORT.md for details and limits.
+
+
+## Venetian enhanced colours — 13 October 2026
+
+Venetian now uses `assets/data/venetian-colour-collections.js`. `supplier` preserves all original records and per-series specifications; `images` is the explicit availability map. Only records with mapped images enter the selector. Lantex has Black-Out (DSB), Design and Normal collections with four enhanced photographs each. Aluminium has 29 verified 25mm colours, no supplier-defined named series, and no selectable 50mm colours. The two unmatched SP-148 photographs are excluded. Full visible/hidden lists and source limitations are in VENETIAN-COLLECTIONS-REPORT.md.
+
+Display LD as BX and SP as BX, preserving every number and suffix. Never combine the Design J897/S897 records. To add a future photograph, verify its exact supplier code and series, copy the original JPEG into the relevant image directory, then add its record ID to `images` with source paths, central sample rectangle and HEX. Do not use background or highlights for swatches. Never expose a colour or collection without a verified image. Keep ambiguous images in `unmatched` until supplier evidence resolves them.
+
+Update technical specifications only in the relevant `supplier` collection after checking its source scan; preserve units and series boundaries. Do not infer missing aluminium thickness/finish or claim certification without evidence. Source scans stay as provenance and are not public selector images. The Venetian product record, Timber/PVC specifications, galleries and listing assets must remain intact. The renderer handles Type, Lantex Series, colour code and verified name in WhatsApp drafts.
+
+## Window Tinting Film and Venus correction — 13 October 2026
+
+The internal `tinted` ID and `product-details.html?product=tinted` route remain unchanged. Its display name is now **Window Tinting Film** in shared product data; `assets/js/site.js` supplies that same name for the shared Products dropdown. It remains in Other with the existing catalogue image, description, badges and Suitable for information.
+
+`assets/data/other-product-details.js` now has a separate `tinted.gallery` containing the three original TINTED.zip images: `DBK 50 USA.png`, `IR-60 BLUE USA.png`, and `UV400 6590.png`. Copies retain their original filenames under `assets/img/products/tinted/gallery/`. The Choose Window Film section renders only this static gallery with the existing shared lightbox. The 29-film `films` dataset and all original sample images remain preserved for future use. No film is selected by default or required for enquiry; stale film URL parameters are cleared. Do not re-enable film selection by assigning a default film unless the product flow is intentionally changed.
+
+Venus code `VENUS 01` in the shared Roller fabric catalogue now has the display name **White Talc**, used by Roller, Panel, Vertical and Roman. Its source filename contains the historical spelling WHITE TALE and remains unchanged as provenance. Code, source image, enhanced image, HEX and variant relationships remain intact.

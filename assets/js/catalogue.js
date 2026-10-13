@@ -106,10 +106,11 @@
         if (product.catalogueBadges === false) return;
         const badges = element('div', 'product-meta-badges');
         const ratings = sales?.rating;
-        const value = ratings?.demo ? ratings.demoValue : ratings?.verifiedValues?.[product.id];
+        const demoRating = ratings?.demo && sales?.allowDemoBadges !== false;
+        const value = demoRating ? ratings.demoValue : ratings?.verifiedValues?.[product.id];
         if (ratings?.enabled && value != null && value !== '' && Number.isFinite(Number(value)) && Number(value) >= 0 && Number(value) <= 5) {
             const rating = element('span', 'product-rating');
-            rating.setAttribute('aria-label', `${ratings.demo ? 'Sample rating' : 'Rating'}: ${Number(value).toFixed(1)} out of 5`);
+            rating.setAttribute('aria-label', `${demoRating ? 'Sample rating' : 'Rating'}: ${Number(value).toFixed(1)} out of 5`);
             const star = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
             star.setAttribute('viewBox', '0 0 24 24');
             star.setAttribute('aria-hidden', 'true');
@@ -118,19 +119,21 @@
             shape.setAttribute('d', 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z');
             star.append(shape);
             rating.append(star, element('span', '', Number(value).toFixed(1)));
-            if (product.catalogueDemoLabels && ratings.demo) {
-                rating.append(element('span', 'product-demo-label', 'Demo'));
+            if (demoRating && (product.catalogueDemoLabels || product.catalogueBadgeStatus === 'unverified-demo')) {
+                if (product.catalogueDemoLabels) rating.append(element('span', 'product-demo-label', 'Demo'));
                 rating.title = 'Demo rating; no verified reviews configured';
             }
             badges.append(rating);
         }
-        const count = sales?.enabled ? (sales.demo ? sales.demoCounts : sales.verifiedCounts)?.[product.id] : null;
+        const demoCount = sales?.demo && sales?.allowDemoBadges !== false;
+        const count = sales?.enabled ? (demoCount ? sales.demoCounts : sales.verifiedCounts)?.[product.id] : null;
         if (count) {
-            const label = product.catalogueDemoLabels && !String(count).endsWith('+') ? `${count}+` : count;
+            const label = (product.catalogueDemoLabels || product.catalogueBadgeStatus === 'unverified-demo') && !String(count).endsWith('+') ? `${count}+` : count;
             const sold = element('span', 'product-sold-count', `${label} Sold`);
-            if (product.catalogueDemoLabels && sales.demo) {
-                sold.append(element('span', 'product-demo-label', 'Demo'));
+            if (demoCount && (product.catalogueDemoLabels || product.catalogueBadgeStatus === 'unverified-demo')) {
+                if (product.catalogueDemoLabels) sold.append(element('span', 'product-demo-label', 'Demo'));
                 sold.title = 'Demo sold count; not verified sales';
+                sold.setAttribute('aria-label', `Sample sold count: ${label}`);
             }
             badges.append(sold);
         }

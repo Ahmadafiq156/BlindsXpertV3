@@ -1890,7 +1890,8 @@ window.BLINDSXPERT_PRODUCTS = {
       "contentPending": false,
       "catalogueDynamic": true,
       "catalogueBadges": true,
-      "catalogueDemoLabels": true,
+      "catalogueDemoLabels": false,
+      "catalogueBadgeStatus": "unverified-demo",
       "detailSelector": "screen",
       "optionImages": {
         "Magnet Insect Screen": "assets/img/products/insect-screen/examples/magnet.png",
@@ -1901,7 +1902,7 @@ window.BLINDSXPERT_PRODUCTS = {
     },
     {
       "id": "tinted",
-      "name": "Tinted",
+      "name": "Window Tinting Film",
       "category": "other",
       "description": "Choose from supplier-labelled window films for different light transmission, ultraviolet rejection and solar-energy performance. Shade, construction and verified specifications are shown for each film.",
       "catalogueDescription": "Choose from supplier-labelled window films for different light transmission, ultraviolet rejection and solar-energy performance. Shade, construction and verified specifications are shown for each film.",
@@ -1935,7 +1936,8 @@ window.BLINDSXPERT_PRODUCTS = {
       "contentPending": false,
       "catalogueDynamic": true,
       "catalogueBadges": true,
-      "catalogueDemoLabels": true,
+      "catalogueDemoLabels": false,
+      "catalogueBadgeStatus": "unverified-demo",
       "detailSelector": "film"
     }
   ],

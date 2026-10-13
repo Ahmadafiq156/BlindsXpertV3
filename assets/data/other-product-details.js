@@ -308,6 +308,35 @@ window.BLINDSXPERT_OTHER_DETAILS = {
     "imageUpdateNote": "Six named PNG files supplied in the updated INSECT SCREEN folder replace the displayed examples/references. Original reference assets and all specifications are retained. Pre-existing deletions of root WhatsApp source photographs were not reverted."
   },
   "tinted": {
+    "gallery": [
+    {
+        "src": "assets/img/products/tinted/gallery/DBK 50 USA.png",
+        "alt": "DBK 50 USA window tinting film sample",
+        "caption": "DBK 50 USA",
+        "source": {
+            "archive": "TINTED.zip",
+            "path": "DBK 50 USA.png"
+        }
+    },
+    {
+        "src": "assets/img/products/tinted/gallery/IR-60 BLUE USA.png",
+        "alt": "IR-60 BLUE USA window tinting film sample",
+        "caption": "IR-60 BLUE USA",
+        "source": {
+            "archive": "TINTED.zip",
+            "path": "IR-60 BLUE USA.png"
+        }
+    },
+    {
+        "src": "assets/img/products/tinted/gallery/UV400 6590.png",
+        "alt": "UV400 6590 window tinting film sample",
+        "caption": "UV400 6590",
+        "source": {
+            "archive": "TINTED.zip",
+            "path": "UV400 6590.png"
+        }
+    }
+],
     "films": [
       {
         "id": "uv400-6590",

@@ -222,3 +222,26 @@
 .pd-dream-operation .pd-reference { max-width:440px; }
 @media(max-width:1000px) { .pd-dream-feature-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:760px) { .pd-dream-feature-grid,.pd-dream-operation { grid-template-columns:minmax(0,1fr); } }
+/* Compact shared enquiry prompt; native anchor honours the site's motion preferences. */
+.pd-more-options { font-size:13px; line-height:1.7; color:var(--text-muted); margin:24px 0 0; padding-top:14px; border-top:1px solid #e5e3e1; }
+.pd-more-options .pd-text-link { white-space:normal; }
+#product-enquiry { scroll-margin-top:calc(var(--header-height) + 20px); }
+.pd-dream-operation { grid-template-columns:minmax(0,1fr); }
+
+/* Enhanced Venetian collections: scoped to the Venetian selector. */
+.pd-venetian-panel { width:100%; margin-bottom:2rem; }
+.pd-venetian-panel .pd-fabric-variants, .pd-venetian-series { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); gap:1rem; margin:1rem 0 2rem; }
+.pd-venetian-panel .pd-variant-button { width:100%; min-height:76px; white-space:normal; }
+.pd-venetian-panel .pd-spec-table { width:100%; }
+.pd-main .pd-venetian-panel .pd-variant-button { border:1px solid #ead6d3; font:600 18px/1.4 "DM Sans",sans-serif; cursor:pointer; }
+.pd-main .pd-venetian-panel .pd-variant-button[aria-pressed=true] { border-color:var(--primary-red); }
+.pd-main .pd-venetian-series .pd-variant-button { height:80px; min-height:80px; font-size:16px; }
+.pd-main .pd-venetian-panel > .pd-config-step { font-size:15px; }
+
+/* Static window film samples share the existing image viewer. */
+.pd-window-film-gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+.pd-main .pd-window-film-gallery .pd-photo { margin:0; min-width:0; }
+.pd-main .pd-window-film-gallery .pd-photo button { width:100%; aspect-ratio:1; background:#fff; }
+.pd-main .pd-window-film-gallery .pd-photo img { width:100%; height:100%; object-fit:contain; }
+@media(max-width:1024px) { .pd-window-film-gallery { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:600px) { .pd-window-film-gallery { grid-template-columns:minmax(0,1fr); } }

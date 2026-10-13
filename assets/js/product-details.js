@@ -13,6 +13,9 @@
     let activeProduct, activeOption = '', activeFabricVariant = '', activeCellSize = '', activeFabricType = '', activeSeries = null, activeColour = null;
     let activeFilm = null;
     const otherDetails = product => window.BLINDSXPERT_OTHER_DETAILS?.[product?.id];
+    const isVenetian = (product = activeProduct) => product?.id === 'venetian';
+    const venetianSource = window.BLINDSXPERT_VENETIAN;
+    const venetianCollections = Object.fromEntries(Object.entries(venetianSource?.supplier || {}).map(([type, collections]) => [type, collections.map(collection => ({...collection, fabrics:collection.fabrics.filter(fabric => venetianSource.images[fabric.id]).map(fabric => ({...fabric, closeUpImage:venetianSource.images[fabric.id].src, swatchHex:venetianSource.images[fabric.id].swatchHex}))})).filter(collection => collection.fabrics.length)]));
     const selectedScreen = () => otherDetails(activeProduct)?.systems?.find(system => system.name === activeOption);
     const sharedRoller = window.BLINDSXPERT_FABRIC_CATALOGUES?.roller;
     const rollerImages = window.BLINDSXPERT_ROLLER_IMAGES;
@@ -57,7 +60,7 @@
     const colourCode = fabric => fabric?.displayCode || fabric?.code || '';
     const seriesColours = series => (series?.types ? series.types.find(type => type.id === activeFabricType)?.fabrics || [] : series?.fabrics || []).filter(fabric => fabric.code);
     const selectedFabricType = () => activeSeries?.types?.find(type => type.id === activeFabricType);
-    const selectedFabricLabel = () => isHoneycomb() ? [activeCellSize, activeSeries?.name, selectedFabricType()?.name].filter(Boolean).join(' · ') : [activeFabricVariant, activeSeries?.name].filter(Boolean).join(' · ');
+    const selectedFabricLabel = () => isHoneycomb() ? [activeCellSize, activeSeries?.name, selectedFabricType()?.name].filter(Boolean).join(' · ') : [isVenetian() ? activeOption : activeFabricVariant, activeSeries?.name].filter(Boolean).join(' · ');
     const previewImage = fabric => fabric?.closeUpImages?.[activeProduct.id] || fabric?.closeUpImage;
     const names = {indoor:'Indoor blinds', outdoor:'Outdoor blinds', motorized:'Motorized solutions', other:'Other products'};
     const node = (tag, className, content) => {
@@ -93,7 +96,7 @@
         const url = new URL(location.href);
         url.searchParams.set('product', activeProduct.id);
         if (activeOption) url.searchParams.set('option', activeOption); else url.searchParams.delete('option');
-        if (activeSeries) url.searchParams.set('series', usesCatalogue(activeProduct) ? activeSeries.id : activeSeries.name); else url.searchParams.delete('series');
+        if (activeSeries) url.searchParams.set('series', usesCatalogue(activeProduct) || isVenetian() ? activeSeries.id : activeSeries.name); else url.searchParams.delete('series');
         if (usesCatalogue(activeProduct) && catalogue(activeProduct).variants) url.searchParams.set('fabricVariant', activeFabricVariant || 'unclassified'); else url.searchParams.delete('fabricVariant');
         if (isHoneycomb()) { url.searchParams.set('cellSize', activeCellSize); url.searchParams.set('fabricType', activeFabricType); }
         else { url.searchParams.delete('cellSize'); url.searchParams.delete('fabricType'); }
@@ -111,7 +114,7 @@
     function renderColourPalette() {
         const section = node('div', 'pd-colour-selection');
         const controls = node('div', 'pd-colour-controls');
-        controls.append(node('h4', '', activeProduct.fabricCatalogue === 'roller' ? 'STEP 3 — Choose a Colour' : 'Choose a colour'), node('p', 'pd-small', 'Swatch colours approximate supplier photographs. Please confirm with physical samples.'));
+        controls.append(node('h4', '', isVenetian() ? (activeOption === 'Lantex' ? 'STEP 3 — Choose a Colour' : 'STEP 2 — Choose a Colour') : activeProduct.fabricCatalogue === 'roller' ? 'STEP 3 — Choose a Colour' : 'Choose a colour'), node('p', 'pd-small', 'Swatch colours approximate supplier photographs. Please confirm with physical samples.'));
         const palette = node('div', 'pd-colour-palette');
         palette.setAttribute('role', 'group');
         palette.setAttribute('aria-label', `${activeSeries.name} colours`);
@@ -201,8 +204,8 @@
         const source = catalogue(activeProduct);
         const focus = {size:document.activeElement?.dataset.cellSize, collection:document.activeElement?.dataset.series, type:document.activeElement?.dataset.honeycombType};
         const section = $('[data-series-section]'); section.hidden = false; section.classList.add('pd-bx-collection');
-        section.querySelector('h2').textContent = 'Fabric & Colour Collection';
-        section.querySelector('.pd-section-intro').textContent = 'Choose Honeycomb size, the applicable collection or fabric type, and colour.';
+        section.querySelector(':scope > .container > h2').textContent = 'Fabric & Colour Collection';
+        section.querySelector(':scope > .container > .pd-section-intro').textContent = 'Choose Honeycomb size, the applicable collection or fabric type, and colour.';
         $('[data-nav-series]').hidden = false; $('[data-nav-series]').textContent = 'Fabric & colour';
         let variants = $('[data-fabric-variants]');
         if (!variants) { variants = node('div'); variants.dataset.fabricVariants = ''; $('[data-series-grid]').before(variants); }
@@ -266,9 +269,9 @@
         const stepped = activeProduct.fabricCatalogue === 'roller';
         section.classList.toggle('pd-stepped-fabrics', stepped);
         section.hidden = false; section.classList.add('pd-bx-collection');
-        section.querySelector('h2').textContent = 'Fabric & Colour Collection';
+        section.querySelector(':scope > .container > h2').textContent = 'Fabric & Colour Collection';
         $('[data-nav-series]').hidden = false; $('[data-nav-series]').textContent = 'Fabric & colour';
-        section.querySelector('.pd-section-intro').textContent = source.variants
+        section.querySelector(':scope > .container > .pd-section-intro').textContent = source.variants
             ? 'Choose a fabric type, collection and colour. Confirm availability with our team.'
             : 'Choose a fabric collection and colour. Confirm availability with our team.';
         let variants = $('[data-fabric-variants]');
@@ -367,10 +370,10 @@
         const section = $('[data-series-section]');
         const focusedScreen = document.activeElement?.dataset.screen;
         section.hidden = false; section.classList.add('pd-bx-collection', 'pd-other-details');
-        section.querySelector('h2').textContent = screenMode ? 'Choose Screen Type' : 'Choose Window Film';
-        section.querySelector('.pd-section-intro').textContent = screenMode
+        section.querySelector(':scope > .container > h2').textContent = screenMode ? 'Choose Screen Type' : 'Choose Window Film';
+        section.querySelector(':scope > .container > .pd-section-intro').textContent = screenMode
             ? 'Choose a screen system to review its applicable material, finish and supplier specifications.'
-            : 'Compare verified film codes and shades. Each preview shows the physical supplier sample with its own label.';
+            : 'Explore our supplied window tinting film samples. Contact our team to discuss the right option for your windows.';
         $('[data-nav-series]').hidden = false;
         $('[data-nav-series]').textContent = screenMode ? 'Screen types' : 'Window films';
         $('[data-spec-section]').hidden = true; $('[data-nav-specifications]').hidden = true;
@@ -430,46 +433,71 @@
             references.append(accessory, meshDetails, hardware); panel.append(references);
             if (focusedScreen) grid.querySelector(`[data-screen="${focusedScreen}"]`)?.focus({preventScroll:true});
         } else {
-            const selection = node('div', 'pd-colour-selection pd-film-selection');
-            const preview = node('figure', 'pd-colour-preview'); const frame = node('div', 'pd-colour-preview-frame');
-            const caption = node('figcaption'); caption.setAttribute('aria-live', 'polite'); preview.append(frame, caption);
-            const controls = node('div', 'pd-colour-controls'); controls.append(node('h3', 'pd-config-step', 'Choose Window Film'), node('p', 'pd-small', 'Photographed sample appearance varies with lighting and the glass behind it. Compare the verified figures below.'));
-            const palette = node('div', 'pd-film-grid'); palette.setAttribute('role', 'group'); palette.setAttribute('aria-label', 'Window film codes and shades');
-            const specs = node('section', 'pd-film-specifications'); specs.setAttribute('aria-live', 'polite');
-            function updateFilm() {
-                const film = activeFilm;
-                palette.querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.film === film.code)));
-                const loading = node('p', 'pd-colour-loading', 'Loading supplier film sample…'); loading.setAttribute('role', 'status');
-                frame.replaceChildren(loading);
-                if (film.image?.src) {
-                    const image = node('img'); image.alt = film.image.alt; image.hidden = true;
-                    image.addEventListener('load', () => { if (activeFilm !== film || image.parentElement !== frame) return; loading.remove(); image.hidden = false; }, {once:true});
-                    image.addEventListener('error', () => { if (activeFilm !== film) return; image.remove(); loading.textContent = 'Supplier film sample could not load. Please try another film.'; loading.setAttribute('role', 'alert'); }, {once:true});
-                    frame.append(image); image.src = film.image.src;
-                } else loading.textContent = 'Sample photograph unavailable — technical label only.';
-                caption.textContent = film.code + ' · ' + film.shade;
-                specs.replaceChildren(node('h3', 'pd-config-step', 'Film Specifications'), specificationTable(film.code + ' specifications', film.specs));
-                for (const note of film.notes) specs.append(node('p', 'pd-small', note));
-                specs.append(node('h4', '', 'Light, UV & solar performance'), node('p', 'pd-small', 'The supplier figures above describe this film’s light transmission, ultraviolet rejection and, where verified, total solar energy rejected. These are distinct metrics. Shade and labelled construction vary by film; privacy at night is not guaranteed.'));
-                if (film.image?.src) {
-                    const reference = node('button', 'pd-text-link pd-film-reference', 'View supplier sample & label'); reference.type = 'button';
-                    reference.onclick = () => openImage(film.image, reference); specs.append(reference);
-                }
-                updateSelection();
-            }
-            for (const film of source.films) {
-                const button = node('button', 'pd-series-button pd-film-card'); button.type = 'button'; button.dataset.film = film.code;
-                if (film.image?.src) {
-                    const chip = node('img', 'pd-film-chip'); chip.src = film.image.src; chip.alt = ''; chip.width = 48; chip.height = 48; chip.loading = 'lazy'; button.append(chip);
-                }
-                button.append(node('strong', '', film.code), node('span', '', film.shade));
-                button.addEventListener('click', () => { activeFilm = film; updateFilm(); }); palette.append(button);
-            }
-            controls.append(palette); selection.append(preview, controls); panel.append(selection, specs); updateFilm();
+            const gallery = node('div', 'pd-window-film-gallery');
+            for (const photo of source.gallery) gallery.append(imageFigure(photo, false, source.gallery));
+            panel.append(gallery);
         }
     }
 
+    function renderMoreOptionsLink() {
+        let message = $('[data-more-options]');
+        const collection = isVenetian() || usesCatalogue(activeProduct) || activeProduct.series.length || otherDetails(activeProduct);
+        const hasSelection = collection || activeProduct.options.length;
+        if (!hasSelection) { if (message) message.hidden = true; return; }
+        if (!message) { message = node('p', 'pd-more-options'); message.dataset.moreOptions = ''; }
+        const parent = collection ? $('[data-series-section] > .container') : $('[data-option-wrap]');
+        parent.append(message); message.hidden = false;
+        const wording = activeProduct.detailSelector === 'film' ? 'Looking for more window film options? '
+            : activeProduct.detailSelector === 'screen' || !collection ? 'Looking for more finishes or custom options? '
+            : 'Looking for more colours or fabric options? ';
+        const link = node('a', 'pd-text-link', 'Enquire with us for more choices'); link.href = '#product-enquiry';
+        const arrow = node('span', '', ' →'); arrow.setAttribute('aria-hidden', 'true'); link.append(arrow);
+        message.replaceChildren(document.createTextNode(wording), link);
+    }
+
+    function renderVenetianConfigurator() {
+        const section = $('[data-series-section]');
+        section.hidden = false; $('[data-nav-series]').hidden = false; section.classList.add('pd-venetian');
+        section.querySelector('.eyebrow').textContent = 'EXPLORE THE OPTIONS';
+        section.querySelector(':scope > .container > h2').textContent = 'Choose your Venetian blinds';
+        section.querySelector(':scope > .container > .pd-section-intro').textContent = 'Select a type to explore its available options.';
+        const container = $('[data-series-section] > .container');
+        let panel = $('[data-venetian-panel]');
+        if (!panel) { panel = node('div', 'pd-venetian-panel'); panel.dataset.venetianPanel = ''; $('[data-series-grid]').before(panel); }
+        const focused = document.activeElement?.dataset.venetianChoice;
+        panel.hidden = false; panel.replaceChildren(node('h2', 'pd-config-step', 'STEP 1 — Choose a Venetian Blind Type'));
+        const types = node('div', 'pd-fabric-variants');
+        for (const type of activeProduct.options) {
+            const button = node('button', 'pd-variant-button', type); button.type = 'button'; button.dataset.venetianChoice = type;
+            button.setAttribute('aria-pressed', String(type === activeOption)); button.addEventListener('click', () => chooseOption(type)); types.append(button);
+        }
+        panel.append(types);
+        $('[data-series-grid]').hidden = true;
+        const collections = venetianCollections[activeOption] || [];
+        if (!collections.includes(activeSeries)) { activeSeries = collections[0] || null; activeColour = seriesColours(activeSeries)[0] || null; }
+        if (activeSeries) {
+            $('[data-series-title]').textContent = 'Venetian colour collections';
+            $('[data-series-description]').textContent = 'Explore the supplied colour photographs and specifications for your selected type.';
+            if (activeOption === 'Lantex') {
+                panel.append(node('h3', 'pd-config-step', 'STEP 2 — Choose a Lantex Series'));
+                const grid = node('div', 'pd-venetian-series');
+                for (const collection of collections) {
+                    const button = node('button', 'pd-variant-button', collection.name); button.type = 'button'; button.dataset.venetianChoice = collection.id;
+                    button.setAttribute('aria-pressed', String(collection === activeSeries));
+                    button.addEventListener('click', () => { activeSeries = collection; activeColour = seriesColours(collection)[0] || null; renderReferences(); updateSelection(); }); grid.append(button);
+                }
+                panel.append(grid);
+            }
+            panel.append(renderColourPalette(), node('h3', 'pd-config-step', 'Specifications'), specificationTable(activeSeries.name + ' specifications', activeSeries.specs));
+            $('[data-spec-section]').hidden = true; $('[data-nav-specifications]').hidden = true;
+            if ($('[data-catalogue-panel]')) $('[data-catalogue-panel]').hidden = true;
+        }
+        if (focused) [...panel.querySelectorAll('button')].find(button => button.dataset.venetianChoice === focused)?.focus({preventScroll:true});
+        return !!activeSeries;
+    }
     function renderReferences() {
+        renderMoreOptionsLink();
+        if (isVenetian() && renderVenetianConfigurator()) return;
         if (otherDetails(activeProduct)) { renderOtherProductDetails(); return; }
         if (activeProduct.placeholderOnly) {
             $('[data-spec-table]').replaceChildren(); $('[data-spec-section]').hidden = true; $('[data-nav-specifications]').hidden = true;
@@ -564,10 +592,12 @@
         if (photo) showMainImage(photo);
     }
     function chooseOption(option) {
+        const changed = activeOption !== option;
         activeOption = option;
+        if (isVenetian() && changed) { activeSeries = null; activeColour = null; }
         $('[data-options]').querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.textContent === option)));
         showOptionImage();
-        if (otherDetails(activeProduct)) renderReferences();
+        if (otherDetails(activeProduct) || isVenetian()) renderReferences();
         if (usesCatalogue(activeProduct) && linkedVariant(activeProduct)) {
             activeFabricVariant = option;
             if (!selectableSeries(activeProduct).includes(activeSeries)) {
@@ -620,7 +650,7 @@
             section.append(features);
             const operation = node('div', 'pd-dream-operation'); const copy = node('div');
             copy.append(node('h3', '', 'How Dream Blinds Work'), node('p', '', dreamImages.operation));
-            operation.append(copy, imageFigure(dreamImages.information, true)); section.append(operation);
+            operation.append(copy); section.append(operation);
             link = node('a', '', 'Why Dream Blinds?'); link.href = '#dream-information'; link.dataset.navDreamInformation = ''; $('[data-nav-gallery]').before(link);
         }
         if (section) section.hidden = product.id !== 'dream';
@@ -629,9 +659,9 @@
 
     function showProduct(product, option = '', seriesName = '', updateHistory = true, requestedColour = '', requestedFabricVariant = '', requestedCellSize = '', requestedFabricType = '') {
         activeProduct = product;
-        activeFilm = otherDetails(product)?.films?.find(film => film.code === new URL(location.href).searchParams.get('film')) || otherDetails(product)?.films?.[0] || null;
-        for (const selector of ['[data-fabric-variants]', '[data-fabric-panel]', '[data-fabric-unclassified]', '[data-honeycomb-types]', '[data-honeycomb-collection-label]', '[data-fabric-variant-label]', '[data-fabric-series-label]', '[data-other-step]', '[data-other-panel]']) if ($(selector)) $(selector).hidden = true;
-        $('[data-series-section]').classList.remove('pd-stepped-fabrics', 'pd-other-details');
+        activeFilm = null;
+        for (const selector of ['[data-fabric-variants]', '[data-fabric-panel]', '[data-fabric-unclassified]', '[data-honeycomb-types]', '[data-honeycomb-collection-label]', '[data-fabric-variant-label]', '[data-fabric-series-label]', '[data-other-step]', '[data-other-panel]', '[data-venetian-panel]']) if ($(selector)) $(selector).hidden = true;
+        $('[data-series-section]').classList.remove('pd-stepped-fabrics', 'pd-other-details', 'pd-venetian');
         activeOption = product.options.includes(option) ? option : (product.defaultOption || '');
         const source = catalogue(product);
         activeCellSize = isHoneycomb(product) ? source.sizes.includes(requestedCellSize) ? requestedCellSize : source.sizes[0] : '';
@@ -673,7 +703,7 @@
         const seriesGrid=$('[data-series-grid]');seriesGrid.replaceChildren();
         seriesGrid.classList.remove('pd-screen-types');
         seriesGrid.hidden = false;
-        $('[data-series-section] h2').textContent = product.catalogueCollection ? 'Fabric & Colour Collection' : 'Choose a fabric series';
+        $('[data-series-section] > .container > h2').textContent = product.catalogueCollection ? 'Fabric & Colour Collection' : 'Choose a fabric series';
         $('[data-series-section]').classList.toggle('pd-bx-collection', !!product.catalogueCollection);
         $('[data-nav-series]').textContent = product.catalogueCollection ? 'Fabric & colour' : 'Series & fabrics';
         seriesGrid.classList.toggle('pd-catalogue-selector', !!product.catalogueCollection);
@@ -700,22 +730,28 @@
                 button.querySelector('span').textContent = product.id === 'zebra' ? 'Choose a colour' : '2 catalogue photographs';
             });
         }
-        $('[data-series-section]').hidden=!usesCatalogue(product) && !product.series.length;$('[data-nav-series]').hidden=$('[data-series-section]').hidden;
+        $('[data-series-section]').hidden=!isVenetian(product) && !usesCatalogue(product) && !product.series.length;$('[data-nav-series]').hidden=$('[data-series-section]').hidden;
         renderReferences();
         renderDreamInformation(product);
         const examples = product.detailSelector === 'screen' ? otherDetails(product).systems.flatMap(system => system.photos) : examplePhotos(product);
         const gallery=$('[data-gallery]'); gallery.replaceChildren();
         gallery.classList.toggle('pd-supplier-gallery', product.detailSelector === 'screen');
         $('[data-gallery-section] h2').textContent = product.detailSelector === 'screen' ? 'Screen type examples & technical diagrams' : defaultGalleryHeading;
-        $('[data-gallery-section] .pd-section-intro').textContent = product.detailSelector === 'screen' ? 'Supplier catalogue examples and hardware diagrams. Open any image for a full view.' : product.detailSelector === 'film' ? 'Explore the supplier film samples and labels in the window-film selector above.' : defaultGalleryIntro;
+        $('[data-gallery-section] .pd-section-intro').textContent = product.detailSelector === 'screen' ? 'Supplier catalogue examples and hardware diagrams. Open any image for a full view.' : product.detailSelector === 'film' ? 'Explore the supplied window tinting film samples in the gallery above.' : defaultGalleryIntro;
         for(const photo of examples) gallery.append(imageFigure(photo, false, examples));
-        if (!examples.length) gallery.append(node('p','pd-small',product.detailSelector === 'film' ? 'Supplier film samples and their labels are shown in the film selector. Completed-project photographs are not supplied.' : 'Contact our team for product photos and suitable installation examples.'));
+        if (!examples.length) gallery.append(node('p','pd-small',product.detailSelector === 'film' ? 'Window tinting film samples are shown above. Completed-project photographs are not supplied.' : 'Contact our team for product photos and suitable installation examples.'));
         $('[data-gallery-section]').hidden=!!product.placeholderOnly; $('[data-nav-gallery]').hidden=!!product.placeholderOnly;
         $('[data-motorized-section]').hidden=product.id!=='motorized';
         const related=$('[data-motorized-links]');related.replaceChildren();
         for(const [label,id] of [['Roller Blinds','roller'],['Venetian Blinds','venetian'],['Ziptrak Outdoor Blinds','ziptrak-outdoor']]){const a=node('a','',label+' →');a.href=`product-details.html?product=${id}`;related.append(a);}
         if(activeOption)chooseOption(activeOption);
-        if(activeSeries && !isHoneycomb())chooseSeries(activeSeries);
+        if (isVenetian()) {
+            const collections = venetianCollections[activeOption] || [];
+            activeSeries = collections.find(collection => collection.id === seriesName || collection.name === seriesName) || activeSeries;
+            activeColour = seriesColours(activeSeries).find(fabric => [colourCode(fabric), fabric.code].includes(requestedColour)) || seriesColours(activeSeries)[0] || null;
+            renderReferences();
+        }
+        if(activeSeries && !isHoneycomb() && !isVenetian())chooseSeries(activeSeries);
         if (usesCatalogue(product) && requestedColour) {
             activeColour = seriesColours(activeSeries).find(fabric => [colourCode(fabric), fabric.code].includes(requestedColour)) || activeColour;
             renderFabricConfigurator();
@@ -744,7 +780,7 @@
         const phone=form.elements.phone;const digits=phone.value.replace(/\D/g,'');if(!/^[+\d\s().-]+$/.test(phone.value)||digits.length<7||digits.length>16)phone.setCustomValidity('Enter a phone number containing 7 to 16 digits.');
         if(!form.reportValidity()||!activeProduct)return;
         const f=new FormData(form);const lines=['BlindsXpert product enquiry','',`Product: ${activeProduct.name}`];
-        if(activeOption)lines.push(`${activeProduct.id === 'roller' ? 'Variant' : activeProduct.optionLabel || 'Option'}: ${activeOption}`);
+        if(activeOption)lines.push(`${isVenetian() ? 'Type' : activeProduct.id === 'roller' ? 'Variant' : activeProduct.optionLabel || 'Option'}: ${activeOption}`);
         const screen = selectedScreen();
         if (screen?.mesh) lines.push('Mesh / material: '+screen.mesh);
         if (screen?.finish) lines.push('Colour / finish: '+screen.finish);
@@ -755,7 +791,7 @@
         if (isHoneycomb()) {
             lines.push('Cell Size: '+activeCellSize, 'Collection: '+activeSeries.name);
             if (selectedFabricType()?.name) lines.push('Fabric Type: '+selectedFabricType().name);
-        } else if(activeSeries)lines.push('Fabric series: '+activeSeries.name);
+        } else if(activeSeries)lines.push((isVenetian() ? (activeOption === 'Lantex' ? 'Series: ' : 'Collection: ') : 'Fabric series: ')+activeSeries.name);
         if (usesCatalogue(activeProduct) && catalogue(activeProduct).variants && !linkedVariant(activeProduct) && activeFabricVariant) lines.push('Fabric type: '+activeFabricVariant);
         if (usesCatalogue(activeProduct) && catalogue(activeProduct).variants && activeSeries?.variant == null) lines.push('Fabric classification: Pending supplier confirmation');
         if(activeColour)lines.push('Colour: '+[colourCode(activeColour), activeColour.colourName].filter(Boolean).join(' · '));

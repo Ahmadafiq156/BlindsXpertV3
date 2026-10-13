@@ -1,12 +1,15 @@
 // Temporary demonstration values only. Replace with verified BlindsXpert sales figures before public release.
 // Set enabled:false to hide sold badges. demo:false uses verifiedCounts only.
 // Rating values are mockup placeholders, not verified review scores.
+// Local design preview: Insect Screen/Tinted 100+ Sold and 5.0 are unverified placeholders.
+// Set allowDemoBadges:false before publication to display verified values only, even if demo flags remain true.
 window.BLINDSXPERT_SALES_COUNTS = {
   "enabled": true,
+  "allowDemoBadges": true,
   "demo": true,
   "demoCounts": {
-    "insect-screen": null,
-    "tinted": null,
+    "insect-screen": "100+",
+    "tinted": "100+",
     "zebra": "1.5K+",
     "roller": "1K+",
     "roller-logo-printing": "500+",

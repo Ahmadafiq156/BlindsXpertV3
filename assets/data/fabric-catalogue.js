@@ -1132,7 +1132,7 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
           {
             "code": "VENUS 01",
             "displayCode": "VENUS 01",
-            "colourName": "WHITE TALE",
+            "colourName": "White Talc",
             "swatchHex": "#DAE0E4",
             "closeUpImage": null,
             "source": {
