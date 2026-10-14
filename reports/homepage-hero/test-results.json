@@ -1,0 +1,68 @@
+{
+  "widths": [
+    {
+      "width": 320,
+      "slides": 3,
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "slides": 3,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "slides": 3,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "slides": 3,
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "slides": 3,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "slides": 3,
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "slides": 3,
+      "overflow": false
+    },
+    {
+      "width": 1366,
+      "slides": 3,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "slides": 3,
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "slides": 3,
+      "overflow": false
+    }
+  ],
+  "errors": [],
+  "heroRequests": [
+    "http://127.0.0.1:62742/assets/img/homepage/hero/Golden%20Hour%20Modern%20Terrace%20Retreat-1280.webp",
+    "http://127.0.0.1:62742/assets/img/homepage/hero/Golden-Hour%20Modern%20Patio%20Retreat-1280.webp",
+    "http://127.0.0.1:62742/assets/img/homepage/hero/Sunlit%20Living%20Room%20with%20City%20Views-1280.webp",
+    "http://127.0.0.1:62742/assets/img/homepage/hero/Golden%20Hour%20Modern%20Terrace%20Retreat-1672.webp",
+    "http://127.0.0.1:62742/assets/img/homepage/hero/Golden-Hour%20Modern%20Patio%20Retreat-1672.webp",
+    "http://127.0.0.1:62742/assets/img/homepage/hero/Sunlit%20Living%20Room%20with%20City%20Views-1672.webp"
+  ],
+  "deferredLoading": true,
+  "keyboard": true,
+  "autoplay": true,
+  "swipe": true,
+  "passed": true
+}

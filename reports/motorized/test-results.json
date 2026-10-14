@@ -1,0 +1,165 @@
+{
+  "widths": [
+    {
+      "width": 320,
+      "overflow": false,
+      "videoRatio": "16:9"
+    },
+    {
+      "width": 360,
+      "overflow": false,
+      "videoRatio": "16:9"
+    },
+    {
+      "width": 375,
+      "overflow": false,
+      "videoRatio": "16:9"
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "videoRatio": "16:9"
+    },
+    {
+      "width": 430,
+      "overflow": false,
+      "videoRatio": "16:9"
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "videoRatio": "16:9"
+    },
+    {
+      "width": 1024,
+      "overflow": false,
+      "videoRatio": "16:9"
+    },
+    {
+      "width": 1366,
+      "overflow": false,
+      "videoRatio": "16:9"
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "videoRatio": "16:9"
+    },
+    {
+      "width": 1920,
+      "overflow": false,
+      "videoRatio": "16:9"
+    }
+  ],
+  "videos": [
+    {
+      "src": "assets/video/motorized/motorized-demo-01.mp4",
+      "duration": 99.706485,
+      "width": 1280,
+      "height": 720,
+      "controls": true,
+      "playsInline": true,
+      "autoplay": false
+    },
+    {
+      "src": "assets/video/motorized/motorized-demo-02.mp4",
+      "duration": 207.92,
+      "width": 1920,
+      "height": 1080,
+      "controls": true,
+      "playsInline": true,
+      "autoplay": false
+    },
+    {
+      "src": "assets/video/motorized/motorized-demo-03.mp4",
+      "duration": 50.619501,
+      "width": 1280,
+      "height": 720,
+      "controls": true,
+      "playsInline": true,
+      "autoplay": false
+    },
+    {
+      "src": "assets/video/motorized/motorized-demo-04.mp4",
+      "duration": 45.418646,
+      "width": 1920,
+      "height": 1080,
+      "controls": true,
+      "playsInline": true,
+      "autoplay": false
+    },
+    {
+      "src": "assets/video/motorized/motorized-demo-05.mp4",
+      "duration": 31.323719,
+      "width": 848,
+      "height": 480,
+      "controls": true,
+      "playsInline": true,
+      "autoplay": false
+    },
+    {
+      "src": "assets/video/motorized/motorized-demo-06.mp4",
+      "duration": 33.808254,
+      "width": 848,
+      "height": 480,
+      "controls": true,
+      "playsInline": true,
+      "autoplay": false
+    },
+    {
+      "src": "assets/video/motorized/motorized-demo-07.mp4",
+      "duration": 17.623946,
+      "width": 638,
+      "height": 360,
+      "controls": true,
+      "playsInline": true,
+      "autoplay": false
+    }
+  ],
+  "enquiries": [
+    {
+      "id": "roller",
+      "text": "BlindsXpert product enquiry\n\nProduct: Motorized Blinds\nPreferred System: Motorized Roller Blinds\nApproximate Window Dimensions: 180 × 210 cm\nInstallation Location: Living room\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test area\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "id": "zebra",
+      "text": "BlindsXpert product enquiry\n\nProduct: Motorized Blinds\nPreferred System: Motorized Zebra Blinds\nApproximate Window Dimensions: 180 × 210 cm\nInstallation Location: Living room\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test area\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "id": "ziptrak-outdoor",
+      "text": "BlindsXpert product enquiry\n\nProduct: Motorized Blinds\nPreferred System: Ziptrak Motorized Outdoor Blinds\nApproximate Window Dimensions: 180 × 210 cm\nInstallation Location: Living room\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test area\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    }
+  ],
+  "errors": [],
+  "mediaRequests": [
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-01.mp4",
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-01.mp4",
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-02.mp4",
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-02.mp4",
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-02.mp4",
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-03.mp4",
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-03.mp4",
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-04.mp4",
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-04.mp4",
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-04.mp4",
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-05.mp4",
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-05.mp4",
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-06.mp4",
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-06.mp4",
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-07.mp4",
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-07.mp4",
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-01.mp4",
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-01.mp4",
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-02.mp4",
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-03.mp4",
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-03.mp4",
+    "http://127.0.0.1:52542/assets/video/motorized/motorized-demo-01.mp4"
+  ],
+  "initialMediaRequests": 1,
+  "noPreference": true,
+  "productReset": true,
+  "errorRecovery": true,
+  "regression": true,
+  "touch": true,
+  "passed": true
+}

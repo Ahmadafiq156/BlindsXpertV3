@@ -1,0 +1,301 @@
+{
+  "widths": [
+    {
+      "width": 320,
+      "groups": 7,
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "groups": 7,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "groups": 7,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "groups": 7,
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "groups": 7,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "groups": 7,
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "groups": 7,
+      "overflow": false
+    },
+    {
+      "width": 1366,
+      "groups": 7,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "groups": 7,
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "groups": 7,
+      "overflow": false
+    }
+  ],
+  "colours": [
+    {
+      "group": "38mm|fc-38|fc",
+      "code": "FC-31",
+      "path": "assets/img/products/honeycomb-blinds/fc-38/fc/FC-31.jpg.jpeg"
+    },
+    {
+      "group": "38mm|fc-38|fc",
+      "code": "FC-20",
+      "path": "assets/img/products/honeycomb-blinds/fc-38/fc/FC-20.jpg.jpeg"
+    },
+    {
+      "group": "38mm|fc-38|fc",
+      "code": "FC-28",
+      "path": "assets/img/products/honeycomb-blinds/fc-38/fc/FC-28.jpg.jpeg"
+    },
+    {
+      "group": "38mm|fc-38|fc",
+      "code": "FC-24",
+      "path": "assets/img/products/honeycomb-blinds/fc-38/fc/FC-24.jpg.jpeg"
+    },
+    {
+      "group": "38mm|fc-38|fc",
+      "code": "FC-27",
+      "path": "assets/img/products/honeycomb-blinds/fc-38/fc/FC-27.jpg.jpeg"
+    },
+    {
+      "group": "38mm|fc-38|fc",
+      "code": "FC-32",
+      "path": "assets/img/products/honeycomb-blinds/fc-38/fc/FC-32.jpg.jpeg"
+    },
+    {
+      "group": "38mm|fc-38|fc",
+      "code": "FC-23",
+      "path": "assets/img/products/honeycomb-blinds/fc-38/fc/FC-23.jpg.jpeg"
+    },
+    {
+      "group": "38mm|fc-38|fc",
+      "code": "FC-19",
+      "path": "assets/img/products/honeycomb-blinds/fc-38/fc/FC-19.jpg.jpeg"
+    },
+    {
+      "group": "25mm|fc-25|fc",
+      "code": "FC-10",
+      "path": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-10.jpg.jpeg"
+    },
+    {
+      "group": "25mm|fc-25|fc",
+      "code": "FC-12",
+      "path": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-12.jpg.jpeg"
+    },
+    {
+      "group": "25mm|fc-25|fc",
+      "code": "FC-15",
+      "path": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-15.jpg.jpeg"
+    },
+    {
+      "group": "25mm|fc-25|fc",
+      "code": "FC-11",
+      "path": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-11.jpg.jpeg"
+    },
+    {
+      "group": "25mm|fc-25|fc",
+      "code": "FC-06",
+      "path": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-06.jpg.jpeg"
+    },
+    {
+      "group": "25mm|fc-25|fc",
+      "code": "FC-16",
+      "path": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-16.jpg.jpeg"
+    },
+    {
+      "group": "25mm|fc-25|fc",
+      "code": "FC-03",
+      "path": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-03.jpg.jpeg"
+    },
+    {
+      "group": "25mm|fc-25|fc",
+      "code": "FC-01",
+      "path": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-01.jpg.jpeg"
+    },
+    {
+      "group": "25mm|fc-25|fc",
+      "code": "FC-07",
+      "path": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-07.jpg.jpeg"
+    },
+    {
+      "group": "25mm|fc-25|fc",
+      "code": "FC-09",
+      "path": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-09.jpg.jpeg"
+    },
+    {
+      "group": "25mm|fc-25|fc",
+      "code": "FC-04",
+      "path": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-04.jpg.jpeg"
+    },
+    {
+      "group": "25mm|fc-25|fc",
+      "code": "FC-05",
+      "path": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-05.jpg.jpeg"
+    },
+    {
+      "group": "25mm|fc-25|fc",
+      "code": "FC-08",
+      "path": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-08.jpg.jpeg"
+    },
+    {
+      "group": "25mm|fc-25|fc",
+      "code": "FC-02",
+      "path": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-02.jpg.jpeg"
+    },
+    {
+      "group": "26mm|honeycomb-26|blackout",
+      "code": "SF-012",
+      "path": "assets/img/products/honeycomb-blinds/honeycomb-26/blackout/SF-012.jpg.jpeg"
+    },
+    {
+      "group": "26mm|honeycomb-26|blackout",
+      "code": "SF-014",
+      "path": "assets/img/products/honeycomb-blinds/honeycomb-26/blackout/SF-014.jpg.jpeg"
+    },
+    {
+      "group": "26mm|honeycomb-26|blackout",
+      "code": "SF-002",
+      "path": "assets/img/products/honeycomb-blinds/honeycomb-26/blackout/SF-002.jpg.jpeg"
+    },
+    {
+      "group": "26mm|honeycomb-26|blackout",
+      "code": "SF-001",
+      "path": "assets/img/products/honeycomb-blinds/honeycomb-26/blackout/SF-001.jpg.jpeg"
+    },
+    {
+      "group": "26mm|honeycomb-26|blackout",
+      "code": "SF-003",
+      "path": "assets/img/products/honeycomb-blinds/honeycomb-26/blackout/SF-003.jpg.jpeg"
+    },
+    {
+      "group": "26mm|honeycomb-26|blackout",
+      "code": "SF-010",
+      "path": "assets/img/products/honeycomb-blinds/honeycomb-26/blackout/SF-010.jpg.jpeg"
+    },
+    {
+      "group": "26mm|honeycomb-26|blackout",
+      "code": "SF-006",
+      "path": "assets/img/products/honeycomb-blinds/honeycomb-26/blackout/SF-006.jpg.jpeg"
+    },
+    {
+      "group": "26mm|honeycomb-26|semi-blackout",
+      "code": "S-006",
+      "path": "assets/img/products/honeycomb-blinds/honeycomb-26/semi-blackout/S-006.jpg.jpeg"
+    },
+    {
+      "group": "26mm|honeycomb-26|semi-blackout",
+      "code": "S-002",
+      "path": "assets/img/products/honeycomb-blinds/honeycomb-26/semi-blackout/S-002.jpg.jpeg"
+    },
+    {
+      "group": "26mm|honeycomb-26|semi-blackout",
+      "code": "S-001",
+      "path": "assets/img/products/honeycomb-blinds/honeycomb-26/semi-blackout/S-001.jpg.jpeg"
+    },
+    {
+      "group": "38mm|honeycomb-38|semi-blackout",
+      "code": "SF-010",
+      "path": "assets/img/products/honeycomb-blinds/honeycomb-38/semi-blackout/SF-010 38.jpg.jpeg"
+    },
+    {
+      "group": "38mm|honeycomb-38|semi-blackout",
+      "code": "SF-001",
+      "path": "assets/img/products/honeycomb-blinds/honeycomb-38/semi-blackout/SF-001 38.jpg.jpeg"
+    },
+    {
+      "group": "38mm|honeycomb-38|semi-blackout",
+      "code": "SF-006",
+      "path": "assets/img/products/honeycomb-blinds/honeycomb-38/semi-blackout/SF-006 38.jpg.jpeg"
+    },
+    {
+      "group": "38mm|honeycomb-38|semi-blackout",
+      "code": "SF-012",
+      "path": "assets/img/products/honeycomb-blinds/honeycomb-38/semi-blackout/SF-012 38.jpg.jpeg"
+    },
+    {
+      "group": "38mm|honeycomb-38|semi-blackout",
+      "code": "SF-014",
+      "path": "assets/img/products/honeycomb-blinds/honeycomb-38/semi-blackout/SF-014 38.jpg.jpeg"
+    },
+    {
+      "group": "38mm|honeycomb-38|semi-blackout",
+      "code": "SF-002",
+      "path": "assets/img/products/honeycomb-blinds/honeycomb-38/semi-blackout/SF-002 38.jpg.jpeg"
+    },
+    {
+      "group": "38mm|honeycomb-38|semi-blackout",
+      "code": "S-001",
+      "path": "assets/img/products/honeycomb-blinds/honeycomb-38/semi-blackout/S-001 38.jpg.jpeg"
+    },
+    {
+      "group": "26mm|honeycomb-26|mesh-sunscreen",
+      "code": "W-001",
+      "path": "assets/img/products/honeycomb-blinds/honeycomb-26/mesh-sunscreen/W-001.jpg.jpeg"
+    },
+    {
+      "group": "26mm|honeycomb-26|mesh-sunscreen",
+      "code": "W-002",
+      "path": "assets/img/products/honeycomb-blinds/honeycomb-26/mesh-sunscreen/W-002.jpg.jpeg"
+    },
+    {
+      "group": "38mm|honeycomb-38|mesh-sunscreen",
+      "code": "W-001",
+      "path": "assets/img/products/honeycomb-blinds/honeycomb-38/mesh-sunscreen/W-001 38.jpg.jpeg"
+    }
+  ],
+  "errors": [],
+  "enquiries": [
+    {
+      "group": "38mm|fc-38|fc",
+      "message": "BlindsXpert product enquiry\n\nProduct: Honeycomb Blinds\nCell Size: 38mm\nCollection: FC Honeycomb\nColour: FC-19\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test area\nEmail: test@example.com\nSite visit: No\nMessage: Test message"
+    },
+    {
+      "group": "25mm|fc-25|fc",
+      "message": "BlindsXpert product enquiry\n\nProduct: Honeycomb Blinds\nCell Size: 25mm\nCollection: FC Honeycomb\nColour: FC-02\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test area\nEmail: test@example.com\nSite visit: No\nMessage: Test message"
+    },
+    {
+      "group": "26mm|honeycomb-26|blackout",
+      "message": "BlindsXpert product enquiry\n\nProduct: Honeycomb Blinds\nCell Size: 26mm\nCollection: Honeycomb-26\nFabric Type: Blackout\nColour: SF-006\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test area\nEmail: test@example.com\nSite visit: No\nMessage: Test message"
+    },
+    {
+      "group": "26mm|honeycomb-26|semi-blackout",
+      "message": "BlindsXpert product enquiry\n\nProduct: Honeycomb Blinds\nCell Size: 26mm\nCollection: Honeycomb-26\nFabric Type: Semi-Blackout\nColour: S-001\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test area\nEmail: test@example.com\nSite visit: No\nMessage: Test message"
+    },
+    {
+      "group": "38mm|honeycomb-38|semi-blackout",
+      "message": "BlindsXpert product enquiry\n\nProduct: Honeycomb Blinds\nCell Size: 38mm\nCollection: Honeycomb-38\nFabric Type: Semi-Blackout\nColour: S-001\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test area\nEmail: test@example.com\nSite visit: No\nMessage: Test message"
+    },
+    {
+      "group": "26mm|honeycomb-26|mesh-sunscreen",
+      "message": "BlindsXpert product enquiry\n\nProduct: Honeycomb Blinds\nCell Size: 26mm\nCollection: Honeycomb-26\nFabric Type: Mesh / Sunscreen\nColour: W-002\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test area\nEmail: test@example.com\nSite visit: No\nMessage: Test message"
+    },
+    {
+      "group": "38mm|honeycomb-38|mesh-sunscreen",
+      "message": "BlindsXpert product enquiry\n\nProduct: Honeycomb Blinds\nCell Size: 38mm\nCollection: Honeycomb-38\nFabric Type: Mesh / Sunscreen\nColour: W-001\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test area\nEmail: test@example.com\nSite visit: No\nMessage: Test message"
+    }
+  ],
+  "hiddenUrl": true,
+  "touch": true,
+  "otherProducts": true,
+  "passed": true
+}

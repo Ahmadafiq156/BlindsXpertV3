@@ -906,3 +906,249 @@ The internal `tinted` ID and `product-details.html?product=tinted` route remain 
 `assets/data/other-product-details.js` now has a separate `tinted.gallery` containing the three original TINTED.zip images: `DBK 50 USA.png`, `IR-60 BLUE USA.png`, and `UV400 6590.png`. Copies retain their original filenames under `assets/img/products/tinted/gallery/`. The Choose Window Film section renders only this static gallery with the existing shared lightbox. The 29-film `films` dataset and all original sample images remain preserved for future use. No film is selected by default or required for enquiry; stale film URL parameters are cleared. Do not re-enable film selection by assigning a default film unless the product flow is intentionally changed.
 
 Venus code `VENUS 01` in the shared Roller fabric catalogue now has the display name **White Talc**, used by Roller, Panel, Vertical and Roman. Its source filename contains the historical spelling WHITE TALE and remains unchanged as provenance. Code, source image, enhanced image, HEX and variant relationships remain intact.
+
+## Honeycomb colour photographs (14 October 2026)
+
+This section supersedes the Honeycomb placeholder and 44 visible colours described above. All five root-level archives were inspected before website edits. They contain flat archive entries, JPEG photographs only, and no collection metadata or additional supplier sheets. Filename size suffixes and the existing supplier catalogue establish each full collection + cell size + fabric type + code mapping. FC size membership comes from the existing supplier records. Unsuffixed S/SF/W files map to Honeycomb-26; ` 38` suffixed files map to Honeycomb-38. Archive order never determines selector order.
+
+| Archive | Images |
+| --- | ---: |
+| `Honeycomb_Enhanced_SmallPart_01.zip` | 6 |
+| `Honeycomb_Enhanced_SmallPart_02.zip` | 8 |
+| `Honeycomb_Enhanced_SmallPart_03.zip` | 8 |
+| `Honeycomb_Enhanced_SmallPart_04.zip` | 10 |
+| `Honeycomb_Enhanced_SmallPart_05.zip` | 10 |
+
+42 images, 42 unique SHA-256 hashes, 42 mapped colours. No duplicate images, unmatched files, or new colour records. Repeated S/SF/W code strings are independent images in separate size/type folders. FC-13 and FC-14 (FC Honeycomb 25mm) lack uploaded photographs: their original catalogue records and original swatches remain intact but are filtered out of the runtime selector, including URL selection.
+
+| Collection | Size | Fabric type | Visible colours |
+| --- | --- | --- | ---: |
+| fc-25 | 25mm | fc | 14 |
+| fc-38 | 38mm | fc | 8 |
+| honeycomb-26 | 26mm | blackout | 7 |
+| honeycomb-26 | 26mm | mesh-sunscreen | 2 |
+| honeycomb-26 | 26mm | semi-blackout | 3 |
+| honeycomb-38 | 38mm | mesh-sunscreen | 1 |
+| honeycomb-38 | 38mm | semi-blackout | 7 |
+
+The existing supplier classification caveats remain: Honeycomb-38 S/SF codes retain the printed Semi-Blackout grouping provisionally, with the existing customer notice and provenance preserved. FC has no verified printed fabric-type name; none is invented. The older FC 38mm supplier sheet header conflict is still recorded above. These photographs do not independently certify fabric classification.
+
+Assets retain their exact original filenames under `assets/img/products/honeycomb-blinds/<collection-id>/<type-id>/`. All paths are relative and preserve casing and spaces. The main gallery and all other product assets remain unchanged. `closeUpImage` and the approximate photographic `swatchHex` are set on matching supplier records; `imageSource` retains archive entry, SHA-256 and sampled region alongside the original supplier `source`. `honeycombCatalogue` in `assets/js/product-details.js` derives an image-backed view without deleting supplier records. Keep this filter if additional images are added.
+
+Every photo was visually inspected on the contact sheet. Swatches use median RGB from an inner, moderately lit fabric pleat, excluding outer edges, deep fold shadows and brightest reflections. Photos are approximations affected by lighting, not certified physical colour matches. The retained red selected border and outlined swatch chips keep labels and light colours visible. The shared square preview remains capped at 360px with `object-fit:contain`; Honeycomb photos now open the shared image viewer by click/tap or Enter/Space. Size, collection and type changes use the existing state reset, specifications and enquiry paths.
+
+### Complete colour/image/HEX mapping
+
+| Collection | Size | Type | Code | Original image | Archive part | HEX |
+| --- | --- | --- | --- | --- | --- | --- |
+| fc-25 | 25mm | fc | FC-01 | `FC-01.jpg.jpeg` | 04 | `#B6B7B5` |
+| fc-25 | 25mm | fc | FC-02 | `FC-02.jpg.jpeg` | 05 | `#BFC1BF` |
+| fc-25 | 25mm | fc | FC-03 | `FC-03.jpg.jpeg` | 04 | `#B9BAB3` |
+| fc-25 | 25mm | fc | FC-04 | `FC-04.jpg.jpeg` | 05 | `#B9B8B2` |
+| fc-25 | 25mm | fc | FC-05 | `FC-05.jpg.jpeg` | 05 | `#ADA691` |
+| fc-25 | 25mm | fc | FC-06 | `FC-06.jpg.jpeg` | 04 | `#A6A38E` |
+| fc-25 | 25mm | fc | FC-07 | `FC-07.jpg.jpeg` | 05 | `#A3A9A9` |
+| fc-25 | 25mm | fc | FC-08 | `FC-08.jpg.jpeg` | 05 | `#A2A6A1` |
+| fc-25 | 25mm | fc | FC-09 | `FC-09.jpg.jpeg` | 05 | `#7D7D77` |
+| fc-25 | 25mm | fc | FC-10 | `FC-10.jpg.jpeg` | 01 | `#919392` |
+| fc-25 | 25mm | fc | FC-11 | `FC-11.jpg.jpeg` | 03 | `#8D8778` |
+| fc-25 | 25mm | fc | FC-12 | `FC-12.jpg.jpeg` | 02 | `#9B9283` |
+| fc-25 | 25mm | fc | FC-15 | `FC-15.jpg.jpeg` | 02 | `#979AA0` |
+| fc-25 | 25mm | fc | FC-16 | `FC-16.jpg.jpeg` | 04 | `#64645F` |
+| fc-38 | 38mm | fc | FC-19 | `FC-19.jpg.jpeg` | 05 | `#AFB1B0` |
+| fc-38 | 38mm | fc | FC-20 | `FC-20.jpg.jpeg` | 01 | `#7C7C76` |
+| fc-38 | 38mm | fc | FC-23 | `FC-23.jpg.jpeg` | 04 | `#B2B2AC` |
+| fc-38 | 38mm | fc | FC-24 | `FC-24.jpg.jpeg` | 02 | `#B5B5AB` |
+| fc-38 | 38mm | fc | FC-27 | `FC-27.jpg.jpeg` | 03 | `#9E9E98` |
+| fc-38 | 38mm | fc | FC-28 | `FC-28.jpg.jpeg` | 02 | `#A3A5A0` |
+| fc-38 | 38mm | fc | FC-31 | `FC-31.jpg.jpeg` | 01 | `#7E817D` |
+| fc-38 | 38mm | fc | FC-32 | `FC-32.jpg.jpeg` | 03 | `#818785` |
+| honeycomb-26 | 26mm | blackout | SF-001 | `SF-001.jpg.jpeg` | 03 | `#A9ADAF` |
+| honeycomb-26 | 26mm | blackout | SF-002 | `SF-002.jpg.jpeg` | 03 | `#A9A9A0` |
+| honeycomb-26 | 26mm | blackout | SF-003 | `SF-003.jpg.jpeg` | 03 | `#A8A392` |
+| honeycomb-26 | 26mm | blackout | SF-006 | `SF-006.jpg.jpeg` | 03 | `#94A5AD` |
+| honeycomb-26 | 26mm | blackout | SF-010 | `SF-010.jpg.jpeg` | 03 | `#8B7760` |
+| honeycomb-26 | 26mm | blackout | SF-012 | `SF-012.jpg.jpeg` | 01 | `#92999A` |
+| honeycomb-26 | 26mm | blackout | SF-014 | `SF-014.jpg.jpeg` | 01 | `#718395` |
+| honeycomb-26 | 26mm | mesh-sunscreen | W-001 | `W-001.jpg.jpeg` | 04 | `#A3A4A0` |
+| honeycomb-26 | 26mm | mesh-sunscreen | W-002 | `W-002.jpg.jpeg` | 05 | `#A1A39A` |
+| honeycomb-26 | 26mm | semi-blackout | S-001 | `S-001.jpg.jpeg` | 04 | `#ABADAA` |
+| honeycomb-26 | 26mm | semi-blackout | S-002 | `S-002.jpg.jpeg` | 04 | `#9EA195` |
+| honeycomb-26 | 26mm | semi-blackout | S-006 | `S-006.jpg.jpeg` | 01 | `#879394` |
+| honeycomb-38 | 38mm | mesh-sunscreen | W-001 | `W-001 38.jpg.jpeg` | 05 | `#A7A8A3` |
+| honeycomb-38 | 38mm | semi-blackout | S-001 | `S-001 38.jpg.jpeg` | 05 | `#BABBBE` |
+| honeycomb-38 | 38mm | semi-blackout | SF-001 | `SF-001 38.jpg.jpeg` | 02 | `#B7B8B9` |
+| honeycomb-38 | 38mm | semi-blackout | SF-002 | `SF-002 38.jpg.jpeg` | 04 | `#ABABA1` |
+| honeycomb-38 | 38mm | semi-blackout | SF-006 | `SF-006 38.jpg.jpeg` | 02 | `#8C9BA0` |
+| honeycomb-38 | 38mm | semi-blackout | SF-010 | `SF-010 38.jpg.jpeg` | 02 | `#6F5C46` |
+| honeycomb-38 | 38mm | semi-blackout | SF-012 | `SF-012 38.jpg.jpeg` | 02 | `#858D8B` |
+| honeycomb-38 | 38mm | semi-blackout | SF-014 | `SF-014 38.jpg.jpeg` | 04 | `#6A7D8E` |
+
+### Audit and validation
+
+`reports/honeycomb/inventory.json` is the complete machine-readable inventory, including dimensions, bytes, hashes, exact archive entries, full mappings, asset paths and updated HEX values. `reports/honeycomb/contact-sheet.jpg` shows every uploaded photograph. `reports/honeycomb/test.cjs` runs the local browser checks and writes `test-results.json`; mobile and desktop screenshots are retained beside it. No ZIP files are rendered as galleries. No staging, commit, push or deployment is performed.
+
+
+### Validation results and changed files
+
+- Inspected all five archives: counts 6, 8, 8, 10 and 10. All 42 original images are unique and every extracted file matches its archive SHA-256.
+- Edge browser checks cover all seven size/collection/type combinations at 320, 360, 375, 390, 430, 768, 1024, 1366, 1440 and 1920px: correct colour counts, preview maximum width and no horizontal overflow.
+- All 42 colour selections load their exact mapped photograph without broken-image or JavaScript errors. Each of seven enquiry drafts contains the selected size, collection, applicable fabric type and code, plus name, phone, address, email, site visit and customer message. Tests intercept the draft URL; no WhatsApp message is sent.
+- Keyboard Enter opens the shared viewer and Escape closes it. Touch selects a 26mm colour. Invalid FC-13 links fall back to an image-backed colour; both missing FC codes are absent from the selector.
+- Other-product smoke checks load Roller, Zebra, Dream and Venetian pages. A separate data comparison confirms every non-Honeycomb catalogue record is unchanged and all original Honeycomb codes, supplier metadata and specifications are preserved.
+- JavaScript syntax checks and `git diff --check` pass. Mobile and desktop screenshots were reviewed.
+- Modified: `assets/data/fabric-catalogue.js`, `assets/js/product-details.js`, `WEBSITE-MAINTENANCE.md`.
+- Added: 42 photographs under `assets/img/products/honeycomb-blinds/`, plus inventory, contact sheet, browser results, screenshots, verification scripts and report under `reports/honeycomb/`.
+- Existing Honeycomb-38 Semi-Blackout supplier classification remains provisional. No unmatched image mappings remain. No staging, commit, push or deployment.
+## Shared quotation-led Product Details layout (14 October 2026)
+
+Applies only to `skylight`, `curtain-hardware` and `awning-canopy`. Their prior Specifications section repeated product names and available options without technical data; it is replaced with Explore Available Options, Where It Can Be Used, supplied Photos & Examples and Get a Custom Quotation. Empty fabric controls and specifications navigation are hidden. Existing product descriptions, main galleries/thumbnails, highlights, source records, catalogue link, header/footer and upper WhatsApp CTA remain intact. No Homepage, Products catalogue or product-data records/assets are changed.
+
+### Content and provenance
+
+| Product | Available options | Applications | Supplied example photos |
+| --- | --- | --- | --- |
+| Skylight Blinds | General overview; no verified individual options | Glass roofs; inclined windows | Fabric shades beneath a glass roof (1) |
+| Curtain Hardware | Curtain rail; Curtain rod | Home interiors; office interiors | Packaged rods; finial details; bundled rods (3) |
+| Awnings & Canopies | General overview; no verified individual options | Patios; outdoor areas; outdoor entrances | Purple entrance canopy (1) |
+
+Options come directly from each product's original `options` array. Curtain rails retain their existing name; tracks/accessories are not invented or substituted. Skylight applications come from its description; Curtain Hardware applications from `suitableFor: Home, Office`; awning patios/outdoor areas from `suitableFor`, and outdoor entrances from the supplied entrance canopy photograph. Manual/motorized skylight systems, retractable/fixed awning categories, ratings, pricing, material specifications and warranty terms require supplier confirmation and are not added. Existing illustrative hero photographs are retained without being used as proof of a specific operating mechanism or category.
+
+Exact supplied photographs (existing filenames and files preserved):
+
+- `assets/img/products/catalogue-reference/skylight-blinds-fabric-shades-glass-roof.png`
+- `assets/img/products/catalogue-reference/awning-purple-salon-entrance-canopy.png`
+- `assets/img/products/generated/web/curtain-rods-packaged-stock.png`
+- `assets/img/products/generated/web/curtain-rod-finial-details.png`
+- `assets/img/products/generated/web/curtain-rods-bundled-stock.png`
+
+The three Curtain Hardware PNG files are existing supplied product photographs despite their historical folder name. Existing illustrative example images remain in source data but are omitted from these pages' Photos & Examples sections. No images are created, replaced, renamed, duplicated or removed from the main galleries. Five supplied photos use consistent square contain-fit frames, relative GitHub Pages-compatible paths, original descriptive alt text/captions and the shared viewer. A single photo is displayed once in a maximum 440px column; if no configured example matches the gallery, both the section and its navigation link are hidden.
+
+### Implementation and enquiries
+
+`assets/data/quotation-product-details.js` defines the three page-specific overviews, descriptions, application cards, exact approved photo paths and optional installation fields. `product-details.html` loads it before the shared controller. `renderQuotationOptions` and `renderQuotationContent` in `assets/js/product-details.js` render shared components. `quotationDetails` gates every change to these three IDs. The scoped CSS in `assets/css/product-details.css` uses existing colours, typography, containers and radii; informational application cards are non-interactive. Curtain option buttons show pressed states and support native keyboard/touch selection through `chooseOption`, synchronizing the original option image, URL, enquiry summary and WhatsApp draft.
+
+Optional enquiry fields:
+
+- Skylight: installation location; approximate window dimensions.
+- Curtain Hardware: approximate installation length; quantity. Hardware type comes from the existing rod/rail selection.
+- Awnings & Canopies: installation area; approximate covering dimensions.
+
+No new field is required. A supplied quantity must be a positive whole number. Dimensions are free text with units; no limits are invented. All original Name, Phone, Address, Email, Site Visit and Message fields remain. Non-empty additional values are included only for the active product, alongside the original message generation. Switching products rebuilds/clears optional fields and restores the original enquiry heading, other configurators and navigation; changing rod/rail preserves typed installation details. The fieldset is hidden and disabled outside these three pages.
+
+### Adding verified information later
+
+Add supplier-verified technical values to the applicable product's `productSpecs` object in `assets/data/product-data.js`. Non-empty values appear in a compact Product Information panel within Explore Available Options; no generic Product-name table or missing-specification notice is emitted. Preserve source information and document its provenance. Add genuinely verified selectable options to the original `options` array and descriptions to `optionDescriptions`; keep any `optionImages` mapping compatible with existing main gallery photographs. Add approved photographs to the original gallery and explicitly list their paths in `photoPaths`. Do not infer product offerings from illustrative assets. Other products remain on their existing fabric/colour/specification rendering paths.
+
+### Validation
+
+All three pages passed at 320, 360, 375, 390, 430, 768, 1024, 1366, 1440 and 1920px, without horizontal overflow or cards exceeding the viewport. Browser checks verify original descriptions and main thumbnail counts, supported options, exact supplied photo paths, loaded images, hidden specifications/colour controls, optional fields, all original customer fields and correct product/option WhatsApp drafts. Draft URLs are intercepted: no message is sent. Keyboard Enter/Escape opens/closes the shared viewer; rod/rail buttons support Enter; mobile touch selects a rail and opens/closes its example photo. Switching the enquiry product back to Roller removes quotation fields/content and restores the original heading. Smoke checks passed for Roller, Zebra, Venetian, Honeycomb, Panel, Vertical, Roman and Dream. No JavaScript exceptions or failed local asset requests were recorded. JavaScript syntax and `git diff --check` pass. Final desktop/mobile screenshots are retained and reviewed.
+
+Audit files: `reports/quotation-layout/test.cjs`, `test-results.json`, `screenshots.cjs`, six screenshots and `report.md`. Prior Honeycomb changes are preserved. No staging, commit, push or deployment.
+
+## Motorized Blinds Product Details redesign (14 October 2026)
+
+The Motorized Product Details page now displays Motorized Blinds as its title, breadcrumb, enquiry product and document title. The central product record retains its original Motorized Solutions name, catalogue override, description, highlights and gallery: Home and Products are unchanged. The approved `motorizedblinds.png` upper image, contain sizing, thumbnail/lightbox behaviour and original description remain intact. Existing Photos & Examples retain Seri Kembangan and the office roller-blind photograph; no videos are mixed into that gallery. The earlier compatible-products section and product-name-only specification table are replaced, without duplicating visible sections. Original related Roller, Venetian and Ziptrak links and the Products motorized showcase link remain accessible.
+
+### Structure and verified solutions
+
+Section order: main information; Explore Motorized Solutions; Motor Systems & Brands; How Motorized Blinds Work; Watch Motorized Blinds in Action; Suitable Applications; original Photos & Examples; Get a Custom Quotation. The new content renders only for `product=motorized`. `assets/js/motorized-details.js` exports the dedicated controller; `assets/js/product-details.js` supplies shared DOM/image-viewer utilities, selection updates and enquiry formatting. `product-details.html` loads the new controller before product-details.js. Styles use existing typography, containers and red-and-white colours under unique motorized classes, with compact cards, responsive grids and no external libraries.
+
+Selectable enquiry systems:
+
+- Motorized Roller Blinds: existing official-site-derived motorized roller description in products.html, approved root image, supplied office roller image and videos 01/02. The existing root illustration is reused on its card.
+- Motorized Zebra Blinds: video 07 visibly shows zebra blinds and a handheld control. No unverified motor brand or extra capabilities are inferred.
+- Ziptrak Motorized Outdoor Blinds: existing Ziptrak product description/highlight explicitly lists motorized options, conditional on compatible combinations. Outdoor demonstration videos 05/06 are not identified as Ziptrak merely from appearance.
+
+Venetian and vertical demonstrations are labelled by visible blind type, without claiming a particular model/brand or adding them as purchasable system selections. No decorative selector is added for unverified systems. Suitable Applications uses Home and Office from the unchanged motorized product suitableFor data. Four informational cards describe handheld controls observed in assets, system-dependent blind movement, position-based light/privacy adjustment and discussing dimensions/location for installation. No universal app, Wi-Fi, voice, scheduling, solar, performance, warranty or power claims are added.
+
+### Original brand asset inventory
+
+| Original filename | Relative path | Content | Bytes |
+| --- | --- | --- | ---: |
+| `motorized brand (1).png` | `assets/img/products/motorized/brands/motorized brand (1).png` | Window covering and motorization brand sheet | 234680 |
+| `motorized brand (1).jpg` | `assets/img/products/motorized/brands/motorized brand (1).jpg` | Somfy motor and remote poster | 45554 |
+| `motorized brand (2).png` | `assets/img/products/motorized/brands/motorized brand (2).png` | Somfy motorization products poster | 28020 |
+
+The first image is a mixed fabric/window covering/motorization brand sheet (ATEJA, novo, MEHLER, Nice, PHIFER, Glen Raven, WINTEC, Dickson, Somfy and Serge Ferrari), not a claim that all those companies supply motors for these systems. The two other images are Somfy promotional posters. Dooya remains mentioned in the original catalogue-backed description; no Dooya image or selector is fabricated. Brand cards show the complete images with contain sizing and shared full-size viewing. Percent-encoded paths preserve the original filenames, spaces and casing.
+
+### Original video inventory
+
+All seven original files were inspected using browser metadata plus start and midpoint frames before website edits. Subject labels reflect visible content, not poster filenames. Existing approved poster mappings come from products.html; posters are presentation assets and do not independently establish motor compatibility.
+
+| Original filename | Relative path | Display title | Duration (s) | Frame size | Existing poster |
+| --- | --- | --- | ---: | --- | --- |
+| `motorized-demo-01.mp4` | `assets/video/motorized/motorized-demo-01.mp4` | Living room roller blinds | 99.71 | 1280 × 720 | `assets/img/products/video-thumbnails/bright-open-plan-living-space.png` |
+| `motorized-demo-02.mp4` | `assets/video/motorized/motorized-demo-02.mp4` | Roller blind motor demonstration | 207.92 | 1920 × 1080 | `assets/img/products/video-thumbnails/oceanview-boardroom-motorized-blinds.png` |
+| `motorized-demo-03.mp4` | `assets/video/motorized/motorized-demo-03.mp4` | Venetian blind demonstration | 50.62 | 1280 × 720 | `assets/img/products/video-thumbnails/sunlit-reading-nook-venetian-blinds.png` |
+| `motorized-demo-04.mp4` | `assets/video/motorized/motorized-demo-04.mp4` | Vertical blind demonstration | 45.42 | 1920 × 1080 | `assets/img/products/video-thumbnails/bedroom-corner-window-vertical-blinds.png` |
+| `motorized-demo-05.mp4` | `assets/video/motorized/motorized-demo-05.mp4` | Outdoor roller shade demonstration | 31.32 | 848 × 480 | `assets/img/products/video-thumbnails/tropical-patio-roller-shades.png` |
+| `motorized-demo-06.mp4` | `assets/video/motorized/motorized-demo-06.mp4` | Outdoor shade demonstration | 33.81 | 848 × 480 | `assets/img/products/video-thumbnails/tropical-retreat-remote-control.png` |
+| `motorized-demo-07.mp4` | `assets/video/motorized/motorized-demo-07.mp4` | Zebra blinds with handheld control | 17.62 | 638 × 360 | `assets/img/products/video-thumbnails/corner-living-room-zebra-blinds.png` |
+
+No media file was moved, replaced, renamed or duplicated. Exact bytes, dimensions, durations and SHA-256 hashes are recorded in `reports/motorized/video-inventory.json` and `brand-inventory.json`; inspected frames/contact sheet are audit artifacts, not new website images. All seven files exist and play in Edge. Their exact motor brands/models are not established by the inspected footage.
+
+### Video switching and loading
+
+One native controls-enabled, playsinline video sits in a reserved 16:9 frame. The initial feature is video 01; six fixed poster buttons select videos 02–07. Selecting a button pauses the previous clip, assigns the exact new source/poster/title, resets playback through load and highlights the selected thumbnail in red without autoplay or navigation. Return to first demonstration makes video 01 reachable after switching; its featured title uses the red active accent. All seven remain accessible with one player and six thumbnail buttons. Native fullscreen controls remain available. Buttons support native Enter/Space and touch.
+
+Only the featured video has a media source; all thumbnails are lazy-loaded images. The player uses preload=none, never autoplay, and pauses when the document is hidden or another product is selected. The observed Edge initial load requested only video 01; no alternative video resources were requested initially. Browser behaviour may fetch initial featured metadata despite preload=none. Switching away removes the source and resets the preference/fields. The reserved frame prevents video-dimension changes from moving nearby content. An unsupported/missing clip hides the failed player and shows an accessible alert while retaining the frame and all other choices; selecting a valid clip recovers playback. There are no missing supplied videos.
+
+### Enquiry integration
+
+Get a Custom Quotation uses the requested supporting description. Original Product, Name, Address, Phone, Email, Site Visit and Message fields, WhatsApp number and message formatting remain intact. Optional Preferred Motorized System uses the same three verified choices as the cards, with Discuss with our team as an empty preference. Cards and dropdown synchronize in both directions; empty preference clears pressed states. Optional Approximate Window Dimensions and Installation Location accept free text. Non-empty values generate Product: Motorized Blinds, Preferred System (if selected), dimensions and location before existing customer information. Undefined/null values are not emitted. Leaving the product clears and disables the optional fields and stops the video, preserving other-product configurators. Choosing the blank product picker also stops/resets the Motorized controls.
+
+### Validation and files
+
+Edge checks passed at 320, 360, 375, 390, 430, 768, 1024, 1366, 1440 and 1920px: no horizontal overflow, fitting grids and a constant 16:9 featured frame. All seven clips played with valid dimensions/durations, standard controls, inline support and no autoplay. Source and active state changed correctly; previous playback paused. A deliberately failed video request showed the alert and the following valid clip played. Shared brand/example image viewers, keyboard selection, touch system/video selection and opening/closing mobile navigation passed. All three system selections produced the correct intercepted WhatsApp drafts with every original customer field; empty preference omitted Preferred System. No WhatsApp message was sent. Switching Motorized to Honeycomb and back cleared preference/fields and paused/removed media. Eleven unrelated product smoke checks passed, including the three quotation-led pages. No JavaScript exceptions or failed normal local asset responses were recorded. Syntax checks and git diff whitespace checks pass. Desktop/mobile screenshots are retained and visually reviewed.
+
+The Homepage, Products page, central product records and original media assets are unchanged by this task. Earlier Honeycomb and quotation-led changes are preserved. Modified files for this task: `product-details.html`, `assets/js/product-details.js`, `assets/css/product-details.css`, `WEBSITE-MAINTENANCE.md`. Added: `assets/js/motorized-details.js` and audit files under `reports/motorized/`. To change clips or posters, update the exact arrays in the controller and inventory; preserve originals. Add only supplier-verified selectable systems and conditional descriptions.
+
+Supplier confirmation remains necessary for exact motor models, brand/system pairing, compatible mechanisms and limits, control packages, power supply, installation requirements, warranties and pricing. No universal compatibility is promised. No staging, commit, push or deployment.
+## Outdoor note-backed configurators and Motorized card adjustment (14 October 2026)
+
+This section uses the owner's transcribed Product Detail (Outdoor) note and explicit confirmation to reuse the existing three product records. No separate Meranti or Outdoor Roller product is created. IDs, existing titles/descriptions, catalogue products, URLs, approved galleries, thumbnails, image files and links remain unchanged. Preserve the distinction between an existing catalogue product and the particular systems/materials mentioned in the note.
+
+| Existing record | Selector | Note-backed details |
+| --- | --- | --- |
+| Wooden Outdoor Blinds (`wooden-outdoor`) | Choose Meranti Binding Method: Benang (Thread), Tangsi (Fishing Line), Dawai (Wire) | Thickness 3 mm; Width 25 mm. These are Meranti measurements, not a statement that every wooden blind is Meranti or every binding method has identical dimensions. |
+| Bamboo Outdoor Blinds (`bamboo-outdoor`) | Bamboo (Normal) — DB838; Bamboo — DB833; Bamboo (Timber Lux) | Single Blind Width 10 mm; Thickness 3 mm. These are noted single-blind measurements; applicability to each variant requires confirmation. |
+| Ziptrak Outdoor Blinds (`ziptrak-outdoor`) | Zip Tracks; Guided (Cable); Straight Drop | No additional technical specifications are invented. Guided (Cable) and Straight Drop are separate outdoor roller systems, not Ziptrak mechanisms. Zip Tracks is retained exactly as written; system/branding must be confirmed. |
+
+### Central configuration and source handling
+
+`assets/data/outdoor-product-details.js` contains note-backed options, measurements, source metadata, scope/confirmation copy and enquiry labels. The original source product records in `assets/data/product-data.js` are preserved. `showProduct` derives a runtime record with these options and the relevant option label; the existing internal ID, title, description, gallery and links remain authoritative. The source is the owner's text transcription in the 14 October request and mapping clarification; the original handwritten image is not present in the accessible project/attachments and no details beyond the supplied transcription are inferred.
+
+DB838 is explicitly stored as `requiresSupplierVerification: true`, with a review note that forbids substituting a different code. A visible DB838 supplier-verification notice remains below the selector, and selecting that variant includes the handwritten-code verification note in the enquiry draft. No conflicting DB838/DB833 supplier record was found in existing product data; DB838 is not silently corrected. Do not remove the source flag until supplier verification is documented.
+
+`renderOutdoorDetails` in `assets/js/product-details.js` uses the existing `pd-series-button` components and state/URL/enquiry paths. All three options on each page are selectable native buttons with red pressed borders, native keyboard/touch behaviour and a live selected-option label. The first valid option is selected by default; an invalid option URL falls back to a valid option. Changes synchronize pressed state, selection label, existing `option` URL parameter and WhatsApp message. There are no new images in these selector cards. Outside these IDs the existing configurators remain on their original rendering paths.
+
+Layout order is existing upper information, the note-backed selector, Product Specifications where the note supplies measurements, UV Printing Options on Ziptrak only, existing Photos & Examples and Get a Custom Quotation. Measurement tables are product-note information, not per-option specifications. Ziptrak has no fabricated specification table. Existing Photos & Examples and shared image viewer remain intact; no gallery photographs are deleted, replaced or added. Wooden Outdoor Blinds retains its existing contact-for-example guidance because its source contains no separate example photograph. The new CSS only adds the outdoor grid and selected-label treatment, using existing colours/fonts and cards.
+
+### UV printing and enquiries
+
+UV Printing Options shows informational Full Surface and Slat Printing cards. These are not selectable system cards and do not imply compatibility with Zip Tracks, Guided (Cable), Straight Drop or a particular Ziptrak product. The source contains `printingCompatibilityVerified: false`. A separate optional enquiry dropdown defaults to No printing preference; it is never required or selected automatically. An explicitly selected value is sent as `UV Printing Preference (compatibility requires confirmation)`, independently of system choice. Switching systems preserves that explicit customer request without claiming compatibility. Switching products or choosing the blank product picker clears/disables/hides the field and UV content/navigation.
+
+WhatsApp preserves original customer fields, number and formatting and uses the existing product titles:
+
+- Product: Wooden Outdoor Blinds; Binding Method: selected method; Meranti/material scope confirmation.
+- Product: Bamboo Outdoor Blinds; Variant: selected variant; DB838 verification note when applicable.
+- Product: Ziptrak Outdoor Blinds; Selected System: selected system; branding/other-system clarification; explicit UV preference only if requested, with compatibility confirmation.
+
+The original Name, Phone, Address, Email, Site Visit and Message fields remain intact. No undefined/null/stale selection values are emitted. All three pages use Get a Custom Quotation with the shared installation-requirements supporting copy. Product descriptions, upper CTA, header/footer and original product images remain unchanged.
+
+### Motorized selection-card image removal
+
+The `image` property is removed only from the Motorized Roller Blinds system entry in `assets/js/motorized-details.js`. Its existing title, verified description, ID, pressed-state interaction and enquiry integration remain. It now uses the same compact decorative SVG/card treatment as the two other solution cards; no blank image placeholder remains. No other card image was removed. `motorizedblinds.png` stays in the upper Motorized gallery and catalogues. All three brand images, seven original videos, video posters, dedicated player and Photos & Examples remain intact. This supersedes the previous documentation that the Roller system card reused the root illustration.
+
+### Testing and changed files
+
+All four affected products passed at 320, 360, 375, 390, 430, 768, 1024, 1366, 1440 and 1920px (40 product/width combinations): no horizontal overflow and selector cards fit their viewport. Browser checks verify original titles/descriptions, approved main image paths and thumbnail counts, all three selector options, measurements, visible DB838 flag, separate UV content/confirmation, red selected states, selected labels, valid URL state and every selected option in WhatsApp drafts. All original customer fields are checked. Twelve option drafts plus two explicit printing requests were intercepted; no WhatsApp message was sent. The separate focused test verifies blank-picker cleanup and the DB838 enquiry review note. Product switching clears printing values and hides outdoor controls; invalid Bamboo option URLs fall back to valid data.
+
+Keyboard Enter selects cards and Escape closes image viewers. Touch checks select the third method/variant/system on each outdoor product. Original example photographs load and use the shared viewer. Motorized Roller selection contains no image but all three system selections, three brand images, one featured player and six video thumbnail buttons remain. Thirteen unrelated-product smoke checks passed. No JavaScript exceptions or failed normal local image/asset responses were recorded. JavaScript syntax and `git diff --check` passed. Eight desktop/mobile previews were captured and visually reviewed. Existing Homepage, Products page, central product records and media assets are unchanged; earlier Honeycomb, quotation-led and Motorized changes are preserved.
+
+Modified for this task: `product-details.html`, `assets/js/product-details.js`, `assets/js/motorized-details.js`, `assets/css/product-details.css`, `WEBSITE-MAINTENANCE.md`. Added: `assets/data/outdoor-product-details.js` and `reports/outdoor/` audit scripts, results, screenshots and report. Supplier confirmation remains necessary for DB838, measurement applicability across methods/variants, the material/system for each enquiry, Zip Tracks branding, and all system/UV-printing compatibility. No additional performance, material, warranty or dimensional claims are made. No staging, commit, push or deployment.
+
+## Timber enhanced colour collection — 14 October 2026
+
+48 enhanced files audited; 16 verified selections (PL 01–08 in each of 35 mm and 50 mm), with 32 unmatched or other-material files preserved and excluded. No PL supplier colours are missing photographs. The complete specifications, colour names, image mappings, excluded filenames, future update procedure and ten-width browser results are documented in [reports/timber/report.md](reports/timber/report.md). Full source records remain in assets/data/venetian-colour-collections.js; provenance and confidence for every ZIP image remain in reports/timber/inventory.json. Component measurements are separate from PL series specifications because species/thickness applicability is unverified. Lantex 12, Aluminium 29 and PVC regression checks pass. No stage, commit, push or deployment.

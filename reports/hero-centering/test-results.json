@@ -1,0 +1,85 @@
+{
+  "widths": [
+    {
+      "width": 320,
+      "dx": 0.0078125,
+      "dy": -0.0078125,
+      "h1dx": 0.0078125,
+      "actionsdx": 0.0078125,
+      "font": 24,
+      "overflow": false,
+      "headerOverlap": false,
+      "height": 400,
+      "clipped": false,
+      "textAlign": "center"
+    },
+    {
+      "width": 375,
+      "dx": 0,
+      "dy": -0.0078125,
+      "h1dx": 0,
+      "actionsdx": 0,
+      "font": 24,
+      "overflow": false,
+      "headerOverlap": false,
+      "height": 400,
+      "clipped": false,
+      "textAlign": "center"
+    },
+    {
+      "width": 430,
+      "dx": 0,
+      "dy": -0.0078125,
+      "h1dx": 0,
+      "actionsdx": 0,
+      "font": 25.8,
+      "overflow": false,
+      "headerOverlap": false,
+      "height": 400,
+      "clipped": false,
+      "textAlign": "center"
+    },
+    {
+      "width": 768,
+      "dx": 0.0078125,
+      "dy": -0.0078125,
+      "h1dx": 0.0078125,
+      "actionsdx": 0.0078125,
+      "font": 30,
+      "overflow": false,
+      "headerOverlap": false,
+      "height": 445.4375,
+      "clipped": false,
+      "textAlign": "center"
+    },
+    {
+      "width": 1366,
+      "dx": 0,
+      "dy": -0.0078125,
+      "h1dx": -0.0078125,
+      "actionsdx": 0,
+      "font": 47.81,
+      "overflow": false,
+      "headerOverlap": false,
+      "height": 530,
+      "clipped": false,
+      "textAlign": "center"
+    },
+    {
+      "width": 1920,
+      "dx": 0,
+      "dy": -0.0078125,
+      "h1dx": 0,
+      "actionsdx": 0,
+      "font": 48,
+      "overflow": false,
+      "headerOverlap": false,
+      "height": 530,
+      "clipped": false,
+      "textAlign": "center"
+    }
+  ],
+  "errors": [],
+  "internalAlignmentPreserved": true,
+  "passed": true
+}

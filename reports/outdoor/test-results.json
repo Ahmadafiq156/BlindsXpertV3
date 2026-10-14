@@ -1,0 +1,290 @@
+{
+  "widths": [
+    {
+      "id": "wooden-outdoor",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "id": "wooden-outdoor",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "id": "wooden-outdoor",
+      "width": 375,
+      "overflow": false
+    },
+    {
+      "id": "wooden-outdoor",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "id": "wooden-outdoor",
+      "width": 430,
+      "overflow": false
+    },
+    {
+      "id": "wooden-outdoor",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "id": "wooden-outdoor",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "id": "wooden-outdoor",
+      "width": 1366,
+      "overflow": false
+    },
+    {
+      "id": "wooden-outdoor",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "id": "wooden-outdoor",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "id": "bamboo-outdoor",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "id": "bamboo-outdoor",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "id": "bamboo-outdoor",
+      "width": 375,
+      "overflow": false
+    },
+    {
+      "id": "bamboo-outdoor",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "id": "bamboo-outdoor",
+      "width": 430,
+      "overflow": false
+    },
+    {
+      "id": "bamboo-outdoor",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "id": "bamboo-outdoor",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "id": "bamboo-outdoor",
+      "width": 1366,
+      "overflow": false
+    },
+    {
+      "id": "bamboo-outdoor",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "id": "bamboo-outdoor",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "id": "ziptrak-outdoor",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "id": "ziptrak-outdoor",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "id": "ziptrak-outdoor",
+      "width": 375,
+      "overflow": false
+    },
+    {
+      "id": "ziptrak-outdoor",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "id": "ziptrak-outdoor",
+      "width": 430,
+      "overflow": false
+    },
+    {
+      "id": "ziptrak-outdoor",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "id": "ziptrak-outdoor",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "id": "ziptrak-outdoor",
+      "width": 1366,
+      "overflow": false
+    },
+    {
+      "id": "ziptrak-outdoor",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "id": "ziptrak-outdoor",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "id": "motorized",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "id": "motorized",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "id": "motorized",
+      "width": 375,
+      "overflow": false
+    },
+    {
+      "id": "motorized",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "id": "motorized",
+      "width": 430,
+      "overflow": false
+    },
+    {
+      "id": "motorized",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "id": "motorized",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "id": "motorized",
+      "width": 1366,
+      "overflow": false
+    },
+    {
+      "id": "motorized",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "id": "motorized",
+      "width": 1920,
+      "overflow": false
+    }
+  ],
+  "enquiries": [
+    {
+      "id": "wooden-outdoor",
+      "option": "Benang (Thread)",
+      "text": "BlindsXpert product enquiry\n\nProduct: Wooden Outdoor Blinds\nSystem / material confirmation: Binding method and measurements are noted for Meranti; confirm the material and method for the wooden blind.\nBinding Method: Benang (Thread)\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "id": "wooden-outdoor",
+      "option": "Tangsi (Fishing Line)",
+      "text": "BlindsXpert product enquiry\n\nProduct: Wooden Outdoor Blinds\nSystem / material confirmation: Binding method and measurements are noted for Meranti; confirm the material and method for the wooden blind.\nBinding Method: Tangsi (Fishing Line)\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "id": "wooden-outdoor",
+      "option": "Dawai (Wire)",
+      "text": "BlindsXpert product enquiry\n\nProduct: Wooden Outdoor Blinds\nSystem / material confirmation: Binding method and measurements are noted for Meranti; confirm the material and method for the wooden blind.\nBinding Method: Dawai (Wire)\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "id": "bamboo-outdoor",
+      "option": "Bamboo (Normal) — DB838",
+      "text": "BlindsXpert product enquiry\n\nProduct: Bamboo Outdoor Blinds\nVariant: Bamboo (Normal) — DB838\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "id": "bamboo-outdoor",
+      "option": "Bamboo — DB833",
+      "text": "BlindsXpert product enquiry\n\nProduct: Bamboo Outdoor Blinds\nVariant: Bamboo — DB833\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "id": "bamboo-outdoor",
+      "option": "Bamboo (Timber Lux)",
+      "text": "BlindsXpert product enquiry\n\nProduct: Bamboo Outdoor Blinds\nVariant: Bamboo (Timber Lux)\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "id": "ziptrak-outdoor",
+      "option": "Zip Tracks",
+      "text": "BlindsXpert product enquiry\n\nProduct: Ziptrak Outdoor Blinds\nSystem / material confirmation: Zip-track system and branding require confirmation.\nSelected System: Zip Tracks\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "id": "ziptrak-outdoor",
+      "option": "Guided (Cable)",
+      "text": "BlindsXpert product enquiry\n\nProduct: Ziptrak Outdoor Blinds\nSystem / material confirmation: Guided (Cable) is a separate outdoor roller system, not a Ziptrak mechanism.\nSelected System: Guided (Cable)\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "id": "ziptrak-outdoor",
+      "option": "Straight Drop",
+      "text": "BlindsXpert product enquiry\n\nProduct: Ziptrak Outdoor Blinds\nSystem / material confirmation: Straight Drop is a separate outdoor roller system, not a Ziptrak mechanism.\nSelected System: Straight Drop\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "id": "ziptrak-outdoor",
+      "preference": "Full Surface",
+      "text": "BlindsXpert product enquiry\n\nProduct: Ziptrak Outdoor Blinds\nUV Printing Preference (compatibility requires confirmation): Full Surface\nSystem / material confirmation: Guided (Cable) is a separate outdoor roller system, not a Ziptrak mechanism.\nSelected System: Guided (Cable)\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "id": "ziptrak-outdoor",
+      "preference": "Slat Printing",
+      "text": "BlindsXpert product enquiry\n\nProduct: Ziptrak Outdoor Blinds\nUV Printing Preference (compatibility requires confirmation): Slat Printing\nSystem / material confirmation: Guided (Cable) is a separate outdoor roller system, not a Ziptrak mechanism.\nSelected System: Guided (Cable)\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "id": "motorized",
+      "option": "roller",
+      "text": "BlindsXpert product enquiry\n\nProduct: Motorized Blinds\nPreferred System: Motorized Roller Blinds\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "id": "motorized",
+      "option": "zebra",
+      "text": "BlindsXpert product enquiry\n\nProduct: Motorized Blinds\nPreferred System: Motorized Zebra Blinds\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "id": "motorized",
+      "option": "ziptrak-outdoor",
+      "text": "BlindsXpert product enquiry\n\nProduct: Motorized Blinds\nPreferred System: Ziptrak Motorized Outdoor Blinds\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    }
+  ],
+  "errors": [],
+  "products": [
+    "wooden-outdoor",
+    "bamboo-outdoor",
+    "ziptrak-outdoor",
+    "motorized"
+  ],
+  "productReset": true,
+  "invalidUrl": true,
+  "regression": true,
+  "touch": true,
+  "passed": true,
+  "blankPickerReset": true,
+  "db838EnquiryReview": true
+}

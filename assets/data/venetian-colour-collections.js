@@ -1692,6 +1692,204 @@ window.BLINDSXPERT_VENETIAN = {
           "An additional black 50mm sample has its printed code outside the readable frame; retained in the source archive, not transcribed or selectable."
         ]
       }
+    ],
+    "Timber": [
+      {
+        "id": "timber-pl-35",
+        "name": "Wooden 35mm (PL)",
+        "type": "Timber",
+        "specs": {
+          "Material": "Wooden blinds",
+          "Slat Width": "35 mm"
+        },
+        "fabrics": [
+          {
+            "id": "timber-pl-35-01",
+            "code": "PL 01",
+            "displayCode": "PL 01",
+            "colourName": "White",
+            "source": {
+              "archive": "info.zip",
+              "path": "WOODEN BLINDS/WhatsApp Image 2026-10-07 at 13.05.02.jpeg"
+            }
+          },
+          {
+            "id": "timber-pl-35-02",
+            "code": "PL 02",
+            "displayCode": "PL 02",
+            "colourName": "Mahogany",
+            "source": {
+              "archive": "info.zip",
+              "path": "WOODEN BLINDS/WhatsApp Image 2026-10-07 at 13.05.02.jpeg"
+            }
+          },
+          {
+            "id": "timber-pl-35-03",
+            "code": "PL 03",
+            "displayCode": "PL 03",
+            "colourName": "Beech",
+            "source": {
+              "archive": "info.zip",
+              "path": "WOODEN BLINDS/WhatsApp Image 2026-10-07 at 13.05.02.jpeg"
+            }
+          },
+          {
+            "id": "timber-pl-35-04",
+            "code": "PL 04",
+            "displayCode": "PL 04",
+            "colourName": "Teak",
+            "source": {
+              "archive": "info.zip",
+              "path": "WOODEN BLINDS/WhatsApp Image 2026-10-07 at 13.05.02.jpeg"
+            }
+          },
+          {
+            "id": "timber-pl-35-05",
+            "code": "PL 05",
+            "displayCode": "PL 05",
+            "colourName": "Dark Walnut",
+            "source": {
+              "archive": "info.zip",
+              "path": "WOODEN BLINDS/WhatsApp Image 2026-10-07 at 13.05.02.jpeg"
+            }
+          },
+          {
+            "id": "timber-pl-35-06",
+            "code": "PL 06",
+            "displayCode": "PL 06",
+            "colourName": "Natural",
+            "source": {
+              "archive": "info.zip",
+              "path": "WOODEN BLINDS/WhatsApp Image 2026-10-07 at 13.05.02.jpeg"
+            }
+          },
+          {
+            "id": "timber-pl-35-07",
+            "code": "PL 07",
+            "displayCode": "PL 07",
+            "colourName": "Black",
+            "source": {
+              "archive": "info.zip",
+              "path": "WOODEN BLINDS/WhatsApp Image 2026-10-07 at 13.05.02.jpeg"
+            }
+          },
+          {
+            "id": "timber-pl-35-08",
+            "code": "PL 08",
+            "displayCode": "PL 08",
+            "colourName": "Grey",
+            "source": {
+              "archive": "info.zip",
+              "path": "WOODEN BLINDS/WhatsApp Image 2026-10-07 at 13.05.02.jpeg"
+            }
+          }
+        ],
+        "source": {
+          "archive": "info.zip",
+          "path": "WOODEN BLINDS/WhatsApp Image 2026-10-07 at 13.05.02.jpeg"
+        },
+        "notes": [
+          "PL colour chart prints SP 35mm-WB and SP 50mm-WB. Wood species, finish and slat thickness are not linked to these PL series; component specifications are shown separately."
+        ]
+      },
+      {
+        "id": "timber-pl-50",
+        "name": "Wooden 50mm (PL)",
+        "type": "Timber",
+        "specs": {
+          "Material": "Wooden blinds",
+          "Slat Width": "50 mm"
+        },
+        "fabrics": [
+          {
+            "id": "timber-pl-50-01",
+            "code": "PL 01",
+            "displayCode": "PL 01",
+            "colourName": "White",
+            "source": {
+              "archive": "info.zip",
+              "path": "WOODEN BLINDS/WhatsApp Image 2026-10-07 at 13.05.02.jpeg"
+            }
+          },
+          {
+            "id": "timber-pl-50-02",
+            "code": "PL 02",
+            "displayCode": "PL 02",
+            "colourName": "Mahogany",
+            "source": {
+              "archive": "info.zip",
+              "path": "WOODEN BLINDS/WhatsApp Image 2026-10-07 at 13.05.02.jpeg"
+            }
+          },
+          {
+            "id": "timber-pl-50-03",
+            "code": "PL 03",
+            "displayCode": "PL 03",
+            "colourName": "Beech",
+            "source": {
+              "archive": "info.zip",
+              "path": "WOODEN BLINDS/WhatsApp Image 2026-10-07 at 13.05.02.jpeg"
+            }
+          },
+          {
+            "id": "timber-pl-50-04",
+            "code": "PL 04",
+            "displayCode": "PL 04",
+            "colourName": "Teak",
+            "source": {
+              "archive": "info.zip",
+              "path": "WOODEN BLINDS/WhatsApp Image 2026-10-07 at 13.05.02.jpeg"
+            }
+          },
+          {
+            "id": "timber-pl-50-05",
+            "code": "PL 05",
+            "displayCode": "PL 05",
+            "colourName": "Dark Walnut",
+            "source": {
+              "archive": "info.zip",
+              "path": "WOODEN BLINDS/WhatsApp Image 2026-10-07 at 13.05.02.jpeg"
+            }
+          },
+          {
+            "id": "timber-pl-50-06",
+            "code": "PL 06",
+            "displayCode": "PL 06",
+            "colourName": "Natural",
+            "source": {
+              "archive": "info.zip",
+              "path": "WOODEN BLINDS/WhatsApp Image 2026-10-07 at 13.05.02.jpeg"
+            }
+          },
+          {
+            "id": "timber-pl-50-07",
+            "code": "PL 07",
+            "displayCode": "PL 07",
+            "colourName": "Black",
+            "source": {
+              "archive": "info.zip",
+              "path": "WOODEN BLINDS/WhatsApp Image 2026-10-07 at 13.05.02.jpeg"
+            }
+          },
+          {
+            "id": "timber-pl-50-08",
+            "code": "PL 08",
+            "displayCode": "PL 08",
+            "colourName": "Grey",
+            "source": {
+              "archive": "info.zip",
+              "path": "WOODEN BLINDS/WhatsApp Image 2026-10-07 at 13.05.02.jpeg"
+            }
+          }
+        ],
+        "source": {
+          "archive": "info.zip",
+          "path": "WOODEN BLINDS/WhatsApp Image 2026-10-07 at 13.05.02.jpeg"
+        },
+        "notes": [
+          "PL colour chart prints SP 35mm-WB and SP 50mm-WB. Wood species, finish and slat thickness are not linked to these PL series; component specifications are shown separately."
+        ]
+      }
     ]
   },
   "images": {
@@ -2391,6 +2589,310 @@ window.BLINDSXPERT_VENETIAN = {
         ],
         "method": "Median RGB of inspected material region, away from background/labels and strong reflections."
       }
+    },
+    "timber-pl-35-03": {
+      "src": "assets/img/products/venetian-blinds/timber/timber-pl-35/PL 03 BEECH.jpg",
+      "swatchHex": "#8E7C6E",
+      "source": {
+        "archive": "Wood_Blinds_All_48_Enhanced_Original_Filenames.zip",
+        "path": "Wood build/Wood Series ( ℹ️ Size & Variety )/Wooden (ℹ️More colour & thickness)/35mm/PL 03 BEECH.jpg",
+        "sha256": "609c95a8942d8f85137ad2f85b4d56a96740916632f4023b15dd4439aa76b5aa",
+        "sampleBox": [
+          184,
+          184,
+          216,
+          216
+        ],
+        "sampleImageSize": [
+          400,
+          400
+        ]
+      }
+    },
+    "timber-pl-50-05": {
+      "src": "assets/img/products/venetian-blinds/timber/timber-pl-50/PL 05 DARK WALNUT.jpg",
+      "swatchHex": "#90867C",
+      "source": {
+        "archive": "Wood_Blinds_All_48_Enhanced_Original_Filenames.zip",
+        "path": "Wood build/Wood Series ( ℹ️ Size & Variety )/Wooden (ℹ️More colour & thickness)/50mm/PL 05 DARK WALNUT.jpg",
+        "sha256": "abf7298e0d649ad22c465fc937c96515693b5e8799024116dbfe0dc471faa706",
+        "sampleBox": [
+          184,
+          184,
+          216,
+          216
+        ],
+        "sampleImageSize": [
+          400,
+          400
+        ]
+      }
+    },
+    "timber-pl-50-06": {
+      "src": "assets/img/products/venetian-blinds/timber/timber-pl-50/PL 06 NATURAL.jpg",
+      "swatchHex": "#CBB591",
+      "source": {
+        "archive": "Wood_Blinds_All_48_Enhanced_Original_Filenames.zip",
+        "path": "Wood build/Wood Series ( ℹ️ Size & Variety )/Wooden (ℹ️More colour & thickness)/50mm/PL 06 NATURAL.jpg",
+        "sha256": "769eb1da9b71ec13a7a9b9d9d1695f6f40ef293a86e9d60b4b2e7845886d209b",
+        "sampleBox": [
+          184,
+          184,
+          216,
+          216
+        ],
+        "sampleImageSize": [
+          400,
+          400
+        ]
+      }
+    },
+    "timber-pl-35-04": {
+      "src": "assets/img/products/venetian-blinds/timber/timber-pl-35/PL 04 TEAK.jpg",
+      "swatchHex": "#9E7E6E",
+      "source": {
+        "archive": "Wood_Blinds_All_48_Enhanced_Original_Filenames.zip",
+        "path": "Wood build/Wood Series ( ℹ️ Size & Variety )/Wooden (ℹ️More colour & thickness)/35mm/PL 04 TEAK.jpg",
+        "sha256": "822a68ac8888a0aec18621b7a8eb48b81c511eb5df8677f41a929881879aacb4",
+        "sampleBox": [
+          184,
+          184,
+          216,
+          216
+        ],
+        "sampleImageSize": [
+          400,
+          400
+        ]
+      }
+    },
+    "timber-pl-50-08": {
+      "src": "assets/img/products/venetian-blinds/timber/timber-pl-50/PL 08 GREY.jpg",
+      "swatchHex": "#8C8C89",
+      "source": {
+        "archive": "Wood_Blinds_All_48_Enhanced_Original_Filenames.zip",
+        "path": "Wood build/Wood Series ( ℹ️ Size & Variety )/Wooden (ℹ️More colour & thickness)/50mm/PL 08 GREY.jpg",
+        "sha256": "07f7776ace7737e91c6a917c230811974780fee05ac2f7aaa96086bec341fdcc",
+        "sampleBox": [
+          184,
+          184,
+          216,
+          216
+        ],
+        "sampleImageSize": [
+          400,
+          400
+        ]
+      }
+    },
+    "timber-pl-50-03": {
+      "src": "assets/img/products/venetian-blinds/timber/timber-pl-50/PL 03 BEECH.jpg",
+      "swatchHex": "#A38E7A",
+      "source": {
+        "archive": "Wood_Blinds_All_48_Enhanced_Original_Filenames.zip",
+        "path": "Wood build/Wood Series ( ℹ️ Size & Variety )/Wooden (ℹ️More colour & thickness)/50mm/PL 03 BEECH.jpg",
+        "sha256": "c78b10eef11963b8b84de8c49a9fb927f063f59bb2613961e55bd1a79c3fe58d",
+        "sampleBox": [
+          184,
+          184,
+          216,
+          216
+        ],
+        "sampleImageSize": [
+          400,
+          400
+        ]
+      }
+    },
+    "timber-pl-50-01": {
+      "src": "assets/img/products/venetian-blinds/timber/timber-pl-50/PL 01 WHITE.jpg",
+      "swatchHex": "#E4E5D5",
+      "source": {
+        "archive": "Wood_Blinds_All_48_Enhanced_Original_Filenames.zip",
+        "path": "Wood build/Wood Series ( ℹ️ Size & Variety )/Wooden (ℹ️More colour & thickness)/50mm/PL 01 WHITE.jpg",
+        "sha256": "0af2beb6d420500b1c5e66927fccdb8cc2422046b75217d79bbd5834cdaedc64",
+        "sampleBox": [
+          184,
+          184,
+          216,
+          216
+        ],
+        "sampleImageSize": [
+          400,
+          400
+        ]
+      }
+    },
+    "timber-pl-35-08": {
+      "src": "assets/img/products/venetian-blinds/timber/timber-pl-35/PL 08 GREY.jpg",
+      "swatchHex": "#8A8A86",
+      "source": {
+        "archive": "Wood_Blinds_All_48_Enhanced_Original_Filenames.zip",
+        "path": "Wood build/Wood Series ( ℹ️ Size & Variety )/Wooden (ℹ️More colour & thickness)/35mm/PL 08 GREY.jpg",
+        "sha256": "f5ea195b433d91e843b4244560485e0920b5638815f9f44046b55abe87081447",
+        "sampleBox": [
+          184,
+          184,
+          216,
+          216
+        ],
+        "sampleImageSize": [
+          400,
+          400
+        ]
+      }
+    },
+    "timber-pl-35-01": {
+      "src": "assets/img/products/venetian-blinds/timber/timber-pl-35/PL 01 WHITE.jpg",
+      "swatchHex": "#E0E2D6",
+      "source": {
+        "archive": "Wood_Blinds_All_48_Enhanced_Original_Filenames.zip",
+        "path": "Wood build/Wood Series ( ℹ️ Size & Variety )/Wooden (ℹ️More colour & thickness)/35mm/PL 01 WHITE.jpg",
+        "sha256": "3173e7eec4e0e6242c5f0786718eb38f75cfcc90eb069513153d8a9adcc14ba8",
+        "sampleBox": [
+          184,
+          184,
+          216,
+          216
+        ],
+        "sampleImageSize": [
+          400,
+          400
+        ]
+      }
+    },
+    "timber-pl-35-02": {
+      "src": "assets/img/products/venetian-blinds/timber/timber-pl-35/PL 02 MAHOGANY.jpg",
+      "swatchHex": "#887B76",
+      "source": {
+        "archive": "Wood_Blinds_All_48_Enhanced_Original_Filenames.zip",
+        "path": "Wood build/Wood Series ( ℹ️ Size & Variety )/Wooden (ℹ️More colour & thickness)/35mm/PL 02 MAHOGANY.jpg",
+        "sha256": "64e7899cfd0057bbeb584a079f6b36a5786241a2f5603dc142c950c45be21e23",
+        "sampleBox": [
+          184,
+          184,
+          216,
+          216
+        ],
+        "sampleImageSize": [
+          400,
+          400
+        ]
+      }
+    },
+    "timber-pl-35-06": {
+      "src": "assets/img/products/venetian-blinds/timber/timber-pl-35/PL 06 NATURAL.jpg",
+      "swatchHex": "#D7C4A3",
+      "source": {
+        "archive": "Wood_Blinds_All_48_Enhanced_Original_Filenames.zip",
+        "path": "Wood build/Wood Series ( ℹ️ Size & Variety )/Wooden (ℹ️More colour & thickness)/35mm/PL 06 NATURAL.jpg",
+        "sha256": "87631a8948953b0feca3cc6b5c722737314e7bbbb1995d6e6c525f64f7919eb1",
+        "sampleBox": [
+          184,
+          184,
+          216,
+          216
+        ],
+        "sampleImageSize": [
+          400,
+          400
+        ]
+      }
+    },
+    "timber-pl-50-02": {
+      "src": "assets/img/products/venetian-blinds/timber/timber-pl-50/PL 02 MAHOGANY.jpg",
+      "swatchHex": "#81756F",
+      "source": {
+        "archive": "Wood_Blinds_All_48_Enhanced_Original_Filenames.zip",
+        "path": "Wood build/Wood Series ( ℹ️ Size & Variety )/Wooden (ℹ️More colour & thickness)/50mm/PL 02 MAHOGANY.jpg",
+        "sha256": "caeae0e5e247e50c3b249f7842bab98be1d7708c4637e2f52d58f361ff564a6f",
+        "sampleBox": [
+          184,
+          184,
+          216,
+          216
+        ],
+        "sampleImageSize": [
+          400,
+          400
+        ]
+      }
+    },
+    "timber-pl-50-04": {
+      "src": "assets/img/products/venetian-blinds/timber/timber-pl-50/PL 04 TEAK.jpg",
+      "swatchHex": "#9B8478",
+      "source": {
+        "archive": "Wood_Blinds_All_48_Enhanced_Original_Filenames.zip",
+        "path": "Wood build/Wood Series ( ℹ️ Size & Variety )/Wooden (ℹ️More colour & thickness)/50mm/PL 04 TEAK.jpg",
+        "sha256": "db5022f5851ee68c654bf486f0d665e84f61e5a67096900bf41af7ab017160bc",
+        "sampleBox": [
+          184,
+          184,
+          216,
+          216
+        ],
+        "sampleImageSize": [
+          400,
+          400
+        ]
+      }
+    },
+    "timber-pl-35-05": {
+      "src": "assets/img/products/venetian-blinds/timber/timber-pl-35/PL 05 DARK WALNUT.jpg",
+      "swatchHex": "#837A71",
+      "source": {
+        "archive": "Wood_Blinds_All_48_Enhanced_Original_Filenames.zip",
+        "path": "Wood build/Wood Series ( ℹ️ Size & Variety )/Wooden (ℹ️More colour & thickness)/35mm/PL 05 DARK WALNUT.jpg",
+        "sha256": "ba1f6572495470998f2d59ff4bf25b48a21048e2d760cf3fe78001cf85a5a843",
+        "sampleBox": [
+          184,
+          184,
+          216,
+          216
+        ],
+        "sampleImageSize": [
+          400,
+          400
+        ]
+      }
+    },
+    "timber-pl-35-07": {
+      "src": "assets/img/products/venetian-blinds/timber/timber-pl-35/PL 07 BLACK.jpg",
+      "swatchHex": "#605F5B",
+      "source": {
+        "archive": "Wood_Blinds_All_48_Enhanced_Original_Filenames.zip",
+        "path": "Wood build/Wood Series ( ℹ️ Size & Variety )/Wooden (ℹ️More colour & thickness)/35mm/PL 07 BLACK.jpg",
+        "sha256": "8204a8f5fd7647063049e5f21c72730508ff7b843e48b07918e2225337727456",
+        "sampleBox": [
+          184,
+          184,
+          216,
+          216
+        ],
+        "sampleImageSize": [
+          400,
+          400
+        ]
+      }
+    },
+    "timber-pl-50-07": {
+      "src": "assets/img/products/venetian-blinds/timber/timber-pl-50/PL 07 BLACK.jpg",
+      "swatchHex": "#676461",
+      "source": {
+        "archive": "Wood_Blinds_All_48_Enhanced_Original_Filenames.zip",
+        "path": "Wood build/Wood Series ( ℹ️ Size & Variety )/Wooden (ℹ️More colour & thickness)/50mm/PL 07 BLACK.jpg",
+        "sha256": "a4b0a31b1ce1fc161b4a7b9cac296168387b053630f39f6f529122289c769823",
+        "sampleBox": [
+          184,
+          184,
+          216,
+          216
+        ],
+        "sampleImageSize": [
+          400,
+          400
+        ]
+      }
     }
   },
   "unmatched": [
@@ -2452,6 +2954,63 @@ window.BLINDSXPERT_VENETIAN = {
         "Venetian Ladder Tape System",
         "Venetian Motorized System"
       ]
+    }
+  },
+  "timberInformation": {
+    "note": "Supplier component data below is not assigned to the selected PL colour series. Confirm the wood species and component combination before ordering. Dimensions retain the supplier’s “Thickness” label.",
+    "components": [
+      {
+        "name": "Paulownia-wood louver",
+        "specs": {
+          "Thickness (as printed)": "50mm × 2.5mm",
+          "Weight": "0.064kg",
+          "Specification (as printed)": "100cm"
+        }
+      },
+      {
+        "name": "Paulownia-wood M-type sealing board",
+        "specs": {
+          "Thickness (as printed)": "63.5mm × 7mm",
+          "Weight": "0.222kg",
+          "Specification (as printed)": "100cm"
+        }
+      },
+      {
+        "name": "Paulownia-wood type bottom rail",
+        "specs": {
+          "Thickness (as printed)": "50mm × 15mm",
+          "Weight": "0.354kg",
+          "Specification (as printed)": "100cm"
+        }
+      },
+      {
+        "name": "Basswood louver",
+        "specs": {
+          "Thickness (as printed)": "50mm × 2.6mm",
+          "Weight": "0.052kg",
+          "Specification (as printed)": "100cm"
+        }
+      },
+      {
+        "name": "Basswood M-type sealing board",
+        "specs": {
+          "Thickness (as printed)": "63.5mm × 7mm",
+          "Weight": "0.150kg",
+          "Specification (as printed)": "100cm"
+        }
+      },
+      {
+        "name": "Basswood type bottom rail",
+        "specs": {
+          "Thickness (as printed)": "50mm × 15mm",
+          "Weight": "0.279kg",
+          "Specification (as printed)": "100cm"
+        }
+      }
+    ],
+    "source": {
+      "archive": "info.zip",
+      "path": "WOODEN BLINDS/WhatsApp Image 2026-10-07 at 13.05.02 (1).jpeg"
     }
   }
 };

@@ -1,0 +1,221 @@
+{
+  "widths": [
+    {
+      "id": "skylight",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "id": "skylight",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "id": "skylight",
+      "width": 375,
+      "overflow": false
+    },
+    {
+      "id": "skylight",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "id": "skylight",
+      "width": 430,
+      "overflow": false
+    },
+    {
+      "id": "skylight",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "id": "skylight",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "id": "skylight",
+      "width": 1366,
+      "overflow": false
+    },
+    {
+      "id": "skylight",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "id": "skylight",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "id": "curtain-hardware",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "id": "curtain-hardware",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "id": "curtain-hardware",
+      "width": 375,
+      "overflow": false
+    },
+    {
+      "id": "curtain-hardware",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "id": "curtain-hardware",
+      "width": 430,
+      "overflow": false
+    },
+    {
+      "id": "curtain-hardware",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "id": "curtain-hardware",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "id": "curtain-hardware",
+      "width": 1366,
+      "overflow": false
+    },
+    {
+      "id": "curtain-hardware",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "id": "curtain-hardware",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "id": "awning-canopy",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "id": "awning-canopy",
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "id": "awning-canopy",
+      "width": 375,
+      "overflow": false
+    },
+    {
+      "id": "awning-canopy",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "id": "awning-canopy",
+      "width": 430,
+      "overflow": false
+    },
+    {
+      "id": "awning-canopy",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "id": "awning-canopy",
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "id": "awning-canopy",
+      "width": 1366,
+      "overflow": false
+    },
+    {
+      "id": "awning-canopy",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "id": "awning-canopy",
+      "width": 1920,
+      "overflow": false
+    }
+  ],
+  "enquiries": [
+    {
+      "id": "skylight",
+      "option": "",
+      "text": "BlindsXpert product enquiry\n\nProduct: Skylight Blinds\nInstallation location: 120 cm\nApproximate window dimensions: 120 cm\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote for this installation"
+    },
+    {
+      "id": "curtain-hardware",
+      "option": "Curtain rail",
+      "text": "BlindsXpert product enquiry\n\nProduct: Curtain Hardware\nHardware type: Curtain rail\nApproximate installation length: 120 cm\nQuantity: 3\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote for this installation"
+    },
+    {
+      "id": "curtain-hardware",
+      "option": "Curtain rod",
+      "text": "BlindsXpert product enquiry\n\nProduct: Curtain Hardware\nHardware type: Curtain rod\nApproximate installation length: 120 cm\nQuantity: 3\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote for this installation"
+    },
+    {
+      "id": "awning-canopy",
+      "option": "",
+      "text": "BlindsXpert product enquiry\n\nProduct: Awnings & Canopies\nInstallation area: 120 cm\nApproximate covering dimensions: 120 cm\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote for this installation"
+    }
+  ],
+  "errors": [],
+  "products": [
+    {
+      "id": "skylight",
+      "photos": [
+        "assets/img/products/catalogue-reference/skylight-blinds-fabric-shades-glass-roof.png"
+      ],
+      "options": [],
+      "applications": [
+        "Glass roofs",
+        "Inclined windows"
+      ]
+    },
+    {
+      "id": "curtain-hardware",
+      "photos": [
+        "assets/img/products/generated/web/curtain-rods-packaged-stock.png",
+        "assets/img/products/generated/web/curtain-rod-finial-details.png",
+        "assets/img/products/generated/web/curtain-rods-bundled-stock.png"
+      ],
+      "options": [
+        "Curtain rail",
+        "Curtain rod"
+      ],
+      "applications": [
+        "Home interiors",
+        "Office interiors"
+      ]
+    },
+    {
+      "id": "awning-canopy",
+      "photos": [
+        "assets/img/products/catalogue-reference/awning-purple-salon-entrance-canopy.png"
+      ],
+      "options": [],
+      "applications": [
+        "Patios",
+        "Outdoor areas",
+        "Outdoor entrances"
+      ]
+    }
+  ],
+  "otherProducts": true,
+  "touch": true,
+  "passed": true
+}

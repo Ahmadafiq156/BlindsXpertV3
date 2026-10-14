@@ -1,0 +1,1508 @@
+{
+  "checks": [
+    {
+      "file": "404.html",
+      "width": 320,
+      "title": "Page not found",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "404.html",
+      "width": 360,
+      "title": "Page not found",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "404.html",
+      "width": 375,
+      "title": "Page not found",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "404.html",
+      "width": 390,
+      "title": "Page not found",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "404.html",
+      "width": 430,
+      "title": "Page not found",
+      "size": 25.8,
+      "weight": "700",
+      "line": 30.96,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "404.html",
+      "width": 768,
+      "title": "Page not found",
+      "size": 30,
+      "weight": "700",
+      "line": 35.4,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "404.html",
+      "width": 1024,
+      "title": "Page not found",
+      "size": 35.84,
+      "weight": "700",
+      "line": 42.2912,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "404.html",
+      "width": 1366,
+      "title": "Page not found",
+      "size": 47.81,
+      "weight": "700",
+      "line": 56.4158,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "404.html",
+      "width": 1440,
+      "title": "Page not found",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "404.html",
+      "width": 1920,
+      "title": "Page not found",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "about.html",
+      "width": 320,
+      "title": "Window covering solutions since 2005",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "about.html",
+      "width": 360,
+      "title": "Window covering solutions since 2005",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "about.html",
+      "width": 375,
+      "title": "Window covering solutions since 2005",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "about.html",
+      "width": 390,
+      "title": "Window covering solutions since 2005",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "about.html",
+      "width": 430,
+      "title": "Window covering solutions since 2005",
+      "size": 25.8,
+      "weight": "700",
+      "line": 30.96,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "about.html",
+      "width": 768,
+      "title": "Window covering solutions since 2005",
+      "size": 30,
+      "weight": "700",
+      "line": 35.4,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "about.html",
+      "width": 1024,
+      "title": "Window covering solutions since 2005",
+      "size": 35.84,
+      "weight": "700",
+      "line": 42.2912,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "about.html",
+      "width": 1366,
+      "title": "Window covering solutions since 2005",
+      "size": 47.81,
+      "weight": "700",
+      "line": 56.4158,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "about.html",
+      "width": 1440,
+      "title": "Window covering solutions since 2005",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "about.html",
+      "width": 1920,
+      "title": "Window covering solutions since 2005",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "careers.html",
+      "width": 320,
+      "title": "Build Your Career with BlindsXpert",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "careers.html",
+      "width": 360,
+      "title": "Build Your Career with BlindsXpert",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "careers.html",
+      "width": 375,
+      "title": "Build Your Career with BlindsXpert",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "careers.html",
+      "width": 390,
+      "title": "Build Your Career with BlindsXpert",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "careers.html",
+      "width": 430,
+      "title": "Build Your Career with BlindsXpert",
+      "size": 25.8,
+      "weight": "700",
+      "line": 30.96,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "careers.html",
+      "width": 768,
+      "title": "Build Your Career with BlindsXpert",
+      "size": 30,
+      "weight": "700",
+      "line": 35.4,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "careers.html",
+      "width": 1024,
+      "title": "Build Your Career with BlindsXpert",
+      "size": 35.84,
+      "weight": "700",
+      "line": 42.2912,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "careers.html",
+      "width": 1366,
+      "title": "Build Your Career with BlindsXpert",
+      "size": 47.81,
+      "weight": "700",
+      "line": 56.4158,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "careers.html",
+      "width": 1440,
+      "title": "Build Your Career with BlindsXpert",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "careers.html",
+      "width": 1920,
+      "title": "Build Your Career with BlindsXpert",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "contact.html",
+      "width": 320,
+      "title": "Talk to our team",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "contact.html",
+      "width": 360,
+      "title": "Talk to our team",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "contact.html",
+      "width": 375,
+      "title": "Talk to our team",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "contact.html",
+      "width": 390,
+      "title": "Talk to our team",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "contact.html",
+      "width": 430,
+      "title": "Talk to our team",
+      "size": 25.8,
+      "weight": "700",
+      "line": 30.96,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "contact.html",
+      "width": 768,
+      "title": "Talk to our team",
+      "size": 30,
+      "weight": "700",
+      "line": 35.4,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "contact.html",
+      "width": 1024,
+      "title": "Talk to our team",
+      "size": 35.84,
+      "weight": "700",
+      "line": 42.2912,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "contact.html",
+      "width": 1366,
+      "title": "Talk to our team",
+      "size": 47.81,
+      "weight": "700",
+      "line": 56.4158,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "contact.html",
+      "width": 1440,
+      "title": "Talk to our team",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "contact.html",
+      "width": 1920,
+      "title": "Talk to our team",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "delivery-policy.html",
+      "width": 320,
+      "title": "Delivery Policy",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "delivery-policy.html",
+      "width": 360,
+      "title": "Delivery Policy",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "delivery-policy.html",
+      "width": 375,
+      "title": "Delivery Policy",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "delivery-policy.html",
+      "width": 390,
+      "title": "Delivery Policy",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "delivery-policy.html",
+      "width": 430,
+      "title": "Delivery Policy",
+      "size": 25.8,
+      "weight": "700",
+      "line": 30.96,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "delivery-policy.html",
+      "width": 768,
+      "title": "Delivery Policy",
+      "size": 30,
+      "weight": "700",
+      "line": 35.4,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "delivery-policy.html",
+      "width": 1024,
+      "title": "Delivery Policy",
+      "size": 35.84,
+      "weight": "700",
+      "line": 42.2912,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "delivery-policy.html",
+      "width": 1366,
+      "title": "Delivery Policy",
+      "size": 47.81,
+      "weight": "700",
+      "line": 56.4158,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "delivery-policy.html",
+      "width": 1440,
+      "title": "Delivery Policy",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "delivery-policy.html",
+      "width": 1920,
+      "title": "Delivery Policy",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "faqs.html",
+      "width": 320,
+      "title": "Frequently Asked Questions",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "faqs.html",
+      "width": 360,
+      "title": "Frequently Asked Questions",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "faqs.html",
+      "width": 375,
+      "title": "Frequently Asked Questions",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "faqs.html",
+      "width": 390,
+      "title": "Frequently Asked Questions",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "faqs.html",
+      "width": 430,
+      "title": "Frequently Asked Questions",
+      "size": 25.8,
+      "weight": "700",
+      "line": 30.96,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "faqs.html",
+      "width": 768,
+      "title": "Frequently Asked Questions",
+      "size": 30,
+      "weight": "700",
+      "line": 35.4,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "faqs.html",
+      "width": 1024,
+      "title": "Frequently Asked Questions",
+      "size": 35.84,
+      "weight": "700",
+      "line": 42.2912,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "faqs.html",
+      "width": 1366,
+      "title": "Frequently Asked Questions",
+      "size": 47.81,
+      "weight": "700",
+      "line": 56.4158,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "faqs.html",
+      "width": 1440,
+      "title": "Frequently Asked Questions",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "faqs.html",
+      "width": 1920,
+      "title": "Frequently Asked Questions",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "gallery.html",
+      "width": 320,
+      "title": "BlindsXpert in real spaces",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "gallery.html",
+      "width": 360,
+      "title": "BlindsXpert in real spaces",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "gallery.html",
+      "width": 375,
+      "title": "BlindsXpert in real spaces",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "gallery.html",
+      "width": 390,
+      "title": "BlindsXpert in real spaces",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "gallery.html",
+      "width": 430,
+      "title": "BlindsXpert in real spaces",
+      "size": 25.8,
+      "weight": "700",
+      "line": 30.96,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "gallery.html",
+      "width": 768,
+      "title": "BlindsXpert in real spaces",
+      "size": 30,
+      "weight": "700",
+      "line": 35.4,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "gallery.html",
+      "width": 1024,
+      "title": "BlindsXpert in real spaces",
+      "size": 35.84,
+      "weight": "700",
+      "line": 42.2912,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "gallery.html",
+      "width": 1366,
+      "title": "BlindsXpert in real spaces",
+      "size": 47.81,
+      "weight": "700",
+      "line": 56.4158,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "gallery.html",
+      "width": 1440,
+      "title": "BlindsXpert in real spaces",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "gallery.html",
+      "width": 1920,
+      "title": "BlindsXpert in real spaces",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "index.html",
+      "width": 320,
+      "title": "Your windows, thoughtfully dressed.",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "index.html",
+      "width": 360,
+      "title": "Your windows, thoughtfully dressed.",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "index.html",
+      "width": 375,
+      "title": "Your windows, thoughtfully dressed.",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "index.html",
+      "width": 390,
+      "title": "Your windows, thoughtfully dressed.",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "index.html",
+      "width": 430,
+      "title": "Your windows, thoughtfully dressed.",
+      "size": 25.8,
+      "weight": "700",
+      "line": 30.96,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "index.html",
+      "width": 768,
+      "title": "Your windows, thoughtfully dressed.",
+      "size": 30,
+      "weight": "700",
+      "line": 35.4,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "index.html",
+      "width": 1024,
+      "title": "Your windows, thoughtfully dressed.",
+      "size": 35.84,
+      "weight": "700",
+      "line": 42.2912,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "index.html",
+      "width": 1366,
+      "title": "Your windows, thoughtfully dressed.",
+      "size": 47.81,
+      "weight": "700",
+      "line": 56.4158,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "index.html",
+      "width": 1440,
+      "title": "Your windows, thoughtfully dressed.",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "index.html",
+      "width": 1920,
+      "title": "Your windows, thoughtfully dressed.",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "products.html",
+      "width": 320,
+      "title": "Blinds for indoor and outdoor spaces",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "products.html",
+      "width": 360,
+      "title": "Blinds for indoor and outdoor spaces",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "products.html",
+      "width": 375,
+      "title": "Blinds for indoor and outdoor spaces",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "products.html",
+      "width": 390,
+      "title": "Blinds for indoor and outdoor spaces",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "products.html",
+      "width": 430,
+      "title": "Blinds for indoor and outdoor spaces",
+      "size": 25.8,
+      "weight": "700",
+      "line": 30.96,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "products.html",
+      "width": 768,
+      "title": "Blinds for indoor and outdoor spaces",
+      "size": 30,
+      "weight": "700",
+      "line": 35.4,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "products.html",
+      "width": 1024,
+      "title": "Blinds for indoor and outdoor spaces",
+      "size": 35.84,
+      "weight": "700",
+      "line": 42.2912,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "products.html",
+      "width": 1366,
+      "title": "Blinds for indoor and outdoor spaces",
+      "size": 47.81,
+      "weight": "700",
+      "line": 56.4158,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "products.html",
+      "width": 1440,
+      "title": "Blinds for indoor and outdoor spaces",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "products.html",
+      "width": 1920,
+      "title": "Blinds for indoor and outdoor spaces",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "projects.html",
+      "width": 320,
+      "title": "BlindsXpert projects",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "projects.html",
+      "width": 360,
+      "title": "BlindsXpert projects",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "projects.html",
+      "width": 375,
+      "title": "BlindsXpert projects",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "projects.html",
+      "width": 390,
+      "title": "BlindsXpert projects",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "projects.html",
+      "width": 430,
+      "title": "BlindsXpert projects",
+      "size": 25.8,
+      "weight": "700",
+      "line": 30.96,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "projects.html",
+      "width": 768,
+      "title": "BlindsXpert projects",
+      "size": 30,
+      "weight": "700",
+      "line": 35.4,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "projects.html",
+      "width": 1024,
+      "title": "BlindsXpert projects",
+      "size": 35.84,
+      "weight": "700",
+      "line": 42.2912,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "projects.html",
+      "width": 1366,
+      "title": "BlindsXpert projects",
+      "size": 47.81,
+      "weight": "700",
+      "line": 56.4158,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "projects.html",
+      "width": 1440,
+      "title": "BlindsXpert projects",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "projects.html",
+      "width": 1920,
+      "title": "BlindsXpert projects",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "promotions.html",
+      "width": 320,
+      "title": "Promotions",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "promotions.html",
+      "width": 360,
+      "title": "Promotions",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "promotions.html",
+      "width": 375,
+      "title": "Promotions",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "promotions.html",
+      "width": 390,
+      "title": "Promotions",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "promotions.html",
+      "width": 430,
+      "title": "Promotions",
+      "size": 25.8,
+      "weight": "700",
+      "line": 30.96,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "promotions.html",
+      "width": 768,
+      "title": "Promotions",
+      "size": 30,
+      "weight": "700",
+      "line": 35.4,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "promotions.html",
+      "width": 1024,
+      "title": "Promotions",
+      "size": 35.84,
+      "weight": "700",
+      "line": 42.2912,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "promotions.html",
+      "width": 1366,
+      "title": "Promotions",
+      "size": 47.81,
+      "weight": "700",
+      "line": 56.4158,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "promotions.html",
+      "width": 1440,
+      "title": "Promotions",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "promotions.html",
+      "width": 1920,
+      "title": "Promotions",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "quote.html",
+      "width": 320,
+      "title": "Tell us about your project",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "quote.html",
+      "width": 360,
+      "title": "Tell us about your project",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "quote.html",
+      "width": 375,
+      "title": "Tell us about your project",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "quote.html",
+      "width": 390,
+      "title": "Tell us about your project",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "quote.html",
+      "width": 430,
+      "title": "Tell us about your project",
+      "size": 25.8,
+      "weight": "700",
+      "line": 30.96,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "quote.html",
+      "width": 768,
+      "title": "Tell us about your project",
+      "size": 30,
+      "weight": "700",
+      "line": 35.4,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "quote.html",
+      "width": 1024,
+      "title": "Tell us about your project",
+      "size": 35.84,
+      "weight": "700",
+      "line": 42.2912,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "quote.html",
+      "width": 1366,
+      "title": "Tell us about your project",
+      "size": 47.81,
+      "weight": "700",
+      "line": 56.4158,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "quote.html",
+      "width": 1440,
+      "title": "Tell us about your project",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "quote.html",
+      "width": 1920,
+      "title": "Tell us about your project",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "return-policy.html",
+      "width": 320,
+      "title": "Return Policy",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "return-policy.html",
+      "width": 360,
+      "title": "Return Policy",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "return-policy.html",
+      "width": 375,
+      "title": "Return Policy",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "return-policy.html",
+      "width": 390,
+      "title": "Return Policy",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "return-policy.html",
+      "width": 430,
+      "title": "Return Policy",
+      "size": 25.8,
+      "weight": "700",
+      "line": 30.96,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "return-policy.html",
+      "width": 768,
+      "title": "Return Policy",
+      "size": 30,
+      "weight": "700",
+      "line": 35.4,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "return-policy.html",
+      "width": 1024,
+      "title": "Return Policy",
+      "size": 35.84,
+      "weight": "700",
+      "line": 42.2912,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "return-policy.html",
+      "width": 1366,
+      "title": "Return Policy",
+      "size": 47.81,
+      "weight": "700",
+      "line": 56.4158,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "return-policy.html",
+      "width": 1440,
+      "title": "Return Policy",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "return-policy.html",
+      "width": 1920,
+      "title": "Return Policy",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "services.html",
+      "width": 320,
+      "title": "Support from selection to installation",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "services.html",
+      "width": 360,
+      "title": "Support from selection to installation",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "services.html",
+      "width": 375,
+      "title": "Support from selection to installation",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "services.html",
+      "width": 390,
+      "title": "Support from selection to installation",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "services.html",
+      "width": 430,
+      "title": "Support from selection to installation",
+      "size": 25.8,
+      "weight": "700",
+      "line": 30.96,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "services.html",
+      "width": 768,
+      "title": "Support from selection to installation",
+      "size": 30,
+      "weight": "700",
+      "line": 35.4,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "services.html",
+      "width": 1024,
+      "title": "Support from selection to installation",
+      "size": 35.84,
+      "weight": "700",
+      "line": 42.2912,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "services.html",
+      "width": 1366,
+      "title": "Support from selection to installation",
+      "size": 47.81,
+      "weight": "700",
+      "line": 56.4158,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "services.html",
+      "width": 1440,
+      "title": "Support from selection to installation",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "services.html",
+      "width": 1920,
+      "title": "Support from selection to installation",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "term-of-payment.html",
+      "width": 320,
+      "title": "Term of Payment",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "term-of-payment.html",
+      "width": 360,
+      "title": "Term of Payment",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "term-of-payment.html",
+      "width": 375,
+      "title": "Term of Payment",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "term-of-payment.html",
+      "width": 390,
+      "title": "Term of Payment",
+      "size": 24,
+      "weight": "700",
+      "line": 28.8,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "term-of-payment.html",
+      "width": 430,
+      "title": "Term of Payment",
+      "size": 25.8,
+      "weight": "700",
+      "line": 30.96,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "term-of-payment.html",
+      "width": 768,
+      "title": "Term of Payment",
+      "size": 30,
+      "weight": "700",
+      "line": 35.4,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "term-of-payment.html",
+      "width": 1024,
+      "title": "Term of Payment",
+      "size": 35.84,
+      "weight": "700",
+      "line": 42.2912,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "term-of-payment.html",
+      "width": 1366,
+      "title": "Term of Payment",
+      "size": 47.81,
+      "weight": "700",
+      "line": 56.4158,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "term-of-payment.html",
+      "width": 1440,
+      "title": "Term of Payment",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    },
+    {
+      "file": "term-of-payment.html",
+      "width": 1920,
+      "title": "Term of Payment",
+      "size": 48,
+      "weight": "700",
+      "line": 56.64,
+      "clipped": false,
+      "overflow": false
+    }
+  ],
+  "errors": [],
+  "home": true,
+  "productDetailsExcluded": true,
+  "passed": true
+}

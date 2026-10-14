@@ -1,0 +1,53 @@
+[
+  {
+    "order": 1,
+    "filename": "Golden Hour Modern Terrace Retreat.png",
+    "width": 1672,
+    "height": 941,
+    "originalBytes": 2320844,
+    "versions": [
+      {
+        "path": "assets/img/homepage/hero/Golden Hour Modern Terrace Retreat-1280.webp",
+        "bytes": 143550
+      },
+      {
+        "path": "assets/img/homepage/hero/Golden Hour Modern Terrace Retreat-1672.webp",
+        "bytes": 210028
+      }
+    ]
+  },
+  {
+    "order": 2,
+    "filename": "Golden-Hour Modern Patio Retreat.png",
+    "width": 1672,
+    "height": 941,
+    "originalBytes": 2541961,
+    "versions": [
+      {
+        "path": "assets/img/homepage/hero/Golden-Hour Modern Patio Retreat-1280.webp",
+        "bytes": 166986
+      },
+      {
+        "path": "assets/img/homepage/hero/Golden-Hour Modern Patio Retreat-1672.webp",
+        "bytes": 248164
+      }
+    ]
+  },
+  {
+    "order": 3,
+    "filename": "Sunlit Living Room with City Views.png",
+    "width": 1672,
+    "height": 941,
+    "originalBytes": 2241511,
+    "versions": [
+      {
+        "path": "assets/img/homepage/hero/Sunlit Living Room with City Views-1280.webp",
+        "bytes": 135032
+      },
+      {
+        "path": "assets/img/homepage/hero/Sunlit Living Room with City Views-1672.webp",
+        "bytes": 190240
+      }
+    ]
+  }
+]

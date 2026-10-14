@@ -3551,8 +3551,8 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                 "code": "FC-01",
                 "displayCode": "FC-01",
                 "colourName": "",
-                "swatchHex": "#C0C2BD",
-                "closeUpImage": null,
+                "swatchHex": "#B6B7B5",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-01.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23.jpeg",
@@ -3564,14 +3564,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_04.zip",
+                  "path": "FC-01.jpg.jpeg",
+                  "sha256": "76ee6cc75aba96181df31167b4b0f55f766ebb3275f6e3ae4a0731a6fa63918f",
+                  "sample": {
+                    "box": [
+                      125,
+                      313,
+                      375,
+                      318
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "FC-02",
                 "displayCode": "FC-02",
                 "colourName": "",
-                "swatchHex": "#DFE1E0",
-                "closeUpImage": null,
+                "swatchHex": "#BFC1BF",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-02.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23.jpeg",
@@ -3583,14 +3601,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_05.zip",
+                  "path": "FC-02.jpg.jpeg",
+                  "sha256": "d94c388694ce15ef3e8367b1ab0224a030b6d21006db2b60b0de639ba223ab18",
+                  "sample": {
+                    "box": [
+                      125,
+                      363,
+                      375,
+                      368
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "FC-03",
                 "displayCode": "FC-03",
                 "colourName": "",
-                "swatchHex": "#C9C8A8",
-                "closeUpImage": null,
+                "swatchHex": "#B9BAB3",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-03.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23.jpeg",
@@ -3602,14 +3638,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_04.zip",
+                  "path": "FC-03.jpg.jpeg",
+                  "sha256": "b56d168647c128fba84ba07f3dc0d95b8ab2dedc7736a807ad4901c087ac32b8",
+                  "sample": {
+                    "box": [
+                      125,
+                      312,
+                      375,
+                      317
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "FC-04",
                 "displayCode": "FC-04",
                 "colourName": "",
-                "swatchHex": "#DAD6AD",
-                "closeUpImage": null,
+                "swatchHex": "#B9B8B2",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-04.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23.jpeg",
@@ -3621,14 +3675,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_05.zip",
+                  "path": "FC-04.jpg.jpeg",
+                  "sha256": "37df62a28e7fd02323f1677e3162c30728ccd593e259f1b9aeafe5499cc569a0",
+                  "sample": {
+                    "box": [
+                      125,
+                      224,
+                      375,
+                      229
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "FC-05",
                 "displayCode": "FC-05",
                 "colourName": "",
-                "swatchHex": "#938163",
-                "closeUpImage": null,
+                "swatchHex": "#ADA691",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-05.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23.jpeg",
@@ -3640,14 +3712,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_05.zip",
+                  "path": "FC-05.jpg.jpeg",
+                  "sha256": "eddbf2fb9ccb9a3dee3dd6e24e590cb595319cb6116500e719f5a6ec111b1c45",
+                  "sample": {
+                    "box": [
+                      125,
+                      219,
+                      375,
+                      224
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "FC-06",
                 "displayCode": "FC-06",
                 "colourName": "",
-                "swatchHex": "#9E9170",
-                "closeUpImage": null,
+                "swatchHex": "#A6A38E",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-06.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23.jpeg",
@@ -3659,14 +3749,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_04.zip",
+                  "path": "FC-06.jpg.jpeg",
+                  "sha256": "1b49880c85f05e7680c5eef78a59e10bedd9e216561aeca81fc3d107f57f79c8",
+                  "sample": {
+                    "box": [
+                      125,
+                      363,
+                      375,
+                      368
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "FC-07",
                 "displayCode": "FC-07",
                 "colourName": "",
-                "swatchHex": "#7E8180",
-                "closeUpImage": null,
+                "swatchHex": "#A3A9A9",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-07.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23.jpeg",
@@ -3678,14 +3786,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_05.zip",
+                  "path": "FC-07.jpg.jpeg",
+                  "sha256": "fe3ac7647cb11f3eee73057ddb9bdf4cdbf00a5f458752c5de128b0a2c28921b",
+                  "sample": {
+                    "box": [
+                      125,
+                      356,
+                      375,
+                      361
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "FC-08",
                 "displayCode": "FC-08",
                 "colourName": "",
-                "swatchHex": "#939B98",
-                "closeUpImage": null,
+                "swatchHex": "#A2A6A1",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-08.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23.jpeg",
@@ -3697,14 +3823,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_05.zip",
+                  "path": "FC-08.jpg.jpeg",
+                  "sha256": "efdf2cd4499efc02e025d87924172ffe3ac7c8bae223afa91a7dbc862de746de",
+                  "sample": {
+                    "box": [
+                      125,
+                      327,
+                      375,
+                      332
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "FC-09",
                 "displayCode": "FC-09",
                 "colourName": "",
-                "swatchHex": "#626362",
-                "closeUpImage": null,
+                "swatchHex": "#7D7D77",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-09.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23.jpeg",
@@ -3716,14 +3860,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_05.zip",
+                  "path": "FC-09.jpg.jpeg",
+                  "sha256": "72db7a96c70778f504d22a1ee06cb2feaed16d983e0c82b7f7a5e18dede18e65",
+                  "sample": {
+                    "box": [
+                      125,
+                      270,
+                      375,
+                      275
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "FC-10",
                 "displayCode": "FC-10",
                 "colourName": "",
-                "swatchHex": "#585961",
-                "closeUpImage": null,
+                "swatchHex": "#919392",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-10.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23.jpeg",
@@ -3735,14 +3897,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_01.zip",
+                  "path": "FC-10.jpg.jpeg",
+                  "sha256": "5151e42a1ddfd920c2bbd99166409aceb1445b3adcaef3818846ac1b18bc3ca6",
+                  "sample": {
+                    "box": [
+                      125,
+                      315,
+                      375,
+                      320
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "FC-11",
                 "displayCode": "FC-11",
                 "colourName": "",
-                "swatchHex": "#5D5346",
-                "closeUpImage": null,
+                "swatchHex": "#8D8778",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-11.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23.jpeg",
@@ -3754,14 +3934,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_03.zip",
+                  "path": "FC-11.jpg.jpeg",
+                  "sha256": "876b95ef1055cc760529a831266569a6932fce5534242c0bc3d47a34d4438e25",
+                  "sample": {
+                    "box": [
+                      125,
+                      374,
+                      375,
+                      379
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "FC-12",
                 "displayCode": "FC-12",
                 "colourName": "",
-                "swatchHex": "#5F5547",
-                "closeUpImage": null,
+                "swatchHex": "#9B9283",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-12.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23.jpeg",
@@ -3772,6 +3970,24 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "rotation": 0,
                     "width": 20,
                     "height": 6
+                  }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_02.zip",
+                  "path": "FC-12.jpg.jpeg",
+                  "sha256": "e81cb2fc3904a60dc14328752bb5dab22352b8d07b264d626267abd97cd12193",
+                  "sample": {
+                    "box": [
+                      125,
+                      104,
+                      375,
+                      109
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
                   }
                 }
               },
@@ -3817,8 +4033,8 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                 "code": "FC-15",
                 "displayCode": "FC-15",
                 "colourName": "",
-                "swatchHex": "#5E5D6B",
-                "closeUpImage": null,
+                "swatchHex": "#979AA0",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-15.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23.jpeg",
@@ -3830,14 +4046,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_02.zip",
+                  "path": "FC-15.jpg.jpeg",
+                  "sha256": "1a2b9cd5c74729fc212239a91c5857694ead9e4de4e5e6e566718e5ce030660a",
+                  "sample": {
+                    "box": [
+                      125,
+                      369,
+                      375,
+                      374
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "FC-16",
                 "displayCode": "FC-16",
                 "colourName": "",
-                "swatchHex": "#141414",
-                "closeUpImage": null,
+                "swatchHex": "#64645F",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-25/fc/FC-16.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23.jpeg",
@@ -3848,6 +4082,24 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "rotation": 0,
                     "width": 20,
                     "height": 6
+                  }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_04.zip",
+                  "path": "FC-16.jpg.jpeg",
+                  "sha256": "998674c418a1ac8df27980d61b33f3dc19ab688b7f8c0213bc071b098070e2bd",
+                  "sample": {
+                    "box": [
+                      125,
+                      260,
+                      375,
+                      265
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
                   }
                 }
               }
@@ -3886,8 +4138,8 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                 "code": "FC-19",
                 "displayCode": "FC-19",
                 "colourName": "",
-                "swatchHex": "#DBDCE1",
-                "closeUpImage": null,
+                "swatchHex": "#AFB1B0",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-38/fc/FC-19.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23 (1).jpeg",
@@ -3899,14 +4151,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_05.zip",
+                  "path": "FC-19.jpg.jpeg",
+                  "sha256": "eae0da9e6f6619a88c57be838a1538b3a67591f0a5f57fa5fe6aa2d7bcc6ccb5",
+                  "sample": {
+                    "box": [
+                      125,
+                      120,
+                      375,
+                      125
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "FC-20",
                 "displayCode": "FC-20",
                 "colourName": "",
-                "swatchHex": "#343434",
-                "closeUpImage": null,
+                "swatchHex": "#7C7C76",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-38/fc/FC-20.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23 (1).jpeg",
@@ -3918,14 +4188,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_01.zip",
+                  "path": "FC-20.jpg.jpeg",
+                  "sha256": "747773f4a24d76f50c1abab889d8b4f7641e257384002d262ce4992239a23344",
+                  "sample": {
+                    "box": [
+                      125,
+                      175,
+                      375,
+                      180
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "FC-23",
                 "displayCode": "FC-23",
                 "colourName": "",
-                "swatchHex": "#D4D0B5",
-                "closeUpImage": null,
+                "swatchHex": "#B2B2AC",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-38/fc/FC-23.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23 (1).jpeg",
@@ -3937,14 +4225,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_04.zip",
+                  "path": "FC-23.jpg.jpeg",
+                  "sha256": "b81df3bee05c53311d056cf70abf0d26ce04a67998ee14db874f02ca870733f8",
+                  "sample": {
+                    "box": [
+                      125,
+                      255,
+                      375,
+                      260
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "FC-24",
                 "displayCode": "FC-24",
                 "colourName": "",
-                "swatchHex": "#BDBAAB",
-                "closeUpImage": null,
+                "swatchHex": "#B5B5AB",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-38/fc/FC-24.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23 (1).jpeg",
@@ -3956,14 +4262,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_02.zip",
+                  "path": "FC-24.jpg.jpeg",
+                  "sha256": "c879f2ef8b8eca3c9a19356d3c3883dbe9a8d122015cdadf32baaa15a8375c19",
+                  "sample": {
+                    "box": [
+                      125,
+                      357,
+                      375,
+                      362
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "FC-27",
                 "displayCode": "FC-27",
                 "colourName": "",
-                "swatchHex": "#75746F",
-                "closeUpImage": null,
+                "swatchHex": "#9E9E98",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-38/fc/FC-27.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23 (1).jpeg",
@@ -3975,14 +4299,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_03.zip",
+                  "path": "FC-27.jpg.jpeg",
+                  "sha256": "5b89fbb283349c274afba78770173c034f39a7cd69830a83415712384f104222",
+                  "sample": {
+                    "box": [
+                      125,
+                      104,
+                      375,
+                      109
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "FC-28",
                 "displayCode": "FC-28",
                 "colourName": "",
-                "swatchHex": "#8B8D8A",
-                "closeUpImage": null,
+                "swatchHex": "#A3A5A0",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-38/fc/FC-28.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23 (1).jpeg",
@@ -3994,14 +4336,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_02.zip",
+                  "path": "FC-28.jpg.jpeg",
+                  "sha256": "d87dca98f8ad0aa24175225fbc294948e8f9f557f70b013f182f30681431e6e9",
+                  "sample": {
+                    "box": [
+                      125,
+                      294,
+                      375,
+                      299
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "FC-31",
                 "displayCode": "FC-31",
                 "colourName": "",
-                "swatchHex": "#383C3B",
-                "closeUpImage": null,
+                "swatchHex": "#7E817D",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-38/fc/FC-31.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23 (1).jpeg",
@@ -4013,14 +4373,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_01.zip",
+                  "path": "FC-31.jpg.jpeg",
+                  "sha256": "dc9951a7d6eb7c363695bc17dc06ea0764fb4e0c40fe7f5535f09211ecdd0824",
+                  "sample": {
+                    "box": [
+                      125,
+                      274,
+                      375,
+                      279
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "FC-32",
                 "displayCode": "FC-32",
                 "colourName": "",
-                "swatchHex": "#4E5152",
-                "closeUpImage": null,
+                "swatchHex": "#818785",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/fc-38/fc/FC-32.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23 (1).jpeg",
@@ -4031,6 +4409,24 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "rotation": 0,
                     "width": 20,
                     "height": 6
+                  }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_03.zip",
+                  "path": "FC-32.jpg.jpeg",
+                  "sha256": "ccd62dd7b281ff169a0c1979118d9c9a0cea849aec5b71e263782d827f8fb0d2",
+                  "sample": {
+                    "box": [
+                      125,
+                      391,
+                      375,
+                      396
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
                   }
                 }
               }
@@ -4069,8 +4465,8 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                 "code": "S-001",
                 "displayCode": "S-001",
                 "colourName": "",
-                "swatchHex": "#D6D6D6",
-                "closeUpImage": null,
+                "swatchHex": "#ABADAA",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/honeycomb-26/semi-blackout/S-001.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23 (2).jpeg",
@@ -4082,14 +4478,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_04.zip",
+                  "path": "S-001.jpg.jpeg",
+                  "sha256": "3071c4f41e3b3341b4dad9552f867dd41e99bc1ddee04ac6580b6ba8ec86ceda",
+                  "sample": {
+                    "box": [
+                      125,
+                      314,
+                      375,
+                      319
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "S-002",
                 "displayCode": "S-002",
                 "colourName": "",
-                "swatchHex": "#989585",
-                "closeUpImage": null,
+                "swatchHex": "#9EA195",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/honeycomb-26/semi-blackout/S-002.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23 (2).jpeg",
@@ -4101,14 +4515,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_04.zip",
+                  "path": "S-002.jpg.jpeg",
+                  "sha256": "14b5838829b65a236991a256d1f03508b056b15428b5f57b1a6cc84bb206d020",
+                  "sample": {
+                    "box": [
+                      125,
+                      343,
+                      375,
+                      348
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "S-006",
                 "displayCode": "S-006",
                 "colourName": "",
-                "swatchHex": "#77858E",
-                "closeUpImage": null,
+                "swatchHex": "#879394",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/honeycomb-26/semi-blackout/S-006.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23 (2).jpeg",
@@ -4119,6 +4551,24 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "rotation": 0,
                     "width": 20,
                     "height": 6
+                  }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_01.zip",
+                  "path": "S-006.jpg.jpeg",
+                  "sha256": "6ca7130e6f688c0596060e817246139cd197bb2bf1b8e2cc6894d53df2fc3026",
+                  "sample": {
+                    "box": [
+                      125,
+                      305,
+                      375,
+                      310
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
                   }
                 }
               }
@@ -4137,8 +4587,8 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                 "code": "SF-001",
                 "displayCode": "SF-001",
                 "colourName": "",
-                "swatchHex": "#A0A3A7",
-                "closeUpImage": null,
+                "swatchHex": "#A9ADAF",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/honeycomb-26/blackout/SF-001.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23 (2).jpeg",
@@ -4150,14 +4600,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_03.zip",
+                  "path": "SF-001.jpg.jpeg",
+                  "sha256": "4c560c8a8150d12927708bb4427be291cf038e58f46bf49c78fdb731ba1835ce",
+                  "sample": {
+                    "box": [
+                      125,
+                      324,
+                      375,
+                      329
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "SF-002",
                 "displayCode": "SF-002",
                 "colourName": "",
-                "swatchHex": "#727368",
-                "closeUpImage": null,
+                "swatchHex": "#A9A9A0",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/honeycomb-26/blackout/SF-002.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23 (2).jpeg",
@@ -4169,14 +4637,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_03.zip",
+                  "path": "SF-002.jpg.jpeg",
+                  "sha256": "6f2fe181011b5d4072caace987a104c8fedb56787aa70a28ce116402bf5df067",
+                  "sample": {
+                    "box": [
+                      125,
+                      322,
+                      375,
+                      327
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "SF-003",
                 "displayCode": "SF-003",
                 "colourName": "",
-                "swatchHex": "#908566",
-                "closeUpImage": null,
+                "swatchHex": "#A8A392",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/honeycomb-26/blackout/SF-003.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23 (2).jpeg",
@@ -4188,14 +4674,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_03.zip",
+                  "path": "SF-003.jpg.jpeg",
+                  "sha256": "053138793b9f0af009aff41647cda9376b470d5dc767831199731b230c5d0d9d",
+                  "sample": {
+                    "box": [
+                      125,
+                      325,
+                      375,
+                      330
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "SF-006",
                 "displayCode": "SF-006",
                 "colourName": "",
-                "swatchHex": "#6B7D8B",
-                "closeUpImage": null,
+                "swatchHex": "#94A5AD",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/honeycomb-26/blackout/SF-006.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23 (2).jpeg",
@@ -4207,14 +4711,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_03.zip",
+                  "path": "SF-006.jpg.jpeg",
+                  "sha256": "cdad397375469f7006074b0e014082306f0eefb93ef27ad49e1e853b5019c48c",
+                  "sample": {
+                    "box": [
+                      125,
+                      310,
+                      375,
+                      315
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "SF-010",
                 "displayCode": "SF-010",
                 "colourName": "",
-                "swatchHex": "#6D5745",
-                "closeUpImage": null,
+                "swatchHex": "#8B7760",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/honeycomb-26/blackout/SF-010.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23 (2).jpeg",
@@ -4226,14 +4748,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_03.zip",
+                  "path": "SF-010.jpg.jpeg",
+                  "sha256": "e98266bd034579edd08178105a2652a5c950822f142ea978d4288820f8931ca9",
+                  "sample": {
+                    "box": [
+                      125,
+                      336,
+                      375,
+                      341
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "SF-012",
                 "displayCode": "SF-012",
                 "colourName": "",
-                "swatchHex": "#717578",
-                "closeUpImage": null,
+                "swatchHex": "#92999A",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/honeycomb-26/blackout/SF-012.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23 (2).jpeg",
@@ -4245,14 +4785,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_01.zip",
+                  "path": "SF-012.jpg.jpeg",
+                  "sha256": "36e5cb2c8466178cdcf30aaf5c5886e1a6c7920956594bfdf89a18ef49dec443",
+                  "sample": {
+                    "box": [
+                      125,
+                      355,
+                      375,
+                      360
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "SF-014",
                 "displayCode": "SF-014",
                 "colourName": "",
-                "swatchHex": "#455469",
-                "closeUpImage": null,
+                "swatchHex": "#718395",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/honeycomb-26/blackout/SF-014.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23 (2).jpeg",
@@ -4263,6 +4821,24 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "rotation": 0,
                     "width": 20,
                     "height": 6
+                  }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_01.zip",
+                  "path": "SF-014.jpg.jpeg",
+                  "sha256": "80e601bdc9aba26fed24681c7736838b7b03be3a938514cbbf1980ff1c6f84f6",
+                  "sample": {
+                    "box": [
+                      125,
+                      341,
+                      375,
+                      346
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
                   }
                 }
               }
@@ -4281,8 +4857,8 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                 "code": "W-001",
                 "displayCode": "W-001",
                 "colourName": "",
-                "swatchHex": "#BCBDB8",
-                "closeUpImage": null,
+                "swatchHex": "#A3A4A0",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/honeycomb-26/mesh-sunscreen/W-001.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23 (2).jpeg",
@@ -4294,14 +4870,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_04.zip",
+                  "path": "W-001.jpg.jpeg",
+                  "sha256": "8410dccd0040d4bb8f0a980ba990a4f7d18f387348f897a22b2ec259fb4d43ce",
+                  "sample": {
+                    "box": [
+                      125,
+                      225,
+                      375,
+                      230
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "W-002",
                 "displayCode": "W-002",
                 "colourName": "",
-                "swatchHex": "#9F9D91",
-                "closeUpImage": null,
+                "swatchHex": "#A1A39A",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/honeycomb-26/mesh-sunscreen/W-002.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.23 (2).jpeg",
@@ -4312,6 +4906,24 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "rotation": 0,
                     "width": 20,
                     "height": 6
+                  }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_05.zip",
+                  "path": "W-002.jpg.jpeg",
+                  "sha256": "b1bd33e6dcd2a1acb8c7d460866ab3f11d7a82c054374b31ed6a811807dccb63",
+                  "sample": {
+                    "box": [
+                      125,
+                      338,
+                      375,
+                      343
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
                   }
                 }
               }
@@ -4348,8 +4960,8 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                 "code": "S-001",
                 "displayCode": "S-001",
                 "colourName": "",
-                "swatchHex": "#BDBEC0",
-                "closeUpImage": null,
+                "swatchHex": "#BABBBE",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/honeycomb-38/semi-blackout/S-001 38.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.24.jpeg",
@@ -4361,14 +4973,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_05.zip",
+                  "path": "S-001 38.jpg.jpeg",
+                  "sha256": "715e02a984507260a4ca73e2f625b5c3398d3ef7d2e6634278c0bcca058975e8",
+                  "sample": {
+                    "box": [
+                      125,
+                      155,
+                      375,
+                      160
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "SF-001",
                 "displayCode": "SF-001",
                 "colourName": "",
-                "swatchHex": "#A7A9AE",
-                "closeUpImage": null,
+                "swatchHex": "#B7B8B9",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/honeycomb-38/semi-blackout/SF-001 38.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.24.jpeg",
@@ -4380,14 +5010,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_02.zip",
+                  "path": "SF-001 38.jpg.jpeg",
+                  "sha256": "1a18286eee465e2e328f181b2dfa0170097fb4ddfd9b5ca3c4086819ed8edac1",
+                  "sample": {
+                    "box": [
+                      125,
+                      167,
+                      375,
+                      172
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "SF-002",
                 "displayCode": "SF-002",
                 "colourName": "",
-                "swatchHex": "#74746A",
-                "closeUpImage": null,
+                "swatchHex": "#ABABA1",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/honeycomb-38/semi-blackout/SF-002 38.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.24.jpeg",
@@ -4399,14 +5047,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_04.zip",
+                  "path": "SF-002 38.jpg.jpeg",
+                  "sha256": "2758d20dba910a5833901e987f3e4a2759d50461edfcd18579a2ce5c908f4fc0",
+                  "sample": {
+                    "box": [
+                      125,
+                      302,
+                      375,
+                      307
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "SF-006",
                 "displayCode": "SF-006",
                 "colourName": "",
-                "swatchHex": "#48575C",
-                "closeUpImage": null,
+                "swatchHex": "#8C9BA0",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/honeycomb-38/semi-blackout/SF-006 38.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.24.jpeg",
@@ -4418,14 +5084,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_02.zip",
+                  "path": "SF-006 38.jpg.jpeg",
+                  "sha256": "e10d0fb6e472c5813ff91d96fcc2e871e45497aeb55d834d24ea761885c83a89",
+                  "sample": {
+                    "box": [
+                      125,
+                      283,
+                      375,
+                      288
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "SF-010",
                 "displayCode": "SF-010",
                 "colourName": "",
-                "swatchHex": "#544130",
-                "closeUpImage": null,
+                "swatchHex": "#6F5C46",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/honeycomb-38/semi-blackout/SF-010 38.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.24.jpeg",
@@ -4437,14 +5121,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_02.zip",
+                  "path": "SF-010 38.jpg.jpeg",
+                  "sha256": "9ef3cc6420eebf8e990005800485227c0a7c01f465dfc8b52e001944501a8ab8",
+                  "sample": {
+                    "box": [
+                      125,
+                      191,
+                      375,
+                      196
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "SF-012",
                 "displayCode": "SF-012",
                 "colourName": "",
-                "swatchHex": "#4F5555",
-                "closeUpImage": null,
+                "swatchHex": "#858D8B",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/honeycomb-38/semi-blackout/SF-012 38.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.24.jpeg",
@@ -4456,14 +5158,32 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "width": 20,
                     "height": 6
                   }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_02.zip",
+                  "path": "SF-012 38.jpg.jpeg",
+                  "sha256": "bb08353679bfc55267578e396f2a52e4637c4836735813e2a2fbfd5a6be0373b",
+                  "sample": {
+                    "box": [
+                      125,
+                      295,
+                      375,
+                      300
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
+                  }
                 }
               },
               {
                 "code": "SF-014",
                 "displayCode": "SF-014",
                 "colourName": "",
-                "swatchHex": "#364354",
-                "closeUpImage": null,
+                "swatchHex": "#6A7D8E",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/honeycomb-38/semi-blackout/SF-014 38.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.24.jpeg",
@@ -4474,6 +5194,24 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "rotation": 0,
                     "width": 20,
                     "height": 6
+                  }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_04.zip",
+                  "path": "SF-014 38.jpg.jpeg",
+                  "sha256": "c596b0b73a369c29a8380c305b754e25d39f83273f31951ebdddd9be4698461f",
+                  "sample": {
+                    "box": [
+                      125,
+                      321,
+                      375,
+                      326
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
                   }
                 }
               }
@@ -4492,8 +5230,8 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                 "code": "W-001",
                 "displayCode": "W-001",
                 "colourName": "",
-                "swatchHex": "#989A99",
-                "closeUpImage": null,
+                "swatchHex": "#A7A8A3",
+                "closeUpImage": "assets/img/products/honeycomb-blinds/honeycomb-38/mesh-sunscreen/W-001 38.jpg.jpeg",
                 "source": {
                   "archive": "C:\\Users\\ahmad\\Downloads\\WhatsApp Unknown 2026-10-12 at 09.49.40.zip",
                   "path": "WhatsApp Image 2026-10-12 at 09.49.24.jpeg",
@@ -4504,6 +5242,24 @@ window.BLINDSXPERT_FABRIC_CATALOGUES = {
                     "rotation": 0,
                     "width": 20,
                     "height": 6
+                  }
+                },
+                "imageSource": {
+                  "archive": "Honeycomb_Enhanced_SmallPart_05.zip",
+                  "path": "W-001 38.jpg.jpeg",
+                  "sha256": "ddb26ba212b094cc6ee28a1980641559f7d70e94bcac14021ec613bc0a4c63d9",
+                  "sample": {
+                    "box": [
+                      125,
+                      101,
+                      375,
+                      106
+                    ],
+                    "imageSize": [
+                      500,
+                      500
+                    ],
+                    "method": "Median RGB on central moderately lit fabric pleat"
                   }
                 }
               }

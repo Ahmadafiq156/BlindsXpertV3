@@ -1,0 +1,23 @@
+[
+  {
+    "filename": "motorized brand (1).png",
+    "path": "assets/img/products/motorized/brands/motorized brand (1).png",
+    "title": "Window covering and motorization brand sheet",
+    "bytes": 234680,
+    "sha256": "70575c2303ac8b2f645bdd2be8e344c8ea311a4d6718ba2ba0f7695b7d42b1cb"
+  },
+  {
+    "filename": "motorized brand (1).jpg",
+    "path": "assets/img/products/motorized/brands/motorized brand (1).jpg",
+    "title": "Somfy motor and remote poster",
+    "bytes": 45554,
+    "sha256": "503f97bd2386b1e72d58cdb4be4feb0c9678b6b471ebd7d637eb91a5cb8ea6ae"
+  },
+  {
+    "filename": "motorized brand (2).png",
+    "path": "assets/img/products/motorized/brands/motorized brand (2).png",
+    "title": "Somfy motorization products poster",
+    "bytes": 28020,
+    "sha256": "3c8152350f383b0719f2aac22c87b164d11645bf5044f2c4963525254845009a"
+  }
+]

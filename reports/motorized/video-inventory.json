@@ -1,0 +1,86 @@
+[
+  {
+    "filename": "motorized-demo-01.mp4",
+    "path": "assets/video/motorized/motorized-demo-01.mp4",
+    "bytes": 27292126,
+    "duration": 99.706485,
+    "width": 1280,
+    "height": 720,
+    "title": "Living room roller blinds",
+    "poster": "assets/img/products/video-thumbnails/bright-open-plan-living-space.png",
+    "sha256": "c02c795f5d1e8960b80cbe9054376344ea2939c3488290c84358d57fc5eb9c4e",
+    "subjectEvidence": "Start and middle frames inspected; exact motor brand/model not established"
+  },
+  {
+    "filename": "motorized-demo-02.mp4",
+    "path": "assets/video/motorized/motorized-demo-02.mp4",
+    "bytes": 42064181,
+    "duration": 207.92,
+    "width": 1920,
+    "height": 1080,
+    "title": "Roller blind motor demonstration",
+    "poster": "assets/img/products/video-thumbnails/oceanview-boardroom-motorized-blinds.png",
+    "sha256": "badcfa6b3ad9eca5304eb6d59ae12d26cc57ddf3f0875cabc405ea1e1b6153e3",
+    "subjectEvidence": "Start and middle frames inspected; exact motor brand/model not established"
+  },
+  {
+    "filename": "motorized-demo-03.mp4",
+    "path": "assets/video/motorized/motorized-demo-03.mp4",
+    "bytes": 13956998,
+    "duration": 50.619501,
+    "width": 1280,
+    "height": 720,
+    "title": "Venetian blind demonstration",
+    "poster": "assets/img/products/video-thumbnails/sunlit-reading-nook-venetian-blinds.png",
+    "sha256": "e4dad801374ec3a5728e0ca89954f33769e322c686a76831a6e8ad65ea928ab5",
+    "subjectEvidence": "Start and middle frames inspected; exact motor brand/model not established"
+  },
+  {
+    "filename": "motorized-demo-04.mp4",
+    "path": "assets/video/motorized/motorized-demo-04.mp4",
+    "bytes": 39285152,
+    "duration": 45.418646,
+    "width": 1920,
+    "height": 1080,
+    "title": "Vertical blind demonstration",
+    "poster": "assets/img/products/video-thumbnails/bedroom-corner-window-vertical-blinds.png",
+    "sha256": "dae9bd7768478df24cfa84d080fca95bf39e15d3d4b9291f3c2a1afc7d6ed8fa",
+    "subjectEvidence": "Start and middle frames inspected; exact motor brand/model not established"
+  },
+  {
+    "filename": "motorized-demo-05.mp4",
+    "path": "assets/video/motorized/motorized-demo-05.mp4",
+    "bytes": 6328510,
+    "duration": 31.323719,
+    "width": 848,
+    "height": 480,
+    "title": "Outdoor roller shade demonstration",
+    "poster": "assets/img/products/video-thumbnails/tropical-patio-roller-shades.png",
+    "sha256": "8395a9ffe939a77ad6424cf328ad70ef40ba34bec1ffeb8bf34dfc5f692a4600",
+    "subjectEvidence": "Start and middle frames inspected; exact motor brand/model not established"
+  },
+  {
+    "filename": "motorized-demo-06.mp4",
+    "path": "assets/video/motorized/motorized-demo-06.mp4",
+    "bytes": 6759513,
+    "duration": 33.808254,
+    "width": 848,
+    "height": 480,
+    "title": "Outdoor shade demonstration",
+    "poster": "assets/img/products/video-thumbnails/tropical-retreat-remote-control.png",
+    "sha256": "e1c91e928f25c00412ee28c55068dcae94bb5698737661c7ab1498fd788ccb49",
+    "subjectEvidence": "Start and middle frames inspected; exact motor brand/model not established"
+  },
+  {
+    "filename": "motorized-demo-07.mp4",
+    "path": "assets/video/motorized/motorized-demo-07.mp4",
+    "bytes": 1512863,
+    "duration": 17.623946,
+    "width": 638,
+    "height": 360,
+    "title": "Zebra blinds with handheld control",
+    "poster": "assets/img/products/video-thumbnails/corner-living-room-zebra-blinds.png",
+    "sha256": "f47770826231cdb1fa3307f23b14a84fdff9aad61f8b74feb88351ffb613e685",
+    "subjectEvidence": "Start and middle frames inspected; exact motor brand/model not established"
+  }
+]

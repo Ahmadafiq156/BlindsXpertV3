@@ -1,0 +1,227 @@
+{
+  "widths": [
+    {
+      "width": 320,
+      "series": 2,
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "series": 2,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "series": 2,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "series": 2,
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "series": 2,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "series": 2,
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "series": 2,
+      "overflow": false
+    },
+    {
+      "width": 1366,
+      "series": 2,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "series": 2,
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "series": 2,
+      "overflow": false
+    }
+  ],
+  "colours": [
+    {
+      "series": "timber-pl-35",
+      "code": "PL 01",
+      "image": "assets/img/products/venetian-blinds/timber/timber-pl-35/PL 01 WHITE.jpg"
+    },
+    {
+      "series": "timber-pl-35",
+      "code": "PL 02",
+      "image": "assets/img/products/venetian-blinds/timber/timber-pl-35/PL 02 MAHOGANY.jpg"
+    },
+    {
+      "series": "timber-pl-35",
+      "code": "PL 03",
+      "image": "assets/img/products/venetian-blinds/timber/timber-pl-35/PL 03 BEECH.jpg"
+    },
+    {
+      "series": "timber-pl-35",
+      "code": "PL 04",
+      "image": "assets/img/products/venetian-blinds/timber/timber-pl-35/PL 04 TEAK.jpg"
+    },
+    {
+      "series": "timber-pl-35",
+      "code": "PL 05",
+      "image": "assets/img/products/venetian-blinds/timber/timber-pl-35/PL 05 DARK WALNUT.jpg"
+    },
+    {
+      "series": "timber-pl-35",
+      "code": "PL 06",
+      "image": "assets/img/products/venetian-blinds/timber/timber-pl-35/PL 06 NATURAL.jpg"
+    },
+    {
+      "series": "timber-pl-35",
+      "code": "PL 07",
+      "image": "assets/img/products/venetian-blinds/timber/timber-pl-35/PL 07 BLACK.jpg"
+    },
+    {
+      "series": "timber-pl-35",
+      "code": "PL 08",
+      "image": "assets/img/products/venetian-blinds/timber/timber-pl-35/PL 08 GREY.jpg"
+    },
+    {
+      "series": "timber-pl-50",
+      "code": "PL 01",
+      "image": "assets/img/products/venetian-blinds/timber/timber-pl-50/PL 01 WHITE.jpg"
+    },
+    {
+      "series": "timber-pl-50",
+      "code": "PL 02",
+      "image": "assets/img/products/venetian-blinds/timber/timber-pl-50/PL 02 MAHOGANY.jpg"
+    },
+    {
+      "series": "timber-pl-50",
+      "code": "PL 03",
+      "image": "assets/img/products/venetian-blinds/timber/timber-pl-50/PL 03 BEECH.jpg"
+    },
+    {
+      "series": "timber-pl-50",
+      "code": "PL 04",
+      "image": "assets/img/products/venetian-blinds/timber/timber-pl-50/PL 04 TEAK.jpg"
+    },
+    {
+      "series": "timber-pl-50",
+      "code": "PL 05",
+      "image": "assets/img/products/venetian-blinds/timber/timber-pl-50/PL 05 DARK WALNUT.jpg"
+    },
+    {
+      "series": "timber-pl-50",
+      "code": "PL 06",
+      "image": "assets/img/products/venetian-blinds/timber/timber-pl-50/PL 06 NATURAL.jpg"
+    },
+    {
+      "series": "timber-pl-50",
+      "code": "PL 07",
+      "image": "assets/img/products/venetian-blinds/timber/timber-pl-50/PL 07 BLACK.jpg"
+    },
+    {
+      "series": "timber-pl-50",
+      "code": "PL 08",
+      "image": "assets/img/products/venetian-blinds/timber/timber-pl-50/PL 08 GREY.jpg"
+    }
+  ],
+  "enquiries": [
+    {
+      "series": "timber-pl-35",
+      "code": "PL 01",
+      "text": "BlindsXpert product enquiry\n\nProduct: Venetian Blinds\nMaterial: Timber\nSeries: Wooden 35mm (PL)\nColour: PL 01 · White\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "series": "timber-pl-35",
+      "code": "PL 02",
+      "text": "BlindsXpert product enquiry\n\nProduct: Venetian Blinds\nMaterial: Timber\nSeries: Wooden 35mm (PL)\nColour: PL 02 · Mahogany\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "series": "timber-pl-35",
+      "code": "PL 03",
+      "text": "BlindsXpert product enquiry\n\nProduct: Venetian Blinds\nMaterial: Timber\nSeries: Wooden 35mm (PL)\nColour: PL 03 · Beech\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "series": "timber-pl-35",
+      "code": "PL 04",
+      "text": "BlindsXpert product enquiry\n\nProduct: Venetian Blinds\nMaterial: Timber\nSeries: Wooden 35mm (PL)\nColour: PL 04 · Teak\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "series": "timber-pl-35",
+      "code": "PL 05",
+      "text": "BlindsXpert product enquiry\n\nProduct: Venetian Blinds\nMaterial: Timber\nSeries: Wooden 35mm (PL)\nColour: PL 05 · Dark Walnut\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "series": "timber-pl-35",
+      "code": "PL 06",
+      "text": "BlindsXpert product enquiry\n\nProduct: Venetian Blinds\nMaterial: Timber\nSeries: Wooden 35mm (PL)\nColour: PL 06 · Natural\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "series": "timber-pl-35",
+      "code": "PL 07",
+      "text": "BlindsXpert product enquiry\n\nProduct: Venetian Blinds\nMaterial: Timber\nSeries: Wooden 35mm (PL)\nColour: PL 07 · Black\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "series": "timber-pl-35",
+      "code": "PL 08",
+      "text": "BlindsXpert product enquiry\n\nProduct: Venetian Blinds\nMaterial: Timber\nSeries: Wooden 35mm (PL)\nColour: PL 08 · Grey\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "series": "timber-pl-50",
+      "code": "PL 01",
+      "text": "BlindsXpert product enquiry\n\nProduct: Venetian Blinds\nMaterial: Timber\nSeries: Wooden 50mm (PL)\nColour: PL 01 · White\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "series": "timber-pl-50",
+      "code": "PL 02",
+      "text": "BlindsXpert product enquiry\n\nProduct: Venetian Blinds\nMaterial: Timber\nSeries: Wooden 50mm (PL)\nColour: PL 02 · Mahogany\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "series": "timber-pl-50",
+      "code": "PL 03",
+      "text": "BlindsXpert product enquiry\n\nProduct: Venetian Blinds\nMaterial: Timber\nSeries: Wooden 50mm (PL)\nColour: PL 03 · Beech\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "series": "timber-pl-50",
+      "code": "PL 04",
+      "text": "BlindsXpert product enquiry\n\nProduct: Venetian Blinds\nMaterial: Timber\nSeries: Wooden 50mm (PL)\nColour: PL 04 · Teak\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "series": "timber-pl-50",
+      "code": "PL 05",
+      "text": "BlindsXpert product enquiry\n\nProduct: Venetian Blinds\nMaterial: Timber\nSeries: Wooden 50mm (PL)\nColour: PL 05 · Dark Walnut\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "series": "timber-pl-50",
+      "code": "PL 06",
+      "text": "BlindsXpert product enquiry\n\nProduct: Venetian Blinds\nMaterial: Timber\nSeries: Wooden 50mm (PL)\nColour: PL 06 · Natural\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "series": "timber-pl-50",
+      "code": "PL 07",
+      "text": "BlindsXpert product enquiry\n\nProduct: Venetian Blinds\nMaterial: Timber\nSeries: Wooden 50mm (PL)\nColour: PL 07 · Black\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    },
+    {
+      "series": "timber-pl-50",
+      "code": "PL 08",
+      "text": "BlindsXpert product enquiry\n\nProduct: Venetian Blinds\nMaterial: Timber\nSeries: Wooden 50mm (PL)\nColour: PL 08 · Grey\nName: Test Customer\nPhone: 0176356542\nAddress / area: Test address\nEmail: test@example.com\nSite visit: No\nMessage: Please quote"
+    }
+  ],
+  "regression": {
+    "Lantex": 12,
+    "Aluminium": 29,
+    "PVC": "Original fallback intact"
+  },
+  "errors": [],
+  "invalidColour": true,
+  "touch": true,
+  "passed": true
+}

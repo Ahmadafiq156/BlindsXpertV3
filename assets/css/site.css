@@ -4090,17 +4090,36 @@ h2 { font-size: clamp(24px,3vw,36px); }
 .product-dropdown { transition: opacity .2s, transform .2s; }
 @media (prefers-reduced-motion: reduce) { .product-dropdown { transition: none; } }
 /* Targeted homepage typography and slideshow controls. */
-.home-hero.page-hero h1 { font-size:clamp(30px,3.5vw,48px); line-height:1.18; max-width:24ch; text-wrap:balance; }
+:root { --hero-h1-size:clamp(30px,3.5vw,48px); --hero-h1-line-height:1.18; }
+.page-hero .page-hero-copy h1 { font:700 var(--hero-h1-size)/var(--hero-h1-line-height) var(--heading-font); max-width:24ch; text-wrap:balance; }
+.home-hero .hero-actions { margin-top:20px; }
 .home-hero .page-hero-copy > p:not(.eyebrow) { font-size:clamp(14px,1.15vw,16px); line-height:1.6; max-width:56ch; }
 .home-hero .hero-arrow { width:56px; height:56px; background:rgb(0 0 0 / 22%); border-radius:50%; }
 .home-hero .hero-arrow svg { width:34px; height:34px; stroke-width:2.2; }
 .home-hero .hero-arrow:hover,.home-hero .hero-arrow:focus-visible { background:rgb(0 0 0 / 40%); }
 @media (max-width:760px) {
-    .home-hero.page-hero h1 { font-size:clamp(24px,6vw,30px); line-height:1.2; }
+    :root { --hero-h1-size:clamp(24px,6vw,30px); --hero-h1-line-height:1.2; }
     .home-hero .page-hero-copy > p:not(.eyebrow) { font-size:13px; line-height:1.55; }
     .home-hero .page-hero-copy { padding-left:54px; padding-right:54px; }
     .home-hero .hero-arrow { width:48px; height:52px; background:transparent; border-radius:0; color:#fff; }
     .home-hero .hero-arrow svg { width:32px; height:32px; }
+}
+
+/* Homepage hero photographs and centred copy; internal heroes keep their alignment. */
+.home-hero .hero-slide:first-child img { object-position:40% 48%; }
+.home-hero .hero-slide:nth-child(2) img { object-position:42% 48%; }
+.home-hero .hero-slide:nth-child(3) img { object-position:48% 45%; }
+.home-hero .page-hero-copy { align-self:center; margin-block:0; padding-block:0; text-align:center; text-shadow:0 2px 8px #0006; }
+.home-hero .page-hero-copy h1 { margin-inline:auto; }
+.home-hero .hero-actions { justify-content:center; }
+.home-hero .page-hero-shade { background:linear-gradient(180deg,#1113 0%,#1119 35%,#111b 65%,#1119 100%); }
+@media(max-width:760px) {
+    .home-hero .hero-slide:first-child img { object-position:29% 45%; }
+    .home-hero .hero-slide:nth-child(2) img { object-position:38% 45%; }
+    .home-hero .hero-slide:nth-child(3) img { object-position:44% 42%; }
+    .home-hero .page-hero-copy { padding:20px 42px; }
+    .home-hero .hero-actions .btn { font-size:12px; padding:11px 12px; }
+    .home-hero .page-hero-shade { background:linear-gradient(180deg,#1115 0%,#111b 35%,#111b 65%,#1119 100%); }
 }
 
 /* Catalogue metadata stays in the content area, below the product name. */

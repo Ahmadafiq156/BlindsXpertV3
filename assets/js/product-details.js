@@ -10,6 +10,12 @@
     const defaultGalleryHeading = $('[data-gallery-section] h2').textContent;
     const defaultGalleryIntro = $('[data-gallery-section] .pd-section-intro').textContent;
     const defaultImageNote = $('[data-product-visual] .pd-image-note')?.textContent;
+    const enquiryHeading = $('#product-enquiry h2');
+    const enquiryIntro = enquiryHeading.nextElementSibling;
+    const defaultEnquiryHeading = enquiryHeading.textContent;
+    const defaultEnquiryIntro = enquiryIntro.textContent;
+    const quotationDetails = product => window.BLINDSXPERT_QUOTATION_DETAILS?.[product?.id];
+    const outdoorDetails = product => window.BLINDSXPERT_OUTDOOR_DETAILS?.[product?.id];
     let activeProduct, activeOption = '', activeFabricVariant = '', activeCellSize = '', activeFabricType = '', activeSeries = null, activeColour = null;
     let activeFilm = null;
     const otherDetails = product => window.BLINDSXPERT_OTHER_DETAILS?.[product?.id];
@@ -47,7 +53,12 @@
             })
         })).filter(series => series.fabrics.length)
     };
-    const catalogue = product => product?.fabricCatalogue === 'roller' ? rollerCatalogue : product?.id === 'zebra' ? zebraCatalogue : product?.id === 'dream' ? dreamCatalogue : window.BLINDSXPERT_FABRIC_CATALOGUES?.[product?.fabricCatalogue];
+    // Keep supplier records intact; only image-backed Honeycomb colours are selectable.
+    const honeycombSource = window.BLINDSXPERT_FABRIC_CATALOGUES?.honeycomb;
+    const honeycombCatalogue = honeycombSource ? {...honeycombSource, collections:honeycombSource.collections.map(collection => ({
+        ...collection, types:collection.types.map(type => ({...type, fabrics:type.fabrics.filter(fabric => fabric.closeUpImage)})).filter(type => type.fabrics.length)
+    })).filter(collection => collection.types.length)} : null;
+    const catalogue = product => product?.fabricCatalogue === 'roller' ? rollerCatalogue : product?.id === 'zebra' ? zebraCatalogue : product?.id === 'dream' ? dreamCatalogue : product?.fabricCatalogue === 'honeycomb' ? honeycombCatalogue : window.BLINDSXPERT_FABRIC_CATALOGUES?.[product?.fabricCatalogue];
     const usesCatalogue = product => !!catalogue(product);
     const isHoneycomb = (product = activeProduct) => product?.fabricSelectionMode === 'cell-size';
     const linkedVariant = product => product.fabricSelectionMode === 'product-variant';
@@ -69,6 +80,8 @@
         if (content !== undefined) el.textContent = content;
         return el;
     };
+    const motorizedDetails = window.createBlindsXpertMotorizedDetails({main, node, imageFigure, onChange:updateSelection});
+    const productName = product => product?.id === 'motorized' ? 'Motorized Blinds' : product?.name;
     const imageViewer = window.createBlindsXpertImageViewer({
         dialog,
         image: $('[data-pd-lightbox-image]'),
@@ -106,6 +119,7 @@
     }
     function updateSelection() {
         const parts = [activeProduct?.name, activeOption, selectedScreen()?.mesh, selectedScreen()?.finish, activeFilm ? `${activeFilm.code} · ${activeFilm.shade}` : '', isHoneycomb() ? selectedFabricLabel() : !linkedVariant(activeProduct) ? activeFabricVariant : '', !isHoneycomb() && activeSeries ? `${activeSeries.name} series` : '', activeColour ? [colourCode(activeColour), activeColour.colourName].filter(Boolean).join(' · ') : ''].filter(Boolean);
+        if (activeProduct?.id === 'motorized') { parts[0] = productName(activeProduct); if (motorizedDetails.preferredLabel()) parts.push(motorizedDetails.preferredLabel()); }
         $('[data-enquiry-selection]').textContent = parts.length ? `Your enquiry: ${parts.join(' · ')}` : '';
         if (activeProduct) updateUrl();
     }
@@ -114,7 +128,7 @@
     function renderColourPalette() {
         const section = node('div', 'pd-colour-selection');
         const controls = node('div', 'pd-colour-controls');
-        controls.append(node('h4', '', isVenetian() ? (activeOption === 'Lantex' ? 'STEP 3 — Choose a Colour' : 'STEP 2 — Choose a Colour') : activeProduct.fabricCatalogue === 'roller' ? 'STEP 3 — Choose a Colour' : 'Choose a colour'), node('p', 'pd-small', 'Swatch colours approximate supplier photographs. Please confirm with physical samples.'));
+        controls.append(node('h4', '', isVenetian() ? (['Lantex', 'Timber'].includes(activeOption) ? 'STEP 3 — Choose a Colour' : 'STEP 2 — Choose a Colour') : (activeProduct.fabricCatalogue === 'roller' || isHoneycomb()) ? 'STEP 3 — Choose a Colour' : 'Choose a colour'), node('p', 'pd-small', 'Swatch colours approximate supplier photographs. Please confirm with physical samples.'));
         const palette = node('div', 'pd-colour-palette');
         palette.setAttribute('role', 'group');
         palette.setAttribute('aria-label', `${activeSeries.name} colours`);
@@ -155,6 +169,14 @@
                     if (activeColour === fabric && loading.isConnected) { loading.textContent = 'Fabric image could not load. Please try another colour.'; loading.setAttribute('role', 'alert'); }
                     if (activeColour === fabric && placeholder.isConnected) placeholder.querySelector('span').textContent = 'Colour photo unavailable';
                 }, {once:true});
+                if (isHoneycomb() || (isVenetian() && activeOption === 'Timber')) {
+                    image.tabIndex = 0; image.setAttribute('role', 'button');
+                    image.setAttribute('aria-label', `View full image: ${selectedFabricLabel()} · ${colourCode(fabric)}`);
+                    image.style.cursor = 'zoom-in';
+                    const show = () => openImage({src:previewImage(fabric), alt:image.alt, caption:`${selectedFabricLabel()} · ${colourCode(fabric)}`}, image);
+                    image.addEventListener('click', show);
+                    image.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); show(); } });
+                }
                 frame.append(image);
                 image.src = previewImage(fabric);
             }
@@ -211,7 +233,7 @@
         if (!variants) { variants = node('div'); variants.dataset.fabricVariants = ''; $('[data-series-grid]').before(variants); }
         variants.hidden = false; variants.className = ''; variants.replaceChildren();
         variants.setAttribute('role', 'group'); variants.setAttribute('aria-label', 'Honeycomb cell size');
-        variants.append(node('h3', 'pd-selector-label', 'Choose Honeycomb Size'));
+        variants.append(node('h3', 'pd-selector-label', 'STEP 1 — Choose Cell Size'));
         const sizes = node('div', 'pd-series-grid');
         for (const size of source.sizes) {
             const button = node('button', 'pd-series-button'); button.type = 'button'; button.dataset.cellSize = size;
@@ -223,7 +245,7 @@
         const grid = $('[data-series-grid]'); grid.classList.add('pd-catalogue-selector'); grid.replaceChildren();
         if (!collectionLabel) { collectionLabel = node('h3', 'pd-selector-label'); collectionLabel.dataset.honeycombCollectionLabel = ''; grid.before(collectionLabel); }
         const collections = selectableSeries(activeProduct);
-        collectionLabel.hidden = false; collectionLabel.textContent = collections.length > 1 ? 'Choose Collection' : 'Collection: '+activeSeries.name;
+        collectionLabel.hidden = false; collectionLabel.textContent = collections.length > 1 ? 'STEP 2 — Choose Collection' : 'STEP 2 — Collection: '+activeSeries.name;
         grid.hidden = collections.length < 2; grid.setAttribute('role', 'group'); grid.setAttribute('aria-label', 'Honeycomb supplier collection');
         for (const collection of collections) {
             const button = node('button', 'pd-series-button'); button.type = 'button'; button.dataset.series = collection.id;
@@ -478,8 +500,8 @@
         if (activeSeries) {
             $('[data-series-title]').textContent = 'Venetian colour collections';
             $('[data-series-description]').textContent = 'Explore the supplied colour photographs and specifications for your selected type.';
-            if (activeOption === 'Lantex') {
-                panel.append(node('h3', 'pd-config-step', 'STEP 2 — Choose a Lantex Series'));
+            if (activeOption === 'Lantex' || (activeOption === 'Timber' && collections.length > 1)) {
+                panel.append(node('h3', 'pd-config-step', activeOption === 'Timber' ? 'STEP 2 — Choose Timber Series' : 'STEP 2 — Choose a Lantex Series'));
                 const grid = node('div', 'pd-venetian-series');
                 for (const collection of collections) {
                     const button = node('button', 'pd-variant-button', collection.name); button.type = 'button'; button.dataset.venetianChoice = collection.id;
@@ -489,13 +511,158 @@
                 panel.append(grid);
             }
             panel.append(renderColourPalette(), node('h3', 'pd-config-step', 'Specifications'), specificationTable(activeSeries.name + ' specifications', activeSeries.specs));
+            if (activeOption === 'Timber') {
+                const information = venetianSource.timberInformation;
+                panel.append(node('p', 'pd-small', activeSeries.notes.join(' ')));
+                const details = node('details', 'pd-supplier-reference'); details.append(node('summary', '', 'Timber supplier component information'), node('p', 'pd-small', information.note));
+                for (const component of information.components) details.append(node('h4', '', component.name), specificationTable(component.name, component.specs));
+                panel.append(details);
+            }
             $('[data-spec-section]').hidden = true; $('[data-nav-specifications]').hidden = true;
             if ($('[data-catalogue-panel]')) $('[data-catalogue-panel]').hidden = true;
         }
         if (focused) [...panel.querySelectorAll('button')].find(button => button.dataset.venetianChoice === focused)?.focus({preventScroll:true});
         return !!activeSeries;
     }
+    function renderQuotationOptions() {
+        const content = quotationDetails(activeProduct);
+        const section = $('[data-series-section]'); section.hidden = false; section.classList.add('pd-quotation-options');
+        section.querySelector(':scope > .container > h2').textContent = 'Explore Available Options';
+        section.querySelector(':scope > .container > .pd-section-intro').textContent = content.intro || content.overview;
+        $('[data-nav-series]').hidden = false; $('[data-nav-series]').textContent = 'Available options';
+        $('[data-series-grid]').hidden = true;
+        $('[data-spec-section]').hidden = true; $('[data-nav-specifications]').hidden = true;
+        $('[data-spec-table]').replaceChildren();
+        if ($('[data-catalogue-panel]')) $('[data-catalogue-panel]').hidden = true;
+        if ($('[data-more-options]')) $('[data-more-options]').hidden = true;
+        let panel = $('[data-quotation-options]');
+        if (!panel) { panel = node('div', 'pd-quotation-grid'); panel.dataset.quotationOptions = ''; $('[data-series-grid]').after(panel); }
+        panel.hidden = false; panel.replaceChildren();
+        for (const option of activeProduct.options) {
+            const button = node('button', 'pd-quotation-card pd-quotation-option'); button.type = 'button';
+            button.dataset.quotationOption = option; button.setAttribute('aria-pressed', String(activeOption === option));
+            button.append(node('span', 'pd-quotation-card-title', option));
+            if (content.optionDescriptions?.[option]) button.append(node('span', 'pd-quotation-card-copy', content.optionDescriptions[option]));
+            button.addEventListener('click', () => chooseOption(option)); panel.append(button);
+        }
+        // Products without verified individual options use the overview above, without filler cards.
+        panel.hidden = !activeProduct.options.length;
+        const information = Object.fromEntries(Object.entries(activeProduct.productSpecs || {}).filter(([, value]) => value != null && value !== ''));
+        if (Object.keys(information).length) {
+            panel.hidden = false;
+            const info = node('section', 'pd-quotation-information');
+            info.append(node('h3', '', 'Product Information'), specificationTable(activeProduct.name+' product information', information)); panel.append(info);
+        }
+    }
+    function renderQuotationContent(product) {
+        const content = quotationDetails(product);
+        main.classList.toggle('pd-quotation-page', !!content);
+        $('[data-series-section]').classList.remove('pd-quotation-options');
+        if ($('[data-quotation-options]')) $('[data-quotation-options]').hidden = true;
+        let applications = $('[data-quotation-applications]');
+        let link = $('[data-nav-applications]');
+        if (!applications && content) {
+            applications = node('section', 'container pd-section pd-quotation-applications'); applications.id = 'product-applications'; applications.dataset.quotationApplications = '';
+            applications.setAttribute('aria-labelledby', 'product-applications-title');
+            $('[data-series-section]').after(applications);
+            link = node('a', '', 'Applications'); link.href = '#product-applications'; link.dataset.navApplications = ''; $('[data-nav-gallery]').before(link);
+        }
+        if (applications) {
+            applications.hidden = !content; link.hidden = !content;
+            applications.replaceChildren();
+            if (content) {
+                const heading = node('h2', '', 'Where It Can Be Used'); heading.id = 'product-applications-title';
+                applications.append(node('p', 'eyebrow', 'FOR YOUR SPACE'), heading);
+                const grid = node('div', 'pd-quotation-grid');
+                const paths = {home:'M3 11l9-8 9 8M5 10v11h14V10M9 21v-7h6v7', window:'M4 3h16v18H4zM12 3v18M4 12h16', roof:'M2 12l10-8 10 8M4 12h16M6 12v8M18 12v8'};
+                for (const application of content.applications) {
+                    const card = node('article', 'pd-quotation-card pd-application-card');
+                    const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); icon.setAttribute('viewBox', '0 0 24 24'); icon.setAttribute('aria-hidden', 'true');
+                    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path'); path.setAttribute('d', paths[application.icon] || paths.window); icon.append(path);
+                    card.append(icon, node('h3', '', application.title), node('p', '', application.description)); grid.append(card);
+                }
+                applications.append(grid);
+            }
+        }
+        enquiryHeading.textContent = content ? 'Get a Custom Quotation' : defaultEnquiryHeading;
+        enquiryIntro.textContent = content ? 'Tell us about your installation requirements. Our team can help you explore suitable options and prepare a quotation.' : defaultEnquiryIntro;
+        let fields = $('[data-quotation-fields]');
+        // Rebuild only on product changes so entered details survive option selection.
+        if (!fields && content) {
+            fields = node('fieldset', 'pd-quotation-fields'); fields.dataset.quotationFields = '';
+            form.querySelector('label[for="enquiryMessage"]').before(fields);
+        }
+        if (fields) {
+            fields.replaceChildren(); fields.hidden = !content; fields.disabled = !content;
+            if (content) {
+                fields.append(node('legend', '', 'Installation details (optional)'));
+                for (const field of content.fields) {
+                    const id = 'quotation-'+field.id; const label = node('label', '', field.label+' (optional)'); label.htmlFor = id;
+                    const input = node('input'); input.id = id; input.name = id; input.type = field.type || 'text'; input.placeholder = field.placeholder;
+                    if (input.type === 'number') { input.min = '1'; input.step = '1'; input.inputMode = 'numeric'; }
+                    fields.append(label, input);
+                }
+            }
+        }
+    }
+    function renderOutdoorDetails() {
+        const content = outdoorDetails(activeProduct);
+        const section = $('[data-series-section]'); section.hidden = false; section.classList.add('pd-bx-collection');
+        section.querySelector(':scope > .container > h2').textContent = content.heading;
+        section.querySelector(':scope > .container > .pd-section-intro').textContent = content.intro || 'Choose an option to include in your enquiry.';
+        $('[data-nav-series]').hidden = false; $('[data-nav-series]').textContent = content.navLabel;
+        $('[data-series-grid]').hidden = true;
+        if ($('[data-catalogue-panel]')) $('[data-catalogue-panel]').hidden = true;
+        if ($('[data-more-options]')) $('[data-more-options]').hidden = true;
+        let grid = $('[data-outdoor-options]');
+        if (!grid) { grid = node('div', 'pd-series-grid pd-outdoor-options'); grid.dataset.outdoorOptions = ''; $('[data-series-grid]').after(grid); }
+        grid.hidden = false; grid.replaceChildren(); grid.setAttribute('role', 'group'); grid.setAttribute('aria-label', content.heading);
+        for (const option of content.options) {
+            const button = node('button', 'pd-series-button'); button.type = 'button'; button.dataset.outdoorOption = option.name;
+            button.setAttribute('aria-pressed', String(activeOption === option.name)); button.append(node('strong', '', option.name));
+            if (option.description) button.append(node('span', '', option.description));
+            button.addEventListener('click', () => chooseOption(option.name)); grid.append(button);
+        }
+        let selection = $('[data-outdoor-selection]');
+        if (!selection) { selection = node('p', 'pd-outdoor-selection'); selection.dataset.outdoorSelection = ''; selection.setAttribute('aria-live', 'polite'); grid.after(selection); }
+        selection.hidden = false; selection.textContent = content.enquiryLabel+': '+activeOption;
+        let review = $('[data-outdoor-review]');
+        if (!review) { review = node('p', 'pd-small'); review.dataset.outdoorReview = ''; selection.after(review); }
+        review.hidden = !content.reviewNotice; review.textContent = content.reviewNotice || '';
+        const specs = content.specs || {}; const hasSpecs = Object.keys(specs).length > 0;
+        $('[data-spec-section]').hidden = !hasSpecs; $('[data-nav-specifications]').hidden = !hasSpecs;
+        $('[data-series-title]').textContent = 'Product Specifications'; $('[data-series-description]').textContent = content.specNote || '';
+        $('[data-spec-table]').replaceChildren();
+        if (hasSpecs) $('[data-spec-table]').append(specificationTable(activeProduct.name+' noted product measurements', specs));
+        if (content.printingOptions) renderUVPrinting(content);
+    }
+    function renderUVPrinting(content) {
+        let section = $('[data-uv-printing]');
+        if (!section) {
+            section = node('section', 'container pd-section'); section.id = 'uv-printing'; section.dataset.uvPrinting = '';
+            $('[data-spec-section]').after(section);
+            const link = node('a', '', 'UV printing'); link.href = '#uv-printing'; link.dataset.navUvPrinting = ''; $('[data-nav-gallery]').before(link);
+        }
+        section.hidden = false; $('[data-nav-uv-printing]').hidden = false; section.replaceChildren(node('h2', '', 'UV Printing Options'), node('p', 'pd-section-intro', 'The outdoor note lists these printing options. Compatibility with your chosen system requires confirmation during enquiry.'));
+        const grid = node('div', 'pd-quotation-grid');
+        for (const option of content.printingOptions) { const card = node('article', 'pd-quotation-card'); card.append(node('h3', '', option)); grid.append(card); }
+        section.append(grid);
+        let fields = $('[data-uv-preference]');
+        if (!fields) { fields = node('fieldset', 'pd-quotation-fields'); fields.dataset.uvPreference = ''; form.querySelector('label[for="enquiryMessage"]').before(fields); }
+        fields.hidden = false; fields.disabled = false; fields.replaceChildren(node('legend', '', 'UV printing request (optional)'));
+        const label = node('label', '', 'Printing preference — subject to compatibility confirmation'); label.htmlFor = 'uv-printing-preference';
+        const select = node('select'); select.id = label.htmlFor; select.name = 'uvPrintingPreference'; select.add(new Option('No printing preference', ''));
+        for (const option of content.printingOptions) select.add(new Option(option, option)); fields.append(label, select);
+        select.addEventListener('change', updateSelection);
+    }
     function renderReferences() {
+        if (outdoorDetails(activeProduct)) { renderOutdoorDetails(); return; }
+        if (activeProduct.id === 'motorized') {
+            $('[data-series-section]').hidden = true; $('[data-nav-series]').hidden = true;
+            $('[data-spec-section]').hidden = true; $('[data-nav-specifications]').hidden = true;
+            $('[data-spec-table]').replaceChildren(); return;
+        }
+        if (quotationDetails(activeProduct)) { renderQuotationOptions(); return; }
         renderMoreOptionsLink();
         if (isVenetian() && renderVenetianConfigurator()) return;
         if (otherDetails(activeProduct)) { renderOtherProductDetails(); return; }
@@ -592,10 +759,14 @@
         if (photo) showMainImage(photo);
     }
     function chooseOption(option) {
+        if (outdoorDetails(activeProduct) && !activeProduct.options.includes(option)) return;
         const changed = activeOption !== option;
         activeOption = option;
         if (isVenetian() && changed) { activeSeries = null; activeColour = null; }
         $('[data-options]').querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.textContent === option)));
+        $('[data-quotation-options]')?.querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.quotationOption === option)));
+        $('[data-outdoor-options]')?.querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.outdoorOption === option)));
+        if (outdoorDetails(activeProduct)) $('[data-outdoor-selection]').textContent = outdoorDetails(activeProduct).enquiryLabel+': '+option;
         showOptionImage();
         if (otherDetails(activeProduct) || isVenetian()) renderReferences();
         if (usesCatalogue(activeProduct) && linkedVariant(activeProduct)) {
@@ -658,11 +829,16 @@
     }
 
     function showProduct(product, option = '', seriesName = '', updateHistory = true, requestedColour = '', requestedFabricVariant = '', requestedCellSize = '', requestedFabricType = '') {
+        const outdoor = outdoorDetails(product);
+        if (outdoor) product = {...product, options:outdoor.options.map(option => option.name), optionLabel:outdoor.enquiryLabel};
         activeProduct = product;
+        renderQuotationContent(product);
         activeFilm = null;
-        for (const selector of ['[data-fabric-variants]', '[data-fabric-panel]', '[data-fabric-unclassified]', '[data-honeycomb-types]', '[data-honeycomb-collection-label]', '[data-fabric-variant-label]', '[data-fabric-series-label]', '[data-other-step]', '[data-other-panel]', '[data-venetian-panel]']) if ($(selector)) $(selector).hidden = true;
+        for (const selector of ['[data-fabric-variants]', '[data-fabric-panel]', '[data-fabric-unclassified]', '[data-honeycomb-types]', '[data-honeycomb-collection-label]', '[data-fabric-variant-label]', '[data-fabric-series-label]', '[data-other-step]', '[data-other-panel]', '[data-venetian-panel]', '[data-outdoor-options]', '[data-outdoor-selection]', '[data-outdoor-review]', '[data-uv-printing]', '[data-nav-uv-printing]']) if ($(selector)) $(selector).hidden = true;
+        if ($('[data-uv-preference]')) { $('[data-uv-preference]').hidden = true; $('[data-uv-preference]').disabled = true; $('[data-uv-preference] select').value = ''; }
         $('[data-series-section]').classList.remove('pd-stepped-fabrics', 'pd-other-details', 'pd-venetian');
-        activeOption = product.options.includes(option) ? option : (product.defaultOption || '');
+        activeOption = product.options.includes(option) ? option : (product.defaultOption || (outdoor ? product.options[0] : ''));
+        $('[data-spec-section] .pd-text-link').hidden = !!outdoor;
         const source = catalogue(product);
         activeCellSize = isHoneycomb(product) ? source.sizes.includes(requestedCellSize) ? requestedCellSize : source.sizes[0] : '';
         activeFabricType = '';
@@ -675,14 +851,14 @@
         if (isHoneycomb(product)) activeFabricType = activeSeries?.types.find(type => type.id === requestedFabricType)?.id || activeSeries?.types[0]?.id || '';
         activeColour = usesCatalogue(product) ? seriesColours(activeSeries)[0] || null : null;
         $('[data-product-picker]').hidden = true; $('[data-product-content]').hidden = false;
-        $('[data-product-name]').textContent = product.name; $('[data-product-category]').textContent = names[product.category];
-        $('[data-product-description]').textContent = product.description; $('[data-breadcrumb]').textContent = product.name;
+        $('[data-product-name]').textContent = productName(product); $('[data-product-category]').textContent = names[product.category];
+        $('[data-product-description]').textContent = product.description; $('[data-breadcrumb]').textContent = productName(product);
         const imageNote = $('[data-product-visual] .pd-image-note');
         if (imageNote) imageNote.textContent = product.id === 'insect-screen' ? 'Supplied screen examples. Confirm materials, finishes and suitability with our team.' : defaultImageNote;
-        document.title = `${product.name} | BlindsXpert Malaysia`;
+        document.title = `${productName(product)} | BlindsXpert Malaysia`;
         const canonical = new URL('product-details.html', 'https://ahmadafiq156.github.io/mockup1/'); canonical.searchParams.set('product',product.id); document.querySelector('link[rel=canonical]').href = canonical.href;
         document.querySelector('meta[name=description]').content = product.description;
-        if (![...select.options].some(o => o.value === product.id)) select.add(new Option(product.name,product.id));
+        if (![...select.options].some(o => o.value === product.id)) select.add(new Option(productName(product),product.id));
         select.value = product.id;
         const thumbs = $('[data-thumbnails]'); thumbs.replaceChildren();
         const primaryPhotos = overviewPhotos(product).filter(photo => !photo.exampleOnly);
@@ -695,7 +871,7 @@
         }
         if(primaryPhotos.length) showMainImage(primaryPhotos[0]); else $('[data-product-image]').removeAttribute('src');
         const options = $('[data-options]'); options.replaceChildren();
-        $('[data-option-wrap]').hidden = !product.options.length || product.detailSelector === 'screen'; $('[data-option-label]').textContent = product.optionLabel || 'Options';
+        $('[data-option-wrap]').hidden = !product.options.length || product.detailSelector === 'screen' || !!quotationDetails(product) || !!outdoor; $('[data-option-label]').textContent = product.optionLabel || 'Options';
         for (const option of product.options) { const button = node('button','',option); button.type='button';button.setAttribute('aria-pressed',String(option===activeOption));button.onclick=()=>chooseOption(option);options.append(button); }
         const highlights = $('[data-highlights]');highlights.replaceChildren(); highlights.hidden=!product.highlights?.length;
         for(const label of product.highlights || []) highlights.append(node('li','',label));
@@ -733,17 +909,20 @@
         $('[data-series-section]').hidden=!isVenetian(product) && !usesCatalogue(product) && !product.series.length;$('[data-nav-series]').hidden=$('[data-series-section]').hidden;
         renderReferences();
         renderDreamInformation(product);
-        const examples = product.detailSelector === 'screen' ? otherDetails(product).systems.flatMap(system => system.photos) : examplePhotos(product);
+        const quotation = quotationDetails(product);
+        const examples = quotation ? [...new Map(product.gallery.filter(photo => quotation.photoPaths.includes(photo.src)).map(photo => [photo.src, photo])).values()] : product.detailSelector === 'screen' ? otherDetails(product).systems.flatMap(system => system.photos) : examplePhotos(product);
         const gallery=$('[data-gallery]'); gallery.replaceChildren();
         gallery.classList.toggle('pd-supplier-gallery', product.detailSelector === 'screen');
+        gallery.classList.toggle('pd-quotation-gallery', !!quotation);
         $('[data-gallery-section] h2').textContent = product.detailSelector === 'screen' ? 'Screen type examples & technical diagrams' : defaultGalleryHeading;
         $('[data-gallery-section] .pd-section-intro').textContent = product.detailSelector === 'screen' ? 'Supplier catalogue examples and hardware diagrams. Open any image for a full view.' : product.detailSelector === 'film' ? 'Explore the supplied window tinting film samples in the gallery above.' : defaultGalleryIntro;
+        if (quotation) {
+            $('[data-gallery-section] h2').textContent = 'Photos & Examples';
+            $('[data-gallery-section] .pd-section-intro').textContent = 'Explore our supplied product photographs. Open an image for a closer view.';
+        }
         for(const photo of examples) gallery.append(imageFigure(photo, false, examples));
         if (!examples.length) gallery.append(node('p','pd-small',product.detailSelector === 'film' ? 'Window tinting film samples are shown above. Completed-project photographs are not supplied.' : 'Contact our team for product photos and suitable installation examples.'));
-        $('[data-gallery-section]').hidden=!!product.placeholderOnly; $('[data-nav-gallery]').hidden=!!product.placeholderOnly;
-        $('[data-motorized-section]').hidden=product.id!=='motorized';
-        const related=$('[data-motorized-links]');related.replaceChildren();
-        for(const [label,id] of [['Roller Blinds','roller'],['Venetian Blinds','venetian'],['Ziptrak Outdoor Blinds','ziptrak-outdoor']]){const a=node('a','',label+' →');a.href=`product-details.html?product=${id}`;related.append(a);}
+        $('[data-gallery-section]').hidden=!!product.placeholderOnly || (!!quotation && !examples.length); $('[data-nav-gallery]').hidden=$('[data-gallery-section]').hidden;
         if(activeOption)chooseOption(activeOption);
         if (isVenetian()) {
             const collections = venetianCollections[activeOption] || [];
@@ -756,9 +935,13 @@
             activeColour = seriesColours(activeSeries).find(fabric => [colourCode(fabric), fabric.code].includes(requestedColour)) || activeColour;
             renderFabricConfigurator();
         }
+        motorizedDetails.render(product);
+        if (outdoor) { enquiryHeading.textContent = 'Get a Custom Quotation'; enquiryIntro.textContent = 'Tell us about your installation requirements. Our team can help you explore suitable options and prepare a quotation.'; }
         if(updateHistory)updateSelection();
     }
     function showPicker(message) {
+        motorizedDetails.render({id:''});
+        if ($('[data-uv-preference]')) { $('[data-uv-preference]').hidden = true; $('[data-uv-preference]').disabled = true; $('[data-uv-preference] select').value = ''; }
         activeFilm=null;activeProduct=null;activeOption='';activeFabricVariant='';activeCellSize='';activeFabricType='';activeSeries=null;activeColour=null;
         $('[data-product-content]').hidden=true;$('[data-product-picker]').hidden=false;
         $('[data-product-picker] > p').textContent=message;
@@ -768,7 +951,7 @@
     }
     if(!data?.products?.length){note.textContent='Product details could not load. Please return to the catalogue or contact us directly.';select.replaceChildren(new Option('Products unavailable',''));return;}
     select.replaceChildren(new Option('Please select a product',''));
-    for(const product of data.products.filter(p=>!p.legacy))select.add(new Option(product.name,product.id));
+    for(const product of data.products.filter(p=>!p.legacy))select.add(new Option(productName(product),product.id));
     const params=new URLSearchParams(location.search);const requested=params.get('product');const alias=data.aliases[requested];
     const initial=data.products.find(p=>p.id===(alias?.id || requested));
     if(initial)showProduct(initial,params.get('option') || alias?.option,params.get('series'),true,params.get('colour'),params.get('fabricVariant'),params.get('cellSize'),params.get('fabricType'));
@@ -779,8 +962,14 @@
         event.preventDefault();required.forEach(field=>{field.setCustomValidity(field.value.trim() ? '' : 'Please complete this field.');});
         const phone=form.elements.phone;const digits=phone.value.replace(/\D/g,'');if(!/^[+\d\s().-]+$/.test(phone.value)||digits.length<7||digits.length>16)phone.setCustomValidity('Enter a phone number containing 7 to 16 digits.');
         if(!form.reportValidity()||!activeProduct)return;
-        const f=new FormData(form);const lines=['BlindsXpert product enquiry','',`Product: ${activeProduct.name}`];
-        if(activeOption)lines.push(`${isVenetian() ? 'Type' : activeProduct.id === 'roller' ? 'Variant' : activeProduct.optionLabel || 'Option'}: ${activeOption}`);
+        const f=new FormData(form);const lines=['BlindsXpert product enquiry','',`Product: ${outdoorDetails(activeProduct)?.enquiryProductName || productName(activeProduct)}`];
+        const printing = $('[data-uv-preference] select')?.value;
+        if (outdoorDetails(activeProduct)?.printingOptions?.includes(printing)) lines.push('UV Printing Preference (compatibility requires confirmation): '+printing);
+        const outdoor = outdoorDetails(activeProduct);
+        const outdoorNote = outdoor?.options.find(option => option.name === activeOption)?.enquiryNote || outdoor?.enquiryNote;
+        if (outdoorNote) lines.push('System / material confirmation: '+outdoorNote);
+        if (activeProduct.id === 'motorized') lines.push(...motorizedDetails.enquiryLines());
+        if(activeOption)lines.push(`${isVenetian() ? (activeOption === 'Timber' ? 'Material' : 'Type') : activeProduct.id === 'roller' ? 'Variant' : activeProduct.optionLabel || 'Option'}: ${activeOption}`);
         const screen = selectedScreen();
         if (screen?.mesh) lines.push('Mesh / material: '+screen.mesh);
         if (screen?.finish) lines.push('Colour / finish: '+screen.finish);
@@ -791,10 +980,14 @@
         if (isHoneycomb()) {
             lines.push('Cell Size: '+activeCellSize, 'Collection: '+activeSeries.name);
             if (selectedFabricType()?.name) lines.push('Fabric Type: '+selectedFabricType().name);
-        } else if(activeSeries)lines.push((isVenetian() ? (activeOption === 'Lantex' ? 'Series: ' : 'Collection: ') : 'Fabric series: ')+activeSeries.name);
+        } else if(activeSeries)lines.push((isVenetian() ? (['Lantex', 'Timber'].includes(activeOption) ? 'Series: ' : 'Collection: ') : 'Fabric series: ')+activeSeries.name);
         if (usesCatalogue(activeProduct) && catalogue(activeProduct).variants && !linkedVariant(activeProduct) && activeFabricVariant) lines.push('Fabric type: '+activeFabricVariant);
         if (usesCatalogue(activeProduct) && catalogue(activeProduct).variants && activeSeries?.variant == null) lines.push('Fabric classification: Pending supplier confirmation');
         if(activeColour)lines.push('Colour: '+[colourCode(activeColour), activeColour.colourName].filter(Boolean).join(' · '));
+        for (const field of quotationDetails(activeProduct)?.fields || []) {
+            const value = form.elements.namedItem('quotation-'+field.id)?.value.trim();
+            if (value) lines.push(field.label+': '+value);
+        }
         lines.push(`Name: ${f.get('name').trim()}`,`Phone: ${phone.value.trim()}`);
         if(f.get('address').trim())lines.push(`Address / area: ${f.get('address').trim()}`);
         if(f.get('email').trim())lines.push(`Email: ${f.get('email').trim()}`);

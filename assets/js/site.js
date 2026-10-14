@@ -235,7 +235,27 @@ if (hero) {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let activeIndex = 0;
     let timer = null;
+    let requestedIndex = 0;
+    let imageRequest = 0;
     function showSlide(index) {
+        requestedIndex = (index + slides.length) % slides.length;
+        const target = requestedIndex;
+        const request = ++imageRequest;
+        const image = slides[target]?.querySelector('img');
+        if (image?.dataset.src) {
+            image.srcset = image.dataset.srcset || '';
+            image.src = image.dataset.src;
+            image.loading = 'eager';
+            delete image.dataset.src; delete image.dataset.srcset;
+        }
+        // Leave the current photograph visible until the selected image is ready.
+        if (image && (!image.complete || !image.naturalWidth)) {
+            image.decode().then(() => { if (request === imageRequest) activateSlide(target); }).catch(() => { if (request === imageRequest) requestedIndex = activeIndex; });
+            return;
+        }
+        activateSlide(target);
+    }
+    function activateSlide(index) {
         slides[activeIndex]?.classList.remove('is-active');
         slides[activeIndex]?.setAttribute('aria-hidden', 'true');
         dots[activeIndex]?.classList.remove('is-active');
@@ -258,7 +278,7 @@ if (hero) {
         const hovered = heroSection?.matches(':hover') && !allowHoveredHero;
 
         if (slides.length < 2 || reducedMotion.matches || document.hidden || hovered || focused) return;
-        timer = window.setInterval(() => showSlide(activeIndex + 1), 2800);
+        timer = window.setInterval(() => showSlide(requestedIndex + 1), 2800);
     }
     const heroSection = hero.closest('.home-hero');
     dots.forEach((dot, index) => dot.addEventListener('click', () => {
@@ -266,11 +286,11 @@ if (hero) {
         startSlideshow(true)
     }));
     heroSection?.querySelector('.hero-arrow-prev')?.addEventListener('click', () => {
-        showSlide(activeIndex - 1);
+        showSlide(requestedIndex - 1);
         startSlideshow(true)
     });
     heroSection?.querySelector('.hero-arrow-next')?.addEventListener('click', () => {
-        showSlide(activeIndex + 1);
+        showSlide(requestedIndex + 1);
         startSlideshow(true)
     });
     heroSection?.addEventListener('keydown', (event) => {
@@ -278,7 +298,7 @@ if (hero) {
 
         if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
             event.preventDefault();
-            showSlide(activeIndex + (event.key === 'ArrowRight' ? 1 : -1));
+            showSlide(requestedIndex + (event.key === 'ArrowRight' ? 1 : -1));
             startSlideshow(true);
         }
     });
@@ -318,7 +338,7 @@ if (hero) {
 
         const deltaX = event.changedTouches[0].clientX - touchStartX;
         if (swipeIntent && Math.abs(deltaX) >= 48) {
-            showSlide(activeIndex + (deltaX < 0 ? 1 : -1));
+            showSlide(requestedIndex + (deltaX < 0 ? 1 : -1));
             startSlideshow(true, true);
         }
 
